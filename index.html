@@ -4,23 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>EsportsHub - Home</title>
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <header>
-    <div class="container header-content">
-
-        <a href="index.html" class="logo">
-            Esports<span>Hub</span>
-        </a>
+    <div class="container header">
+        <a href="index.html" class="logo">Esports<span>Hub</span></a>
 
         <nav>
-            <a href="index.html" class="active">Home</a>
+            <a class="active" href="index.html">Home</a>
             <a href="events.html">Events</a>
             <a href="teams.html">Teams</a>
             <a href="players.html">Players</a>
@@ -28,70 +23,35 @@
             <a href="contact.html">Contact</a>
         </nav>
 
-        <a href="contact.html" class="header-button">
-            Join Community
-        </a>
-
+        <a href="contact.html" class="button small">Join</a>
     </div>
 </header>
 
 
 <main>
 
-    <!-- Games -->
-
-    <section class="games-bar">
-
+    <section class="games">
         <div class="container">
+            <p class="label">POPULAR GAMES</p>
 
-            <p class="section-label">POPULAR GAMES</p>
-
-            <div class="games">
-
-                <a href="events.html" class="game">
-                    <span class="game-icon pink">CS</span>
-                    Counter-Strike 2
-                </a>
-
-                <a href="events.html" class="game">
-                    <span class="game-icon blue">VAL</span>
-                    Valorant
-                </a>
-
-                <a href="events.html" class="game">
-                    <span class="game-icon purple">LOL</span>
-                    League of Legends
-                </a>
-
-                <a href="events.html" class="game">
-                    <span class="game-icon blue">D2</span>
-                    Dota 2
-                </a>
-
-                <a href="events.html" class="game">
-                    <span class="game-icon pink">PUBG</span>
-                    PUBG
-                </a>
-
+            <div class="game-list">
+                <a href="events.html">CS2</a>
+                <a href="events.html">Valorant</a>
+                <a href="events.html">League of Legends</a>
+                <a href="events.html">Dota 2</a>
+                <a href="events.html">PUBG</a>
             </div>
-
         </div>
-
     </section>
 
 
-    <!-- Main news -->
+    <section class="container main">
 
-    <section class="container main-content">
+        <div class="featured">
+            <img src="images/esports.jpg" alt="Esports tournament">
 
-        <div class="main-news">
-
-            <img src="images/esports.jpg"
-                 alt="Esports tournament arena">
-
-            <div class="main-news-text">
-
-                <p class="section-label">FEATURED</p>
+            <div class="featured-text">
+                <p class="label">FEATURED</p>
 
                 <h1>
                     From ordinary games
@@ -99,79 +59,31 @@
                 </h1>
 
                 <p>
-                    Follow competitive gaming, discover new
-                    tournaments and learn more about the teams
-                    and players behind esports.
+                    Discover tournaments, teams and players
+                    from the world of competitive gaming.
                 </p>
 
-                <a href="events.html" class="main-button">
-                    Explore Events
-                </a>
-
+                <a href="events.html" class="button">Explore Events</a>
             </div>
-
         </div>
 
 
-        <!-- News -->
-
         <aside class="news">
+            <h2>Latest News</h2>
 
-            <div class="news-title">
-                <h2>Latest News</h2>
-                <a href="events.html">View all</a>
-            </div>
-
-
-            <article class="news-item highlighted">
-
-                <span>18 September 2026</span>
-
-                <h3>
-                    Esports Championship announced for October
-                </h3>
-
-                <a href="events.html">Read more →</a>
-
+            <article>
+                <small>18 September 2026</small>
+                <h3>Esports Championship announced</h3>
             </article>
 
-
-            <article class="news-item">
-
-                <span>15 September 2026</span>
-
-                <h3>
-                    New Valorant tournament brings teams together
-                </h3>
-
-                <a href="events.html">Read more →</a>
-
+            <article>
+                <small>15 September 2026</small>
+                <h3>New Valorant tournament announced</h3>
             </article>
 
-
-            <article class="news-item">
-
-                <span>12 September 2026</span>
-
-                <h3>
-                    Professional teams prepare for the new season
-                </h3>
-
-                <a href="events.html">Read more →</a>
-
-            </article>
-
-
-            <article class="news-item">
-
-                <span>10 September 2026</span>
-
-                <h3>
-                    Esports communities continue to grow worldwide
-                </h3>
-
-                <a href="events.html">Read more →</a>
-
+            <article>
+                <small>12 September 2026</small>
+                <h3>Professional teams prepare for the new season</h3>
             </article>
 
         </aside>
@@ -179,201 +91,74 @@
     </section>
 
 
-    <!-- Events -->
-
-    <section class="events-section">
-
+    <section class="section white">
         <div class="container">
 
-            <div class="section-header">
+            <p class="label">COMPETITIVE CALENDAR</p>
+            <h2>Upcoming Events</h2>
 
-                <div>
-                    <p class="section-label">COMPETITIVE CALENDAR</p>
+            <div class="cards">
 
-                    <h2>Upcoming Events</h2>
-                </div>
-
-                <a href="events.html" class="view-link">
-                    View all events →
-                </a>
-
-            </div>
-
-
-            <div class="event-cards">
-
-                <article class="event-card">
-
-                    <div class="event-date pink-border">
-                        <span>OCT</span>
-                        <strong>18</strong>
-                    </div>
-
-                    <div class="event-content">
-
-                        <span class="tag pink-tag">CS2</span>
-
-                        <h3>
-                            Esports Championship 2026
-                        </h3>
-
-                        <p>
-                            Berlin, Germany
-                        </p>
-
-                        <p>
-                            16 professional teams
-                        </p>
-
-                    </div>
-
+                <article class="card">
+                    <strong>OCT 18</strong>
+                    <h3>Esports Championship</h3>
+                    <p>CS2 · Berlin</p>
                 </article>
 
-
-                <article class="event-card">
-
-                    <div class="event-date blue-border">
-                        <span>NOV</span>
-                        <strong>07</strong>
-                    </div>
-
-                    <div class="event-content">
-
-                        <span class="tag blue-tag">VALORANT</span>
-
-                        <h3>
-                            Valorant Global Cup
-                        </h3>
-
-                        <p>
-                            Seoul, South Korea
-                        </p>
-
-                        <p>
-                            12 professional teams
-                        </p>
-
-                    </div>
-
+                <article class="card">
+                    <strong>NOV 07</strong>
+                    <h3>Valorant Global Cup</h3>
+                    <p>Valorant · Seoul</p>
                 </article>
 
-
-                <article class="event-card">
-
-                    <div class="event-date purple-border">
-                        <span>DEC</span>
-                        <strong>12</strong>
-                    </div>
-
-                    <div class="event-content">
-
-                        <span class="tag purple-tag">LOL</span>
-
-                        <h3>
-                            World Legends Finals
-                        </h3>
-
-                        <p>
-                            Paris, France
-                        </p>
-
-                        <p>
-                            14 professional teams
-                        </p>
-
-                    </div>
-
+                <article class="card">
+                    <strong>DEC 12</strong>
+                    <h3>World Legends Finals</h3>
+                    <p>League of Legends · Paris</p>
                 </article>
 
             </div>
 
         </div>
-
     </section>
 
 
-    <!-- About -->
+    <section class="about">
+        <div class="container">
 
-    <section class="about-section">
+            <p class="label">ABOUT ESPORTSHUB</p>
 
-        <div class="container about-content">
+            <h2>Your place in the esports community.</h2>
 
-            <div>
-
-                <p class="section-label">ABOUT ESPORTSHUB</p>
-
-                <h2>
-                    Your place in the
-                    esports community.
-                </h2>
-
-            </div>
-
-            <div>
-
-                <p>
-                    EsportsHub is a student project created for
-                    esports fans. Our website brings information
-                    about tournaments, teams, players and rankings
-                    together in one place.
-                </p>
-
-                <a href="teams.html" class="view-link">
-                    Explore teams →
-                </a>
-
-            </div>
+            <p>
+                EsportsHub is a student project about competitive
+                gaming, tournaments, teams and professional players.
+            </p>
 
         </div>
-
     </section>
 
 </main>
 
 
 <footer>
-
-    <div class="container footer-content">
+    <div class="container footer">
 
         <div>
-            <a href="index.html" class="logo footer-logo">
-                Esports<span>Hub</span>
-            </a>
-
-            <p>
-                Your place in the esports community.
-            </p>
+            <h3>EsportsHub</h3>
+            <p>Your place in the esports community.</p>
         </div>
-
 
         <div>
             <h3>Team Members</h3>
-
-            <p>Damir</p>
-            <p>Alina</p>
-            <p>Aisha</p>
-        </div>
-
-
-        <div>
-            <h3>Pages</h3>
-
-            <p><a href="index.html">Home</a></p>
-            <p><a href="events.html">Events</a></p>
-            <p><a href="teams.html">Teams</a></p>
+            <p>Damir · Alina · Aisha</p>
         </div>
 
     </div>
 
-
-    <div class="container footer-bottom">
-
-        <p>
-            EsportsHub © 2026
-        </p>
-
+    <div class="container copyright">
+        EsportsHub © 2026
     </div>
-
 </footer>
 
 </body>
