@@ -7,8 +7,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #222;
+    background-color: #f8f5ff;
+    color: #242038;
 }
 
 .container {
@@ -21,7 +21,7 @@ body {
 /* Header */
 
 header {
-    background-color: #1d3557;
+    background-color: #7b2cbf;
     color: white;
     padding: 20px 0;
 }
@@ -38,6 +38,7 @@ nav a {
 }
 
 nav a:hover {
+    color: #4cc9f0;
     text-decoration: underline;
 }
 
@@ -45,11 +46,13 @@ nav a:hover {
 /* Home welcome section */
 
 .welcome {
-    background-color: #dbeafe;
+    background-color: #dff7ff;
     padding: 60px 0;
+    border-bottom: 4px solid #ff4fa3;
 }
 
 .welcome h2 {
+    color: #7b2cbf;
     font-size: 36px;
     margin-bottom: 15px;
 }
@@ -65,15 +68,15 @@ nav a:hover {
 
 .button {
     display: inline-block;
-    background-color: #1d3557;
+    background-color: #ff4fa3;
     color: white;
     text-decoration: none;
     padding: 10px 18px;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 .button:hover {
-    background-color: #457b9d;
+    background-color: #7b2cbf;
 }
 
 
@@ -84,12 +87,19 @@ nav a:hover {
 }
 
 .section h2 {
+    color: #7b2cbf;
     margin-bottom: 25px;
 }
 
 .about {
     background-color: white;
     padding: 50px 0;
+    border-top: 3px solid #4cc9f0;
+    border-bottom: 3px solid #ff4fa3;
+}
+
+.about h2 {
+    color: #7b2cbf;
 }
 
 .about p {
@@ -108,13 +118,25 @@ nav a:hover {
 .card {
     flex: 1;
     background-color: white;
-    border: 1px solid #ddd;
+    border: 2px solid #d9c2ff;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 6px;
+}
+
+.card:nth-child(1) {
+    border-top: 5px solid #ff4fa3;
+}
+
+.card:nth-child(2) {
+    border-top: 5px solid #4cc9f0;
+}
+
+.card:nth-child(3) {
+    border-top: 5px solid #7b2cbf;
 }
 
 .card h3 {
-    color: #1d3557;
+    color: #7b2cbf;
 }
 
 .card p {
@@ -129,11 +151,13 @@ nav a:hover {
 /* Page title */
 
 .page-title {
-    background-color: #dbeafe;
+    background-color: #e9ddff;
     padding: 45px 0;
+    border-bottom: 4px solid #4cc9f0;
 }
 
 .page-title h2 {
+    color: #7b2cbf;
     font-size: 32px;
 }
 
@@ -148,13 +172,25 @@ nav a:hover {
 
 .event {
     background-color: white;
-    border: 1px solid #ddd;
+    border: 2px solid #d9c2ff;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 6px;
+}
+
+.event:nth-child(1) {
+    border-left: 5px solid #ff4fa3;
+}
+
+.event:nth-child(2) {
+    border-left: 5px solid #4cc9f0;
+}
+
+.event:nth-child(3) {
+    border-left: 5px solid #7b2cbf;
 }
 
 .event h3 {
-    color: #1d3557;
+    color: #7b2cbf;
     margin-top: 0;
 }
 
@@ -173,21 +209,29 @@ table {
 
 th,
 td {
-    border: 1px solid #ccc;
+    border: 1px solid #d9c2ff;
     padding: 12px;
     text-align: left;
 }
 
 th {
-    background-color: #1d3557;
+    background-color: #7b2cbf;
     color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f3ecff;
+}
+
+tr:hover {
+    background-color: #dff7ff;
 }
 
 
 /* Footer */
 
 footer {
-    background-color: #1d3557;
+    background-color: #7b2cbf;
     color: white;
     padding: 25px 0;
     margin-top: 40px;
@@ -198,7 +242,7 @@ footer p {
 }
 
 
-/* Simple responsive design */
+/* Responsive design */
 
 @media (max-width: 700px) {
 
