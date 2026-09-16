@@ -4,20 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>EsportsHub - Events</title>
-
+    <title>Events | EsportsHub</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<header class="header">
-
+<header>
     <div class="container nav">
 
         <a href="index.html" class="logo">
-            E<span>SPORTS</span>HUB
+            Esports<span>Hub</span>
         </a>
 
         <nav>
@@ -26,430 +23,227 @@
             <a href="teams.html">Teams</a>
             <a href="players.html">Players</a>
             <a href="rankings.html">Rankings</a>
-            <a href="contact.html">Contact</a>
         </nav>
 
-        <a href="contact.html" class="join-button">
-            Join Community
-        </a>
+        <a href="contact.html" class="join">Join</a>
 
     </div>
-
 </header>
 
 
 <main>
 
+    <!-- PAGE INTRO -->
 
-<!-- PAGE HERO -->
+    <section class="hero">
+        <div class="container">
 
-<section class="events-hero">
+            <p class="label">COMPETITIVE CALENDAR</p>
 
-    <div class="container">
+            <h1>
+                Upcoming <span>Events.</span>
+            </h1>
 
-        <p class="label">COMPETITIVE CALENDAR</p>
+            <p class="hero-description">
+                Explore upcoming esports tournaments,
+                championships and competitive events.
+            </p>
 
-        <h1>
-            FIND YOUR
-            <span>NEXT BATTLE.</span>
-        </h1>
-
-        <p>
-            Explore esports tournaments, discover upcoming
-            competitions and follow your favorite games.
-        </p>
-
-    </div>
-
-</section>
+        </div>
+    </section>
 
 
-<!-- FILTERS -->
+    <!-- FILTERS -->
 
-<section class="events-section">
+    <section class="games">
+        <div class="container">
 
-    <div class="container">
+            <p class="label">BROWSE BY GAME</p>
 
-        <div class="events-top">
+            <div class="game-list">
 
-            <div>
+                <a href="events.html">
+                    <strong>All Events</strong>
+                    <span>All games</span>
+                </a>
 
-                <p class="label">TOURNAMENTS</p>
+                <a href="events.html">
+                    <strong>CS2</strong>
+                    <span>FPS</span>
+                </a>
 
-                <h2>All Events</h2>
+                <a href="events.html">
+                    <strong>Valorant</strong>
+                    <span>FPS</span>
+                </a>
+
+                <a href="events.html">
+                    <strong>League of Legends</strong>
+                    <span>MOBA</span>
+                </a>
 
             </div>
 
-            <div class="event-count">
-                12 EVENTS
+        </div>
+    </section>
+
+
+    <!-- EVENTS -->
+
+    <section class="events">
+        <div class="container">
+
+            <div class="section-title">
+
+                <div>
+                    <p class="label">2026 SEASON</p>
+                    <h2>All Events</h2>
+                </div>
+
             </div>
 
-        </div>
 
+            <div class="event-list">
 
-        <div class="event-tabs">
+                <a href="#" class="event">
 
-            <a href="#" class="active-tab">All</a>
-            <a href="#">Active</a>
-            <a href="#">Upcoming</a>
-            <a href="#">Finished</a>
-
-        </div>
-
-
-        <!-- EVENTS GRID -->
-
-        <div class="events-grid">
-
-
-            <article class="big-event-card">
-
-                <div class="event-cover cover-pink">
-
-                    <span>CS2</span>
-
-                    <div class="cover-date">
-                        OCT
+                    <div class="date">
+                        <span>OCT</span>
                         <strong>18</strong>
                     </div>
 
-                </div>
-
-                <div class="big-event-info">
-
-                    <span class="event-status pink-status">
-                        ● REGISTRATION OPEN
-                    </span>
-
-                    <h3>
-                        Esports Championship 2026
-                    </h3>
-
-                    <p>
-                        The biggest competitive CS2 event
-                        of the season.
-                    </p>
-
-                    <div class="event-meta">
-                        <span>16 TEAMS</span>
-                        <span>BERLIN</span>
+                    <div>
+                        <small>CS2 · BERLIN</small>
+                        <h3>Esports Championship 2026</h3>
                     </div>
 
-                    <a href="#" class="event-button">
-                        View tournament →
-                    </a>
+                    <span class="event-arrow">→</span>
 
-                </div>
-
-            </article>
+                </a>
 
 
-            <article class="big-event-card">
+                <a href="#" class="event">
 
-                <div class="event-cover cover-blue">
-
-                    <span>VAL</span>
-
-                    <div class="cover-date">
-                        NOV
+                    <div class="date blue">
+                        <span>NOV</span>
                         <strong>07</strong>
                     </div>
 
-                </div>
-
-                <div class="big-event-info">
-
-                    <span class="event-status blue-status">
-                        ● UPCOMING
-                    </span>
-
-                    <h3>
-                        Valorant Global Cup
-                    </h3>
-
-                    <p>
-                        International teams compete
-                        for the championship title.
-                    </p>
-
-                    <div class="event-meta">
-                        <span>12 TEAMS</span>
-                        <span>SEOUL</span>
+                    <div>
+                        <small>VALORANT · SEOUL</small>
+                        <h3>Valorant Global Cup</h3>
                     </div>
 
-                    <a href="#" class="event-button">
-                        View tournament →
-                    </a>
+                    <span class="event-arrow">→</span>
 
-                </div>
-
-            </article>
+                </a>
 
 
-            <article class="big-event-card">
+                <a href="#" class="event">
 
-                <div class="event-cover cover-purple">
+                    <div class="date purple">
+                        <span>NOV</span>
+                        <strong>21</strong>
+                    </div>
 
-                    <span>LOL</span>
+                    <div>
+                        <small>DOTA 2 · SINGAPORE</small>
+                        <h3>Global Dota Masters</h3>
+                    </div>
 
-                    <div class="cover-date">
-                        DEC
+                    <span class="event-arrow">→</span>
+
+                </a>
+
+
+                <a href="#" class="event">
+
+                    <div class="date">
+                        <span>DEC</span>
+                        <strong>05</strong>
+                    </div>
+
+                    <div>
+                        <small>CS2 · WARSAW</small>
+                        <h3>Winter Pro League</h3>
+                    </div>
+
+                    <span class="event-arrow">→</span>
+
+                </a>
+
+
+                <a href="#" class="event">
+
+                    <div class="date blue">
+                        <span>DEC</span>
                         <strong>12</strong>
                     </div>
 
-                </div>
-
-                <div class="big-event-info">
-
-                    <span class="event-status purple-status">
-                        ● UPCOMING
-                    </span>
-
-                    <h3>
-                        World Legends Finals
-                    </h3>
-
-                    <p>
-                        The world's best League of Legends
-                        teams meet in Paris.
-                    </p>
-
-                    <div class="event-meta">
-                        <span>14 TEAMS</span>
-                        <span>PARIS</span>
+                    <div>
+                        <small>LOL · PARIS</small>
+                        <h3>World Legends Finals</h3>
                     </div>
 
-                    <a href="#" class="event-button">
-                        View tournament →
-                    </a>
+                    <span class="event-arrow">→</span>
 
-                </div>
+                </a>
 
-            </article>
+            </div>
 
-
-            <article class="big-event-card">
-
-                <div class="event-cover cover-red">
-
-                    <span>DOTA 2</span>
-
-                    <div class="cover-date">
-                        JAN
-                        <strong>10</strong>
-                    </div>
-
-                </div>
-
-                <div class="big-event-info">
-
-                    <span class="event-status pink-status">
-                        ● ACTIVE
-                    </span>
-
-                    <h3>
-                        Dota Major Series
-                    </h3>
-
-                    <p>
-                        Top Dota 2 teams battle through
-                        a new major tournament.
-                    </p>
-
-                    <div class="event-meta">
-                        <span>18 TEAMS</span>
-                        <span>STOCKHOLM</span>
-                    </div>
-
-                    <a href="#" class="event-button">
-                        View tournament →
-                    </a>
-
-                </div>
-
-            </article>
+        </div>
+    </section>
 
 
-            <article class="big-event-card">
+    <!-- CTA -->
 
-                <div class="event-cover cover-cyan">
+    <section class="about">
 
-                    <span>PUBG</span>
+        <div class="container about-content">
 
-                    <div class="cover-date">
-                        JAN
-                        <strong>22</strong>
-                    </div>
+            <div>
+                <p class="label">JOIN THE COMMUNITY</p>
 
-                </div>
+                <h2>
+                    Find your next
+                    <span>challenge.</span>
+                </h2>
+            </div>
 
-                <div class="big-event-info">
-
-                    <span class="event-status blue-status">
-                        ● UPCOMING
-                    </span>
-
-                    <h3>
-                        PUBG Mobile Cup
-                    </h3>
-
-                    <p>
-                        Mobile esports teams compete
-                        for the seasonal trophy.
-                    </p>
-
-                    <div class="event-meta">
-                        <span>24 TEAMS</span>
-                        <span>TOKYO</span>
-                    </div>
-
-                    <a href="#" class="event-button">
-                        View tournament →
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="big-event-card">
-
-                <div class="event-cover cover-purple">
-
-                    <span>CS2</span>
-
-                    <div class="cover-date">
-                        FEB
-                        <strong>03</strong>
-                    </div>
-
-                </div>
-
-                <div class="big-event-info">
-
-                    <span class="event-status purple-status">
-                        ● UPCOMING
-                    </span>
-
-                    <h3>
-                        Cyber League
-                    </h3>
-
-                    <p>
-                        A new international CS2 league
-                        starts in February.
-                    </p>
-
-                    <div class="event-meta">
-                        <span>8 TEAMS</span>
-                        <span>ASTANA</span>
-                    </div>
-
-                    <a href="#" class="event-button">
-                        View tournament →
-                    </a>
-
-                </div>
-
-            </article>
+            <p>
+                Follow tournaments, discover new teams
+                and keep up with the competitive esports
+                scene.
+            </p>
 
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="events-cta">
-
-    <div class="container">
-
-        <p class="label">YOUR NEXT CHALLENGE</p>
-
-        <h2>
-            READY TO ENTER
-            <span>THE ARENA?</span>
-        </h2>
-
-        <p>
-            Find a tournament and become part of
-            the competitive esports community.
-        </p>
-
-        <a href="contact.html" class="primary-button">
-            Join Community →
-        </a>
-
-    </div>
-
-</section>
-
+    </section>
 
 </main>
 
 
 <footer>
 
-    <div class="container footer-grid">
+    <div class="container footer">
 
-        <div class="footer-brand">
-
+        <div>
             <a href="index.html" class="logo">
-                E<span>SPORTS</span>HUB
+                Esports<span>Hub</span>
             </a>
 
-            <p>
-                Your place in the esports community.
-            </p>
-
+            <p>Your place in the esports community.</p>
         </div>
 
-
         <div>
-
-            <h3>Navigation</h3>
-
-            <a href="index.html">Home</a>
-            <a href="events.html">Events</a>
-            <a href="teams.html">Teams</a>
-            <a href="players.html">Players</a>
-
-        </div>
-
-
-        <div>
-
-            <h3>Community</h3>
-
-            <a href="rankings.html">Rankings</a>
-            <a href="contact.html">Contact</a>
-            <a href="#">Discord</a>
-            <a href="#">Instagram</a>
-
-        </div>
-
-
-        <div>
-
-            <h3>Team</h3>
-
-            <p>Damir</p>
-            <p>Alina</p>
-            <p>Aisha</p>
-
+            <strong>Team</strong>
+            <p>Damir · Alina · Aisha</p>
         </div>
 
     </div>
 
-
-    <div class="container footer-bottom">
-
-        <span>EsportsHub © 2026</span>
-
-        <span>HTML & CSS University Project</span>
-
+    <div class="container copyright">
+        EsportsHub © 2026
     </div>
 
 </footer>
