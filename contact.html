@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Created by Damir, Alina and Aisha -->
     <title>Contact | EsportsHub</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -18,8 +19,8 @@
             <a href="teams.html">Teams</a>
             <a href="players.html">Players</a>
             <a href="rankings.html">Rankings</a>
+            <a href="contact.html">Contact</a>
         </nav>
-        <a href="contact.html" class="join active">Join</a>
     </div>
 </header>
 <main>
@@ -43,21 +44,65 @@
                     <strong>Email</strong>
                     <span>info@esportshub.com</span>
                 </a>
-                <a href="#">
+                <a href="contact.html">
                     <strong>Discord</strong>
                     <span>Join our community</span>
                 </a>
-                <a href="#">
+                <a href="contact.html">
                     <strong>Instagram</strong>
                     <span>@esportshub</span>
                 </a>
-                <a href="#">
+                <a href="contact.html">
                     <strong>Location</strong>
                     <span>Astana, Kazakhstan</span>
                 </a>
             </div>
         </div>
     </section>
+    <section class="about">
+        <div class="container">
+            <p class="label">CONTACT FORM</p>
+            <form id="contact-form" action="mailto:info@esportshub.com" method="post" enctype="text/plain">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic" required>
+                    <option value="">Choose a topic</option>
+                    <option value="events">Events</option>
+                    <option value="teams">Teams</option>
+                    <option value="players">Players</option>
+                    <option value="partnership">Partnership</option>
+                </select>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <img src="images/contact.jpg" class="feature-image contact-image" alt="Contact Us graphic for EsportsHub">
+            <ul>
+                <li>Ask about upcoming esports events.</li>
+                <li>Share feedback about the website.</li>
+                <li>Contact the EsportsHub community team.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <p class="label">ABOUT THE TEAM MEMBERS</p>
+            <div class="bio">
+                <img src="images/team.jpg" class="profile-image" alt="EsportsHub team profile image">
+                <h3>Damir, Alina and Aisha</h3>
+                <p>Our team designed EsportsHub as a simple esports community website. We worked on the pages, content, HTML structure and visual styling.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="events">
         <div class="container">
             <div class="section-title">
