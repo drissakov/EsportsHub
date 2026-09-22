@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Created by Damir, Alina and Aisha -->
     <title>Players | EsportsHub</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>
+<div class="page-layout">
+<header class="grid-header">
     <div class="container nav">
         <a href="index.html" class="logo">
             Esports<span>Hub</span>
@@ -18,12 +20,22 @@
             <a href="teams.html">Teams</a>
             <a href="players.html" class="active">Players</a>
             <a href="rankings.html">Rankings</a>
+            <a href="contact.html">Contact</a>
         </nav>
-        <a href="contact.html" class="join">Join</a>
     </div>
 </header>
-<main>
-    <!-- INTRO -->
+<aside class="sidebar" aria-label="Quick links">
+    <h3>Quick Links</h3>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="teams.html">Teams</a></li>
+        <li><a href="players.html">Players</a></li>
+        <li><a href="rankings.html">Rankings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</aside>
+<main class="grid-main">
     <section class="hero">
         <div class="container">
             <p class="label">ESPORTS PLAYERS</p>
@@ -36,31 +48,59 @@
             </p>
         </div>
     </section>
-    <!-- PLAYERS -->
+
     <section class="games">
         <div class="container">
             <p class="label">FEATURED PLAYERS</p>
             <div class="game-list">
-                <a href="#">
+                <a href="players.html">
                     <strong>donk</strong>
                     <span>CS2 · Team Spirit</span>
                 </a>
-                <a href="#">
+                <a href="players.html">
                     <strong>m0NESY</strong>
                     <span>CS2 · G2 Esports</span>
                 </a>
-                <a href="#">
+                <a href="players.html">
                     <strong>something</strong>
                     <span>Valorant · Paper Rex</span>
                 </a>
-                <a href="#">
+                <a href="players.html">
                     <strong>Faker</strong>
                     <span>League of Legends · T1</span>
                 </a>
             </div>
         </div>
     </section>
-    <!-- PLAYER SPOTLIGHT -->
+
+    <section class="players">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Players</h2>
+            </div>
+            <div class="players-container">
+                <div class="player-card">
+                    <img src="images/donk.jpg" alt="donk, featured CS2 esports player">
+                    <h3>donk</h3>
+                    <p>Professional CS2 player known for his aggressive playstyle and strong tournament performances.</p>
+                    <a href="#" class="card-button">View Player</a>
+                </div>
+                <div class="player-card">
+                    <img src="images/monesy.jpg" alt="m0NESY, featured CS2 esports player">
+                    <h3>m0NESY</h3>
+                    <p>Professional CS2 player and one of the most recognized young talents in competitive esports.</p>
+                    <a href="#" class="card-button">View Player</a>
+                </div>
+                <div class="player-card">
+                    <img src="images/faker.jpg" alt="Faker, featured League of Legends esports player">
+                    <h3>Faker</h3>
+                    <p>League of Legends professional player and long-time competitor in international esports.</p>
+                    <a href="#" class="card-button">View Player</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="events">
         <div class="container">
             <div class="section-title">
@@ -68,9 +108,9 @@
                     <p class="label">PLAYER SPOTLIGHT</p>
                     <h2>Top Performer</h2>
                 </div>
-                <a href="#">View player →</a>
+                <a href="players.html">View player →</a>
             </div>
-            <a href="#" class="event">
+            <a href="players.html" class="event">
                 <div class="date">
                     <strong>01</strong>
                 </div>
@@ -82,7 +122,119 @@
             </a>
         </div>
     </section>
-    <!-- ABOUT -->
+    <section class="about">
+        <div class="container about-content">
+            <div>
+                <p class="label">PLAYER FEATURE IMAGE</p>
+                <img src="images/players.jpg" class="feature-image" alt="Esports players competing at computers in a tournament">
+            </div>
+            <div>
+                <p class="label">PLAYER FOCUS</p>
+                <p>Explore player profiles, discover new talent and follow performances across tournaments.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+
+    <div class="container">
+
+        <div class="section-title">
+            <div>
+                <p class="label">ESPORTS GALLERY</p>
+                <h2>Inside the Competition</h2>
+            </div>
+        </div>
+
+
+        <div class="gallery">
+
+            <div class="gallery-item">
+                <img src="images/esports.jpg" alt="Esports tournament">
+                <div class="gallery-caption">
+                    <strong>Esports Arena</strong>
+                    <span>Competitive Gaming</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/events.jpg" alt="Esports event">
+                <div class="gallery-caption">
+                    <strong>Major Event</strong>
+                    <span>Live Competition</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/eventsfeature.jpg" alt="Esports tournament crowd">
+                <div class="gallery-caption">
+                    <strong>Championship</strong>
+                    <span>Esports Tournament</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/donk.jpg" alt="Professional esports player donk">
+                <div class="gallery-caption">
+                    <strong>donk</strong>
+                    <span>CS2 Player</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/monesy.jpg" alt="Professional esports player m0NESY">
+                <div class="gallery-caption">
+                    <strong>m0NESY</strong>
+                    <span>CS2 Player</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/faker.jpg" alt="Professional esports player Faker">
+                <div class="gallery-caption">
+                    <strong>Faker</strong>
+                    <span>League of Legends</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/players.jpg" alt="Esports players">
+                <div class="gallery-caption">
+                    <strong>Players</strong>
+                    <span>Esports Community</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/teams.jpg" alt="Esports teams">
+                <div class="gallery-caption">
+                    <strong>Teams</strong>
+                    <span>Competitive Esports</span>
+                </div>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/rankings.jpg" alt="Esports rankings">
+                <div class="gallery-caption">
+                    <strong>Rankings</strong>
+                    <span>Competitive Scene</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
     <section class="about">
         <div class="container about-content">
             <div>
@@ -99,7 +251,7 @@
         </div>
     </section>
 </main>
-<footer>
+<footer class="grid-footer">
     <div class="container footer">
         <div>
             <a href="index.html" class="logo">
@@ -116,5 +268,6 @@
         EsportsHub © 2026
     </div>
 </footer>
+</div>
 </body>
 </html>

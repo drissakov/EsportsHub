@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Created by Damir, Alina and Aisha -->
     <title>Events | EsportsHub</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<header>
+<div class="page-layout">
+
+<header class="grid-header">
     <div class="container nav">
 
         <a href="index.html" class="logo">
@@ -23,15 +26,26 @@
             <a href="teams.html">Teams</a>
             <a href="players.html">Players</a>
             <a href="rankings.html">Rankings</a>
+            <a href="contact.html">Contact</a>
         </nav>
-
-        <a href="contact.html" class="join">Join</a>
 
     </div>
 </header>
 
 
-<main>
+<aside class="sidebar" aria-label="Quick links">
+    <h3>Quick Links</h3>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="teams.html">Teams</a></li>
+        <li><a href="players.html">Players</a></li>
+        <li><a href="rankings.html">Rankings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</aside>
+
+<main class="grid-main">
 
 
     <section class="hero">
@@ -50,9 +64,6 @@
 
         </div>
     </section>
-
-
-    <!-- FILTERS -->
 
     <section class="games">
         <div class="container">
@@ -87,6 +98,19 @@
     </section>
 
 
+    <section class="about">
+        <div class="container about-content">
+            <div>
+                <p class="label">FEATURED EVENT IMAGE</p>
+                <img src="images/events.jpg" class="feature-image" alt="Large esports event arena with spectators">
+            </div>
+            <div>
+                <p class="label">EVENTS</p>
+                <p>Follow major esports tournaments, championships and competitive events throughout the season.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="events">
         <div class="container">
 
@@ -102,7 +126,7 @@
 
             <div class="event-list">
 
-                <a href="#" class="event">
+                <a href="events.html" class="event">
 
                     <div class="date">
                         <span>OCT</span>
@@ -119,7 +143,7 @@
                 </a>
 
 
-                <a href="#" class="event">
+                <a href="events.html" class="event">
 
                     <div class="date blue">
                         <span>NOV</span>
@@ -136,7 +160,7 @@
                 </a>
 
 
-                <a href="#" class="event">
+                <a href="events.html" class="event">
 
                     <div class="date purple">
                         <span>NOV</span>
@@ -153,7 +177,7 @@
                 </a>
 
 
-                <a href="#" class="event">
+                <a href="events.html" class="event">
 
                     <div class="date">
                         <span>DEC</span>
@@ -170,7 +194,7 @@
                 </a>
 
 
-                <a href="#" class="event">
+                <a href="events.html" class="event">
 
                     <div class="date blue">
                         <span>DEC</span>
@@ -191,6 +215,23 @@
         </div>
     </section>
 
+
+    <section class="about">
+        <div class="container about-content">
+            <div>
+                <p class="label">EVENTS FEATURE IMAGE</p>
+                <img src="images/eventsfeature.jpg" class="feature-image" alt="Esports tournament event crowd">
+            </div>
+            <div>
+                <p class="label">HOW TO FOLLOW AN EVENT</p>
+                <ol>
+                    <li>Choose a tournament from the calendar.</li>
+                    <li>Check the game and event location.</li>
+                    <li>Follow the competition and results.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
 
     <section class="about">
 
@@ -218,7 +259,7 @@
 </main>
 
 
-<footer>
+<footer class="grid-footer">
 
     <div class="container footer">
 
@@ -243,5 +284,6 @@
 
 </footer>
 
+</div>
 </body>
 </html>

@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Created by Damir, Alina and Aisha -->
     <title>EsportsHub</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<header>
+<div class="page-layout">
+
+<header class="grid-header">
     <div class="container nav">
 
         <a href="index.html" class="logo">
@@ -26,13 +29,23 @@
             <a href="contact.html">Contact</a>
         </nav>
 
-        <a href="contact.html" class="join">Join</a>
-
     </div>
 </header>
 
 
-<main>
+<aside class="sidebar" aria-label="Quick links">
+    <h3>Quick Links</h3>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="teams.html">Teams</a></li>
+        <li><a href="players.html">Players</a></li>
+        <li><a href="rankings.html">Rankings</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</aside>
+
+<main class="grid-main">
 
     <section class="hero">
 
@@ -44,13 +57,10 @@
 
                 <h1>
                     Turn your hobby
-                    into a <span>journey.</span>
+                    into a <span id="journey"> journey.</span>
                 </h1>
 
-                <p>
-                    Discover esports tournaments, teams and
-                    players from around the world.
-                </p>
+    
 
                 <a href="events.html" class="button">
                     Explore Events →
@@ -183,7 +193,16 @@
     </section>
 
 
-    <!-- ABOUT -->
+    <section class="games">
+        <div class="container">
+            <p class="label">WHY ESPORTSHUB</p>
+            <ul>
+                <li>Follow tournaments and competitive events.</li>
+                <li>Discover teams and talented players.</li>
+                <li>Stay connected with the esports community.</li>
+            </ul>
+        </div>
+    </section>
 
     <section class="about">
 
@@ -212,7 +231,7 @@
 </main>
 
 
-<footer>
+<footer class="grid-footer">
 
     <div class="container footer">
 
@@ -237,5 +256,6 @@
 
 </footer>
 
+</div>
 </body>
 </html>
