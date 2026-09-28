@@ -1,261 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Created by Damir, Alina and Aisha -->
-    <title>EsportsHub</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-
-<div class="page-layout">
-
-<header class="grid-header">
-    <div class="container nav">
-
-        <a href="index.html" class="logo">
-            Esports<span>Hub</span>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <!-- Created by Damir, Alina and Aisha -->
+        <title>
+            EsportsHub
+        </title>
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+        <link href="css/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <a class="skip-link px-3 py-2" href="#main-content">
+            Skip to main content
         </a>
-
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="events.html">Events</a>
-            <a href="teams.html">Teams</a>
-            <a href="players.html">Players</a>
-            <a href="rankings.html">Rankings</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-    </div>
-</header>
-
-
-<aside class="sidebar" aria-label="Quick links">
-    <h3>Quick Links</h3>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="teams.html">Teams</a></li>
-        <li><a href="players.html">Players</a></li>
-        <li><a href="rankings.html">Rankings</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</aside>
-
-<main class="grid-main">
-
-    <section class="hero">
-
-        <div class="container hero-content">
-
-            <div class="hero-text">
-
-                <p class="label">WELCOME TO ESPORTSHUB</p>
-
-                <h1>
-                    Turn your hobby
-                    into a <span id="journey"> journey.</span>
-                </h1>
-
-    
-
-                <a href="events.html" class="button">
-                    Explore Events →
-                </a>
-
-            </div>
-
-            <div class="hero-image">
-                <img src="images/esports.jpg"
-                     alt="Esports tournament">
-
-                <div class="image-caption">
-                    <span>FEATURED</span>
-                    <strong>From games to the world stage.</strong>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="games">
-
-        <div class="container">
-
-            <p class="label">POPULAR GAMES</p>
-
-            <div class="game-list">
-
-                <a href="events.html">
-                    <strong>CS2</strong>
-                    <span>FPS</span>
-                </a>
-
-                <a href="events.html">
-                    <strong>Valorant</strong>
-                    <span>FPS</span>
-                </a>
-
-                <a href="events.html">
-                    <strong>League of Legends</strong>
-                    <span>MOBA</span>
-                </a>
-
-                <a href="events.html">
-                    <strong>Dota 2</strong>
-                    <span>MOBA</span>
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="events">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <div>
-                    <p class="label">COMPETITIVE CALENDAR</p>
-                    <h2>Upcoming Events</h2>
-                </div>
-
-                <a href="events.html">View all →</a>
-
-            </div>
-
-
-            <div class="event-list">
-
-                <a href="events.html" class="event">
-
-                    <div class="date">
-                        <span>OCT</span>
-                        <strong>18</strong>
+        <div class="page-layout">
+            <header class="grid-header">
+                <nav aria-label="Main navigation" class="navbar navbar-expand-lg bg-white py-3">
+                    <div class="container">
+                        <a class="navbar-brand logo me-3" href="index.html">
+                            Esports<span>Hub</span>
+                        </a>
+                        <button aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#mainNavigation" data-bs-toggle="collapse" type="button">
+                            <span class="navbar-toggler-icon">
+                            </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="mainNavigation">
+                            <ul class="navbar-nav ms-auto m-0 p-0">
+                                <li class="nav-item mb-0">
+                                    <a aria-current="page" class="nav-link px-sm-2 py-2 active" href="index.html">
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="events.html">
+                                        Events
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="teams.html">
+                                        Teams
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="players.html">
+                                        Players
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="rankings.html">
+                                        Rankings
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="contact.html">
+                                        Contact
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-
-                    <div>
-                        <small>CS2 · BERLIN</small>
-                        <h3>Esports Championship 2026</h3>
-                    </div>
-
-                    <span class="event-arrow">→</span>
-
-                </a>
-
-
-                <a href="events.html" class="event">
-
-                    <div class="date blue">
-                        <span>NOV</span>
-                        <strong>07</strong>
-                    </div>
-
-                    <div>
-                        <small>VALORANT · SEOUL</small>
-                        <h3>Valorant Global Cup</h3>
-                    </div>
-
-                    <span class="event-arrow">→</span>
-
-                </a>
-
-
-                <a href="events.html" class="event">
-
-                    <div class="date purple">
-                        <span>DEC</span>
-                        <strong>12</strong>
-                    </div>
-
-                    <div>
-                        <small>LOL · PARIS</small>
-                        <h3>World Legends Finals</h3>
-                    </div>
-
-                    <span class="event-arrow">→</span>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="games">
-        <div class="container">
-            <p class="label">WHY ESPORTSHUB</p>
-            <ul>
-                <li>Follow tournaments and competitive events.</li>
-                <li>Discover teams and talented players.</li>
-                <li>Stay connected with the esports community.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="about">
-
-        <div class="container about-content">
-
-            <div>
-                <p class="label">ABOUT US</p>
-
+                </nav>
+            </header>
+            <aside aria-label="Quick links" class="sidebar p-4">
                 <h2>
-                    Your place in the
-                    <span>esports community.</span>
+                    Quick Links
                 </h2>
-            </div>
-
-            <p>
-                EsportsHub brings tournaments, teams and
+                <ul>
+                    <li>
+                        <a aria-current="page" href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="events.html">
+                            Events
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teams.html">
+                            Teams
+                        </a>
+                    </li>
+                    <li>
+                        <a href="players.html">
+                            Players
+                        </a>
+                    </li>
+                    <li>
+                        <a href="rankings.html">
+                            Rankings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <main class="grid-main" id="main-content" tabindex="-1">
+                <section class="hero py-4 py-lg-5">
+                    <div class="container">
+                        <div class="row g-4 align-items-center hero-content">
+                            <div class="hero-text col-sm-12 col-md-6 col-lg-6">
+                                <p class="label mb-3">
+                                    WELCOME TO ESPORTSHUB
+                                </p>
+                                <h1 class="mb-3">
+                                    Turn your hobby
+                    into a
+                                    <span id="journey">
+                                        journey.
+                                    </span>
+                                </h1>
+                                <a class="btn btn-primary btn-lg mt-3 mt-lg-4" href="events.html">
+                                    Explore Events →
+                                </a>
+                            </div>
+                            <div class="hero-image col-sm-12 col-md-6 col-lg-6">
+                                <img alt="Esports tournament" decoding="async" height="720" src="images/esports.jpg" width="960"/>
+                                <div class="image-caption mt-2 gap-2 flex-wrap">
+                                    <span>
+                                        FEATURED
+                                    </span>
+                                    <strong>
+                                        From games to the world stage.
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="games py-4 py-lg-5">
+                    <div class="container">
+                        <p class="label mb-3">
+                            POPULAR GAMES
+                        </p>
+                        <div class="game-list mt-4">
+                            <a class="p-3 p-lg-4" href="events.html">
+                                <strong>
+                                    CS2
+                                </strong>
+                                <span>
+                                    FPS
+                                </span>
+                            </a>
+                            <a class="p-3 p-lg-4" href="events.html">
+                                <strong>
+                                    Valorant
+                                </strong>
+                                <span>
+                                    FPS
+                                </span>
+                            </a>
+                            <a class="p-3 p-lg-4" href="events.html">
+                                <strong>
+                                    League of Legends
+                                </strong>
+                                <span>
+                                    MOBA
+                                </span>
+                            </a>
+                            <a class="p-3 p-lg-4" href="events.html">
+                                <strong>
+                                    Dota 2
+                                </strong>
+                                <span>
+                                    MOBA
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section class="events py-4 py-lg-5">
+                    <div class="container">
+                        <div class="section-title mb-4 gap-3 flex-wrap">
+                            <div>
+                                <p class="label mb-3">
+                                    COMPETITIVE CALENDAR
+                                </p>
+                                <h2>
+                                    Upcoming Events
+                                </h2>
+                            </div>
+                            <a class="btn btn-outline-primary btn-sm" href="events.html">
+                                View all →
+                            </a>
+                        </div>
+                        <div class="event-list">
+                            <a class="event p-3" href="events.html">
+                                <div class="date p-2">
+                                    <span>
+                                        OCT
+                                    </span>
+                                    <strong>
+                                        18
+                                    </strong>
+                                </div>
+                                <div>
+                                    <small>
+                                        CS2 · BERLIN
+                                    </small>
+                                    <h3>
+                                        Esports Championship 2026
+                                    </h3>
+                                </div>
+                                <span class="event-arrow">
+                                    →
+                                </span>
+                            </a>
+                            <a class="event p-3" href="events.html">
+                                <div class="date blue p-2">
+                                    <span>
+                                        NOV
+                                    </span>
+                                    <strong>
+                                        07
+                                    </strong>
+                                </div>
+                                <div>
+                                    <small>
+                                        VALORANT · SEOUL
+                                    </small>
+                                    <h3>
+                                        Valorant Global Cup
+                                    </h3>
+                                </div>
+                                <span class="event-arrow">
+                                    →
+                                </span>
+                            </a>
+                            <a class="event p-3" href="events.html">
+                                <div class="date purple p-2">
+                                    <span>
+                                        DEC
+                                    </span>
+                                    <strong>
+                                        12
+                                    </strong>
+                                </div>
+                                <div>
+                                    <small>
+                                        LOL · PARIS
+                                    </small>
+                                    <h3>
+                                        World Legends Finals
+                                    </h3>
+                                </div>
+                                <span class="event-arrow">
+                                    →
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section class="games py-4 py-lg-5">
+                    <div class="container">
+                        <p class="label mb-3">
+                            WHY ESPORTSHUB
+                        </p>
+                        <ul class="row g-4 list-unstyled m-0">
+                            <li class="col-sm-12 col-md-6 col-lg-4">
+                                Follow tournaments and competitive events.
+                            </li>
+                            <li class="col-sm-12 col-md-6 col-lg-4">
+                                Discover teams and talented players.
+                            </li>
+                            <li class="col-sm-12 col-md-6 col-lg-4">
+                                Stay connected with the esports community.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <!-- Task 8: real Bootstrap cards; the CSS-only Task 2 cards remain on Players. -->
+                <section aria-labelledby="featured-players-title" class="players py-4 py-lg-5">
+                    <div class="container">
+                        <div class="section-title mb-4">
+                            <h2 id="featured-players-title">
+                                Featured Players
+                            </h2>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <article class="card h-100">
+                                    <img alt="donk, featured CS2 esports player" class="card-img-top" decoding="async" height="900" src="images/donk.jpg" width="1350"/>
+                                    <div class="card-body d-flex flex-column p-4">
+                                        <h3 class="card-title">
+                                            donk
+                                        </h3>
+                                        <p class="card-text mb-4">
+                                            Professional CS2 player known for his aggressive playstyle and strong tournament performances.
+                                        </p>
+                                        <a class="btn btn-outline-primary btn-sm mt-auto align-self-start" href="players.html#donk">
+                                            View Player
+                                            <span class="visually-hidden">
+                                                : donk
+                                            </span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <article class="card h-100">
+                                    <img alt="m0NESY, featured CS2 esports player" class="card-img-top" decoding="async" height="900" src="images/monesy.jpg" width="1200"/>
+                                    <div class="card-body d-flex flex-column p-4">
+                                        <h3 class="card-title">
+                                            m0NESY
+                                        </h3>
+                                        <p class="card-text mb-4">
+                                            Professional CS2 player and one of the most recognized young talents in competitive esports.
+                                        </p>
+                                        <a class="btn btn-outline-primary btn-sm mt-auto align-self-start" href="players.html#monesy">
+                                            View Player
+                                            <span class="visually-hidden">
+                                                : m0NESY
+                                            </span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <article class="card h-100">
+                                    <img alt="Faker, featured League of Legends esports player" class="card-img-top" decoding="async" height="365" src="images/faker.jpg" width="730"/>
+                                    <div class="card-body d-flex flex-column p-4">
+                                        <h3 class="card-title">
+                                            Faker
+                                        </h3>
+                                        <p class="card-text mb-4">
+                                            League of Legends professional player and long-time competitor in international esports.
+                                        </p>
+                                        <a class="btn btn-outline-primary btn-sm mt-auto align-self-start" href="players.html#faker">
+                                            View Player
+                                            <span class="visually-hidden">
+                                                : Faker
+                                            </span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="about py-4 py-lg-5">
+                    <div class="container">
+                        <div class="row g-4 align-items-center about-content">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <p class="label mb-3">
+                                    ABOUT US
+                                </p>
+                                <h2>
+                                    Your place in the
+                                    <span>
+                                        esports community.
+                                    </span>
+                                </h2>
+                            </div>
+                            <p class="col-sm-12 col-md-6 col-lg-6">
+                                EsportsHub brings tournaments, teams and
                 players together in one simple platform.
                 Follow the competitive scene and find
                 your next challenge.
-            </p>
-
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="grid-footer mt-5">
+                <div class="container footer pt-4 pb-3 ps-3 pe-3">
+                    <div>
+                        <a class="logo" href="index.html">
+                            Esports<span>Hub</span>
+                        </a>
+                        <p>
+                            Your place in the esports community.
+                        </p>
+                    </div>
+                    <div>
+                        <strong>
+                            Team
+                        </strong>
+                        <p>
+                            Damir · Alina · Aisha
+                        </p>
+                    </div>
+                </div>
+                <div class="container copyright py-3">
+                    EsportsHub © 2026
+                </div>
+            </footer>
         </div>
-
-    </section>
-
-</main>
-
-
-<footer class="grid-footer">
-
-    <div class="container footer">
-
-        <div>
-            <a href="index.html" class="logo">
-                Esports<span>Hub</span>
-            </a>
-
-            <p>Your place in the esports community.</p>
-        </div>
-
-        <div>
-            <strong>Team</strong>
-            <p>Damir · Alina · Aisha</p>
-        </div>
-
-    </div>
-
-    <div class="container copyright">
-        EsportsHub © 2026
-    </div>
-
-</footer>
-
-</div>
-</body>
+        <script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+        </script>
+    </body>
 </html>

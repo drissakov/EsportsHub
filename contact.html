@@ -1,173 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Created by Damir, Alina and Aisha -->
-    <title>Contact | EsportsHub</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<div class="page-layout">
-<header class="grid-header">
-    <div class="container nav">
-        <a href="index.html" class="logo">
-            Esports<span>Hub</span>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <!-- Created by Damir, Alina and Aisha -->
+        <title>
+            Contact | EsportsHub
+        </title>
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
+        <link href="css/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <a class="skip-link px-3 py-2" href="#main-content">
+            Skip to main content
         </a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="events.html">Events</a>
-            <a href="teams.html">Teams</a>
-            <a href="players.html">Players</a>
-            <a href="rankings.html">Rankings</a>
-            <a href="contact.html" class="active">Contact</a>
-        </nav>
-    </div>
-</header>
-<aside class="sidebar" aria-label="Quick links">
-    <h3>Quick Links</h3>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="teams.html">Teams</a></li>
-        <li><a href="players.html">Players</a></li>
-        <li><a href="rankings.html">Rankings</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</aside>
-<main class="grid-main">
-    <section class="hero">
-        <div class="container">
-            <p class="label">GET IN TOUCH</p>
-            <h1>
-                Join the <span>Community.</span>
-            </h1>
-            <p class="hero-description">
-                Have a question or want to become part of
-                the EsportsHub community? Contact us.
-            </p>
-        </div>
-    </section>
-    <section class="games">
-        <div class="container">
-            <p class="label">CONTACT INFORMATION</p>
-            <div class="game-list">
-                <a href="mailto:info@esportshub.com">
-                    <strong>Email</strong>
-                    <span>info@esportshub.com</span>
-                </a>
-                <a href="contact.html">
-                    <strong>Discord</strong>
-                    <span>Join our community</span>
-                </a>
-                <a href="contact.html">
-                    <strong>Instagram</strong>
-                    <span>@esportshub</span>
-                </a>
-                <a href="contact.html">
-                    <strong>Location</strong>
-                    <span>Astana, Kazakhstan</span>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="about">
-        <div class="container">
-            <p class="label">CONTACT FORM</p>
-            <form id="contact-form" action="mailto:info@esportshub.com" method="post" enctype="text/plain">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required>
-
-                <label for="topic">Topic</label>
-                <select id="topic" name="topic" required>
-                    <option value="">Choose a topic</option>
-                    <option value="events">Events</option>
-                    <option value="teams">Teams</option>
-                    <option value="players">Players</option>
-                    <option value="partnership">Partnership</option>
-                </select>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Write your message" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-            <img src="images/contact.jpg" class="feature-image contact-image" alt="Contact Us graphic for EsportsHub">
-            <ul>
-                <li>Ask about upcoming esports events.</li>
-                <li>Share feedback about the website.</li>
-                <li>Contact the EsportsHub community team.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="about">
-        <div class="container">
-            <p class="label">ABOUT THE TEAM MEMBERS</p>
-            <div class="bio">
-                <img src="images/team.jpg" class="profile-image" alt="EsportsHub team profile image">
-                <h3>Damir, Alina and Aisha</h3>
-                <p>Our team designed EsportsHub as a simple esports community website. We worked on the pages, content, HTML structure and visual styling.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="events">
-        <div class="container">
-            <div class="section-title">
-                <div>
-                    <p class="label">ESPORTSHUB</p>
-                    <h2>Let's connect.</h2>
-                </div>
-            </div>
-            <a href="mailto:info@esportshub.com" class="event">
-                <div class="date purple">
-                    <strong>@</strong>
-                </div>
-                <div>
-                    <small>CONTACT US</small>
-                    <h3>Send us your questions and ideas.</h3>
-                </div>
-                <span class="event-arrow">→</span>
-            </a>
-        </div>
-    </section>
-    <section class="about">
-        <div class="container about-content">
-            <div>
-                <p class="label">ESPORTSHUB</p>
+        <div class="page-layout">
+            <header class="grid-header">
+                <nav aria-label="Main navigation" class="navbar navbar-expand-lg bg-white py-3">
+                    <div class="container">
+                        <a class="navbar-brand logo me-3" href="index.html">
+                            Esports<span>Hub</span>
+                        </a>
+                        <button aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#mainNavigation" data-bs-toggle="collapse" type="button">
+                            <span class="navbar-toggler-icon">
+                            </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="mainNavigation">
+                            <ul class="navbar-nav ms-auto m-0 p-0">
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="index.html">
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="events.html">
+                                        Events
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="teams.html">
+                                        Teams
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="players.html">
+                                        Players
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="rankings.html">
+                                        Rankings
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a aria-current="page" class="nav-link px-sm-2 py-2 active" href="contact.html">
+                                        Contact
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <aside aria-label="Quick links" class="sidebar p-4">
                 <h2>
-                    Gaming connects
-                    <span>people.</span>
+                    Quick Links
                 </h2>
-            </div>
-            <p>
-                Follow esports events, discover new teams
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="events.html">
+                            Events
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teams.html">
+                            Teams
+                        </a>
+                    </li>
+                    <li>
+                        <a href="players.html">
+                            Players
+                        </a>
+                    </li>
+                    <li>
+                        <a href="rankings.html">
+                            Rankings
+                        </a>
+                    </li>
+                    <li>
+                        <a aria-current="page" href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+            <main class="grid-main" id="main-content" tabindex="-1">
+                <section class="hero py-4 py-lg-5">
+                    <div class="container">
+                        <p class="label mb-3">
+                            GET IN TOUCH
+                        </p>
+                        <h1 class="mb-3">
+                            Join the
+                            <span>
+                                Community.
+                            </span>
+                        </h1>
+                        <p class="hero-description mt-3">
+                            Have a question or want to become part of
+                the EsportsHub community? Contact us.
+                        </p>
+                    </div>
+                </section>
+                <section class="games py-4 py-lg-5">
+                    <div class="container">
+                        <p class="label mb-3">
+                            CONTACT INFORMATION
+                        </p>
+                        <div class="game-list mt-4">
+                            <a class="p-3 p-lg-4" href="mailto:info@esportshub.com">
+                                <strong>
+                                    Email
+                                </strong>
+                                <span>
+                                    info@esportshub.com
+                                </span>
+                            </a>
+                            <a class="p-3 p-lg-4" href="contact.html">
+                                <strong>
+                                    Discord
+                                </strong>
+                                <span>
+                                    Join our community
+                                </span>
+                            </a>
+                            <a class="p-3 p-lg-4" href="contact.html">
+                                <strong>
+                                    Instagram
+                                </strong>
+                                <span>
+                                    @esportshub
+                                </span>
+                            </a>
+                            <a class="p-3 p-lg-4" href="contact.html">
+                                <strong>
+                                    Location
+                                </strong>
+                                <span>
+                                    Astana, Kazakhstan
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section class="about py-4 py-lg-5">
+                    <div class="container">
+                        <p class="label mb-3">
+                            CONTACT FORM
+                        </p>
+                        <form action="mailto:info@esportshub.com" aria-describedby="contact-help" class="mx-auto my-4 p-3 p-md-4" enctype="text/plain" id="contact-form" method="post">
+                            <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label" for="name">
+                                        Name
+                                    </label>
+                                    <input autocomplete="name" class="form-control" id="name" name="name" placeholder="Your name" required type="text"/>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label" for="email">
+                                        Email
+                                    </label>
+                                    <div class="input-group">
+                                        <span aria-hidden="true" class="input-group-text">
+                                            @
+                                        </span>
+                                        <input autocomplete="email" class="form-control" id="email" name="email" placeholder="you@example.com" required type="email"/>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="topic">
+                                        Topic
+                                    </label>
+                                    <select class="form-select" id="topic" name="topic" required>
+                                        <option value="">
+                                            Choose a topic
+                                        </option>
+                                        <option value="events">
+                                            Events
+                                        </option>
+                                        <option value="teams">
+                                            Teams
+                                        </option>
+                                        <option value="players">
+                                            Players
+                                        </option>
+                                        <option value="partnership">
+                                            Partnership
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="message">
+                                        Message
+                                    </label>
+                                    <textarea class="form-control" id="message" name="message" placeholder="Write your message" required rows="5"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary" type="submit">
+                                        Send Message
+                                    </button>
+                                    <p class="form-text mt-2" id="contact-help">
+                                        All fields are required. Send Message opens your email app with the completed message; a configured email app is needed.
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                        <img alt="Contact Us graphic for EsportsHub" class="feature-image contact-image" decoding="async" height="554" src="images/contact.jpg" width="554"/>
+                        <ul>
+                            <li>
+                                Ask about upcoming esports events.
+                            </li>
+                            <li>
+                                Share feedback about the website.
+                            </li>
+                            <li>
+                                Contact the EsportsHub community team.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="about py-4 py-lg-5">
+                    <div class="container">
+                        <p class="label mb-3">
+                            ABOUT THE TEAM MEMBERS
+                        </p>
+                        <div class="bio p-4 mt-4">
+                            <img alt="EsportsHub team profile image" class="profile-image" decoding="async" height="192" src="images/team.jpg" width="204"/>
+                            <h2>
+                                Damir, Alina and Aisha
+                            </h2>
+                            <p>
+                                Our team designed EsportsHub as a simple esports community website. We worked on the pages, content, HTML structure and visual styling.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                <section class="events py-4 py-lg-5">
+                    <div class="container">
+                        <div class="section-title mb-4 gap-3 flex-wrap">
+                            <div>
+                                <p class="label mb-3">
+                                    ESPORTSHUB
+                                </p>
+                                <h2>
+                                    Let's connect.
+                                </h2>
+                            </div>
+                        </div>
+                        <a class="event p-3" href="mailto:info@esportshub.com">
+                            <div class="date purple p-2">
+                                <strong>
+                                    @
+                                </strong>
+                            </div>
+                            <div>
+                                <small>
+                                    CONTACT US
+                                </small>
+                                <h3>
+                                    Send us your questions and ideas.
+                                </h3>
+                            </div>
+                            <span class="event-arrow">
+                                →
+                            </span>
+                        </a>
+                    </div>
+                </section>
+                <section class="about py-4 py-lg-5">
+                    <div class="container">
+                        <div class="row g-4 align-items-center about-content">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <p class="label mb-3">
+                                    ESPORTSHUB
+                                </p>
+                                <h2>
+                                    Gaming connects
+                                    <span>
+                                        people.
+                                    </span>
+                                </h2>
+                            </div>
+                            <p class="col-sm-12 col-md-6 col-lg-6">
+                                Follow esports events, discover new teams
                 and become part of our community.
-            </p>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="grid-footer mt-5">
+                <div class="container footer pt-4 pb-3 ps-3 pe-3">
+                    <div>
+                        <a class="logo" href="index.html">
+                            Esports<span>Hub</span>
+                        </a>
+                        <p>
+                            Your place in the esports community.
+                        </p>
+                    </div>
+                    <div>
+                        <strong>
+                            Team
+                        </strong>
+                        <p>
+                            Damir · Alina · Aisha
+                        </p>
+                    </div>
+                </div>
+                <div class="container copyright py-3">
+                    EsportsHub © 2026
+                </div>
+            </footer>
         </div>
-    </section>
-</main>
-<footer class="grid-footer">
-    <div class="container footer">
-        <div>
-            <a href="index.html" class="logo">
-                Esports<span>Hub</span>
-            </a>
-            <p>Your place in the esports community.</p>
-        </div>
-        <div>
-            <strong>Team</strong>
-            <p>Damir · Alina · Aisha</p>
-        </div>
-    </div>
-    <div class="container copyright">
-        EsportsHub © 2026
-    </div>
-</footer>
-</div>
-</body>
+        <script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+        </script>
+    </body>
 </html>
