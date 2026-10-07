@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8"/>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <!-- Created by Damir, Alina and Aisha -->
         <title>
             Events | EsportsHub
         </title>
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
-        <link href="css/style.css" rel="stylesheet"/>
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -21,11 +21,11 @@
                         <a class="navbar-brand logo me-3" href="index.html">
                             Esports<span>Hub</span>
                         </a>
-                        <button aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#mainNavigation" data-bs-toggle="collapse" type="button">
-                            <span class="navbar-toggler-icon">
-                            </span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="mainNavigation">
+                        <!-- Native checkbox + CSS: Space toggles the mobile menu without JavaScript. -->
+                        <input aria-controls="mainNavigation" aria-describedby="navigation-help" class="nav-menu-toggle" id="navigation-toggle" type="checkbox">
+                        <label class="nav-menu-label" for="navigation-toggle">Menu</label>
+                        <span class="visually-hidden" id="navigation-help">Check to show navigation links; uncheck to hide them.</span>
+                        <div class="navbar-collapse" id="mainNavigation">
                             <ul class="navbar-nav ms-auto m-0 p-0">
                                 <li class="nav-item mb-0">
                                     <a class="nav-link px-sm-2 py-2" href="index.html">
@@ -54,7 +54,7 @@
                                 </li>
                                 <li class="nav-item mb-0">
                                     <a class="nav-link px-sm-2 py-2" href="contact.html">
-                                        Contact
+                                        Community
                                     </a>
                                 </li>
                             </ul>
@@ -62,43 +62,6 @@
                     </div>
                 </nav>
             </header>
-            <aside aria-label="Quick links" class="sidebar p-4">
-                <h2>
-                    Quick Links
-                </h2>
-                <ul>
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a aria-current="page" href="events.html">
-                            Events
-                        </a>
-                    </li>
-                    <li>
-                        <a href="teams.html">
-                            Teams
-                        </a>
-                    </li>
-                    <li>
-                        <a href="players.html">
-                            Players
-                        </a>
-                    </li>
-                    <li>
-                        <a href="rankings.html">
-                            Rankings
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
-            </aside>
             <main class="grid-main" id="main-content" tabindex="-1">
                 <section class="hero py-4 py-lg-5">
                     <div class="container">
@@ -106,24 +69,24 @@
                             COMPETITIVE CALENDAR
                         </p>
                         <h1 class="mb-3">
-                            Upcoming
+                            Find your next
                             <span>
-                                Events.
+                                competition.
                             </span>
                         </h1>
                         <p class="hero-description mt-3">
-                            Explore upcoming esports tournaments,
-                championships and competitive events.
+                            Discover tournaments, compare the games and formats in this sample calendar, then follow event results into the ranking prototype. Every item below is illustrative frontend content, not a live registration feed.
                         </p>
                     </div>
                 </section>
-                <section class="games py-4 py-lg-5">
+                <section class="games py-4 py-lg-5" id="event-filters">
                     <div class="container">
                         <p class="label mb-3">
                             BROWSE BY GAME
                         </p>
+                        <h2 class="visually-hidden">Browse the sample calendar</h2>
                         <div class="game-list mt-4">
-                            <a class="p-3 p-lg-4" href="events.html">
+                            <a class="p-3 p-lg-4" href="#event-list" aria-label="Browse all sample events">
                                 <strong>
                                     All Events
                                 </strong>
@@ -131,7 +94,7 @@
                                     All games
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="events.html">
+                            <a class="p-3 p-lg-4" href="#event-list" aria-label="Browse sample CS2 events">
                                 <strong>
                                     CS2
                                 </strong>
@@ -139,7 +102,7 @@
                                     FPS
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="events.html">
+                            <a class="p-3 p-lg-4" href="#event-list" aria-label="Browse sample Valorant events">
                                 <strong>
                                     Valorant
                                 </strong>
@@ -147,7 +110,7 @@
                                     FPS
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="events.html">
+                            <a class="p-3 p-lg-4" href="#event-list" aria-label="Browse sample League of Legends events">
                                 <strong>
                                     League of Legends
                                 </strong>
@@ -156,6 +119,35 @@
                                 </span>
                             </a>
                         </div>
+                        <form action="#event-list" aria-describedby="event-filter-help" class="event-filters mt-4 p-3 p-md-4" method="get">
+                            <div class="row g-3 align-items-end">
+                                <div class="col-12 col-md-6 col-xl-5">
+                                    <label class="form-label" for="event-game">Game</label>
+                                    <select class="form-select" id="event-game" name="game">
+                                        <option value="all">All games</option>
+                                        <option value="cs2">CS2</option>
+                                        <option value="valorant">Valorant</option>
+                                        <option value="league-of-legends">League of Legends</option>
+                                        <option value="dota-2">Dota 2</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-6 col-xl-5">
+                                    <label class="form-label" for="event-format">Format</label>
+                                    <select class="form-select" id="event-format" name="format">
+                                        <option value="all">All formats</option>
+                                        <option value="championship">Championship</option>
+                                        <option value="cup">Cup</option>
+                                        <option value="league">League</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-xl-2">
+                                    <button class="btn btn-secondary w-100" type="submit">Preview</button>
+                                </div>
+                            </div>
+                            <p class="form-text mt-2" id="event-filter-help">
+                                Prototype controls: selections are not connected to live data yet. Preview returns you to the sample calendar below.
+                            </p>
+                        </form>
                     </div>
                 </section>
                 <section class="about py-4 py-lg-5">
@@ -165,33 +157,38 @@
                                 <p class="label mb-3">
                                     FEATURED EVENT IMAGE
                                 </p>
-                                <img alt="Large esports event arena with spectators" class="feature-image" decoding="async" height="414" src="images/events.jpg" width="738"/>
+                                <img alt="Large esports event arena with spectators" class="feature-image img-fluid" decoding="async" loading="lazy" height="414" src="images/events.jpg" width="738">
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <p class="label mb-3">
                                     EVENTS
                                 </p>
+                                <h2>Featured tournament</h2>
                                 <p>
-                                    Follow major esports tournaments, championships and competitive events throughout the season.
+                                    Esports Championship 2026 is the featured sample event: a 5v5 CS2 competition with registration shown as open for this prototype.
                                 </p>
+                                <a class="btn btn-outline-primary btn-sm mt-3" href="#event-championship">View event pathway →</a>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section class="events py-4 py-lg-5">
+                <section class="events py-4 py-lg-5" id="event-list">
                     <div class="container">
                         <div class="section-title mb-4 gap-3 flex-wrap">
                             <div>
                                 <p class="label mb-3">
-                                    2026 SEASON
+                                    FEATURED + UPCOMING
                                 </p>
                                 <h2>
-                                    All Events
+                                    Tournaments to explore
                                 </h2>
+                                <p class="section-note mt-2" id="event-data-note">
+                                    Sample calendar data for the frontend prototype; dates and locations are illustrative.
+                                </p>
                             </div>
                         </div>
                         <div class="event-list">
-                            <a class="event p-3" href="events.html">
+                            <article class="event p-3" id="event-championship">
                                 <div class="date p-2">
                                     <span>
                                         OCT
@@ -200,19 +197,25 @@
                                         18
                                     </strong>
                                 </div>
-                                <div>
+                                <div class="event-content">
                                     <small>
                                         CS2 · BERLIN
                                     </small>
+                                    <span class="event-status status-open">Registration Open</span>
                                     <h3>
                                         Esports Championship 2026
                                     </h3>
+                                    <p class="event-meta"><span>18 Oct 2026</span><span>Online + Berlin final</span><span>5v5 teams</span></p>
+                                    <div class="event-actions">
+                                        <a href="contact.html#contact-form">Registration prototype</a>
+                                        <a href="teams.html#team-directory">Find a team</a>
+                                    </div>
                                 </div>
-                                <span class="event-arrow">
+                                <span aria-hidden="true" class="event-arrow">
                                     →
                                 </span>
-                            </a>
-                            <a class="event p-3" href="events.html">
+                            </article>
+                            <article class="event p-3" id="event-valorant-cup">
                                 <div class="date blue p-2">
                                     <span>
                                         NOV
@@ -221,19 +224,25 @@
                                         07
                                     </strong>
                                 </div>
-                                <div>
+                                <div class="event-content">
                                     <small>
                                         VALORANT · SEOUL
                                     </small>
+                                    <span class="event-status status-upcoming">Upcoming</span>
                                     <h3>
                                         Valorant Global Cup
                                     </h3>
+                                    <p class="event-meta"><span>07 Nov 2026</span><span>Seoul, South Korea</span><span>5v5 teams</span></p>
+                                    <div class="event-actions">
+                                        <a href="players.html#player-directory">Explore players</a>
+                                        <a href="contact.html#contact-form">Ask about entry</a>
+                                    </div>
                                 </div>
-                                <span class="event-arrow">
+                                <span aria-hidden="true" class="event-arrow">
                                     →
                                 </span>
-                            </a>
-                            <a class="event p-3" href="events.html">
+                            </article>
+                            <article class="event p-3" id="event-dota-masters">
                                 <div class="date purple p-2">
                                     <span>
                                         NOV
@@ -242,19 +251,25 @@
                                         21
                                     </strong>
                                 </div>
-                                <div>
+                                <div class="event-content">
                                     <small>
                                         DOTA 2 · SINGAPORE
                                     </small>
+                                    <span class="event-status status-upcoming">Upcoming</span>
                                     <h3>
                                         Global Dota Masters
                                     </h3>
+                                    <p class="event-meta"><span>21 Nov 2026</span><span>Singapore</span><span>5v5 teams</span></p>
+                                    <div class="event-actions">
+                                        <a href="teams.html#team-directory">Explore teams</a>
+                                        <a href="contact.html#contact-form">Organizer questions</a>
+                                    </div>
                                 </div>
-                                <span class="event-arrow">
+                                <span aria-hidden="true" class="event-arrow">
                                     →
                                 </span>
-                            </a>
-                            <a class="event p-3" href="events.html">
+                            </article>
+                            <article class="event p-3" id="event-winter-league">
                                 <div class="date p-2">
                                     <span>
                                         DEC
@@ -263,64 +278,77 @@
                                         05
                                     </strong>
                                 </div>
-                                <div>
+                                <div class="event-content">
                                     <small>
                                         CS2 · WARSAW
                                     </small>
+                                    <span class="event-status status-upcoming">Upcoming</span>
                                     <h3>
                                         Winter Pro League
                                     </h3>
+                                    <p class="event-meta"><span>05 Dec 2026</span><span>Warsaw, Poland</span><span>League format</span></p>
+                                    <div class="event-actions">
+                                        <a href="teams.html#team-community">Build a community roster</a>
+                                        <a href="contact.html#contact-form">Ask about format</a>
+                                    </div>
                                 </div>
-                                <span class="event-arrow">
+                                <span aria-hidden="true" class="event-arrow">
                                     →
                                 </span>
-                            </a>
-                            <a class="event p-3" href="events.html">
+                            </article>
+                            <article class="event p-3" id="event-legends-finals">
                                 <div class="date blue p-2">
                                     <span>
-                                        DEC
+                                        SEP
                                     </span>
                                     <strong>
                                         12
                                     </strong>
                                 </div>
-                                <div>
+                                <div class="event-content">
                                     <small>
                                         LOL · PARIS
                                     </small>
+                                    <span class="event-status status-completed">Completed sample</span>
                                     <h3>
                                         World Legends Finals
                                     </h3>
+                                    <p class="event-meta"><span>12 Sep 2026</span><span>Paris, France</span><span>Finals showcase</span></p>
+                                    <div class="event-actions">
+                                        <a href="rankings.html#ranking-table">See sample rankings</a>
+                                        <a href="players.html#player-directory">Browse players</a>
+                                    </div>
                                 </div>
-                                <span class="event-arrow">
+                                <span aria-hidden="true" class="event-arrow">
                                     →
                                 </span>
-                            </a>
+                            </article>
                         </div>
                     </div>
                 </section>
-                <section class="about py-4 py-lg-5">
+                <section class="about py-4 py-lg-5" id="event-guidance">
                     <div class="container">
                         <div class="row g-4 align-items-center about-content">
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <p class="label mb-3">
                                     EVENTS FEATURE IMAGE
                                 </p>
-                                <img alt="Esports matchday poster with a person wearing a VR headset" class="feature-image" decoding="async" height="740" src="images/eventsfeature.jpg" width="740"/>
+                                <img alt="Esports matchday poster with a person wearing a VR headset" class="feature-image img-fluid" decoding="async" loading="lazy" height="740" src="images/eventsfeature.avif" width="740">
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <p class="label mb-3">
-                                    HOW TO FOLLOW AN EVENT
+                                    PARTICIPATION GUIDE
                                 </p>
+                                <h2>How to participate</h2>
                                 <ol>
                                     <li>
-                                        Choose a tournament from the calendar.
+                                        Find a tournament that matches your game and format.
                                     </li>
                                     <li>
-                                        Check the game and event location.
+                                        Check the requirements, date, location and team size.
                                     </li>
                                     <li>
-                                        Follow the competition and results.
+                                        Register a team through the organizer’s stated process.
                                     </li>
                                 </ol>
                             </div>
@@ -350,6 +378,20 @@
                     </div>
                 </section>
             </main>
+            <aside aria-label="Event discovery links" class="sidebar p-4">
+                <h2>
+                    Event desk
+                </h2>
+                <p class="sidebar-intro">
+                    Find a competition and follow its path to results.
+                </p>
+                <ul>
+                    <li><a href="#event-filters">Preview calendar controls</a></li>
+                    <li><a href="#event-list">Browse sample events</a></li>
+                    <li><a href="teams.html#team-directory">Find participating teams</a></li>
+                    <li><a href="contact.html#contact-options">Organizer support</a></li>
+                </ul>
+            </aside>
             <footer class="grid-footer mt-5">
                 <div class="container footer pt-4 pb-3 ps-3 pe-3">
                     <div>
@@ -357,16 +399,22 @@
                             Esports<span>Hub</span>
                         </a>
                         <p>
-                            Your place in the esports community.
+                            A prototype for the esports community.
                         </p>
                     </div>
+                    <nav aria-label="Footer navigation" class="footer-nav">
+                        <strong>Explore</strong>
+                        <ul>
+                            <li><a href="events.html#event-list">Events</a></li>
+                            <li><a href="teams.html#team-directory">Teams</a></li>
+                            <li><a href="players.html#player-directory">Players</a></li>
+                            <li><a href="rankings.html#ranking-table">Rankings</a></li>
+                            <li><a href="contact.html#contact-options">Community</a></li>
+                        </ul>
+                    </nav>
                     <div>
-                        <strong>
-                            Team
-                        </strong>
-                        <p>
-                            Damir · Alina · Aisha
-                        </p>
+                        <strong>Team</strong>
+                        <p>Damir · Alina · Aisha</p>
                     </div>
                 </div>
                 <div class="container copyright py-3">
@@ -374,7 +422,5 @@
                 </div>
             </footer>
         </div>
-        <script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-        </script>
     </body>
 </html>

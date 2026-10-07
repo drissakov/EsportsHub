@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8"/>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <!-- Created by Damir, Alina and Aisha -->
         <title>
             Players | EsportsHub
         </title>
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
-        <link href="css/style.css" rel="stylesheet"/>
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -21,11 +21,11 @@
                         <a class="navbar-brand logo me-3" href="index.html">
                             Esports<span>Hub</span>
                         </a>
-                        <button aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#mainNavigation" data-bs-toggle="collapse" type="button">
-                            <span class="navbar-toggler-icon">
-                            </span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="mainNavigation">
+                        <!-- Native checkbox + CSS: Space toggles the mobile menu without JavaScript. -->
+                        <input aria-controls="mainNavigation" aria-describedby="navigation-help" class="nav-menu-toggle" id="navigation-toggle" type="checkbox">
+                        <label class="nav-menu-label" for="navigation-toggle">Menu</label>
+                        <span class="visually-hidden" id="navigation-help">Check to show navigation links; uncheck to hide them.</span>
+                        <div class="navbar-collapse" id="mainNavigation">
                             <ul class="navbar-nav ms-auto m-0 p-0">
                                 <li class="nav-item mb-0">
                                     <a class="nav-link px-sm-2 py-2" href="index.html">
@@ -54,7 +54,7 @@
                                 </li>
                                 <li class="nav-item mb-0">
                                     <a class="nav-link px-sm-2 py-2" href="contact.html">
-                                        Contact
+                                        Community
                                     </a>
                                 </li>
                             </ul>
@@ -62,43 +62,6 @@
                     </div>
                 </nav>
             </header>
-            <aside aria-label="Quick links" class="sidebar p-4">
-                <h2>
-                    Quick Links
-                </h2>
-                <ul>
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="events.html">
-                            Events
-                        </a>
-                    </li>
-                    <li>
-                        <a href="teams.html">
-                            Teams
-                        </a>
-                    </li>
-                    <li>
-                        <a aria-current="page" href="players.html">
-                            Players
-                        </a>
-                    </li>
-                    <li>
-                        <a href="rankings.html">
-                            Rankings
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
-            </aside>
             <main class="grid-main" id="main-content" tabindex="-1">
                 <section class="hero py-4 py-lg-5">
                     <div class="container">
@@ -112,8 +75,7 @@
                             </span>
                         </h1>
                         <p class="hero-description mt-3">
-                            Discover talented players competing in
-                the biggest esports games.
+                            Discover sample player profiles, connect their games to teams and use event and ranking pages to follow the wider competitive journey.
                         </p>
                     </div>
                 </section>
@@ -122,8 +84,9 @@
                         <p class="label mb-3">
                             FEATURED PLAYERS
                         </p>
+                        <h2 class="visually-hidden">Player discovery shortcuts</h2>
                         <div class="game-list mt-4">
-                            <a class="p-3 p-lg-4" href="players.html">
+                            <a class="p-3 p-lg-4" href="#donk" aria-label="donk: browse sample player profile">
                                 <strong>
                                     donk
                                 </strong>
@@ -131,7 +94,7 @@
                                     CS2 · Team Spirit
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="players.html">
+                            <a class="p-3 p-lg-4" href="#monesy" aria-label="m0NESY: browse sample player profile">
                                 <strong>
                                     m0NESY
                                 </strong>
@@ -139,15 +102,15 @@
                                     CS2 · G2 Esports
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="players.html">
+                            <a class="p-3 p-lg-4" href="teams.html#community-teams">
                                 <strong>
-                                    something
+                                    Community teams
                                 </strong>
                                 <span>
-                                    Valorant · Paper Rex
+                                    Explore sample roster ideas
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="players.html">
+                            <a class="p-3 p-lg-4" href="#faker" aria-label="Faker: browse sample player profile">
                                 <strong>
                                     Faker
                                 </strong>
@@ -158,54 +121,76 @@
                         </div>
                     </div>
                 </section>
-                <section class="players py-4 py-lg-5">
+                <section class="players py-4 py-lg-5" id="player-directory">
                     <div class="container">
                         <div class="section-title mb-4 gap-3 flex-wrap">
                             <h2>
-                                Featured Players
+                                Featured player profiles
                             </h2>
                         </div>
+                        <p class="section-note mb-4">Sample community profiles for demonstrating player, team and event connections; not a live roster directory.</p>
                         <div class="players-container">
                             <article class="player-card" id="donk">
-                                <img alt="donk, featured CS2 esports player" decoding="async" height="900" src="images/donk.jpg" width="1350"/>
+                                <div class="player-card-media">
+                                    <img alt="donk, featured CS2 esports player" decoding="async" loading="lazy" height="900" src="images/donk.avif" width="1350">
+                                </div>
                                 <h3>
                                     donk
                                 </h3>
                                 <p>
-                                    Professional CS2 player known for his aggressive playstyle and strong tournament performances.
+                                    Sample community profile showing how a player could connect to a team and event.
                                 </p>
-                                <a class="btn btn-primary mt-auto align-self-start" href="teams.html">
-                                    Explore Teams
+                                <ul class="player-meta-list">
+                                    <li><strong>Game:</strong> CS2</li>
+                                    <li><strong>Role:</strong> Entry fragger</li>
+                                    <li><strong>Region/status:</strong> EU · Sample profile</li>
+                                </ul>
+                                <a class="btn btn-primary mt-auto align-self-start" href="teams.html#team-spirit">
+                                    Explore Team Spirit
                                 </a>
                             </article>
                             <article class="player-card" id="monesy">
-                                <img alt="m0NESY, featured CS2 esports player" decoding="async" height="900" src="images/monesy.jpg" width="1200"/>
+                                <div class="player-card-media">
+                                    <img alt="m0NESY, featured CS2 esports player" decoding="async" loading="lazy" height="900" src="images/monesy.jpg" width="1200">
+                                </div>
                                 <h3>
                                     m0NESY
                                 </h3>
                                 <p>
-                                    Professional CS2 player and one of the most recognized young talents in competitive esports.
+                                    Sample community profile for a CS2 player discovery card; this is not a live roster claim.
                                 </p>
-                                <a class="btn btn-primary mt-auto align-self-start" href="teams.html">
-                                    Explore Teams
+                                <ul class="player-meta-list">
+                                    <li><strong>Game:</strong> CS2</li>
+                                    <li><strong>Role:</strong> AWPer</li>
+                                    <li><strong>Region/status:</strong> EU · Sample profile</li>
+                                </ul>
+                                <a class="btn btn-primary mt-auto align-self-start" href="teams.html#team-g2">
+                                    Explore G2 Esports
                                 </a>
                             </article>
                             <article class="player-card" id="faker">
-                                <img alt="Faker, featured League of Legends esports player" decoding="async" height="365" src="images/faker.jpg" width="730"/>
+                                <div class="player-card-media">
+                                    <img alt="Faker, featured League of Legends esports player" decoding="async" loading="lazy" height="365" src="images/faker.jpg" width="730">
+                                </div>
                                 <h3>
                                     Faker
                                 </h3>
                                 <p>
-                                    League of Legends professional player and long-time competitor in international esports.
+                                    Sample League of Legends profile used to demonstrate player-to-ranking navigation.
                                 </p>
-                                <a class="btn btn-primary mt-auto align-self-start" href="rankings.html">
-                                    View Rankings
+                                <ul class="player-meta-list">
+                                    <li><strong>Game:</strong> League of Legends</li>
+                                    <li><strong>Role:</strong> Mid lane</li>
+                                    <li><strong>Region/status:</strong> KR · Sample profile</li>
+                                </ul>
+                                <a class="btn btn-primary mt-auto align-self-start" href="teams.html#team-t1">
+                                    Explore T1
                                 </a>
                             </article>
                         </div>
                     </div>
                 </section>
-                <section class="events py-4 py-lg-5">
+                <section class="events py-4 py-lg-5" id="player-focus">
                     <div class="container">
                         <div class="section-title mb-4 gap-3 flex-wrap">
                             <div>
@@ -216,11 +201,11 @@
                                     Top Performer
                                 </h2>
                             </div>
-                            <a class="btn btn-outline-primary btn-sm" href="players.html">
-                                View player →
+                            <a class="btn btn-outline-primary btn-sm" href="#donk">
+                                View featured profile →
                             </a>
                         </div>
-                        <a class="event p-3" href="players.html">
+                        <article class="event p-3" id="top-performer">
                             <div class="date p-2">
                                 <strong>
                                     01
@@ -231,23 +216,23 @@
                                     CS2 · TEAM SPIRIT
                                 </small>
                                 <h3>
-                                    Young talent making an impact.
+                                    Sample spotlight showing how a player profile can lead into team discovery.
                                 </h3>
                             </div>
-                            <span class="event-arrow">
+                                <span aria-hidden="true" class="event-arrow">
                                 →
                             </span>
-                        </a>
+                        </article>
                     </div>
                 </section>
-                <section class="about py-4 py-lg-5">
+                <section class="about py-4 py-lg-5" id="player-context">
                     <div class="container">
                         <div class="row g-4 align-items-center about-content">
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <p class="label mb-3">
                                     PLAYER FEATURE IMAGE
                                 </p>
-                                <img alt="Esports players competing at computers in a tournament" class="feature-image" decoding="async" height="183" src="images/players.jpg" width="275"/>
+                                <img alt="Original illustration of three community players practicing at gaming desks" class="feature-image img-fluid" decoding="async" loading="lazy" height="720" src="images/player-room.svg" width="1280">
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <p class="label mb-3">
@@ -260,7 +245,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="gallery-section py-4 py-lg-5">
+                <section class="gallery-section py-4 py-lg-5" id="player-gallery">
                     <div class="container">
                         <div class="section-title mb-4 gap-3 flex-wrap">
                             <div>
@@ -272,33 +257,75 @@
                                 </h2>
                             </div>
                         </div>
-                        <!-- Task 7: reuse all nine original gallery images and captions. -->
+                        <div class="gallery-grid mb-5">
+                            <figure class="gallery-card">
+                                <div class="gallery-media">
+                                    <img alt="Esports tournament arena" decoding="async" loading="lazy" height="720" src="images/esports.jpg" width="960">
+                                </div>
+                                <figcaption>Esports arena</figcaption>
+                            </figure>
+                            <figure class="gallery-card">
+                                <div class="gallery-media">
+                                    <img alt="Esports event crowd" decoding="async" loading="lazy" height="414" src="images/events.jpg" width="738">
+                                </div>
+                                <figcaption>Major event</figcaption>
+                            </figure>
+                            <figure class="gallery-card">
+                                <div class="gallery-media">
+                                    <img alt="Esports matchday poster" decoding="async" loading="lazy" height="740" src="images/eventsfeature.avif" width="740">
+                                </div>
+                                <figcaption>Championship</figcaption>
+                            </figure>
+                            <figure class="gallery-card">
+                                <div class="gallery-media">
+                                    <img alt="Sample CS2 player profile image for donk" decoding="async" loading="lazy" height="900" src="images/donk.avif" width="1350">
+                                </div>
+                                <figcaption>donk · CS2</figcaption>
+                            </figure>
+                            <figure class="gallery-card">
+                                <div class="gallery-media">
+                                    <img alt="Sample CS2 player profile image for m0NESY" decoding="async" loading="lazy" height="900" src="images/monesy.jpg" width="1200">
+                                </div>
+                                <figcaption>m0NESY · CS2</figcaption>
+                            </figure>
+                            <figure class="gallery-card">
+                                <div class="gallery-media">
+                                    <img alt="Sample League of Legends player profile image for Faker" decoding="async" loading="lazy" height="365" src="images/faker.jpg" width="730">
+                                </div>
+                                <figcaption>Faker · League of Legends</figcaption>
+                            </figure>
+                            <figure class="gallery-card">
+                                <div class="gallery-media">
+                                    <img alt="Illustration of community players practicing together" decoding="async" loading="lazy" height="720" src="images/player-room.svg" width="1280">
+                                </div>
+                                <figcaption>Players</figcaption>
+                            </figure>
+                            <figure class="gallery-card">
+                                <div class="gallery-media">
+                                    <img alt="Esports teams competing" decoding="async" loading="lazy" height="410" src="images/teams.webp" width="905">
+                                </div>
+                                <figcaption>Teams</figcaption>
+                            </figure>
+                            <figure class="gallery-card">
+                                <div class="gallery-media">
+                                    <img alt="Illustration of the sample platform ranking points" decoding="async" loading="lazy" height="540" src="images/demo-ranking.svg" width="960">
+                                </div>
+                                <figcaption>Rankings</figcaption>
+                            </figure>
+                        </div>
+                        <p class="section-note mb-4">
+                            Explore the competition in the gallery, or use the carousel below to view one image at a time.
+                        </p>
+                        <!-- Nine-image HTML/CSS carousel: deliberate media crops, no autoplay or JavaScript. -->
                         <div class="row justify-content-center">
                             <div class="col-12">
-                                <div aria-label="Inside the competition: nine esports images" aria-roledescription="carousel" class="carousel slide" data-bs-interval="false" id="esportsCarousel" role="region" tabindex="0">
-                                    <div class="carousel-indicators">
-                                        <button aria-current="true" aria-label="Slide 1: Esports Arena" class="active" data-bs-slide-to="0" data-bs-target="#esportsCarousel" type="button">
-                                        </button>
-                                        <button aria-label="Slide 2: Major Event" data-bs-slide-to="1" data-bs-target="#esportsCarousel" type="button">
-                                        </button>
-                                        <button aria-label="Slide 3: Championship" data-bs-slide-to="2" data-bs-target="#esportsCarousel" type="button">
-                                        </button>
-                                        <button aria-label="Slide 4: donk" data-bs-slide-to="3" data-bs-target="#esportsCarousel" type="button">
-                                        </button>
-                                        <button aria-label="Slide 5: m0NESY" data-bs-slide-to="4" data-bs-target="#esportsCarousel" type="button">
-                                        </button>
-                                        <button aria-label="Slide 6: Faker" data-bs-slide-to="5" data-bs-target="#esportsCarousel" type="button">
-                                        </button>
-                                        <button aria-label="Slide 7: Players" data-bs-slide-to="6" data-bs-target="#esportsCarousel" type="button">
-                                        </button>
-                                        <button aria-label="Slide 8: Teams" data-bs-slide-to="7" data-bs-target="#esportsCarousel" type="button">
-                                        </button>
-                                        <button aria-label="Slide 9: Rankings" data-bs-slide-to="8" data-bs-target="#esportsCarousel" type="button">
-                                        </button>
-                                    </div>
-                                    <div aria-atomic="true" aria-live="polite" class="carousel-inner">
-                                        <div aria-label="1 of 9" aria-roledescription="slide" class="carousel-item active" role="group">
-                                            <img alt="Esports tournament" class="d-block w-100" decoding="async" height="720" src="images/esports.jpg" width="960"/>
+                                <section aria-describedby="carousel-help" aria-label="Inside the competition: nine esports images" aria-roledescription="carousel" class="css-carousel" id="esportsCarousel">
+                                    <!-- Native horizontal scrolling and fragment links replace the Bootstrap JS plugin. -->
+                                    <div aria-label="Gallery slides; use Left and Right to scroll" class="carousel-track" tabindex="0">
+                                        <section aria-label="1 of 9" aria-roledescription="slide" class="carousel-panel" id="gallery-slide-1">
+                                            <div class="carousel-media">
+                                                <img alt="Esports tournament" class="d-block w-100" decoding="async" loading="lazy" height="720" src="images/esports.jpg" width="960">
+                                            </div>
                                             <div class="carousel-caption">
                                                 <h3>
                                                     Esports Arena
@@ -307,9 +334,16 @@
                                                     Competitive Gaming
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div aria-label="2 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-                                            <img alt="Esports event" class="d-block w-100" decoding="async" height="414" src="images/events.jpg" width="738"/>
+                                            <nav aria-label="Slide 1 controls" class="carousel-controls">
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-9">← Previous<span class="visually-hidden"> image: Rankings</span></a>
+                                                <span class="carousel-position">1 / 9</span>
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-2">Next →<span class="visually-hidden"> image: Major Event</span></a>
+                                            </nav>
+                                        </section>
+                                        <section aria-label="2 of 9" aria-roledescription="slide" class="carousel-panel" id="gallery-slide-2">
+                                            <div class="carousel-media">
+                                                <img alt="Esports event" class="d-block w-100" decoding="async" loading="lazy" height="414" src="images/events.jpg" width="738">
+                                            </div>
                                             <div class="carousel-caption">
                                                 <h3>
                                                     Major Event
@@ -318,9 +352,16 @@
                                                     Live Competition
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div aria-label="3 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-                                            <img alt="Esports matchday poster with a person wearing a VR headset" class="d-block w-100" decoding="async" height="740" src="images/eventsfeature.jpg" width="740"/>
+                                            <nav aria-label="Slide 2 controls" class="carousel-controls">
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-1">← Previous<span class="visually-hidden"> image: Esports Arena</span></a>
+                                                <span class="carousel-position">2 / 9</span>
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-3">Next →<span class="visually-hidden"> image: Championship</span></a>
+                                            </nav>
+                                        </section>
+                                        <section aria-label="3 of 9" aria-roledescription="slide" class="carousel-panel" id="gallery-slide-3">
+                                            <div class="carousel-media">
+                                                <img alt="Esports matchday poster with a person wearing a VR headset" class="d-block w-100" decoding="async" loading="lazy" height="740" src="images/eventsfeature.avif" width="740">
+                                            </div>
                                             <div class="carousel-caption">
                                                 <h3>
                                                     Championship
@@ -329,9 +370,16 @@
                                                     Esports Tournament
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div aria-label="4 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-                                            <img alt="Professional esports player donk" class="d-block w-100" decoding="async" height="900" src="images/donk.jpg" width="1350"/>
+                                            <nav aria-label="Slide 3 controls" class="carousel-controls">
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-2">← Previous<span class="visually-hidden"> image: Major Event</span></a>
+                                                <span class="carousel-position">3 / 9</span>
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-4">Next →<span class="visually-hidden"> image: donk</span></a>
+                                            </nav>
+                                        </section>
+                                        <section aria-label="4 of 9" aria-roledescription="slide" class="carousel-panel" id="gallery-slide-4">
+                                            <div class="carousel-media">
+                                                <img alt="Professional esports player donk" class="d-block w-100" decoding="async" loading="lazy" height="900" src="images/donk.avif" width="1350">
+                                            </div>
                                             <div class="carousel-caption">
                                                 <h3>
                                                     donk
@@ -340,9 +388,16 @@
                                                     CS2 Player
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div aria-label="5 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-                                            <img alt="Professional esports player m0NESY" class="d-block w-100" decoding="async" height="900" src="images/monesy.jpg" width="1200"/>
+                                            <nav aria-label="Slide 4 controls" class="carousel-controls">
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-3">← Previous<span class="visually-hidden"> image: Championship</span></a>
+                                                <span class="carousel-position">4 / 9</span>
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-5">Next →<span class="visually-hidden"> image: m0NESY</span></a>
+                                            </nav>
+                                        </section>
+                                        <section aria-label="5 of 9" aria-roledescription="slide" class="carousel-panel" id="gallery-slide-5">
+                                            <div class="carousel-media">
+                                                <img alt="Professional esports player m0NESY" class="d-block w-100" decoding="async" loading="lazy" height="900" src="images/monesy.jpg" width="1200">
+                                            </div>
                                             <div class="carousel-caption">
                                                 <h3>
                                                     m0NESY
@@ -351,9 +406,16 @@
                                                     CS2 Player
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div aria-label="6 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-                                            <img alt="Professional esports player Faker" class="d-block w-100" decoding="async" height="365" src="images/faker.jpg" width="730"/>
+                                            <nav aria-label="Slide 5 controls" class="carousel-controls">
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-4">← Previous<span class="visually-hidden"> image: donk</span></a>
+                                                <span class="carousel-position">5 / 9</span>
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-6">Next →<span class="visually-hidden"> image: Faker</span></a>
+                                            </nav>
+                                        </section>
+                                        <section aria-label="6 of 9" aria-roledescription="slide" class="carousel-panel" id="gallery-slide-6">
+                                            <div class="carousel-media">
+                                                <img alt="Professional esports player Faker" class="d-block w-100" decoding="async" loading="lazy" height="365" src="images/faker.jpg" width="730">
+                                            </div>
                                             <div class="carousel-caption">
                                                 <h3>
                                                     Faker
@@ -362,9 +424,16 @@
                                                     League of Legends
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div aria-label="7 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-                                            <img alt="Esports players" class="d-block w-100" decoding="async" height="183" src="images/players.jpg" width="275"/>
+                                            <nav aria-label="Slide 6 controls" class="carousel-controls">
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-5">← Previous<span class="visually-hidden"> image: m0NESY</span></a>
+                                                <span class="carousel-position">6 / 9</span>
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-7">Next →<span class="visually-hidden"> image: Players</span></a>
+                                            </nav>
+                                        </section>
+                                        <section aria-label="7 of 9" aria-roledescription="slide" class="carousel-panel" id="gallery-slide-7">
+                                            <div class="carousel-media">
+                                                <img alt="Illustration of three community players at gaming desks" class="d-block w-100" decoding="async" loading="lazy" height="720" src="images/player-room.svg" width="1280">
+                                            </div>
                                             <div class="carousel-caption">
                                                 <h3>
                                                     Players
@@ -373,9 +442,16 @@
                                                     Esports Community
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div aria-label="8 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-                                            <img alt="Esports teams" class="d-block w-100" decoding="async" height="410" src="images/teams.jpg" width="905"/>
+                                            <nav aria-label="Slide 7 controls" class="carousel-controls">
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-6">← Previous<span class="visually-hidden"> image: Faker</span></a>
+                                                <span class="carousel-position">7 / 9</span>
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-8">Next →<span class="visually-hidden"> image: Teams</span></a>
+                                            </nav>
+                                        </section>
+                                        <section aria-label="8 of 9" aria-roledescription="slide" class="carousel-panel" id="gallery-slide-8">
+                                            <div class="carousel-media">
+                                                <img alt="Esports teams" class="d-block w-100" decoding="async" loading="lazy" height="410" src="images/teams.webp" width="905">
+                                            </div>
                                             <div class="carousel-caption">
                                                 <h3>
                                                     Teams
@@ -384,9 +460,16 @@
                                                     Competitive Esports
                                                 </p>
                                             </div>
-                                        </div>
-                                        <div aria-label="9 of 9" aria-roledescription="slide" class="carousel-item" role="group">
-                                            <img alt="Esports rankings" class="d-block w-100" decoding="async" height="498" src="images/rankings.jpg" width="401"/>
+                                            <nav aria-label="Slide 8 controls" class="carousel-controls">
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-7">← Previous<span class="visually-hidden"> image: Players</span></a>
+                                                <span class="carousel-position">8 / 9</span>
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-9">Next →<span class="visually-hidden"> image: Rankings</span></a>
+                                            </nav>
+                                        </section>
+                                        <section aria-label="9 of 9" aria-roledescription="slide" class="carousel-panel" id="gallery-slide-9">
+                                            <div class="carousel-media">
+                                                <img alt="Illustration of sample platform points, also available in the ranking table" class="d-block w-100" decoding="async" loading="lazy" height="540" src="images/demo-ranking.svg" width="960">
+                                            </div>
                                             <div class="carousel-caption">
                                                 <h3>
                                                     Rankings
@@ -395,31 +478,33 @@
                                                     Competitive Scene
                                                 </p>
                                             </div>
-                                        </div>
+                                            <nav aria-label="Slide 9 controls" class="carousel-controls">
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-8">← Previous<span class="visually-hidden"> image: Teams</span></a>
+                                                <span class="carousel-position">9 / 9</span>
+                                                <a class="btn btn-outline-light btn-sm" href="#gallery-slide-1">Next →<span class="visually-hidden"> image: Esports Arena</span></a>
+                                            </nav>
+                                        </section>
                                     </div>
-                                    <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#esportsCarousel" type="button">
-                                        <span aria-hidden="true" class="carousel-control-prev-icon">
-                                        </span>
-                                        <span class="visually-hidden">
-                                            Previous image
-                                        </span>
-                                    </button>
-                                    <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#esportsCarousel" type="button">
-                                        <span aria-hidden="true" class="carousel-control-next-icon">
-                                        </span>
-                                        <span class="visually-hidden">
-                                            Next image
-                                        </span>
-                                    </button>
-                                </div>
-                                <p class="mt-3">
-                                    Use Previous, Next or the numbered slide indicators to explore the gallery.
+                                    <nav aria-label="Choose a gallery image" class="carousel-pagination">
+                                        <a aria-label="Slide 1: Esports Arena" href="#gallery-slide-1">1</a>
+                                        <a aria-label="Slide 2: Major Event" href="#gallery-slide-2">2</a>
+                                        <a aria-label="Slide 3: Championship" href="#gallery-slide-3">3</a>
+                                        <a aria-label="Slide 4: donk" href="#gallery-slide-4">4</a>
+                                        <a aria-label="Slide 5: m0NESY" href="#gallery-slide-5">5</a>
+                                        <a aria-label="Slide 6: Faker" href="#gallery-slide-6">6</a>
+                                        <a aria-label="Slide 7: Players" href="#gallery-slide-7">7</a>
+                                        <a aria-label="Slide 8: Teams" href="#gallery-slide-8">8</a>
+                                        <a aria-label="Slide 9: Rankings" href="#gallery-slide-9">9</a>
+                                    </nav>
+                                </section>
+                                <p class="mt-3" id="carousel-help">
+                                    HTML/CSS gallery: use Previous, Next or a numbered image link. You can also swipe, or focus the slide area and use Left/Right. No autoplay or JavaScript.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section class="about py-4 py-lg-5">
+                <section class="about py-4 py-lg-5" id="player-community">
                     <div class="container">
                         <div class="row g-4 align-items-center about-content">
                             <div class="col-sm-12 col-md-6 col-lg-6">
@@ -441,6 +526,20 @@
                     </div>
                 </section>
             </main>
+            <aside aria-label="Player discovery links" class="sidebar p-4">
+                <h2>
+                    Player discovery
+                </h2>
+                <p class="sidebar-intro">
+                    Meet players, compare pathways and find the next match.
+                </p>
+                <ul>
+                    <li><a href="#player-directory">Browse player profiles</a></li>
+                    <li><a href="#player-gallery">Explore the gallery</a></li>
+                    <li><a href="teams.html#team-directory">Find teams</a></li>
+                    <li><a href="rankings.html#ranking-table">See sample rankings</a></li>
+                </ul>
+            </aside>
             <footer class="grid-footer mt-5">
                 <div class="container footer pt-4 pb-3 ps-3 pe-3">
                     <div>
@@ -448,16 +547,22 @@
                             Esports<span>Hub</span>
                         </a>
                         <p>
-                            Your place in the esports community.
+                            A prototype for the esports community.
                         </p>
                     </div>
+                    <nav aria-label="Footer navigation" class="footer-nav">
+                        <strong>Explore</strong>
+                        <ul>
+                            <li><a href="events.html#event-list">Events</a></li>
+                            <li><a href="teams.html#team-directory">Teams</a></li>
+                            <li><a href="players.html#player-directory">Players</a></li>
+                            <li><a href="rankings.html#ranking-table">Rankings</a></li>
+                            <li><a href="contact.html#contact-options">Community</a></li>
+                        </ul>
+                    </nav>
                     <div>
-                        <strong>
-                            Team
-                        </strong>
-                        <p>
-                            Damir · Alina · Aisha
-                        </p>
+                        <strong>Team</strong>
+                        <p>Damir · Alina · Aisha</p>
                     </div>
                 </div>
                 <div class="container copyright py-3">
@@ -465,7 +570,5 @@
                 </div>
             </footer>
         </div>
-        <script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-        </script>
     </body>
 </html>

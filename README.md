@@ -1,81 +1,78 @@
 # EsportsHub
 
-An esports community website extended in place for Assignment #3: Media Queries + Bootstrap Grid.
+The **EsportsHub Midterm Project** is a frontend prototype for discovering esports events, teams, players and rankings. Its flow connects player/team discovery, competition, sample results and Community & Support.
 
-The original six pages, esports content, image files, color palette and footer are preserved. HTML5, CSS3, Flexbox, CSS Grid and Bootstrap 5.3.8 are used. Bootstrap CSS and JavaScript Bundle load once per page from the jsDelivr CDN; an internet connection is required for these resources.
+## Scope and technologies
 
-## Pages
-- index.html
-- events.html
-- teams.html
-- players.html
-- rankings.html
-- contact.html
+This is a static website built with **HTML and CSS only**: semantic HTML5, CSS3, Flexbox, CSS Grid, media queries and Bootstrap **5.3.8 CSS**. There are no scripts, JavaScript files, backend, package installation or build step. A native checkbox and CSS control the mobile menu; the nine-image carousel uses native scrolling and real fragment links.
 
-## Original assignment requirements preserved
-- Full HTML5 boilerplate and descriptive titles
-- Shared external CSS stylesheet
-- Semantic headings and paragraphs
-- Ordered and unordered lists
-- Images with descriptive alt text on every page
-- Global navigation linking all pages
-- HTML table with headers, rows, and 4 columns
-- Contact form with name, email, dropdown, textarea, and submit button
-- Element, class, ID, and descendant CSS selectors
-- Hover states and styled navigation
-- Box model using margin, padding, borders, and responsive units
-- Circular profile image using border-radius: 50%
-- Team member biography section
-- Footer with all team member names on every page
+Events, profiles, recruitment concepts and rankings are labeled samples. Calendar controls do not filter data. Accounts, verified listings, registration, saved messages and rankings calculated from verified results would require future application logic and a backend.
 
-## Assignment #3 implementation
+## Pages and defense ownership
 
-| Task | Location | Implementation |
+| Page | Purpose | Owner |
 | --- | --- | --- |
-| 1. Typography | All pages, css/style.css | Heading and introduction sizes at 768px and 992px |
-| 2. CSS card group | players.html | Existing Featured Players: Flexbox and media queries, 3 / 2 / 1 columns; no Bootstrap Grid on this group |
-| 3. Bootstrap Grid | index.html and information sections | container, row, col-sm-12, col-md-6, col-lg-6 and col-lg-4 |
-| 4. Spacing | All pages | py-4 py-lg-5, mt-lg-4, px-sm-2 and other relevant spacing utilities |
-| 5. Navbar | All six pages | Six links, navbar-expand-lg, accessible collapse button and active page |
-| 6. Buttons | Home, Players, Rankings, Contact; section links | Primary, secondary, outline, large and small buttons; Rankings button group |
-| 7. Carousel | players.html | Nine original gallery images/captions, indicators, previous/next, keyboard navigation; no autoplay |
-| 8. Bootstrap Cards | index.html | Three player cards with image, body, title and description in Bootstrap Grid |
-| 9. Form | contact.html | Original name, email, topic and message; form-control, form-select, form-label, input-group and responsive columns |
-| 10. Accessibility | All pages | Semantic landmarks, skip link, focus styles, alt text, labels, ARIA, table headers and reduced-motion support |
+| [index.html](index.html) — Home | Product introduction, event previews and Bootstrap player cards | Damir |
+| [events.html](events.html) — Events | Sample tournament discovery, prototype controls and participation steps | Damir |
+| [teams.html](teams.html) — Teams | Featured profiles and sample community-team concepts | Alina |
+| [players.html](players.html) — Players | Profile anchors, custom Flexbox cards, Grid gallery and carousel | Alina |
+| [rankings.html](rankings.html) — Rankings | Demo points table, ranking explanation and related view links | Aisha |
+| [contact.html](contact.html) — Community & Support | Questions, organizers, partnerships, feedback, problem reports and team biography | Aisha |
+
+Damir, Alina and Aisha appear in every footer.
+
+## Assignment 1–3 concepts preserved
+
+- **Assignment 1:** HTML5 metadata, landmarks, headings, paragraphs, ordered/unordered lists, local images with alt text, shared navigation, four-column table, complete form, biography and circular avatar. The external [stylesheet](css/style.css) demonstrates element, class, ID and descendant selectors, the box model, typography, colors and hover states.
+- **Assignment 2:** Flexbox navbar alignment; separate CSS-only `.players-container` cards; `.page-layout` with named header/sidebar/main/footer Grid areas; and a nine-image `.gallery-grid` with visible captions.
+- **Assignment 3:** Media queries and custom 3/2/1 cards, Bootstrap CSS two/three-column grids, spacing utilities, navbar styling, button variants, ranking button group, three Home cards and responsive form. Keyboard focus, skip links, table headers, labels and reduced-motion styling remain visible examples. The menu and nine-slide carousel are HTML/CSS replacements, not Bootstrap JavaScript plugins, following the updated HTML/CSS-only constraint.
+
+The custom Flexbox cards on Players are separate from the Bootstrap cards on Home. Detailed implementation evidence and checks are in [docs/midterm-audit.md](docs/midterm-audit.md).
+
+Use [docs/defense-evidence.md](docs/defense-evidence.md) for the ownership map, demonstration route and likely defense questions.
 
 ## Responsive behavior
 
-- Desktop: 992px and wider. Expanded navbar, sidebar on the left and three player cards per row.
-- Tablet: 768px to below 992px. Collapsed navbar, quick links above main and two player cards per row.
-- Mobile: below 768px. One player card per row, stacked form fields and smaller typography.
-- Below 576px, the existing game/contact tiles also stack into one column.
-- The ranking table scrolls inside its own labeled region when necessary.
+| Width | Navigation / sidebar | Custom player cards | Grid gallery |
+| --- | --- | --- | --- |
+| 992px and wider | Expanded navbar; sidebar on the left | 3 per row | 3 columns |
+| 768px to below 992px | Collapsed navbar; quick links above main | 2 per row | 2 columns |
+| 576px to below 768px | Collapsed navbar; stacked content and form fields | 1 per row | 2 columns |
+| Below 576px | Collapsed navbar; wrapping quick links | 1 per row | 1 column |
 
-Task 2 intentionally keeps custom card geometry. Bootstrap owns the separate Task 8 card grid. Useful original CSS, including the overall page grid and theme, remains in place. Bootstrap 5 uses responsive grid columns instead of the removed Bootstrap 4 card-deck class.
+Game/support tiles use four columns from 1200px, two from 576px, and one below 576px. The ranking table scrolls inside its labeled region; carousel captions and controls have separate rows. Normal images preserve their proportions, while cards/gallery/carousel/avatar use documented intentional crops.
 
-## Team page responsibilities for the defense
-
-| Member | Page 1 | Page 2 |
-| --- | --- | --- |
-| Damir | index.html: Navbar, Grid, Cards, Buttons | events.html: Navbar, Grid |
-| Alina | teams.html: Navbar, Grid, Buttons | players.html: Navbar, Carousel, Buttons |
-| Aisha | rankings.html: Navbar, Grid, button group | contact.html: Navbar, Grid, Form, submit button |
-
-All three names appear in every footer. This table maps the requested ownership for the team demonstration.
+All six pages are checked at **1440, 1200, 992, 768, 576, 375 and 320px**; the final Stage 9 matrix and interaction results are in the audit.
 
 ## Run locally
 
-Open index.html in a modern browser, or serve this directory with `python -m http.server 8000` and visit http://localhost:8000.
+Open `index.html` directly in a modern browser, or preview the folder with any static server/editor preview. No Python files, testing scripts or build tools are included.
 
-The contact form retains its original `mailto:info@esportshub.com` action. It validates required fields and the email format, then opens a configured email application. It has no backend and does not promise server-side delivery.
+Bootstrap CSS loads from [jsDelivr](https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css), so its styling needs internet access. No Bootstrap JavaScript is loaded.
 
-## Verification and submission
+## Static contact form
 
-Browser checks cover all six pages, responsive boundaries, Bootstrap resource loading, card counts, navigation, carousel controls/indicators, form validation and keyboard access. The supplied materials outside the website contain the detailed audit, actual screenshots, explanation, defense questions and report text.
+The form requires name, a valid email, topic and message. Submission uses `mailto:info@esportshub.com` to open a draft in the visitor's configured email application. It does not store messages or confirm delivery. Support shortcuts lead to the same form; choose the topic there.
 
-GitHub Pages publishes the root of the `main` branch at https://drissakov.github.io/EsportsHub/. Pushes to that branch trigger a rebuild.
+## GitHub Pages
 
-The PDF's submission stage also asks for a PDF report, code/page screenshots, the group number and a ZIP. The supplied report text identifies any remaining submission information explicitly.
+Expected URL: [https://drissakov.github.io/EsportsHub/](https://drissakov.github.io/EsportsHub/).
 
-## Team
-Damir Issakov, Alina Aitmukhamet, Aisha Mussina
+This checkout is ready to serve from **main → /(root)**: `index.html` is the entry point, internal links/assets are relative, and `.nojekyll` disables Jekyll processing. No build command or custom deployment workflow is needed.
+
+On **2026-10-07**, the published root and all six pages returned HTTP 200 for the earlier revision. Publication of the HTML/CSS revision to `main` was authorized on **2026-10-08**. Historical audit notes describe the deployment at the time of each check; the repository's latest commit and GitHub Pages deployment determine the current published version. No Pages settings were changed.
+
+## Image Credits
+
+No new third-party image was downloaded during the Midterm stages. The eleven original raster files remain in `images/`; `donk.avif`, `eventsfeature.avif` and `teams.webp` were renamed to match their existing formats without changing their bytes.
+
+Stage 9 replaces four displayed raster graphics with original SVG artwork authored in this repository. These illustrations stay sharp when scaled and use no third-party artwork:
+
+| Original project artwork | Source / attribution |
+| --- | --- |
+| [player-room.svg](images/player-room.svg) | EsportsHub Stage 9 SVG code; community gaming illustration |
+| [community-support.svg](images/community-support.svg) | EsportsHub Stage 9 SVG code; community desk connections |
+| [team-avatar.svg](images/team-avatar.svg) | EsportsHub Stage 9 SVG code; Damir/Alina/Aisha initials |
+| [demo-ranking.svg](images/demo-ranking.svg) | EsportsHub Stage 9 SVG code; the sample table's points |
+
+Original source/license records for the pre-existing raster imagery are absent from the repository. Their attribution remains unresolved; no source, license or reuse permission is invented here.

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Community and support connections</title>
+  <desc id="desc">Original artwork showing players, tournament organizers and feedback connected to a shared community desk.</desc>
+  <rect width="960" height="540" rx="24" fill="#fff8df"/>
+  <path d="M235 200L480 300L725 200M235 400L480 300L725 400" fill="none" stroke="#e6cf8b" stroke-width="12"/>
+  <g fill="#ffffff" stroke="#e6cf8b" stroke-width="3">
+    <rect x="95" y="97" width="280" height="175" rx="22"/>
+    <rect x="585" y="97" width="280" height="175" rx="22"/>
+    <rect x="95" y="339" width="280" height="140" rx="22"/>
+    <rect x="585" y="339" width="280" height="140" rx="22"/>
+  </g>
+  <g fill="#b51e22">
+    <circle cx="218" cy="155" r="23"/>
+    <path d="M180 210Q180 180 218 180T256 210Z"/>
+    <rect x="687" y="140" width="76" height="60" rx="9"/>
+  </g>
+  <path d="M698 130V152M752 130V152M700 169H750" stroke="#2b1710" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="480" cy="285" r="87" fill="#2b1710"/>
+  <path d="M440 252H520V310H476L453 328V310H440Z" fill="#ffcc33"/>
+  <path d="M458 271H502M458 286H490" stroke="#2b1710" stroke-width="5" stroke-linecap="round"/>
+  <g font-family="Arial,sans-serif" fill="#68483b" text-anchor="middle" font-size="26" font-weight="700">
+    <text x="235" y="242">PLAYERS</text>
+    <text x="725" y="242">ORGANIZERS</text>
+    <text x="235" y="400">QUESTIONS &amp; IDEAS</text>
+    <text x="725" y="400">FEEDBACK &amp; SUPPORT</text>
+  </g>
+  <text x="480" y="49" font-family="Arial,sans-serif" text-anchor="middle" font-size="30" font-weight="700" fill="#b51e22">ESPORTSHUB COMMUNITY</text>
+</svg>

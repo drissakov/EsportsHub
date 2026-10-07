@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8"/>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <!-- Created by Damir, Alina and Aisha -->
         <title>
             Teams | EsportsHub
         </title>
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
-        <link href="css/style.css" rel="stylesheet"/>
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -21,11 +21,11 @@
                         <a class="navbar-brand logo me-3" href="index.html">
                             Esports<span>Hub</span>
                         </a>
-                        <button aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#mainNavigation" data-bs-toggle="collapse" type="button">
-                            <span class="navbar-toggler-icon">
-                            </span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="mainNavigation">
+                        <!-- Native checkbox + CSS: Space toggles the mobile menu without JavaScript. -->
+                        <input aria-controls="mainNavigation" aria-describedby="navigation-help" class="nav-menu-toggle" id="navigation-toggle" type="checkbox">
+                        <label class="nav-menu-label" for="navigation-toggle">Menu</label>
+                        <span class="visually-hidden" id="navigation-help">Check to show navigation links; uncheck to hide them.</span>
+                        <div class="navbar-collapse" id="mainNavigation">
                             <ul class="navbar-nav ms-auto m-0 p-0">
                                 <li class="nav-item mb-0">
                                     <a class="nav-link px-sm-2 py-2" href="index.html">
@@ -54,7 +54,7 @@
                                 </li>
                                 <li class="nav-item mb-0">
                                     <a class="nav-link px-sm-2 py-2" href="contact.html">
-                                        Contact
+                                        Community
                                     </a>
                                 </li>
                             </ul>
@@ -62,43 +62,6 @@
                     </div>
                 </nav>
             </header>
-            <aside aria-label="Quick links" class="sidebar p-4">
-                <h2>
-                    Quick Links
-                </h2>
-                <ul>
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="events.html">
-                            Events
-                        </a>
-                    </li>
-                    <li>
-                        <a aria-current="page" href="teams.html">
-                            Teams
-                        </a>
-                    </li>
-                    <li>
-                        <a href="players.html">
-                            Players
-                        </a>
-                    </li>
-                    <li>
-                        <a href="rankings.html">
-                            Rankings
-                        </a>
-                    </li>
-                    <li>
-                        <a href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
-            </aside>
             <main class="grid-main" id="main-content" tabindex="-1">
                 <section class="hero py-4 py-lg-5">
                     <div class="container">
@@ -112,67 +75,80 @@
                             </span>
                         </h1>
                         <p class="hero-description mt-3">
-                            Discover popular esports teams and follow
-                their journey in competitive gaming.
+                            Discover sample team profiles, compare their games and use events as the meeting point for future players, teams and communities.
                         </p>
                     </div>
                 </section>
-                <section class="games py-4 py-lg-5">
+                <section class="games py-4 py-lg-5" id="team-directory">
                     <div class="container">
                         <p class="label mb-3">
                             POPULAR TEAMS
                         </p>
+                        <h2>Browse by game</h2>
                         <div class="game-list mt-4">
-                            <a class="p-3 p-lg-4" href="teams.html">
+                            <article class="p-3 p-lg-4 team-tile" id="team-spirit">
                                 <strong>
                                     Team Spirit
                                 </strong>
                                 <span>
                                     Dota 2 · CS2
                                 </span>
-                            </a>
-                            <a class="p-3 p-lg-4" href="teams.html">
+                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html#event-list">See related events</a>
+                            </article>
+                            <article class="p-3 p-lg-4 team-tile" id="team-g2">
                                 <strong>
                                     G2 Esports
                                 </strong>
                                 <span>
                                     CS2 · Valorant
                                 </span>
-                            </a>
-                            <a class="p-3 p-lg-4" href="teams.html">
+                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html#event-list">See related events</a>
+                            </article>
+                            <article class="p-3 p-lg-4 team-tile" id="team-geng">
                                 <strong>
                                     Gen.G
                                 </strong>
                                 <span>
                                     Valorant · LoL
                                 </span>
-                            </a>
-                            <a class="p-3 p-lg-4" href="teams.html">
+                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html#event-list">See related events</a>
+                            </article>
+                            <article class="p-3 p-lg-4 team-tile" id="team-fnatic">
                                 <strong>
                                     Fnatic
                                 </strong>
                                 <span>
                                     Valorant · LoL
                                 </span>
-                            </a>
+                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html#event-list">See related events</a>
+                            </article>
+                            <article class="p-3 p-lg-4 team-tile" id="team-t1">
+                                <strong>
+                                    T1
+                                </strong>
+                                <span>
+                                    League of Legends
+                                </span>
+                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html#event-list">See related events</a>
+                            </article>
                         </div>
                     </div>
                 </section>
-                <section class="about py-4 py-lg-5">
+                <section class="about py-4 py-lg-5" id="team-focus">
                     <div class="container">
                         <div class="row g-4 align-items-center about-content">
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <p class="label mb-3">
                                     TEAM FEATURE IMAGE
                                 </p>
-                                <img alt="Esports team celebrating during a competition" class="feature-image" decoding="async" height="410" src="images/teams.jpg" width="905"/>
+                                <img alt="Esports team celebrating during a competition" class="feature-image img-fluid" decoding="async" loading="lazy" height="410" src="images/teams.webp" width="905">
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <p class="label mb-3">
                                     TEAM FOCUS
                                 </p>
                                 <p>
-                                    Discover esports teams, their games and their journey through competitive tournaments.
+                                    Discover esports teams, their games and their journey through competitive tournaments. These profiles are sample content for the future platform, not live recruitment listings.
                                 </p>
                             </div>
                         </div>
@@ -189,11 +165,11 @@
                                     Team Spirit
                                 </h2>
                             </div>
-                            <a class="btn btn-outline-primary btn-sm" href="teams.html">
-                                View team →
+                            <a class="btn btn-outline-primary btn-sm" href="contact.html#contact-form">
+                                Discuss a team profile →
                             </a>
                         </div>
-                        <a class="event p-3" href="teams.html">
+                        <article class="event p-3" id="team-spirit-feature">
                             <div class="date purple p-2">
                                 <strong>
                                     TS
@@ -207,34 +183,94 @@
                                     One team. Multiple games.
                                 </h3>
                             </div>
-                            <span class="event-arrow">
+                                <span aria-hidden="true" class="event-arrow">
                                 →
                             </span>
-                        </a>
+                        </article>
                     </div>
                 </section>
-                <section class="about py-4 py-lg-5">
+                <section class="about py-4 py-lg-5" id="team-community">
                     <div class="container">
                         <div class="row g-4 align-items-center about-content">
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <p class="label mb-3">
-                                    ESPORTS COMMUNITY
+                                    COMMUNITY TEAM CONCEPT
                                 </p>
                                 <h2>
-                                    Follow your
+                                    Build your
                                     <span>
-                                        favorite teams.
+                                        next roster.
                                     </span>
                                 </h2>
                             </div>
                             <p class="col-sm-12 col-md-6 col-lg-6">
-                                Discover teams, competitive events and
-                the players behind the biggest esports games.
+                                This prototype connects team discovery to players, events and rankings without claiming live recruitment, verified organizations or open roster positions.
                             </p>
                         </div>
                     </div>
                 </section>
+                <section class="players py-4 py-lg-5" id="community-teams">
+                    <div class="container">
+                        <div class="section-title mb-4 gap-3 flex-wrap">
+                            <div>
+                                <p class="label mb-3">
+                                    COMMUNITY TEAM CONCEPTS
+                                </p>
+                                <h2>
+                                    Sample teams looking for players
+                                </h2>
+                            </div>
+                            <a class="btn btn-outline-primary btn-sm" href="contact.html#contact-form">
+                                Share a team idea →
+                            </a>
+                        </div>
+                        <p class="section-note mb-4">
+                            These are fictional examples of a future community workflow. EsportsHub does not currently verify organizations or publish live recruitment listings.
+                        </p>
+                        <div class="row g-4">
+                            <article class="col-sm-12 col-md-6 col-lg-4" id="sample-team-northstar">
+                                <div class="team-card p-4">
+                                    <p class="team-card-label">Sample community team</p>
+                                    <h3>Northstar Five</h3>
+                                    <p>CS2 practice group exploring a first local tournament together.</p>
+                                    <a class="btn btn-primary btn-sm" href="players.html#player-directory">Find sample players</a>
+                                </div>
+                            </article>
+                            <article class="col-sm-12 col-md-6 col-lg-4" id="sample-team-ember">
+                                <div class="team-card p-4">
+                                    <p class="team-card-label">Sample looking-for-players concept</p>
+                                    <h3>Ember Circuit</h3>
+                                    <p>Valorant roster concept that needs a clear tryout brief before any real recruitment.</p>
+                                    <a class="btn btn-primary btn-sm" href="contact.html#contact-form">Discuss the concept</a>
+                                </div>
+                            </article>
+                            <article class="col-sm-12 col-md-6 col-lg-4" id="sample-team-orbit">
+                                <div class="team-card p-4">
+                                    <p class="team-card-label">Sample community team</p>
+                                    <h3>Orbit Guild</h3>
+                                    <p>Multi-game group using events as a meeting point for players and organizers.</p>
+                                    <a class="btn btn-primary btn-sm" href="events.html#event-list">Find a sample event</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
             </main>
+            <aside aria-label="Team discovery links" class="sidebar p-4">
+                <h2>
+                    Team discovery
+                </h2>
+                <p class="sidebar-intro">
+                    Compare teams, games, events and community pathways.
+                </p>
+                <ul>
+                    <li><a href="#team-directory">Browse team profiles</a></li>
+                    <li><a href="#community-teams">Sample community teams</a></li>
+                    <li><a href="players.html#player-directory">Meet players</a></li>
+                    <li><a href="events.html#event-list">Find events</a></li>
+                    <li><a href="contact.html#contact-form">Discuss a team idea</a></li>
+                </ul>
+            </aside>
             <footer class="grid-footer mt-5">
                 <div class="container footer pt-4 pb-3 ps-3 pe-3">
                     <div>
@@ -242,16 +278,22 @@
                             Esports<span>Hub</span>
                         </a>
                         <p>
-                            Your place in the esports community.
+                            A prototype for the esports community.
                         </p>
                     </div>
+                    <nav aria-label="Footer navigation" class="footer-nav">
+                        <strong>Explore</strong>
+                        <ul>
+                            <li><a href="events.html#event-list">Events</a></li>
+                            <li><a href="teams.html#team-directory">Teams</a></li>
+                            <li><a href="players.html#player-directory">Players</a></li>
+                            <li><a href="rankings.html#ranking-table">Rankings</a></li>
+                            <li><a href="contact.html#contact-options">Community</a></li>
+                        </ul>
+                    </nav>
                     <div>
-                        <strong>
-                            Team
-                        </strong>
-                        <p>
-                            Damir · Alina · Aisha
-                        </p>
+                        <strong>Team</strong>
+                        <p>Damir · Alina · Aisha</p>
                     </div>
                 </div>
                 <div class="container copyright py-3">
@@ -259,7 +301,5 @@
                 </div>
             </footer>
         </div>
-        <script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-        </script>
     </body>
 </html>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8"/>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <!-- Created by Damir, Alina and Aisha -->
         <title>
-            Contact | EsportsHub
+            Community &amp; Contact | EsportsHub
         </title>
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet"/>
-        <link href="css/style.css" rel="stylesheet"/>
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -21,11 +21,11 @@
                         <a class="navbar-brand logo me-3" href="index.html">
                             Esports<span>Hub</span>
                         </a>
-                        <button aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#mainNavigation" data-bs-toggle="collapse" type="button">
-                            <span class="navbar-toggler-icon">
-                            </span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="mainNavigation">
+                        <!-- Native checkbox + CSS: Space toggles the mobile menu without JavaScript. -->
+                        <input aria-controls="mainNavigation" aria-describedby="navigation-help" class="nav-menu-toggle" id="navigation-toggle" type="checkbox">
+                        <label class="nav-menu-label" for="navigation-toggle">Menu</label>
+                        <span class="visually-hidden" id="navigation-help">Check to show navigation links; uncheck to hide them.</span>
+                        <div class="navbar-collapse" id="mainNavigation">
                             <ul class="navbar-nav ms-auto m-0 p-0">
                                 <li class="nav-item mb-0">
                                     <a class="nav-link px-sm-2 py-2" href="index.html">
@@ -54,7 +54,7 @@
                                 </li>
                                 <li class="nav-item mb-0">
                                     <a aria-current="page" class="nav-link px-sm-2 py-2 active" href="contact.html">
-                                        Contact
+                                        Community
                                     </a>
                                 </li>
                             </ul>
@@ -62,43 +62,6 @@
                     </div>
                 </nav>
             </header>
-            <aside aria-label="Quick links" class="sidebar p-4">
-                <h2>
-                    Quick Links
-                </h2>
-                <ul>
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="events.html">
-                            Events
-                        </a>
-                    </li>
-                    <li>
-                        <a href="teams.html">
-                            Teams
-                        </a>
-                    </li>
-                    <li>
-                        <a href="players.html">
-                            Players
-                        </a>
-                    </li>
-                    <li>
-                        <a href="rankings.html">
-                            Rankings
-                        </a>
-                    </li>
-                    <li>
-                        <a aria-current="page" href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
-            </aside>
             <main class="grid-main" id="main-content" tabindex="-1">
                 <section class="hero py-4 py-lg-5">
                     <div class="container">
@@ -106,54 +69,52 @@
                             GET IN TOUCH
                         </p>
                         <h1 class="mb-3">
-                            Join the
+                            Community &amp;
                             <span>
-                                Community.
+                                Support.
                             </span>
                         </h1>
                         <p class="hero-description mt-3">
-                            Have a question or want to become part of
-                the EsportsHub community? Contact us.
+                            Choose a support path for questions, organizers, partnerships, feedback or problem reports. This static form opens a prepared email draft.
                         </p>
                     </div>
                 </section>
-                <section class="games py-4 py-lg-5">
+                <section class="games py-4 py-lg-5" id="contact-options">
                     <div class="container">
                         <p class="label mb-3">
-                            CONTACT INFORMATION
+                            CHOOSE A SUPPORT PATH
                         </p>
+                        <h2 class="visually-hidden">Support topics</h2>
                         <div class="game-list mt-4">
-                            <a class="p-3 p-lg-4" href="mailto:info@esportshub.com">
+                            <a class="p-3 p-lg-4" href="#contact-form" aria-label="General Question: open the community form">
                                 <strong>
-                                    Email
+                                    General Question
                                 </strong>
                                 <span>
-                                    info@esportshub.com
+                                    Participation and access
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="contact.html">
+                            <a class="p-3 p-lg-4" href="#contact-form" aria-label="Tournament Organizer: open the community form">
                                 <strong>
-                                    Discord
+                                    Tournament Organizer
                                 </strong>
-                                <span>
-                                    Join our community
-                                </span>
+                                <span>Event listings and formats</span>
                             </a>
-                            <a class="p-3 p-lg-4" href="contact.html">
+                            <a class="p-3 p-lg-4" href="#contact-form" aria-label="Partnership: open the community form">
                                 <strong>
-                                    Instagram
+                                    Partnership
                                 </strong>
-                                <span>
-                                    @esportshub
-                                </span>
+                                <span>Collaboration ideas</span>
                             </a>
-                            <a class="p-3 p-lg-4" href="contact.html">
+                            <a class="p-3 p-lg-4" href="#contact-form" aria-label="Feedback: open the community form">
                                 <strong>
-                                    Location
+                                    Feedback
                                 </strong>
-                                <span>
-                                    Astana, Kazakhstan
-                                </span>
+                                <span>Help improve the prototype</span>
+                            </a>
+                            <a class="p-3 p-lg-4" href="#contact-form" aria-label="Report a Problem: open the community form">
+                                <strong>Report a Problem</strong>
+                                <span>Broken link or accessibility issue</span>
                             </a>
                         </div>
                     </div>
@@ -163,13 +124,15 @@
                         <p class="label mb-3">
                             CONTACT FORM
                         </p>
-                        <form action="mailto:info@esportshub.com" aria-describedby="contact-help" class="mx-auto my-4 p-3 p-md-4" enctype="text/plain" id="contact-form" method="post">
+                        <h2 id="contact-form-title">Send a question or feedback</h2>
+                        <p id="contact-required">All fields are required. Choose a topic in the form; support shortcuts do not preselect it.</p>
+                        <form action="mailto:info@esportshub.com" aria-describedby="contact-help contact-required" aria-labelledby="contact-form-title" class="mx-auto my-4 p-3 p-md-4" enctype="text/plain" id="contact-form" method="post">
                             <div class="row g-3">
                                 <div class="col-12 col-md-6">
                                     <label class="form-label" for="name">
                                         Name
                                     </label>
-                                    <input autocomplete="name" class="form-control" id="name" name="name" placeholder="Your name" required type="text"/>
+                                    <input autocomplete="name" class="form-control" id="name" name="name" placeholder="Your name" required type="text">
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <label class="form-label" for="email">
@@ -179,8 +142,9 @@
                                         <span aria-hidden="true" class="input-group-text">
                                             @
                                         </span>
-                                        <input autocomplete="email" class="form-control" id="email" name="email" placeholder="you@example.com" required type="email"/>
+                                        <input aria-describedby="email-help" autocomplete="email" class="form-control" id="email" name="email" placeholder="you@example.com" required type="email">
                                     </div>
+                                    <p class="form-text mt-2" id="email-help">Use a complete email address, such as name@example.com.</p>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label" for="topic">
@@ -190,17 +154,20 @@
                                         <option value="">
                                             Choose a topic
                                         </option>
-                                        <option value="events">
-                                            Events
+                                        <option value="question">
+                                            General question
                                         </option>
-                                        <option value="teams">
-                                            Teams
-                                        </option>
-                                        <option value="players">
-                                            Players
+                                        <option value="organizer">
+                                            Tournament organizer
                                         </option>
                                         <option value="partnership">
-                                            Partnership
+                                            Partnership idea
+                                        </option>
+                                        <option value="feedback">
+                                            Website feedback
+                                        </option>
+                                        <option value="problem">
+                                            Problem report
                                         </option>
                                     </select>
                                 </div>
@@ -208,45 +175,62 @@
                                     <label class="form-label" for="message">
                                         Message
                                     </label>
-                                    <textarea class="form-control" id="message" name="message" placeholder="Write your message" required rows="5"></textarea>
+                                    <textarea aria-describedby="message-help" class="form-control" id="message" name="message" placeholder="Write your message" required rows="5"></textarea>
+                                    <p class="form-text mt-2" id="message-help">For a problem report, include the page and what you expected to happen.</p>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-primary" type="submit">
-                                        Send Message
+                                        Open email draft
                                     </button>
                                     <p class="form-text mt-2" id="contact-help">
-                                        All fields are required. Send Message opens your email app with the completed message; a configured email app is needed.
+                                        Prototype behavior: all fields are required, and submitting opens your configured email app with the completed message. No server-side delivery is connected.
                                     </p>
                                 </div>
                             </div>
                         </form>
-                        <img alt="Contact Us graphic for EsportsHub" class="feature-image contact-image" decoding="async" height="554" src="images/contact.jpg" width="554"/>
+                        <img alt="Illustration connecting players, tournament organizers, questions and feedback to the community desk" class="feature-image contact-image img-fluid" decoding="async" loading="lazy" height="540" src="images/community-support.svg" width="960">
                         <ul>
                             <li>
-                                Ask about upcoming esports events.
+                                Ask about upcoming esports events and sample calendar data.
                             </li>
                             <li>
-                                Share feedback about the website.
+                                Contact organizers or suggest a partnership concept.
                             </li>
                             <li>
-                                Contact the EsportsHub community team.
+                                Share feedback or report a problem with the prototype.
                             </li>
                         </ul>
                     </div>
                 </section>
-                <section class="about py-4 py-lg-5">
+                <section class="about py-4 py-lg-5" id="team">
                     <div class="container">
                         <p class="label mb-3">
                             ABOUT THE TEAM MEMBERS
                         </p>
                         <div class="bio p-4 mt-4">
-                            <img alt="EsportsHub team profile image" class="profile-image" decoding="async" height="192" src="images/team.jpg" width="204"/>
+                            <div class="profile-avatar">
+                                <img alt="Team avatar with the initials D, A and A for Damir, Alina and Aisha" class="profile-image" decoding="async" loading="lazy" height="512" src="images/team-avatar.svg" width="512">
+                            </div>
                             <h2>
                                 Damir, Alina and Aisha
                             </h2>
                             <p>
                                 Our team designed EsportsHub as a simple esports community website. We worked on the pages, content, HTML structure and visual styling.
                             </p>
+                            <div class="row g-4 mt-2">
+                                <section class="col-12 col-md-6 col-lg-4" aria-labelledby="bio-damir">
+                                    <h3 id="bio-damir">Damir</h3>
+                                    <p>Damir owns Home and Events, introducing the product and guiding visitors through the sample competition calendar.</p>
+                                </section>
+                                <section class="col-12 col-md-6 col-lg-4" aria-labelledby="bio-alina">
+                                    <h3 id="bio-alina">Alina</h3>
+                                    <p>Alina owns Teams and Players, connecting discovery to rosters and demonstrating the Flexbox cards, Grid gallery and carousel.</p>
+                                </section>
+                                <section class="col-12 col-md-6 col-lg-4" aria-labelledby="bio-aisha">
+                                    <h3 id="bio-aisha">Aisha</h3>
+                                    <p>Aisha owns Rankings and Community &amp; Support, explaining sample points and presenting the accessible contact and feedback form.</p>
+                                </section>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -255,7 +239,7 @@
                         <div class="section-title mb-4 gap-3 flex-wrap">
                             <div>
                                 <p class="label mb-3">
-                                    ESPORTSHUB
+                                    COMMUNITY DESK
                                 </p>
                                 <h2>
                                     Let's connect.
@@ -270,24 +254,24 @@
                             </div>
                             <div>
                                 <small>
-                                    CONTACT US
+                                    EMAIL THE COMMUNITY DESK
                                 </small>
                                 <h3>
                                     Send us your questions and ideas.
                                 </h3>
                             </div>
-                            <span class="event-arrow">
+                                <span aria-hidden="true" class="event-arrow">
                                 →
                             </span>
                         </a>
                     </div>
                 </section>
-                <section class="about py-4 py-lg-5">
+                <section class="about py-4 py-lg-5" id="community">
                     <div class="container">
                         <div class="row g-4 align-items-center about-content">
                             <div class="col-sm-12 col-md-6 col-lg-6">
                                 <p class="label mb-3">
-                                    ESPORTSHUB
+                                    COMMUNITY &amp; SUPPORT
                                 </p>
                                 <h2>
                                     Gaming connects
@@ -297,13 +281,26 @@
                                 </h2>
                             </div>
                             <p class="col-sm-12 col-md-6 col-lg-6">
-                                Follow esports events, discover new teams
-                and become part of our community.
+                                Follow events, discover teams and players, then use the community desk when you need support or want to contribute feedback.
                             </p>
                         </div>
                     </div>
                 </section>
             </main>
+            <aside aria-label="Community desk links" class="sidebar p-4">
+                <h2>
+                    Community desk
+                </h2>
+                <p class="sidebar-intro">
+                    Choose a support path for this frontend prototype.
+                </p>
+                <ul>
+                    <li><a href="#contact-options">Choose a topic</a></li>
+                    <li><a href="#contact-form">Open the contact form</a></li>
+                    <li><a href="#team">Meet the team</a></li>
+                    <li><a href="index.html#how-it-works">Return to the product flow</a></li>
+                </ul>
+            </aside>
             <footer class="grid-footer mt-5">
                 <div class="container footer pt-4 pb-3 ps-3 pe-3">
                     <div>
@@ -311,16 +308,22 @@
                             Esports<span>Hub</span>
                         </a>
                         <p>
-                            Your place in the esports community.
+                            A prototype for the esports community.
                         </p>
                     </div>
+                    <nav aria-label="Footer navigation" class="footer-nav">
+                        <strong>Explore</strong>
+                        <ul>
+                            <li><a href="events.html#event-list">Events</a></li>
+                            <li><a href="teams.html#team-directory">Teams</a></li>
+                            <li><a href="players.html#player-directory">Players</a></li>
+                            <li><a href="rankings.html#ranking-table">Rankings</a></li>
+                            <li><a href="contact.html#contact-options">Community</a></li>
+                        </ul>
+                    </nav>
                     <div>
-                        <strong>
-                            Team
-                        </strong>
-                        <p>
-                            Damir · Alina · Aisha
-                        </p>
+                        <strong>Team</strong>
+                        <p>Damir · Alina · Aisha</p>
                     </div>
                 </div>
                 <div class="container copyright py-3">
@@ -328,7 +331,5 @@
                 </div>
             </footer>
         </div>
-        <script crossorigin="anonymous" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-        </script>
     </body>
 </html>

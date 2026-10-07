@@ -2,18 +2,39 @@
     box-sizing: border-box;
 }
 
-body,
-button,
-input,
-select,
-textarea {
-    font-family: "Arial Black", Times, serif;
+:root {
+    --hub-red: #b51e22;
+    --hub-border: #e6cf8b;
+    --hub-radius: 12px;
 }
 
+button, input, select, textarea { font: inherit; }
+
 body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 1rem;
     background: #ffffff;
     color: #2b1710;
-    line-height: 1.5;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-weight: 750;
+    line-height: 1.2;
+    overflow-wrap: break-word;
+}
+
+h2 { font-size: 2rem; }
+h3 { font-size: 1.375rem; }
+p { margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+[id] { scroll-margin-top: 1rem; }
+
+/* Normal content images keep their intrinsic proportions by default. */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 a {
@@ -45,7 +66,13 @@ header {
     border-right: 2px solid #ffcc33;
 }
 
-.sidebar h2 { color: #d62828; margin-bottom: 18px; }
+.sidebar h2 { color: var(--hub-red); font-size: 1.375rem; margin-bottom: 12px; }
+
+.sidebar-intro {
+    color: #68483b;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
 
 .sidebar ul {
     margin: 0;
@@ -53,8 +80,8 @@ header {
     list-style: none;
 }
 
-.sidebar li { margin-bottom: 12px; }
-.sidebar a { color: #4a2518; font-weight: bold; }
+.sidebar li { margin-bottom: 4px; }
+.sidebar a { display: flex; align-items: center; min-height: 44px; color: #4a2518; font-weight: 600; }
 .sidebar a:hover { color: #d62828; }
 .grid-main { grid-area: main; min-width: 0; }
 .grid-footer { grid-area: footer; }
@@ -84,18 +111,12 @@ header {
 
 .hero h1 {
     font-size: 58px;
-    line-height: 1.05;
+    line-height: 1.1;
     color: #2b1710;
 }
 
 .hero h1 span {
     color: #d62828;
-}
-
-.hero-text > p:not(.label) {
-    color: #68483b;
-    font-size: 19px;
-    max-width: 600px;
 }
 
 .hero-description {
@@ -107,10 +128,10 @@ header {
 
 .hero-image img {
     width: 100%;
-    height: 360px;
-    object-fit: cover;
-    border-radius: 16px;
-    border: 4px solid #ffcc33;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--hub-radius);
+    border: 2px solid var(--hub-border);
 }
 
 .image-caption {
@@ -135,11 +156,12 @@ header {
     display: flex;
     flex: 0 0 calc((100% - 40px) / 3);
     min-width: 0;
+    min-height: 470px;
     flex-direction: column;
     padding: 20px;
     background: #fff8df;
-    border: 2px solid #ffcc33;
-    border-radius: 12px;
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -148,11 +170,18 @@ header {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
-.player-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
+.player-card-media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
     border-radius: 10px;
+}
+
+/* Assignment 2 card row: this bounded 4:3 media window is an intentional
+   component crop that keeps the three Flexbox cards visually consistent. */
+.player-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .player-card h3 {
@@ -167,22 +196,78 @@ header {
     font-size: 16px;
 }
 
+.player-meta-list {
+    margin: 0 0 18px;
+    padding-left: 18px;
+    color: #68483b;
+    font-size: 14px;
+}
+
+.player-meta-list li {
+    margin-bottom: 3px;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    background: #fff8df;
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius);
+}
+
+.team-card h3 {
+    color: #d62828;
+    font-size: 22px;
+}
+
+.team-card p { color: #68483b; margin-bottom: 0; }
+.team-card .btn { align-self: flex-start; margin-top: auto; }
+
+.team-card .team-card-label {
+    color: #b51e22;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.demo-note {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #fff0c2;
+    border-left: 4px solid #f77f00;
+    color: #68483b;
+    font-weight: bold;
+}
+
 .game-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
 }
 
-.game-list a {
+.game-list > a,
+.game-list > .team-tile {
+    display: block;
     background: #fff8df;
-    border: 2px solid #ffcc33;
-    border-radius: 12px;
-    transition: 0.2s;
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius);
+    min-width: 0;
+    transition: transform 0.2s, border-color 0.2s;
 }
 
-.game-list a:hover {
+.game-list > a:hover,
+.game-list > .team-tile:hover {
     border-color: #f77f00;
     transform: translateY(-3px);
+}
+
+.game-list > .team-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .game-list strong {
@@ -204,7 +289,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
+
+.section-title > * { min-width: 0; }
 
 .section-title h2,
 .about h2 {
@@ -220,18 +309,18 @@ header {
 
 .event {
     display: grid;
-    grid-template-columns: 90px 1fr 40px;
+    grid-template-columns: 72px minmax(0, 1fr) 24px;
     align-items: center;
     gap: 20px;
     background: #ffffff;
-    border-radius: 10px;
+    border-radius: var(--hub-radius);
     border-left: 5px solid #f77f00;
-    transition: 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .event:hover {
     border-left-color: #d62828;
-    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(43, 23, 16, 0.08);
 }
 
 .date {
@@ -260,13 +349,74 @@ header {
     font-size: 24px;
 }
 
-.event small {
-    color: #8a5a44;
+.event small { display: block; color: #68483b; }
+
+.event-content {
+    min-width: 0;
 }
 
-.event h3 {
-    color: #2b1710;
-    margin: 3px 0;
+.event-status {
+    display: inline-block;
+    margin: 4px 0;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 0.3px;
+}
+
+.status-open {
+    background: #d8f3dc;
+    color: #155724;
+}
+
+.status-upcoming {
+    background: #fff0c2;
+    color: #68483b;
+}
+
+.status-completed {
+    background: #eadcf8;
+    color: #4c2a69;
+}
+
+.event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    margin: 4px 0 0;
+    color: #68483b;
+    font-size: 14px;
+}
+
+.event-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    margin-top: 10px;
+}
+
+.event-actions a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: #b51e22;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.event-actions a:hover {
+    color: #68483b;
+    text-decoration: underline;
+}
+
+.event h3 { color: #2b1710; margin: 3px 0; font-size: 1.25rem; }
+
+.section-note {
+    color: #68483b;
+    font-size: 15px;
 }
 
 .event-arrow {
@@ -279,14 +429,14 @@ header {
 }
 
 .about-content > p {
-    color: #d62828;
+    color: #68483b;
     font-size: 18px;
 }
 
 .bio {
     background: #fff8df;
-    border: 2px solid #ffcc33;
-    border-radius: 12px;
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius);
 }
 
 .bio h2 {
@@ -294,20 +444,27 @@ header {
     margin-bottom: 10px;
 }
 
+.bio h3 { color: #b51e22; }
+
 .bio p {
     color: #68483b;
 }
 
 .table-wrap {
+    max-width: 100%;
     overflow-x: auto;
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     background: #ffffff;
-    border: 2px solid #ffcc33;
+    min-width: 480px;
 }
+
+caption { padding: 12px 14px; color: #68483b; }
 
 thead th {
     background: #d62828;
@@ -323,15 +480,15 @@ tbody th {
     color: #4a2518;
 }
 
-tr:hover {
+tbody tr:hover {
     background: #fff8df;
 }
 
 #contact-form {
     max-width: 700px;
     background: #fff8df;
-    border: 2px solid #ffcc33;
-    border-radius: 12px;
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius);
 }
 
 #contact-form textarea {
@@ -339,9 +496,17 @@ tr:hover {
     resize: vertical;
 }
 
+.event-filters {
+    max-width: 900px;
+    background: #fff8df;
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius);
+}
+
 ul,
 ol {
-    margin: 15px 0 15px 25px;
+    margin: 1rem 0;
+    padding-left: 1.5rem;
     color: #68483b;
 }
 
@@ -350,20 +515,29 @@ li {
 }
 
 .feature-image {
-    width: 100%;
-    max-width: 520px;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 16px;
-    border: 4px solid #ffcc33;
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--hub-radius);
+    border: 2px solid var(--hub-border);
 }
 
-.profile-image {
+.profile-avatar {
     width: 150px;
-    height: 150px;
-    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
     border-radius: 50%;
     border: 5px solid #ffcc33;
+    margin-bottom: 1rem;
+}
+
+/* The square wrapper is an intentional circular avatar crop; the source
+   image itself is not stretched to a square. */
+.profile-avatar .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 footer {
@@ -374,7 +548,7 @@ footer {
 .footer {
     min-height: 150px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 30px;
 }
@@ -392,94 +566,84 @@ footer {
     margin-top: 5px;
 }
 
+.footer-nav strong {
+    display: block;
+    color: #ffcc33;
+}
+
+.footer-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer-nav li { margin-bottom: 0; }
+.footer-nav a { display: inline-flex; align-items: center; min-height: 44px; color: #ffffff; }
+.footer-nav a:hover { color: #ffcc33; }
+
 .copyright {
     border-top: 1px solid #68483b;
     color: #ffd6c2;
     font-size: 14px;
 }
 
-@media (max-width: 991.98px) {
-    .page-layout {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr auto;
-        grid-template-areas:
-            "header"
-            "sidebar"
-            "main"
-            "footer";
-    }
-
-    .sidebar {
-        border-right: 0;
-        border-bottom: 2px solid #ffcc33;
-    }
-
-    .hero-image img {
-        height: 280px;
-    }
-
-    .event {
-        grid-template-columns: 70px 1fr 25px;
-    }
-
-    .footer {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-}
-
-.ranking-image {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-}
-
-.contact-image {
-    object-fit: cover;
-    object-position: center;
-}
-
 .gallery-section {
     background: #ffffff;
 }
 
-/* Assignment 3, Tasks 1-2: viewport breakpoints match Bootstrap md/lg.
-   This card layout uses only Flexbox and CSS media queries. */
-.hero-description,
-.about-content > p {
-    font-size: 18px;
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
 }
 
-@media (max-width: 991.98px) {
-    .hero h1 { font-size: 48px; }
-    .section-title h2,
-    .about h2 { font-size: 30px; }
-    .hero-description,
-    .hero-text > p:not(.label),
-    .about-content > p { font-size: 17px; }
-    .player-card { flex-basis: calc((100% - 20px) / 2); }
+.gallery-card {
+    margin: 0;
+    overflow: hidden;
+    background: #fff8df;
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-@media (max-width: 767.98px) {
-    .hero h1 { font-size: 36px; }
-    .section-title h2,
-    .about h2 { font-size: 26px; }
-    .hero-description,
-    .hero-text > p:not(.label),
-    .about-content > p { font-size: 16px; }
-    .player-card { flex-basis: 100%; }
+.gallery-media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
 }
+
+/* Assignment 2 gallery: the 16:10 media wrapper is an intentional component
+   crop for consistent tracks; the always-visible caption keeps context. */
+.gallery-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.gallery-card figcaption {
+    padding: 10px 12px;
+    color: #68483b;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-card:hover .gallery-media img { transform: scale(1.04); }
 
 /* Keep Bootstrap containers inside the original page grid. */
 .container { max-width: min(100%, 1200px); }
-.grid-main > section > .container { width: 90%; }
-h1, h2, h3, h4, h5, h6 { font-weight: bold; }
-p { margin-bottom: 0; }
+.grid-main > section > .container { width: 100%; padding-inline: clamp(24px, 3vw, 48px); }
 
-/* Task 5: Bootstrap controls navbar layout; theme variables retain EsportsHub colors. */
+/* Bootstrap CSS supplies Flexbox navbar styling; native checkbox + CSS
+   control the mobile links. No collapse plugin or JavaScript is used. */
 .navbar {
     --bs-navbar-color: #4a2518;
     --bs-navbar-hover-color: #b51e22;
@@ -487,9 +651,47 @@ p { margin-bottom: 0; }
     --bs-navbar-brand-color: #d62828;
     --bs-navbar-brand-hover-color: #b51e22;
 }
-.navbar .nav-link { font-size: 17px; font-weight: bold; }
+.navbar .nav-link { display: flex; align-items: center; min-height: 44px; font-size: 17px; font-weight: 650; }
 .navbar .nav-link.active { text-decoration: underline; text-underline-offset: 6px; }
-.navbar-toggler { border-color: #68483b; }
+.navbar > .container { padding-inline: 24px; }
+.nav-menu-toggle, .nav-menu-label { display: none; }
+
+@media (max-width: 991.98px) {
+    .nav-menu-toggle {
+        display: block;
+        appearance: none;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        margin-left: auto;
+        border: 1px solid #68483b;
+        border-radius: 8px;
+        cursor: pointer;
+        background-color: #ffffff;
+        background-image: linear-gradient(#68483b, #68483b),
+                          linear-gradient(#68483b, #68483b),
+                          linear-gradient(#68483b, #68483b);
+        background-size: 22px 2px;
+        background-position: center calc(50% - 7px), center, center calc(50% + 7px);
+        background-repeat: no-repeat;
+    }
+    .nav-menu-toggle:checked {
+        background-image: linear-gradient(45deg, transparent 46%, #68483b 46%, #68483b 54%, transparent 54%),
+                          linear-gradient(-45deg, transparent 46%, #68483b 46%, #68483b 54%, transparent 54%);
+        background-size: 22px 22px;
+        background-position: center;
+    }
+    .nav-menu-label {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        margin-left: 8px;
+        font-weight: 650;
+        cursor: pointer;
+    }
+    .navbar .navbar-collapse { display: none; flex-basis: 100%; padding-top: 8px; }
+    .nav-menu-toggle:checked ~ .navbar-collapse { display: block; }
+}
 
 /* Task 6: Bootstrap button states, with the existing red/brown palette. */
 .btn-primary {
@@ -513,23 +715,91 @@ p { margin-bottom: 0; }
     --bs-btn-hover-bg: #68483b; --bs-btn-hover-border-color: #68483b;
     --bs-btn-active-bg: #4a2518; --bs-btn-active-border-color: #4a2518;
 }
-.btn { font-weight: bold; }
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    max-width: 100%;
+    white-space: normal;
+    font-weight: 650;
+    border-radius: 8px;
+}
 
-/* Task 7: a bounded image area prevents layout jumps between the nine slides. */
-.carousel { border: 2px solid #ffcc33; border-radius: 12px; overflow: hidden; background: #2b1710; }
-.carousel-item > img { height: clamp(280px, 42vw, 520px); object-fit: cover; }
-.carousel-caption { left: 15%; right: 15%; bottom: 2.75rem; padding: 12px; background: rgba(43, 23, 16, 0.9); border-radius: 8px; }
+.btn-group { max-width: 100%; flex-wrap: wrap; }
+
+/* HTML/CSS carousel: native horizontal scrolling and real fragment links.
+   The bounded 16:9 media wrapper remains an intentional component crop. */
+.css-carousel {
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid var(--hub-border);
+    border-radius: var(--hub-radius);
+    background: #2b1710;
+}
+.carousel-track {
+    /* Contain absolute visually-hidden labels inside the scroll viewport. */
+    position: relative;
+    display: flex;
+    min-width: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    border-radius: 8px;
+}
+.carousel-panel {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+    scroll-margin: 0;
+}
+.carousel-panel:target { outline: 2px solid #ffcc33; outline-offset: -2px; }
+.carousel-media { aspect-ratio: 16 / 9; overflow: hidden; }
+.carousel-media img { width: 100%; height: 100%; object-fit: cover; }
+.css-carousel .carousel-caption { position: static; padding: 16px; background: #2b1710; }
 .carousel-caption h3 { color: #ffcc33; font-size: 24px; }
 .carousel-caption p { color: #ffffff; }
-.carousel-control-prev, .carousel-control-next { opacity: 1; }
-.carousel-control-prev-icon,
-.carousel-control-next-icon { background-color: #2b1710; border-radius: 50%; background-size: 65%; width: 44px; height: 44px; }
-.carousel-indicators { background: #2b1710; border-radius: 8px; }
-.carousel-indicators [data-bs-target] { width: 16px; height: 6px; border-top-width: 10px; border-bottom-width: 10px; }
+.carousel-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px 16px;
+    margin-top: auto;
+}
+.carousel-controls .btn { justify-self: start; }
+.carousel-controls .btn:last-child { justify-self: end; }
+.carousel-position { color: #ffffff; font-size: 14px; }
+/* Captions, Previous/Next links and numbered links stay outside the image.
+   Off-screen slides remain reachable through native scrolling and keyboard links. */
+.carousel-pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 12px;
+}
+.carousel-pagination a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    min-height: 44px;
+    border: 1px solid #ffe8d6;
+    border-radius: 6px;
+    color: #ffffff;
+    font-weight: 650;
+}
+.carousel-pagination a:hover { background: #ffcc33; color: #2b1710; }
+.css-carousel :focus-visible { outline: 3px solid #ffcc33; outline-offset: -3px; }
 
-/* Task 8: Bootstrap owns card layout and body spacing; CSS supplies the site's theme. */
-.card { --bs-card-bg: #fff8df; --bs-card-border-color: #ffcc33; --bs-card-border-width: 2px; --bs-card-border-radius: 12px; }
-.card-img-top { height: 220px; object-fit: cover; }
+/* Task 8: Bootstrap owns card layout and body spacing; this bounded 4:3
+   media wrapper is an intentional Bootstrap-card crop. */
+.card { --bs-card-bg: #fff8df; --bs-card-border-color: var(--hub-border); --bs-card-border-width: 1px; --bs-card-border-radius: var(--hub-radius); }
+.bootstrap-card-media { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 10px 10px 0 0; }
+.bootstrap-card-media .card-img-top { width: 100%; height: 100%; object-fit: cover; }
 .card-title { color: #d62828; font-size: 24px; }
 .card-text { color: #68483b; }
 
@@ -539,36 +809,79 @@ p { margin-bottom: 0; }
 .form-control:focus, .form-select:focus { border-color: #b51e22; box-shadow: 0 0 0 0.2rem rgba(181, 30, 34, 0.2); }
 .input-group-text { background: #ffcc33; }
 .form-text { color: #68483b; }
+.form-control, .form-select, .input-group-text { min-height: 44px; font-size: 1rem; }
+.form-control::placeholder { color: #68483b; opacity: 1; }
 
 /* Task 10: keyboard access, readable small-screen layout, reduced motion. */
-.skip-link { position: fixed; top: 8px; left: 8px; transform: translateY(-160%); z-index: 1100; background: #2b1710; color: white; border-radius: 6px; }
-.skip-link:focus { transform: translateY(0); }
-a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 3px solid #8d1717; outline-offset: 4px; }
-.sidebar h2 { font-size: 22px; }
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 1100;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    opacity: 0;
+    pointer-events: none;
+    background: #2b1710;
+    color: #ffffff;
+    border-radius: 6px;
+}
+.skip-link:focus { opacity: 1; pointer-events: auto; outline-color: #ffcc33; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, [tabindex]:focus-visible, .btn:focus-visible,
+.nav-link:focus-visible, .nav-menu-toggle:focus-visible,
+.form-control:focus-visible, .form-select:focus-visible {
+    outline: 3px solid #8d1717;
+    outline-offset: 3px;
+}
+.btn:focus-visible { box-shadow: 0 0 0 2px #ffffff; }
+footer a:focus-visible, .css-carousel :focus-visible { outline-color: #ffcc33; }
 .sidebar a[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
-.game-list > a, .event > div, .player-card { min-width: 0; overflow-wrap: anywhere; }
-.game-list a:focus-visible { border-color: #b51e22; }
-.event h3 { font-size: 20px; }
+.game-list > a, .event > div, .player-card, .team-card { min-width: 0; overflow-wrap: break-word; }
+.game-list > a:focus-visible { border-color: #b51e22; }
 .about-content > * { min-width: 0; }
-.player-card img { flex-shrink: 0; }
-.table-wrap table { min-width: 480px; }
+.player-card-media img { flex-shrink: 0; }
 tbody th { font-weight: bold; text-align: left; }
-@media (max-width: 991.98px) {
-    .sidebar ul { display: flex; flex-wrap: wrap; gap: 8px 24px; }
-    .sidebar li { margin-bottom: 0; }
+/* Assignment 3: lg/md/sm boundaries are shared with Bootstrap. Flexbox
+   cards remain 3 / 2 / 1; tile density adapts before cards become cramped. */
+@media (max-width: 1199.98px) {
+    .hero h1 { font-size: 48px; }
     .game-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .player-card { padding: 16px; }
+}
+@media (max-width: 991.98px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas: "header" "sidebar" "main" "footer";
+    }
+    .sidebar { border-right: 0; border-bottom: 2px solid #ffcc33; }
+    .sidebar ul { display: flex; flex-wrap: wrap; gap: 0 24px; }
+    .footer { flex-direction: column; }
+    .section-title h2, .about h2, h2 { font-size: 30px; }
+    .hero-description, .about-content > p { font-size: 17px; }
+    .player-card { flex-basis: calc((100% - 20px) / 2); }
+    .sidebar li { margin-bottom: 0; }
+    .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 767.98px) {
-    .grid-main > section > .container { width: 100%; }
+    .hero h1 { font-size: 36px; }
+    .section-title h2, .about h2, h2 { font-size: 26px; }
+    .hero-description, .about-content > p { font-size: 16px; }
+    .player-card { flex-basis: 100%; }
     .event { grid-template-columns: 56px minmax(0, 1fr) 18px; gap: 10px; }
     .event h3 { font-size: 18px; }
-    .hero-image img { height: 260px; }
     .carousel-caption h3 { font-size: 20px; }
 }
 @media (max-width: 575.98px) {
+    /* Release Bootstrap's brand margin so the labeled 44px menu fits at 320px. */
+    .navbar .navbar-brand { margin-right: 0 !important; }
     .game-list { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
-    .player-card:hover, .game-list a:hover, .event:hover { transform: none; }
+    .player-card:hover, .game-list > a:hover, .game-list > .team-tile:hover, .gallery-card:hover { transform: none; }
+    .gallery-card:hover .gallery-media img { transform: none; }
 }

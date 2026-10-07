@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">EsportsHub project team initials</title>
+  <desc id="desc">Original team avatar with the initials D, A and A for Damir, Alina and Aisha.</desc>
+  <rect width="512" height="512" fill="#fff8df"/>
+  <circle cx="256" cy="256" r="222" fill="#2b1710"/>
+  <circle cx="256" cy="256" r="184" fill="none" stroke="#ffcc33" stroke-width="8"/>
+  <g fill="#ffcc33">
+    <circle cx="146" cy="166" r="35"/>
+    <circle cx="256" cy="145" r="40"/>
+    <circle cx="366" cy="166" r="35"/>
+  </g>
+  <g fill="#b51e22">
+    <path d="M91 244Q91 205 146 205T201 244Z"/>
+    <path d="M190 244Q190 190 256 190T322 244Z"/>
+    <path d="M311 244Q311 205 366 205T421 244Z"/>
+  </g>
+  <text x="256" y="351" text-anchor="middle" font-family="Arial,sans-serif" font-size="82" font-weight="700" fill="#ffffff">D · A · A</text>
+</svg>

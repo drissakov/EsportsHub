@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Sample platform ranking points</title>
+  <desc id="desc">Original chart illustrating the demo table: Team Spirit 2450, G2 Esports 2310, Gen.G 2240 and Fnatic 2180 points.</desc>
+  <rect width="960" height="540" rx="24" fill="#fff8df"/>
+  <text x="96" y="93" font-family="Arial,sans-serif" font-size="40" font-weight="700" fill="#b51e22">DEMO RANKING</text>
+  <text x="96" y="131" font-family="Arial,sans-serif" font-size="22" fill="#68483b">Illustrative platform points · not live standings</text>
+  <g fill="#2b1710" font-family="Arial,sans-serif" font-size="28" font-weight="700">
+    <text x="96" y="203">Team Spirit</text>
+    <text x="96" y="281">G2 Esports</text>
+    <text x="96" y="359">Gen.G</text>
+    <text x="96" y="437">Fnatic</text>
+  </g>
+  <g fill="#e6cf8b">
+    <rect x="318" y="175" width="420" height="38" rx="8"/>
+    <rect x="318" y="253" width="420" height="38" rx="8"/>
+    <rect x="318" y="331" width="420" height="38" rx="8"/>
+    <rect x="318" y="409" width="420" height="38" rx="8"/>
+  </g>
+  <g fill="#b51e22">
+    <rect x="318" y="175" width="420" height="38" rx="8"/>
+    <rect x="318" y="253" width="396" height="38" rx="8"/>
+    <rect x="318" y="331" width="384" height="38" rx="8"/>
+    <rect x="318" y="409" width="374" height="38" rx="8"/>
+  </g>
+  <g fill="#68483b" font-family="Arial,sans-serif" font-size="28" font-weight="700" text-anchor="end">
+    <text x="864" y="203">2450</text>
+    <text x="864" y="281">2310</text>
+    <text x="864" y="359">2240</text>
+    <text x="864" y="437">2180</text>
+  </g>
+</svg>

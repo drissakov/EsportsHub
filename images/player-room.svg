@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Community players practicing together</title>
+  <desc id="desc">An original illustration of three players at gaming desks, connected through a shared competition.</desc>
+  <rect width="1280" height="720" rx="24" fill="#fff8df"/>
+  <path d="M80 154H1200M640 154V212" stroke="#e6cf8b" stroke-width="10" stroke-linecap="round"/>
+  <rect x="316" y="62" width="648" height="100" rx="22" fill="#2b1710"/>
+  <text x="640" y="124" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="700" fill="#ffcc33">PLAY · CONNECT · COMPETE</text>
+  <g fill="#ffffff" stroke="#e6cf8b" stroke-width="4">
+    <rect x="70" y="210" width="350" height="438" rx="24"/>
+    <rect x="465" y="210" width="350" height="438" rx="24"/>
+    <rect x="860" y="210" width="350" height="438" rx="24"/>
+  </g>
+  <g fill="#2b1710">
+    <rect x="128" y="370" width="234" height="146" rx="14"/>
+    <rect x="523" y="370" width="234" height="146" rx="14"/>
+    <rect x="918" y="370" width="234" height="146" rx="14"/>
+  </g>
+  <g fill="#b51e22">
+    <path d="M165 355Q165 292 245 292T325 355Z"/>
+    <path d="M560 355Q560 292 640 292T720 355Z"/>
+    <path d="M955 355Q955 292 1035 292T1115 355Z"/>
+  </g>
+  <g fill="#ffcc33" stroke="#2b1710" stroke-width="5">
+    <circle cx="245" cy="280" r="45"/>
+    <circle cx="640" cy="280" r="45"/>
+    <circle cx="1035" cy="280" r="45"/>
+  </g>
+  <g fill="none" stroke="#68483b" stroke-width="8">
+    <path d="M193 287V272A52 52 0 0 1 297 272V287"/>
+    <path d="M588 287V272A52 52 0 0 1 692 272V287"/>
+    <path d="M983 287V272A52 52 0 0 1 1087 272V287"/>
+  </g>
+  <g fill="#fff8df">
+    <rect x="146" y="388" width="198" height="100" rx="8"/>
+    <rect x="541" y="388" width="198" height="100" rx="8"/>
+    <rect x="936" y="388" width="198" height="100" rx="8"/>
+  </g>
+  <g stroke="#b51e22" stroke-width="8" fill="none">
+    <path d="M214 438H276M245 407V469"/>
+    <path d="M609 438L640 407L671 438L640 469Z"/>
+    <circle cx="1035" cy="438" r="31"/>
+  </g>
+  <g fill="#68483b">
+    <rect x="112" y="526" width="266" height="18" rx="6"/>
+    <rect x="507" y="526" width="266" height="18" rx="6"/>
+    <rect x="902" y="526" width="266" height="18" rx="6"/>
+  </g>
+  <g fill="#68483b" font-family="Arial,sans-serif" font-size="28" font-weight="700" text-anchor="middle">
+    <text x="245" y="602">FIND PLAYERS</text>
+    <text x="640" y="602">BUILD A TEAM</text>
+    <text x="1035" y="602">DISCOVER EVENTS</text>
+  </g>
+</svg>
