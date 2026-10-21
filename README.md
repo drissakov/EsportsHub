@@ -20,10 +20,6 @@ The project uses semantic HTML5, CSS3, Flexbox, CSS Grid, responsive media queri
 
 Events, profiles and rankings are sample content. Calendar preview controls do not filter data. The sign-up and subscription components demonstrate client-side validation; they do not create accounts, store credentials or send subscriptions. The existing contact form opens an email draft through `mailto:` after its inputs pass JavaScript validation; delivery depends on the visitor's email application and is not confirmed by this website.
 
-## Defense preparation
-
-[Russian preparation page](defense.html): plain-language explanations of all five JavaScript components, speaking plans for each team member, 40 teacher questions with answers, oral self-practice, five suggested code changes and a personal checklist. It reuses the real background, clock and subscription scripts. The checklist stores only completion marks in this browser; it does not track the team or submit answers.
-
 ## Assignment 4 components
 
 | Task | Where to demonstrate | Implementation |
