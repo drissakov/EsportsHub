@@ -3,12 +3,20 @@
     <head>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <!-- Created by Damir, Alina and Aisha -->
+        <!-- FAN | SE-2501 | Damir Issakov, Alina Aitmukhamet, Aisha Mussina -->
         <title>
             Community &amp; Contact | EsportsHub
         </title>
-        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" rel="stylesheet">
+        <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+        <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
+        <link href="css/interactive.css" rel="stylesheet">
+        <link href="css/validation.css" rel="stylesheet">
+        <link href="css/subscription.css" rel="stylesheet">
+        <script defer src="js/site.js"></script>
+        <script defer src="js/accordion.js"></script>
+        <script defer src="js/validation.js"></script>
+        <script defer src="js/subscription.js"></script>
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -125,7 +133,7 @@
                             CONTACT FORM
                         </p>
                         <h2 id="contact-form-title">Send a question or feedback</h2>
-                        <p id="contact-required">All fields are required. Choose a topic in the form; support shortcuts do not preselect it.</p>
+                        <p id="contact-required">All fields are required. JavaScript checks your input before opening an email draft. Choose a topic in the form.</p>
                         <form action="mailto:info@esportshub.com" aria-describedby="contact-help contact-required" aria-labelledby="contact-form-title" class="mx-auto my-4 p-3 p-md-4" enctype="text/plain" id="contact-form" method="post">
                             <div class="row g-3">
                                 <div class="col-12 col-md-6">
@@ -183,7 +191,7 @@
                                         Open email draft
                                     </button>
                                     <p class="form-text mt-2" id="contact-help">
-                                        Prototype behavior: all fields are required, and submitting opens your configured email app with the completed message. No server-side delivery is connected.
+                                        Prototype behavior: JavaScript checks required fields and email; valid submission opens your configured email app with the completed message. No server-side delivery is connected.
                                     </p>
                                 </div>
                             </div>
@@ -202,6 +210,69 @@
                         </ul>
                     </div>
                 </section>
+<section class="about py-4 py-lg-5" id="registration" aria-labelledby="registration-title">
+    <div class="container">
+        <p class="label mb-3">JOIN THE COMMUNITY</p>
+        <h2 id="registration-title">Try the player sign-up form</h2>
+        <p id="registration-help">All fields are required. This validation demo does not create an account or send your information. Use a sample password.</p>
+        <form id="registration-form" class="registration-form mx-auto my-4 p-3 p-md-4" data-validate-form data-demo-form aria-labelledby="registration-title" aria-describedby="registration-help" action="#registration" method="post">
+            <p class="validation-summary" data-validation-summary role="status" aria-live="polite" aria-atomic="true"></p>
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="registration-name">Display name</label>
+                    <input class="form-control" id="registration-name" name="display-name" autocomplete="nickname" required type="text" placeholder="Your player name">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="registration-email">Email</label>
+                    <input class="form-control" id="registration-email" name="email" autocomplete="email" required type="email" placeholder="player@example.com" aria-describedby="registration-email-help">
+                    <p class="form-text mt-2" id="registration-email-help">Use a complete address, such as player@example.com.</p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="registration-password">Password</label>
+                    <input class="form-control" id="registration-password" autocomplete="new-password" required type="password" minlength="8" aria-describedby="registration-password-help">
+                    <p class="form-text mt-2" id="registration-password-help">Use at least 8 characters. Use a sample password for this demo.</p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="registration-confirm">Confirm password</label>
+                    <input class="form-control" id="registration-confirm" autocomplete="new-password" required type="password" data-match="#registration-password" aria-describedby="registration-confirm-help">
+                    <p class="form-text mt-2" id="registration-confirm-help">Enter the same password again.</p>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit" data-enable-validation disabled>Validate demo sign-up</button>
+                    <noscript><p class="field-error mt-2">Enable JavaScript to try this validation demo. No account service is connected.</p></noscript>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+                <section class="about interactive-section py-4 py-lg-5" id="community-faq">
+                    <div class="container">
+                        <p class="label mb-3">COMMUNITY FAQ</p>
+                        <h2 class="mb-3">A few things to know.</h2>
+                        <p class="mb-4">Select a question to reveal the answer. Select it again to close it.</p>
+                        <div class="faq-list">
+                            <article class="faq-item">
+                                <h3><button aria-controls="faq-answer-1" aria-expanded="false" class="faq-trigger" data-accordion-trigger id="faq-question-1" type="button">How do I explore tournaments?</button></h3>
+                                <div aria-labelledby="faq-question-1" class="faq-panel" hidden id="faq-answer-1" role="region"><div><p>Visit the Events page and explore the sample tournament calendar. Listings demonstrate the website design; booking and registration are not connected to a tournament service.</p></div></div>
+                            </article>
+                            <article class="faq-item">
+                                <h3><button aria-controls="faq-answer-2" aria-expanded="false" class="faq-trigger" data-accordion-trigger id="faq-question-2" type="button">Does the registration demo create an account?</button></h3>
+                                <div aria-labelledby="faq-question-2" class="faq-panel" hidden id="faq-answer-2" role="region"><div><p>The form checks required fields, your email address, an eight-character minimum password and matching confirmation. It demonstrates browser validation and does not create an account or store your password.</p></div></div>
+                            </article>
+                            <article class="faq-item">
+                                <h3><button aria-controls="faq-answer-3" aria-expanded="false" class="faq-trigger" data-accordion-trigger id="faq-question-3" type="button">How does the subscription popup work?</button></h3>
+                                <div aria-labelledby="faq-question-3" class="faq-panel" hidden id="faq-answer-3" role="region"><div><p>Choose Subscribe in the page tools to open the form. Close it with the close button, Escape or a click outside the form. A valid email displays a demo confirmation; no email is sent or saved.</p></div></div>
+                            </article>
+                            <article class="faq-item">
+                                <h3><button aria-controls="faq-answer-4" aria-expanded="false" class="faq-trigger" data-accordion-trigger id="faq-question-4" type="button">Can I personalize the page?</button></h3>
+                                <div aria-labelledby="faq-question-4" class="faq-panel" hidden id="faq-answer-4" role="region"><div><p>Change background cycles through white, soft mint, soft lavender and warm cream. The clock shows the current date and time in your browser's time zone and updates every second.</p></div></div>
+                            </article>
+                        </div>
+                        <noscript><p>Enable JavaScript to use the FAQ, form demos and page tools.</p></noscript>
+                    </div>
+                </section>
+
                 <section class="about py-4 py-lg-5" id="team">
                     <div class="container">
                         <p class="label mb-3">
@@ -212,23 +283,23 @@
                                 <img alt="Team avatar with the initials D, A and A for Damir, Alina and Aisha" class="profile-image" decoding="async" loading="lazy" height="512" src="images/team-avatar.svg" width="512">
                             </div>
                             <h2>
-                                Damir, Alina and Aisha
+                                FAN · SE-2501
                             </h2>
                             <p>
-                                Our team designed EsportsHub as a simple esports community website. We worked on the pages, content, HTML structure and visual styling.
+                                FAN is our SE-2501 project team. We are extending EsportsHub with JavaScript components and preparing to explain the complete project together.
                             </p>
                             <div class="row g-4 mt-2">
                                 <section class="col-12 col-md-6 col-lg-4" aria-labelledby="bio-damir">
-                                    <h3 id="bio-damir">Damir</h3>
-                                    <p>Damir owns Home and Events, introducing the product and guiding visitors through the sample competition calendar.</p>
+                                    <h3 id="bio-damir">Damir Issakov</h3>
+                                    <p>Damir is responsible for Home and Events, the subscription popup, and the live date and time display.</p>
                                 </section>
                                 <section class="col-12 col-md-6 col-lg-4" aria-labelledby="bio-alina">
-                                    <h3 id="bio-alina">Alina</h3>
-                                    <p>Alina owns Teams and Players, connecting discovery to rosters and demonstrating the Flexbox cards, Grid gallery and carousel.</p>
+                                    <h3 id="bio-alina">Alina Aitmukhamet</h3>
+                                    <p>Alina is responsible for Teams and Players, the community FAQ accordion, and the background color control.</p>
                                 </section>
                                 <section class="col-12 col-md-6 col-lg-4" aria-labelledby="bio-aisha">
-                                    <h3 id="bio-aisha">Aisha</h3>
-                                    <p>Aisha owns Rankings and Community &amp; Support, explaining sample points and presenting the accessible contact and feedback form.</p>
+                                    <h3 id="bio-aisha">Aisha Mussina</h3>
+                                    <p>Aisha is responsible for Rankings and Community &amp; Support, sign-up validation, and JavaScript validation of the contact form.</p>
                                 </section>
                             </div>
                         </div>
@@ -300,6 +371,20 @@
                     <li><a href="#team">Meet the team</a></li>
                     <li><a href="index.html#how-it-works">Return to the product flow</a></li>
                 </ul>
+
+                <section class="hub-tools" aria-labelledby="page-tools-title">
+                    <h2 id="page-tools-title">Your page, your way.</h2>
+                    <time class="hub-clock" data-current-time>Loading current time...</time>
+                    <small>Browser time zone: <span data-time-zone>local</span></small>
+                    <div class="hub-tool-actions">
+                        <button class="btn btn-outline-danger" data-background-cycle type="button">Change background</button>
+                        <button class="btn btn-primary" data-open-subscription type="button">Subscribe</button>
+                        <a class="btn btn-outline-danger" href="contact.html#registration">Try sign-up</a>
+                        <a class="btn btn-outline-danger" href="contact.html#community-faq">Community FAQ</a>
+                    </div>
+                    <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                    <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
+                </section>
             </aside>
             <footer class="grid-footer mt-5">
                 <div class="container footer pt-4 pb-3 ps-3 pe-3">
@@ -323,7 +408,8 @@
                     </nav>
                     <div>
                         <strong>Team</strong>
-                        <p>Damir · Alina · Aisha</p>
+                        <p>Damir Issakov · Alina Aitmukhamet · Aisha Mussina</p>
+                        <p>FAN · SE-2501</p>
                     </div>
                 </div>
                 <div class="container copyright py-3">
@@ -331,5 +417,21 @@
                 </div>
             </footer>
         </div>
+        <dialog aria-labelledby="subscription-title" aria-describedby="subscription-description" class="subscription-dialog" id="subscription-dialog">
+            <div class="subscription-heading">
+                <p class="label">STAY IN THE GAME</p>
+                <button aria-label="Close subscription form" class="subscription-close" data-close-subscription type="button">&times;</button>
+            </div>
+            <h2 id="subscription-title">Your next match starts here.</h2>
+            <p id="subscription-description">Try the EsportsHub event newsletter form. This is a frontend demo: your email is not sent or stored.</p>
+            <form class="subscription-form" id="subscription-form" novalidate>
+                <label class="form-label" for="subscription-email">Email address <span>(required)</span></label>
+                <input aria-describedby="subscription-email-help subscription-email-error" autocomplete="email" class="form-control" id="subscription-email" maxlength="254" name="email" placeholder="you@example.com" required type="email">
+                <p class="form-text" id="subscription-email-help">Use a complete address, such as name@example.com.</p>
+                <p aria-live="polite" class="subscription-error" id="subscription-email-error"></p>
+                <button class="btn btn-primary" type="submit">Try subscription</button>
+                <p aria-live="polite" class="subscription-result" id="subscription-result" role="status"></p>
+            </form>
+        </dialog>
     </body>
 </html>

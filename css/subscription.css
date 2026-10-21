@@ -1,0 +1,43 @@
+/* Assignment 4, Task 3: a responsive newsletter dialog. */
+.subscription-dialog {
+    width: min(32rem, calc(100% - 2rem));
+    max-height: calc(100dvh - 2rem);
+    margin: auto;
+    overflow-y: auto;
+    padding: clamp(1.25rem, 5vw, 2rem);
+    color: #2b1710;
+    background: #fffaf0;
+    border: 2px solid var(--hub-border, #e6cf8b);
+    border-radius: var(--hub-radius, 12px);
+    box-shadow: 0 1.5rem 5rem rgb(43 23 16 / 25%);
+}
+.subscription-dialog::backdrop { background: rgb(43 23 16 / 65%); }
+.subscription-dialog[open] { animation: subscription-appear 180ms ease-out; }
+.subscription-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.subscription-heading .label { margin: 0; }
+.subscription-close {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    color: #7d1c1f;
+    background: #fff;
+    border: 1px solid #9b7410;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+}
+.subscription-close:hover { background: #ffedba; }
+.subscription-dialog h2 { margin: 1rem 0; font-size: clamp(1.6rem, 5vw, 2rem); }
+.subscription-form { margin-top: 1.5rem; }
+.subscription-form label { display: block; }
+.subscription-form .form-control { display: block; width: 100%; padding: .6rem .75rem; border: 1px solid #9b7410; border-radius: .375rem; }
+.subscription-form .form-control[aria-invalid="true"] { border: 2px solid #b51e22; }
+.subscription-form .form-text { margin: .5rem 0; }
+.subscription-error { min-height: 1.5em; color: #a01320; font-weight: 600; }
+.subscription-result { margin: 1rem 0 0; color: #235b32; font-weight: 600; }
+.subscription-result:empty { margin: 0; }
+.subscription-form .btn { min-height: 44px; }
+@keyframes subscription-appear { from { opacity: 0; transform: translateY(.5rem); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .subscription-dialog[open] { animation: none; } }

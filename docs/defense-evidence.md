@@ -1,5 +1,7 @@
 # EsportsHub defense evidence
 
+> Historical record of the earlier midterm revision. Assignment 4 adds custom JavaScript and supersedes the HTML/CSS-only descriptions below. See [the current Assignment 4 guide](assignment-4-defense.md) for its components and defense route.
+
 Updated for the HTML/CSS-only handoff on 2026-10-08. This supports the oral defense; it does not guarantee the instructor's awarded score. Historical Stage 9 tests refer to the earlier Bootstrap JS implementation; the latest audit section documents its replacements.
 
 ## Ownership

@@ -1,0 +1,40 @@
+/* Assignment 4 components share the original red, cream and brown palette. */
+:root { --hub-page-color: #ffffff; }
+body, .grid-main > .about, .grid-main > .games {
+    transition: background-color 280ms ease;
+}
+.grid-main > .about, .grid-main > .games { background-color: var(--hub-page-color); }
+.hero { background: linear-gradient(135deg, #fff7d6, var(--hub-page-color)); }
+.hub-tools { border-top: 1px solid #c9a74c; margin-top: 24px; padding-top: 24px; }
+.hub-tools h2 { font-size: 1.2rem; }
+.hub-clock { display: block; font-weight: 650; font-size: .95rem; overflow-wrap: anywhere; }
+.hub-tools small { display: block; color: #68483b; }
+.hub-tool-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.hub-tools .btn { width: 100%; }
+.hub-tools .background-status { font-size: .85rem; margin-top: 8px; }
+.hub-tools a.btn { display: inline-flex; color: #b51e22; }
+.interactive-section { border-top: 1px solid var(--hub-border); }
+.interactive-section .container { max-width: 960px; }
+.faq-list { border: 1px solid var(--hub-border); border-radius: 12px; overflow: hidden; }
+.faq-item + .faq-item { border-top: 1px solid var(--hub-border); }
+.faq-item h3 { margin: 0; font-size: 1.05rem; }
+.faq-trigger {
+    display: flex; width: 100%; align-items: center; justify-content: space-between;
+    gap: 20px; border: 0; padding: 20px; text-align: left;
+    background: #fff8df; color: #2b1710; font-weight: 700;
+}
+.faq-trigger:hover { background: #fff0c2; }
+.faq-trigger::after { content: '+'; color: #b51e22; font-size: 1.5rem; }
+.faq-trigger[aria-expanded='true']::after { content: '\2212'; }
+.faq-panel { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows 240ms ease, visibility 240ms; }
+.faq-panel[hidden] { display: none; }
+.faq-panel.is-open { grid-template-rows: 1fr; visibility: visible; }
+.faq-panel > div { overflow: hidden; min-height: 0; }
+.faq-panel p { padding: 20px; margin: 0; }
+@media (max-width: 991.98px) {
+    .hub-tools { max-width: 720px; }
+    .hub-tool-actions .btn { width: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+    body, .grid-main > .about, .grid-main > .games, .faq-panel { transition: none; }
+}

@@ -1,0 +1,38 @@
+/* Accessible validation states for registration and the existing contact form. */
+.registration-form {
+    max-width: 760px;
+    background: #fff8df;
+    border: 1px solid var(--hub-border, #e6cf8b);
+    border-radius: var(--hub-radius, 12px);
+}
+
+.field-error {
+    margin: 0.4rem 0 0;
+    color: #a11920;
+    font-size: 0.925rem;
+    font-weight: 600;
+}
+
+.field-error[hidden] { display: none; }
+
+[aria-invalid="true"] {
+    border: 2px solid #a11920;
+    background-color: #fff5f5;
+}
+
+.validation-summary {
+    margin: 0 0 1rem;
+    color: #a11920;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.validation-summary:empty { margin: 0; }
+
+.validation-success {
+    padding: 0.75rem 1rem;
+    color: #205329;
+    background: #edf8e8;
+    border: 1px solid #6b9069;
+    border-radius: 8px;
+}

@@ -1,5 +1,7 @@
 # EsportsHub Midterm Audit — Stage 0
 
+> Historical record of the earlier midterm revision. Assignment 4 adds custom JavaScript and supersedes the HTML/CSS-only descriptions below. See [the current Assignment 4 guide](assignment-4-defense.md) for its components and defense route.
+
 **Current implementation:** HTML/CSS only, following the updated user constraint on 2026-10-08. Stages 0–9 below are historical records. The final HTML/CSS-only cleanup section supersedes their Bootstrap JavaScript implementation and test claims. Temporary testing files and screenshots are no longer included.
 
 **Audit date:** 2026-10-07
