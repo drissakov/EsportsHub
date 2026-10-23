@@ -24,13 +24,19 @@ Events, profiles and rankings are sample content. Calendar preview controls do n
 
 | Task | Where to demonstrate | Implementation |
 | --- | --- | --- |
-| 1. Form validation | [Community: player sign-up](contact.html#registration), plus the [contact form](contact.html#contact-form) | [js/validation.js](js/validation.js), [css/validation.css](css/validation.css) |
+| 1. Form validation | [Community: player sign-up](contact.html#registration), plus the [contact form](contact.html#contact-form) | [js/email-validation.js](js/email-validation.js), [js/validation.js](js/validation.js), [css/validation.css](css/validation.css) |
 | 2. FAQ accordion | [Community FAQ](contact.html#community-faq) | [js/accordion.js](js/accordion.js), [css/interactive.css](css/interactive.css) |
 | 3. Subscription popup | Subscribe button in the shared sidebar tools on every page | [js/subscription.js](js/subscription.js), [css/subscription.css](css/subscription.css) |
 | 4. Background color | Change background button in the shared sidebar tools | [js/site.js](js/site.js), [css/interactive.css](css/interactive.css) |
 | 5. Current date and time | Clock in the shared sidebar tools | [js/site.js](js/site.js) |
 
 Registration checks required display name and email, valid email format, a password of at least eight characters and matching password confirmation. Whitespace-only input is rejected. Inline errors, `aria-invalid`, associated error descriptions, a live summary and focus on the first invalid field make corrections clear. A valid demo submission stays on the page, displays a truthful result and clears both password fields. Passwords are not stored or logged.
+
+Contact, registration and subscription use the same JavaScript email validator. It accepts one unquoted ASCII mailbox with a fully qualified ASCII/punycode domain: at most 254 characters overall, 64 before `@`, and 63 per domain label. It rejects repeated/edge dots, malformed domains, control or hidden characters, address lists and display names. Domain suffixes must contain at least two letters or valid punycode. SMTPUTF8 mailbox names, Unicode-written domains, quoted mailbox names, IP literals and local-only domains are outside this browser form's supported format. Outer ASCII spaces are trimmed and only domain case is normalized; mailbox case, dots and `+tags` are preserved. JavaScript enforces lengths even for programmatically assigned values. Input, blur, submission and reset update the error state consistently.
+
+These checks validate the supported spelling only. They do not prove mailbox existence or ownership, and JavaScript can be bypassed. A real account/subscription service would also need server-side validation and email ownership verification; this static demo has no such backend. See [OWASP email validation guidance](https://cheatsheetseries.owasp.org/cheatsheets/Email_Validation_and_Verification_Cheat_Sheet.html).
+
+Run the email regression tests with `node --test tests/email-validation.test.cjs` (Node.js built-in test runner; no package installation). They include length boundaries, supported aliases, malformed/hidden characters and oversized input.
 
 FAQ answers start collapsed. Clicking a native question button toggles its answer with a CSS transition, updates `aria-expanded`, and keeps collapsed content out of keyboard navigation. The subscription popup starts hidden and supports its close button, clicking the backdrop and Escape, then returns focus to its opening button.
 

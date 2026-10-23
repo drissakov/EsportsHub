@@ -16,19 +16,21 @@ This is the team's agreed responsibility map. Before the defense, every member s
 
 ## Task 1: form validation
 
-**Files:** [contact.html](../contact.html), [js/validation.js](../js/validation.js), [css/validation.css](../css/validation.css).
+**Files:** [contact.html](../contact.html), [js/email-validation.js](../js/email-validation.js), [js/validation.js](../js/validation.js), [css/validation.css](../css/validation.css).
 
 1. Open [Community: player sign-up](../contact.html#registration). The form supplies labels, required attributes, email input type, `minlength="8"` and a confirmation field with `data-match="#registration-password"`.
 2. The script finds `form[data-validate-form]` and the existing `#contact-form`. It creates a separate error paragraph for each field and adds that paragraph's ID to `aria-describedby`, preserving any existing help description.
-3. After initialization, `form.noValidate = true` replaces browser validation bubbles with consistent inline errors. `getError()` checks required trimmed content, email format, password length and confirmation. Password values are compared exactly, without trimming or storing them.
-4. On submit, text fields are trimmed. `validateAll()` returns invalid fields, `validateField()` updates the messages and `aria-invalid`, and the live summary lists which fields need correction. An invalid submission calls `preventDefault()` and focuses the first invalid field.
-5. After a failed submission, `input` and `change` events update the feedback. Changing the original password also rechecks confirmation.
+3. After the shared email helper loads, `form.noValidate = true` replaces browser validation bubbles with consistent inline errors. `getError()` checks required content, the shared email policy, explicit minimum/maximum lengths, HTML constraints and password confirmation. Passwords are compared exactly, without trimming or storing them.
+4. On submit, ordinary text fields are trimmed. A valid email has only outer ASCII spaces removed and its domain lowercased; its mailbox case, dots and `+tag` are preserved. `validateAll()` returns invalid fields, `validateField()` updates messages and `aria-invalid`, and the live summary lists corrections. Invalid submission calls `preventDefault()` and focuses the first invalid field.
+5. Blur validates a field. After failed submission, `input` and `change` update feedback; changing the password also rechecks confirmation. Reset clears inline errors, `aria-invalid`, the summary and submission state.
 6. A valid sign-up demo calls `preventDefault()`, states that no account was created and no data was sent, and clears both password fields. Its submit button stays disabled until JavaScript has initialized.
 7. The contact form checks its existing required name, email, topic and message. An invalid submission is blocked. A valid submission retains the original `mailto:info@esportshub.com` action to open an email draft; it does not prove delivery.
 
 **Demonstration:** submit blank fields; try a whitespace-only name, incomplete email, password shorter than eight characters and mismatched confirmation. Correct the data, then show the success message and empty password fields. For contact validation, demonstrate errors without sending a real message.
 
-**Code to explain:** `preventDefault()`, `trim()`, email `typeMismatch`, the email regular expression, exact password comparison, `aria-invalid`, `aria-describedby`, the live summary and first-error focus.
+**Email policy:** one unquoted ASCII mailbox and a fully qualified ASCII/punycode domain. Maximums: 254 characters overall, 64 before `@`, 63 per domain label. Check one `@`, allowed characters, edge/repeated dots, domain labels/hyphens and suffix. Domain suffixes have at least two letters or valid punycode; `URL` checks punycode without a network request. Unicode-written/quoted mailbox formats, address lists, display names, IP literals and local-only domains are unsupported. These are format checks, not proof of an existing mailbox. Real registration needs server-side validation and a verification email.
+
+**Code to explain:** the shared pure `EsportsHubEmail.validate()` result, bounded regular expressions and length checks, preserving mailbox spelling, `preventDefault()`, exact password comparison, `aria-invalid`, `aria-describedby`, the summary and first-error focus. Run `node --test tests/email-validation.test.cjs` for the email edge cases.
 
 ## Task 2: FAQ accordion
 
@@ -46,13 +48,13 @@ This is the team's agreed responsibility map. Before the defense, every member s
 
 ## Task 3: subscription popup
 
-**Files:** shared HTML dialog markup, [js/subscription.js](../js/subscription.js), [css/subscription.css](../css/subscription.css).
+**Files:** shared HTML dialog markup, [js/email-validation.js](../js/email-validation.js), [js/subscription.js](../js/subscription.js), [css/subscription.css](../css/subscription.css).
 
 1. The subscription form is inside `#subscription-dialog`, a native `<dialog>` without the `open` attribute, so it starts hidden.
 2. A `[data-open-subscription]` button saves the opener and calls `showModal()`. The email field receives focus. Native modal behavior makes the background inert and supports Escape. A Tab/Shift+Tab boundary handler explicitly cycles between the first and last dialog controls.
 3. The close button calls `dialog.close()`. For a click on the backdrop, the handler checks the pointer against the dialog's bounding rectangle and closes only when it is outside the popup area.
 4. The `close` event resets the form and its messages, then restores focus to the button that opened it.
-5. Subscription submit always calls `preventDefault()`. It trims the email, checks required/valid email format and displays an associated error when needed. A valid demo displays that no subscription was sent or saved.
+5. Subscription submit always calls `preventDefault()` and uses the same email helper as registration/contact. The submit button starts disabled until its validator is ready. Blur reports an invalid address; input/reset clear stale feedback. A valid demo displays that no subscription was sent or saved.
 
 **Demonstration:** open Subscribe, try an invalid email and then a valid sample address. Close with the close button, reopen and click outside, reopen and press Escape. Check focus returns to the opener each time.
 

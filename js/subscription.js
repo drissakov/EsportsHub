@@ -9,6 +9,8 @@
     const email = form.querySelector('#subscription-email');
     const error = form.querySelector('#subscription-email-error');
     const result = form.querySelector('#subscription-result');
+    const emailValidator = window.EsportsHubEmail;
+    const submitButton = form.querySelector('button[type="submit"]');
     let openingButton = null;
 
     function clearFeedback() {
@@ -60,22 +62,31 @@
     });
 
     email.addEventListener('input', clearFeedback);
+    email.addEventListener('blur', () => {
+        if (!emailValidator || !email.value) return;
+        const checked = emailValidator.validate(email.value);
+        error.textContent = checked.error;
+        if (checked.valid) {
+            email.value = checked.value;
+            email.removeAttribute('aria-invalid');
+        } else email.setAttribute('aria-invalid', 'true');
+    });
+    form.addEventListener('reset', clearFeedback);
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         clearFeedback();
-        email.value = email.value.trim();
-        if (!email.value) {
-            error.textContent = 'Enter your email address.';
-        } else if (!email.validity.valid || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-            error.textContent = 'Enter a valid email address, such as name@example.com.';
-        }
+        const checked = emailValidator?.validate(email.value);
+        error.textContent = checked?.error || (!checked ? 'The form is unavailable. Reload the page and try again.' : '');
         if (error.textContent) {
             email.setAttribute('aria-invalid', 'true');
             email.focus();
             return;
         }
+        email.value = checked.value;
         form.reset();
         result.textContent = 'Email validated! This demo has not sent or saved a subscription.';
     });
+    // Keep the demo from falling through to a normal GET when validation cannot load.
+    submitButton.disabled = !emailValidator;
 })();

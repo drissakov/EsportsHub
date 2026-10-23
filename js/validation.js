@@ -3,6 +3,8 @@
     'use strict';
 
     function initializeValidation() {
+        const emailValidator = window.EsportsHubEmail;
+        if (!emailValidator) return;
         document.querySelectorAll('form[data-validate-form], form#contact-form').forEach((form) => {
             const fields = Array.from(form.querySelectorAll('input, select, textarea'))
                 .filter((field) => !field.disabled && !['hidden', 'submit', 'button'].includes(field.type));
@@ -40,19 +42,27 @@
             }
 
             function getError(field) {
+                if (field.disabled) return '';
                 const value = field.value;
+                if (field.type === 'email') {
+                    const result = emailValidator.validate(value, { required: field.required });
+                    if (!result.valid) return result.error;
+                }
                 if (field.required && !value.trim()) return `${fieldLabel(field)} is required.`;
                 if (!value) return '';
-                if (field.type === 'email' && (field.validity.typeMismatch || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()))) {
-                    return 'Enter a valid email address, such as player@example.com.';
+                if (field.maxLength >= 0 && value.length > field.maxLength) {
+                    return `Use at most ${field.maxLength} characters for ${fieldLabel(field)}.`;
                 }
-                if (field.type === 'password' && field.minLength > 0 && value.length < field.minLength) {
-                    return `Use at least ${field.minLength} characters for your password.`;
+                if (field.minLength > 0 && value.length < field.minLength) {
+                    return field.type === 'password'
+                        ? `Use at least ${field.minLength} characters for your password.`
+                        : `Use at least ${field.minLength} characters for ${fieldLabel(field)}.`;
                 }
                 if (field.hasAttribute('data-match')) {
                     const original = form.querySelector(field.getAttribute('data-match'));
                     if (original && value !== original.value) return 'Passwords must match.';
                 }
+                if (!field.validity.valid) return field.validationMessage || 'Check this field.';
                 return '';
             }
 
@@ -77,18 +87,42 @@
                     : '';
             }
 
+            function clearSummary() {
+                summary.classList.remove('validation-success');
+                summary.textContent = '';
+            }
+
+            function normalizeEmail(field) {
+                const result = emailValidator.validate(field.value, { required: field.required });
+                if (result.valid) field.value = result.value;
+            }
+
             fields.forEach((field) => {
                 field.addEventListener('input', () => {
-                    if (summary.classList.contains('validation-success')) {
-                        summary.classList.remove('validation-success');
-                        summary.textContent = '';
-                    }
+                    if (summary.classList.contains('validation-success')) clearSummary();
                     // Recheck confirmation when the original password changes, too.
                     if (submitted) showErrorSummary(validateAll());
                     else if (field.hasAttribute('aria-invalid')) validateField(field);
                 });
                 field.addEventListener('change', () => {
+                    if (summary.classList.contains('validation-success')) clearSummary();
                     if (submitted) showErrorSummary(validateAll());
+                });
+                field.addEventListener('blur', () => {
+                    if (field.type === 'email') normalizeEmail(field);
+                    validateField(field);
+                    if (submitted) showErrorSummary(validateAll());
+                });
+            });
+
+            form.addEventListener('reset', () => {
+                submitted = false;
+                clearSummary();
+                fields.forEach((field) => {
+                    field.removeAttribute('aria-invalid');
+                    const error = errors.get(field);
+                    error.textContent = '';
+                    error.hidden = true;
                 });
             });
 
@@ -97,7 +131,9 @@
             form.addEventListener('submit', (event) => {
                 submitted = true;
                 fields.forEach((field) => {
-                    if (field.type !== 'password') field.value = field.value.trim();
+                    if (field.disabled) return;
+                    if (field.type === 'email') normalizeEmail(field);
+                    else if (field.type !== 'password') field.value = field.value.trim();
                 });
                 const invalidFields = validateAll();
                 showErrorSummary(invalidFields);

@@ -22,3 +22,10 @@ Browsers: Google Chrome 155.0.8059.85 and Microsoft Edge 155.0.4283.62, headless
 5. Clock: immediately populated, valid ISO datetime, readable date/time and browser time zone; subsequent timestamp changes after the update interval.
 
 Screenshots of the tested UI are embedded in the separately delivered report. No account, subscription or message delivery backend is connected.
+
+## Email validation update - 2026-10-23
+
+- `node --test tests/email-validation.test.cjs`: 76 passing tests, including 64/65-character mailbox and 254/255-character overall boundaries, 63/64-character domain labels, aliases, apostrophes, punycode, controls, hidden characters and oversized input.
+- Chrome and Edge: shared helper checked with 9 valid and 44 invalid address cases, non-string inputs and optional values. Both contact and registration checked with 11 invalid and 9 valid submissions each, plus blur/input/reset, `requestSubmit()` and programmatic values that bypass HTML input length restrictions.
+- Subscription uses the same policy on all six pages; valid aliases/punycode, invalid input, reset and a 320 px error layout checked. No page/console/network errors or external asset requests. A QA-only submit observer prevented actual mailto navigation during contact checks.
+- Supported format and exclusions are documented in README. No claim is made that JavaScript validation proves mailbox existence, ownership or server-side security.
