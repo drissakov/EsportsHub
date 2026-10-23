@@ -65,9 +65,7 @@ Use sample form data during demonstrations. Sign-up requires JavaScript and its 
 
 ## Deployment and submission
 
-Website URL: [https://drissakov.github.io/javascript-practice/](https://drissakov.github.io/javascript-practice/).
-
-Standalone JavaScript theory and MCQ trainer: [JavaScript Practice](https://drissakov.github.io/javascript-practice/defense.html). The trainer contains 36 questions, six theory lessons, answer explanations and a retry mode for mistakes.
+Website URL: [https://drissakov.github.io/EsportsHub/](https://drissakov.github.io/EsportsHub/).
 
 GitHub Pages serves the repository's **main branch, root folder**. `index.html` is the entry point, internal assets use relative paths and `.nojekyll` disables Jekyll processing. Commit and push the updated project to the shared repository, then confirm the latest successful Pages deployment matches that commit.
 
