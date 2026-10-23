@@ -24,19 +24,23 @@ Events, profiles and rankings are sample content. Calendar preview controls do n
 
 | Task | Where to demonstrate | Implementation |
 | --- | --- | --- |
-| 1. Form validation | [Community: player sign-up](contact.html#registration), plus the [contact form](contact.html#contact-form) | [js/email-validation.js](js/email-validation.js), [js/validation.js](js/validation.js), [css/validation.css](css/validation.css) |
+| 1. Form validation | [Community: player sign-up](contact.html#registration), plus the [contact form](contact.html#contact-form) | [js/email-validation.js](js/email-validation.js), [js/password-validation.js](js/password-validation.js), [js/validation.js](js/validation.js), [css/validation.css](css/validation.css) |
 | 2. FAQ accordion | [Community FAQ](contact.html#community-faq) | [js/accordion.js](js/accordion.js), [css/interactive.css](css/interactive.css) |
 | 3. Subscription popup | Subscribe button in the shared sidebar tools on every page | [js/subscription.js](js/subscription.js), [css/subscription.css](css/subscription.css) |
 | 4. Background color | Change background button in the shared sidebar tools | [js/site.js](js/site.js), [css/interactive.css](css/interactive.css) |
 | 5. Current date and time | Clock in the shared sidebar tools | [js/site.js](js/site.js) |
 
-Registration checks required display name and email, valid email format, a password of at least eight characters and matching password confirmation. Whitespace-only input is rejected. Inline errors, `aria-invalid`, associated error descriptions, a live summary and focus on the first invalid field make corrections clear. A valid demo submission stays on the page, displays a truthful result and clears both password fields. Passwords are not stored or logged.
+All three forms are validated exclusively by JavaScript. The rules live in the scripts; HTML has `novalidate` and no `required`, `minlength`, `maxlength` or `pattern` constraints. Email fields use `type="text"` with `inputmode="email"`. Labels and `aria-required` describe the fields without enforcing browser validation.
+
+Registration requires a display name, a supported email address and a password of 15–128 Unicode code points. The local, pinned zxcvbn-ts estimator must return its highest strength score (4); common passwords, repeats, keyboard sequences and guesses based on the supplied name/email are penalized. Published tutorial phrases are also blocked. Spaces and Unicode are supported without mandatory uppercase/digit/symbol rules; control characters and broken Unicode are rejected. Confirmation must match exactly, including case and spaces. Neither password is trimmed, normalized or truncated. Changing the password rechecks an existing/touched confirmation immediately; changing the name/email rechecks password strength. Inline errors, `aria-invalid`, associated error descriptions, a live summary and focus on the first invalid field make corrections clear. A valid demo submission stays on the page, displays a truthful result and clears both password fields. Passwords are not stored or logged.
 
 Contact, registration and subscription use the same JavaScript email validator. It accepts one unquoted ASCII mailbox with a fully qualified ASCII/punycode domain: at most 254 characters overall, 64 before `@`, and 63 per domain label. It rejects repeated/edge dots, malformed domains, control or hidden characters, address lists and display names. Domain suffixes must contain at least two letters or valid punycode. SMTPUTF8 mailbox names, Unicode-written domains, quoted mailbox names, IP literals and local-only domains are outside this browser form's supported format. Outer ASCII spaces are trimmed and only domain case is normalized; mailbox case, dots and `+tags` are preserved. JavaScript enforces lengths even for programmatically assigned values. Input, blur, submission and reset update the error state consistently.
 
 These checks validate the supported spelling only. They do not prove mailbox existence or ownership, and JavaScript can be bypassed. A real account/subscription service would also need server-side validation and email ownership verification; this static demo has no such backend. See [OWASP email validation guidance](https://cheatsheetseries.owasp.org/cheatsheets/Email_Validation_and_Verification_Cheat_Sheet.html).
 
-Run the email regression tests with `node --test tests/email-validation.test.cjs` (Node.js built-in test runner; no package installation). They include length boundaries, supported aliases, malformed/hidden characters and oversized input.
+Run the regression tests with `node --test tests/email-validation.test.cjs tests/password-validation.test.cjs` (Node.js built-in test runner; no package installation). They cover email boundaries and supported aliases, password Unicode/length boundaries, weak and context-based guesses, exact input preservation and unavailable estimators.
+
+The password estimator is bundled locally in [js/vendor/password-strength.min.js](js/vendor/password-strength.min.js) and loads only on Community. It makes no external requests. Its MIT licenses, source manifest and reproducible build sources are included; see [tools/password-strength/README.md](tools/password-strength/README.md). The score is a heuristic, not a complete breached-password check. See [OWASP password guidance](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html).
 
 FAQ answers start collapsed. Clicking a native question button toggles its answer with a CSS transition, updates `aria-expanded`, and keeps collapsed content out of keyboard navigation. The subscription popup starts hidden and supports its close button, clicking the backdrop and Escape, then returns focus to its opening button.
 
@@ -67,7 +71,7 @@ Game/support tiles use four columns from 1200px, two from 576px and one below 57
 
 Open `index.html` in a modern browser, or serve this folder with a static server/editor preview. Keep the relative `css/`, `js/` and `images/` directories beside the HTML pages. Bootstrap 5.3.8 CSS is included locally in [css/vendor/bootstrap.min.css](css/vendor/bootstrap.min.css), with its license header preserved. It was downloaded from the existing jsDelivr source and its original SHA-384 integrity hash was verified before removing the optional source-map hint. The website assets work offline; external links and the mailto contact action require their normal applications or connectivity.
 
-Use sample form data during demonstrations. Sign-up requires JavaScript and its demo button remains disabled until the validation script has initialized. The existing contact form retains native HTML validation as a fallback when JavaScript is unavailable.
+Use sample form data during demonstrations. All form submit buttons remain disabled until their JavaScript validators initialize. The registration button also requires the local password estimator. There is no native HTML validation fallback. Disabled JavaScript leaves the controls unavailable and shows a short explanation.
 
 ## Deployment and submission
 

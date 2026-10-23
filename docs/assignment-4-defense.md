@@ -16,21 +16,23 @@ This is the team's agreed responsibility map. Before the defense, every member s
 
 ## Task 1: form validation
 
-**Files:** [contact.html](../contact.html), [js/email-validation.js](../js/email-validation.js), [js/validation.js](../js/validation.js), [css/validation.css](../css/validation.css).
+**Files:** [contact.html](../contact.html), [js/email-validation.js](../js/email-validation.js), [js/password-validation.js](../js/password-validation.js), [js/validation.js](../js/validation.js), [css/validation.css](../css/validation.css).
 
-1. Open [Community: player sign-up](../contact.html#registration). The form supplies labels, required attributes, email input type, `minlength="8"` and a confirmation field with `data-match="#registration-password"`.
-2. The script finds `form[data-validate-form]` and the existing `#contact-form`. It creates a separate error paragraph for each field and adds that paragraph's ID to `aria-describedby`, preserving any existing help description.
-3. After the shared email helper loads, `form.noValidate = true` replaces browser validation bubbles with consistent inline errors. `getError()` checks required content, the shared email policy, explicit minimum/maximum lengths, HTML constraints and password confirmation. Passwords are compared exactly, without trimming or storing them.
-4. On submit, ordinary text fields are trimmed. A valid email has only outer ASCII spaces removed and its domain lowercased; its mailbox case, dots and `+tag` are preserved. `validateAll()` returns invalid fields, `validateField()` updates messages and `aria-invalid`, and the live summary lists corrections. Invalid submission calls `preventDefault()` and focuses the first invalid field.
-5. Blur validates a field. After failed submission, `input` and `change` update feedback; changing the password also rechecks confirmation. Reset clears inline errors, `aria-invalid`, the summary and submission state.
-6. A valid sign-up demo calls `preventDefault()`, states that no account was created and no data was sent, and clears both password fields. Its submit button stays disabled until JavaScript has initialized.
-7. The contact form checks its existing required name, email, topic and message. An invalid submission is blocked. A valid submission retains the original `mailto:info@esportshub.com` action to open an email draft; it does not prove delivery.
+1. Open [Community: player sign-up](../contact.html#registration). HTML supplies labels, help and accessible descriptions. All forms have `novalidate`; there are no HTML validation constraints. `aria-required` describes required fields without performing checks. Email controls use `type="text"` and `inputmode="email"`.
+2. The controller finds forms and fields by ID using its own JavaScript rule map. It creates an error paragraph per field and associates it with `aria-describedby`, preserving existing help.
+3. `getError()` delegates email and password checks to separate helpers. Passwords must contain 15–128 Unicode code points and receive score 4 from the local zxcvbn-ts estimator. It recognizes common/repeated/keyboard/date patterns and uses the current name/email as context. A small list also rejects published tutorial phrases. Spaces and Unicode are allowed, with no mandatory uppercase/digit/symbol composition rule; control characters and broken Unicode are rejected.
+4. Confirmation is required and compared exactly with the original password. Neither value is trimmed, lowercased, normalized, truncated, logged or stored. The length check runs before estimation, including for programmatically assigned values. Missing dependencies keep the registration submit button disabled.
+5. On submit, ordinary text is trimmed and supported emails have outer ASCII spaces removed and domain case normalized. Passwords stay unchanged. `validateAll()` updates inline errors and `aria-invalid`; the live summary lists corrections. Invalid submission calls `preventDefault()` and focuses the first error. No native `validity`, `checkValidity()` or `reportValidity()` is used.
+6. Blur validates a field. After failed submission, input/change refresh all feedback. Changing the original password rechecks any filled or previously touched confirmation immediately, including before submission. Changing name/email rechecks password strength. Reset clears the summary, errors and interaction state.
+7. Valid registration prevents submission, explains that no account was created or data sent, and clears both secrets without leaving stale errors. Contact checks its name/email/topic/message in JavaScript, then retains its `mailto:` action to open a draft. Subscription uses the shared email helper. All submit buttons require their JavaScript validators.
 
-**Demonstration:** submit blank fields; try a whitespace-only name, incomplete email, password shorter than eight characters and mismatched confirmation. Correct the data, then show the success message and empty password fields. For contact validation, demonstrate errors without sending a real message.
+**Demonstration:** submit blank fields; try a short password, a long repeated password and a long password based on the entered name. Enter an unrelated phrase and mismatch its confirmation. Match both values, then change the original password and show the immediate mismatch. Correct it and submit: show truthful success and cleared password fields. Do not use a real password for this demo.
 
-**Email policy:** one unquoted ASCII mailbox and a fully qualified ASCII/punycode domain. Maximums: 254 characters overall, 64 before `@`, 63 per domain label. Check one `@`, allowed characters, edge/repeated dots, domain labels/hyphens and suffix. Domain suffixes have at least two letters or valid punycode; `URL` checks punycode without a network request. Unicode-written/quoted mailbox formats, address lists, display names, IP literals and local-only domains are unsupported. These are format checks, not proof of an existing mailbox. Real registration needs server-side validation and a verification email.
+**Email policy:** one unquoted ASCII mailbox and a fully qualified ASCII/punycode domain. Maximums: 254 characters overall, 64 before `@`, 63 per domain label. Check one `@`, allowed characters, edge/repeated dots, domain labels/hyphens and suffix. Domain suffixes have at least two letters or valid punycode; `URL` checks punycode without a network request. Unicode-written/quoted mailbox formats, address lists, display names, IP literals and local-only domains are unsupported. These are format checks, not proof of an existing mailbox.
 
-**Code to explain:** the shared pure `EsportsHubEmail.validate()` result, bounded regular expressions and length checks, preserving mailbox spelling, `preventDefault()`, exact password comparison, `aria-invalid`, `aria-describedby`, the summary and first-error focus. Run `node --test tests/email-validation.test.cjs` for the email edge cases.
+**Password limits:** estimation happens offline using pinned packages bundled with the website, not an external API. Score 4 is the estimator's strongest category, but it is a heuristic and does not check every breached password. Published examples and fixtures are for demonstration only. A real service must enforce rules on its backend, verify email ownership and check compromised passwords.
+
+**Code to explain:** pure helper results, JavaScript rule configuration, Unicode code-point counting, early length bounds, strength estimation with context, exact confirmation comparison, dependency revalidation, `preventDefault()`, accessible inline errors and first-error focus. Run `node --test tests/email-validation.test.cjs tests/password-validation.test.cjs` for regression tests. See [offline bundle sources and licenses](../tools/password-strength/README.md).
 
 ## Task 2: FAQ accordion
 
@@ -117,7 +119,13 @@ Before submission, verify the final integrated revision in available browsers an
 
 ## Likely defense questions
 
-**Why are HTML validation attributes retained when JavaScript sets `noValidate`?** They document the field requirements and preserve native validation for the existing contact form when JavaScript is unavailable. JavaScript supplies the assignment's inline error interface after loading.
+**Where do the validation rules live?** In JavaScript. HTML `novalidate` disables browser validation; `required`, `minlength`, `maxlength`, `pattern` and email input type are absent. `aria-required`, labels and help are accessibility descriptions, not checks. Submit buttons stay disabled until the relevant scripts initialize.
+
+**Why can a long password still fail?** Length alone does not prevent predictable guesses. The local estimator checks common words, repetitions, sequences and name/email context. Our policy requires its highest score as well as 15–128 characters.
+
+**Why are uppercase letters and symbols not compulsory?** Predictability matters more than a fixed composition checklist. Long unrelated phrases are supported, including Unicode and spaces.
+
+**Does the estimator send the password somewhere?** No. Its prebuilt dictionaries and code are bundled in the project. It runs locally and returns score/feedback without storing or transmitting the password.
 
 **Why does valid registration not create an account?** This is a frontend assignment without an account backend. The demo verifies the rules, prevents transmission and states the result accurately.
 

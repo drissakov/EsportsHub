@@ -15,9 +15,9 @@
         <link href="css/subscription.css" rel="stylesheet">
         <script defer src="js/site.js"></script>
         <script defer src="js/accordion.js"></script>
-        <script defer src="js/email-validation.js?v=email2"></script>
-        <script defer src="js/validation.js?v=email2"></script>
-        <script defer src="js/subscription.js?v=email2"></script>
+        <script defer src="js/email-validation.js?v=forms3"></script>
+        <script defer src="js/validation.js?v=forms3"></script>
+        <script defer src="js/subscription.js?v=forms3"></script>
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -334,7 +334,7 @@
             <p id="subscription-description">Try the EsportsHub event newsletter form. This is a frontend demo: your email is not sent or stored.</p>
             <form class="subscription-form" id="subscription-form" novalidate>
                 <label class="form-label" for="subscription-email">Email address <span>(required)</span></label>
-                <input aria-describedby="subscription-email-help subscription-email-error" autocomplete="email" class="form-control" id="subscription-email" maxlength="254" name="email" placeholder="you@example.com" required type="email" autocapitalize="none" spellcheck="false">
+                <input aria-describedby="subscription-email-help subscription-email-error" autocomplete="email" class="form-control" id="subscription-email" name="email" placeholder="you@example.com" type="text" inputmode="email" autocapitalize="none" spellcheck="false" aria-required="true">
                 <p class="form-text" id="subscription-email-help">Use one complete address, such as name+team@example.com (up to 254 characters).</p>
                 <p aria-live="polite" class="subscription-error" id="subscription-email-error"></p>
                 <button class="btn btn-primary" type="submit" disabled>Try subscription</button>

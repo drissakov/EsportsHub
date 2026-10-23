@@ -15,9 +15,11 @@
         <link href="css/subscription.css" rel="stylesheet">
         <script defer src="js/site.js"></script>
         <script defer src="js/accordion.js"></script>
-        <script defer src="js/email-validation.js?v=email2"></script>
-        <script defer src="js/validation.js?v=email2"></script>
-        <script defer src="js/subscription.js?v=email2"></script>
+        <script defer src="js/email-validation.js?v=forms3"></script>
+        <script defer src="js/vendor/password-strength.min.js?v=forms3"></script>
+        <script defer src="js/password-validation.js?v=forms3"></script>
+        <script defer src="js/validation.js?v=forms3"></script>
+        <script defer src="js/subscription.js?v=forms3"></script>
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -135,13 +137,13 @@
                         </p>
                         <h2 id="contact-form-title">Send a question or feedback</h2>
                         <p id="contact-required">All fields are required. JavaScript checks your input before opening an email draft. Choose a topic in the form.</p>
-                        <form action="mailto:info@esportshub.com" aria-describedby="contact-help contact-required" aria-labelledby="contact-form-title" class="mx-auto my-4 p-3 p-md-4" enctype="text/plain" id="contact-form" method="post">
+                        <form novalidate action="mailto:info@esportshub.com" aria-describedby="contact-help contact-required" aria-labelledby="contact-form-title" class="mx-auto my-4 p-3 p-md-4" enctype="text/plain" id="contact-form" method="post">
                             <div class="row g-3">
                                 <div class="col-12 col-md-6">
                                     <label class="form-label" for="name">
                                         Name
                                     </label>
-                                    <input autocomplete="name" class="form-control" id="name" name="name" placeholder="Your name" required type="text">
+                                    <input autocomplete="name" class="form-control" id="name" name="name" placeholder="Your name" type="text" aria-required="true">
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <label class="form-label" for="email">
@@ -151,7 +153,7 @@
                                         <span aria-hidden="true" class="input-group-text">
                                             @
                                         </span>
-                                        <input aria-describedby="email-help" autocomplete="email" class="form-control" id="email" name="email" placeholder="you@example.com" required type="email" maxlength="254" autocapitalize="none" spellcheck="false">
+                                        <input aria-describedby="email-help" autocomplete="email" class="form-control" id="email" name="email" placeholder="you@example.com" type="text" inputmode="email" autocapitalize="none" spellcheck="false" aria-required="true">
                                     </div>
                                     <p class="form-text mt-2" id="email-help">Use one complete address, such as name+team@example.com (up to 254 characters).</p>
                                 </div>
@@ -159,7 +161,7 @@
                                     <label class="form-label" for="topic">
                                         Topic
                                     </label>
-                                    <select class="form-select" id="topic" name="topic" required>
+                                    <select class="form-select" id="topic" name="topic" aria-required="true">
                                         <option value="">
                                             Choose a topic
                                         </option>
@@ -184,15 +186,16 @@
                                     <label class="form-label" for="message">
                                         Message
                                     </label>
-                                    <textarea aria-describedby="message-help" class="form-control" id="message" name="message" placeholder="Write your message" required rows="5"></textarea>
+                                    <textarea aria-describedby="message-help" class="form-control" id="message" name="message" placeholder="Write your message" rows="5" aria-required="true"></textarea>
                                     <p class="form-text mt-2" id="message-help">For a problem report, include the page and what you expected to happen.</p>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary" type="submit">
+                                    <button class="btn btn-primary" type="submit" data-enable-validation disabled>
                                         Open email draft
                                     </button>
+                                    <noscript><p class="field-error">Enable JavaScript to validate and open an email draft.</p></noscript>
                                     <p class="form-text mt-2" id="contact-help">
-                                        Prototype behavior: JavaScript checks required fields and email; valid submission opens your configured email app with the completed message. No server-side delivery is connected.
+                                        Prototype behavior: JavaScript checks fields and email; valid submission opens your configured email app with the completed message. No server-side delivery is connected.
                                     </p>
                                 </div>
                             </div>
@@ -216,27 +219,27 @@
         <p class="label mb-3">JOIN THE COMMUNITY</p>
         <h2 id="registration-title">Try the player sign-up form</h2>
         <p id="registration-help">All fields are required. This validation demo does not create an account or send your information. Use a sample password.</p>
-        <form id="registration-form" class="registration-form mx-auto my-4 p-3 p-md-4" data-validate-form data-demo-form aria-labelledby="registration-title" aria-describedby="registration-help" action="#registration" method="post">
+        <form novalidate id="registration-form" class="registration-form mx-auto my-4 p-3 p-md-4" aria-labelledby="registration-title" aria-describedby="registration-help" action="#registration" method="post">
             <p class="validation-summary" data-validation-summary role="status" aria-live="polite" aria-atomic="true"></p>
             <div class="row g-3">
                 <div class="col-12 col-md-6">
                     <label class="form-label" for="registration-name">Display name</label>
-                    <input class="form-control" id="registration-name" name="display-name" autocomplete="nickname" required type="text" placeholder="Your player name">
+                    <input class="form-control" id="registration-name" name="display-name" autocomplete="nickname" type="text" placeholder="Your player name" aria-required="true">
                 </div>
                 <div class="col-12 col-md-6">
                     <label class="form-label" for="registration-email">Email</label>
-                    <input class="form-control" id="registration-email" name="email" autocomplete="email" required type="email" placeholder="player@example.com" aria-describedby="registration-email-help" maxlength="254" autocapitalize="none" spellcheck="false">
+                    <input class="form-control" id="registration-email" name="email" autocomplete="email" type="text" inputmode="email" placeholder="player@example.com" aria-describedby="registration-email-help" autocapitalize="none" spellcheck="false" aria-required="true">
                     <p class="form-text mt-2" id="registration-email-help">Use one complete address, such as player+team@example.com (up to 254 characters).</p>
                 </div>
                 <div class="col-12 col-md-6">
                     <label class="form-label" for="registration-password">Password</label>
-                    <input class="form-control" id="registration-password" autocomplete="new-password" required type="password" minlength="8" aria-describedby="registration-password-help">
-                    <p class="form-text mt-2" id="registration-password-help">Use at least 8 characters. Use a sample password for this demo.</p>
+                    <input class="form-control" id="registration-password" autocomplete="new-password" type="password" aria-describedby="registration-password-help" aria-required="true">
+                    <p class="form-text mt-2" id="registration-password-help">Use 15–128 characters. Choose a long, unpredictable phrase; common passwords and repeated patterns are rejected. Spaces and Unicode are allowed. Use a sample password for this demo.</p>
                 </div>
                 <div class="col-12 col-md-6">
                     <label class="form-label" for="registration-confirm">Confirm password</label>
-                    <input class="form-control" id="registration-confirm" autocomplete="new-password" required type="password" data-match="#registration-password" aria-describedby="registration-confirm-help">
-                    <p class="form-text mt-2" id="registration-confirm-help">Enter the same password again.</p>
+                    <input class="form-control" id="registration-confirm" autocomplete="new-password" type="password" aria-describedby="registration-confirm-help" aria-required="true">
+                    <p class="form-text mt-2" id="registration-confirm-help">Enter exactly the same password, including case and spaces.</p>
                 </div>
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit" data-enable-validation disabled>Validate demo sign-up</button>
@@ -259,7 +262,7 @@
                             </article>
                             <article class="faq-item">
                                 <h3><button aria-controls="faq-answer-2" aria-expanded="false" class="faq-trigger" data-accordion-trigger id="faq-question-2" type="button">Does the registration demo create an account?</button></h3>
-                                <div aria-labelledby="faq-question-2" class="faq-panel" hidden id="faq-answer-2" role="region"><div><p>The form checks required fields, your email address, an eight-character minimum password and matching confirmation. It demonstrates browser validation and does not create an account or store your password.</p></div></div>
+                                <div aria-labelledby="faq-question-2" class="faq-panel" hidden id="faq-answer-2" role="region"><div><p>JavaScript checks required fields, email, a 15–128-character password with a local strength assessment, and exact password confirmation. Common passwords and predictable patterns are rejected. This demo does not create an account or store your password.</p></div></div>
                             </article>
                             <article class="faq-item">
                                 <h3><button aria-controls="faq-answer-3" aria-expanded="false" class="faq-trigger" data-accordion-trigger id="faq-question-3" type="button">How does the subscription popup work?</button></h3>
@@ -427,7 +430,7 @@
             <p id="subscription-description">Try the EsportsHub event newsletter form. This is a frontend demo: your email is not sent or stored.</p>
             <form class="subscription-form" id="subscription-form" novalidate>
                 <label class="form-label" for="subscription-email">Email address <span>(required)</span></label>
-                <input aria-describedby="subscription-email-help subscription-email-error" autocomplete="email" class="form-control" id="subscription-email" maxlength="254" name="email" placeholder="you@example.com" required type="email" autocapitalize="none" spellcheck="false">
+                <input aria-describedby="subscription-email-help subscription-email-error" autocomplete="email" class="form-control" id="subscription-email" name="email" placeholder="you@example.com" type="text" inputmode="email" autocapitalize="none" spellcheck="false" aria-required="true">
                 <p class="form-text" id="subscription-email-help">Use one complete address, such as name+team@example.com (up to 254 characters).</p>
                 <p aria-live="polite" class="subscription-error" id="subscription-email-error"></p>
                 <button class="btn btn-primary" type="submit" disabled>Try subscription</button>
