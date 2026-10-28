@@ -42,6 +42,10 @@
         if (!/^[a-z]{2,63}$/.test(suffix) && !/^xn--[a-z0-9-]{2,59}$/.test(suffix)) {
             return invalid('Use a complete domain suffix, such as .com or .kz.');
         }
+        // Reject an incomplete punycode prefix in any domain label.
+if (labels.some((label) => label.startsWith('xn--') && label.length < 6)) {
+    return invalid('Check the punycode spelling of the email domain.');
+}
         if (labels.some((label) => label.startsWith('xn--'))) {
             try {
                 // URL's IDNA parser rejects malformed punycode without a network request.
