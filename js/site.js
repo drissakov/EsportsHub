@@ -44,3 +44,35 @@
         document.addEventListener('visibilitychange', updateClock);
     }
 })();
+// Assignment 5: keyboard navigation.
+(() => {
+    const menu = document.querySelector('#mainNavigation');
+    if (!menu) return;
+
+    const links = Array.from(menu.querySelectorAll('.nav-link'));
+
+    menu.addEventListener('keydown', (event) => {
+        const currentIndex = links.indexOf(document.activeElement);
+        if (currentIndex === -1) return;
+
+        let nextIndex;
+
+        switch (event.key) {
+            case 'ArrowRight':
+            case 'ArrowDown':
+                nextIndex = (currentIndex + 1) % links.length;
+                break;
+
+            case 'ArrowLeft':
+            case 'ArrowUp':
+                nextIndex = (currentIndex - 1 + links.length) % links.length;
+                break;
+
+            default:
+                return;
+        }
+
+        event.preventDefault();
+        links[nextIndex].focus();
+    });
+})();
