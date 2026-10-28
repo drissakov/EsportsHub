@@ -21,6 +21,7 @@
         <script defer src="js/validation.js?v=forms3"></script>
         <script defer src="js/subscription.js?v=forms3"></script>
         <script defer src="js/application.js"></script>
+        <script defer src="js/sound.js"></script>
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -369,7 +370,15 @@
         <p id="application-help">
             A three-step demo. Your details are not sent or saved.
         </p>
-
+<div class="match-alert mb-3">
+    <button class="btn btn-outline-primary" type="button"
+        id="sound-preview" disabled>
+        Preview match alert
+    </button>
+    <p id="sound-message" role="status">
+        Play a short sound to preview a match notification.
+    </p>
+</div>
         <form id="application-form" novalidate
             aria-describedby="application-help">
             <p id="application-progress">Step 1 of 3</p>
