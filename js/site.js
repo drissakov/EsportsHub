@@ -76,3 +76,26 @@
         links[nextIndex].focus();
     });
 })();
+// Assignment 5: interactive site rating.
+(() => {
+    const ratingSection = document.querySelector('#site-rating');
+    if (!ratingSection) return;
+
+    const stars = ratingSection.querySelectorAll('.rating-star');
+    const message = document.getElementById('rating-message');
+
+    stars.forEach((button) => {
+        button.addEventListener('click', () => {
+            const rating = Number(button.dataset.rating);
+
+            stars.forEach((star) => {
+                const value = Number(star.dataset.rating);
+
+                star.classList.toggle('is-selected', value <= rating);
+                star.setAttribute('aria-pressed', String(value === rating));
+            });
+
+            message.textContent = `Thanks! Your rating: ${rating} out of 5.`;
+        });
+    });
+})();
