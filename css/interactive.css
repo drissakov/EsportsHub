@@ -143,3 +143,402 @@ body, .grid-main > .about, .grid-main > .games {
         animation: none;
     }
 }
+/* Assignment 5: Day / Night mode */
+.theme-status {
+    margin: 12px 0 0;
+    font-size: 0.9rem;
+}
+
+html[data-theme="night"] {
+    color-scheme: dark;
+
+    --night-bg: #141922;
+    --night-panel: #202938;
+    --night-raised: #2c384a;
+    --night-text: #f2f4f8;
+    --night-muted: #c3ccda;
+    --night-accent: #ff999f;
+
+    --hub-red: var(--night-accent);
+    --hub-border: #68788e;
+
+    /* Override the daytime background selected through JavaScript. */
+    --hub-page-color: var(--night-bg) !important;
+}
+
+html[data-theme="night"] body {
+    background-color: var(--night-bg) !important;
+    color: var(--night-text);
+}
+
+html[data-theme="night"] :is(
+    header,
+    .sidebar,
+    .players,
+    .events,
+    .player-card,
+    .team-card,
+    .bio,
+    .gallery-card,
+    .event,
+    .event-filters,
+    .registration-form,
+    #contact-form,
+    #application-form,
+    .subscription-dialog,
+    .faq-trigger,
+    table,
+    .game-list > a,
+    .game-list > .team-tile
+) {
+    background: var(--night-panel);
+    color: var(--night-text);
+    border-color: var(--hub-border);
+}
+
+html[data-theme="night"] .bg-white {
+    background-color: var(--night-panel) !important;
+}
+
+html[data-theme="night"] .gallery-section {
+    background: var(--night-bg);
+}
+
+html[data-theme="night"] .hero {
+    background: linear-gradient(135deg, #283248, var(--night-bg));
+}
+
+html[data-theme="night"] :is(
+    footer,
+    .css-carousel,
+    .css-carousel .carousel-caption
+) {
+    background: #10141c;
+}
+
+html[data-theme="night"] .card {
+    --bs-card-bg: var(--night-panel);
+    --bs-card-color: var(--night-text);
+}
+
+html[data-theme="night"] :is(
+    .hero h1,
+    .about h2,
+    .section-title h2,
+    .event h3,
+    .sidebar a,
+    table td,
+    tbody th
+) {
+    color: var(--night-text);
+}
+
+html[data-theme="night"] :is(
+    .sidebar-intro,
+    .hero-description,
+    .image-caption,
+    .player-card p,
+    .player-meta-list,
+    .team-card p,
+    .game-list span,
+    .event small,
+    .event-meta,
+    .section-note,
+    .about-content > p,
+    .bio p,
+    caption,
+    ul,
+    ol,
+    .gallery-card figcaption,
+    .card-text,
+    .form-text,
+    .hub-tools small
+) {
+    color: var(--night-muted);
+}
+
+html[data-theme="night"] :is(
+    .logo,
+    .label,
+    .hero h1 span,
+    .about h2 span,
+    .player-card h3,
+    .team-card h3,
+    .team-card .team-card-label,
+    .game-list strong,
+    .event-actions a,
+    .event-arrow,
+    .bio h2,
+    .bio h3,
+    .card-title,
+    .form-label,
+    #application-progress
+) {
+    color: var(--night-accent);
+}
+
+html[data-theme="night"] .faq-trigger::after {
+    color: var(--night-accent);
+}
+
+html[data-theme="night"] .logo span {
+    color: #ffd166;
+}
+
+html[data-theme="night"] .navbar {
+    --bs-navbar-color: var(--night-text);
+    --bs-navbar-hover-color: var(--night-accent);
+    --bs-navbar-active-color: var(--night-accent);
+    --bs-navbar-brand-color: var(--night-accent);
+    --bs-navbar-brand-hover-color: #ffd166;
+}
+
+html[data-theme="night"] :is(
+    .form-control,
+    .form-select,
+    .subscription-close
+) {
+    background-color: var(--night-bg);
+    color: var(--night-text);
+    border-color: var(--hub-border);
+}
+
+html[data-theme="night"] .form-control::placeholder {
+    color: var(--night-muted);
+}
+
+html[data-theme="night"] :is(
+    .form-control:focus,
+    .form-select:focus
+) {
+    border-color: var(--night-accent);
+}
+
+html[data-theme="night"] :is(
+    .input-group-text,
+    .demo-note
+) {
+    background: var(--night-raised);
+    color: var(--night-text);
+}
+
+html[data-theme="night"] :is(
+    .faq-trigger:hover,
+    tbody tr:hover,
+    .subscription-close:hover
+) {
+    background: var(--night-raised);
+}
+
+html[data-theme="night"] thead th {
+    background: #98252d;
+    color: #ffffff;
+}
+
+html[data-theme="night"] :is(table td, tbody th) {
+    border-color: var(--hub-border);
+}
+
+html[data-theme="night"] :is(
+    .btn-outline-primary,
+    .btn-outline-danger,
+    .btn-outline-secondary
+) {
+    --bs-btn-color: var(--night-accent);
+    --bs-btn-border-color: var(--night-accent);
+
+    --bs-btn-hover-color: #141922;
+    --bs-btn-hover-bg: var(--night-accent);
+    --bs-btn-hover-border-color: var(--night-accent);
+
+    --bs-btn-active-color: #141922;
+    --bs-btn-active-bg: #ffc1c5;
+    --bs-btn-active-border-color: #ffc1c5;
+
+    --bs-btn-disabled-color: var(--night-muted);
+    --bs-btn-disabled-border-color: var(--hub-border);
+}
+
+html[data-theme="night"] .hub-tools a.btn {
+    color: var(--night-accent);
+}
+
+html[data-theme="night"] .hub-tools a.btn:hover {
+    color: #141922;
+}
+
+html[data-theme="night"] .btn[aria-pressed="true"] {
+    background: #ff999f;
+    color: #141922;
+}
+
+html[data-theme="night"] .rating-star {
+    background: var(--night-panel);
+    color: var(--night-muted);
+    border-color: var(--hub-border);
+}
+
+html[data-theme="night"] .rating-star.is-selected {
+    background: #584314;
+    color: #ffdb75;
+    border-color: #ffdb75;
+}
+
+html[data-theme="night"] :is(
+    .field-error,
+    .validation-summary,
+    .subscription-error,
+    #application-error
+) {
+    color: #ffb1b7;
+}
+
+html[data-theme="night"] [aria-invalid="true"] {
+    background-color: #38232d;
+    border-color: #ffb1b7;
+}
+
+html[data-theme="night"] .validation-success {
+    background: #17392b;
+    color: #b5f0c8;
+    border-color: #7ec99b;
+}
+
+html[data-theme="night"] :is(
+    .subscription-result,
+    #application-result
+) {
+    color: #b5f0c8;
+}
+
+html[data-theme="night"] :focus-visible {
+    outline-color: #ffd166;
+}
+
+@media (max-width: 991.98px) {
+    html[data-theme="night"] .nav-menu-toggle {
+        border-color: var(--night-muted);
+        background-color: var(--night-panel);
+        background-image:
+            linear-gradient(#f2f4f8, #f2f4f8),
+            linear-gradient(#f2f4f8, #f2f4f8),
+            linear-gradient(#f2f4f8, #f2f4f8);
+    }
+
+    html[data-theme="night"] .nav-menu-toggle:checked {
+        background-image:
+            linear-gradient(
+                45deg,
+                transparent 46%,
+                #f2f4f8 46%,
+                #f2f4f8 54%,
+                transparent 54%
+            ),
+            linear-gradient(
+                -45deg,
+                transparent 46%,
+                #f2f4f8 46%,
+                #f2f4f8 54%,
+                transparent 54%
+            );
+    }
+}
+/* Single sun/moon button in the header */
+.theme-icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    margin-left: 16px;
+    padding: 0;
+    border: 1px solid #e6cf8b;
+    border-radius: 50%;
+    background: #fff8df;
+    color: #68483b;
+    cursor: pointer;
+    transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.theme-icon-button span {
+    font-size: 28px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.theme-icon-button:hover {
+    background: #ffedba;
+    transform: translateY(-2px);
+}
+
+.theme-icon-button:focus-visible {
+    outline: 3px solid #b51e22;
+    outline-offset: 3px;
+}
+
+html[data-theme="night"] .theme-icon-button {
+    background: #2c384a;
+    color: #ffd166;
+    border-color: #68788e;
+}
+
+html[data-theme="night"] .theme-icon-button:hover {
+    background: #3a4960;
+}
+
+html[data-theme="night"] .theme-icon-button:focus-visible {
+    outline-color: #ffd166;
+}
+
+@media (max-width: 991.98px) {
+    .navbar > .container {
+        flex-wrap: wrap;
+    }
+
+    .navbar .navbar-brand {
+        order: 0;
+    }
+
+    .theme-icon-button {
+        order: 1;
+        margin-left: auto;
+        margin-right: 12px;
+    }
+
+    .navbar .nav-menu-toggle {
+        order: 2;
+        margin-left: 0;
+    }
+
+    .navbar .nav-menu-label {
+        order: 3;
+    }
+
+    .navbar .navbar-collapse {
+        order: 4;
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .navbar .navbar-brand {
+        flex-basis: 100%;
+        margin-bottom: 8px;
+    }
+
+    .theme-icon-button {
+        margin-left: 0;
+        margin-right: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .theme-icon-button {
+        transition: none;
+    }
+
+    .theme-icon-button:hover {
+        transform: none;
+    }
+}
