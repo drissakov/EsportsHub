@@ -1,26 +1,36 @@
-// Assignment 5: a short match notification sound.
+// Sound preview and successful demo registration notification.
 (() => {
     const button = document.getElementById('sound-preview');
     const message = document.getElementById('sound-message');
-    if (!button || !message) return;
 
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    const AudioContextClass =
+        window.AudioContext || window.webkitAudioContext;
 
     if (!AudioContextClass) {
-        message.textContent = 'Sound preview is not supported in this browser.';
+        if (message) {
+            message.textContent =
+                'Sound is not supported in this browser.';
+        }
         return;
     }
 
     let audioContext;
     let playing = false;
-    button.disabled = false;
 
-    button.addEventListener('click', async () => {
+    if (button) {
+        button.disabled = false;
+    }
+
+    async function playNotification() {
+        // Prevent overlapping sounds.
         if (playing) return;
 
         playing = true;
-        button.disabled = true;
-        message.textContent = 'Playing match alert…';
+
+        if (button) button.disabled = true;
+        if (message) {
+            message.textContent = 'Playing notification…';
+        }
 
         let oscillator;
         let volume;
@@ -45,7 +55,7 @@
             oscillator.frequency.setValueAtTime(660, now);
             oscillator.frequency.setValueAtTime(880, now + 0.18);
 
-            // Fade in and out to avoid abrupt clicks.
+            // Smooth volume changes prevent abrupt clicks.
             volume.gain.setValueAtTime(0, now);
             volume.gain.linearRampToValueAtTime(0.08, now + 0.02);
             volume.gain.setValueAtTime(0.08, now + 0.30);
@@ -57,9 +67,14 @@
             oscillator.onended = () => {
                 oscillator.disconnect();
                 volume.disconnect();
+
                 playing = false;
-                button.disabled = false;
-                message.textContent = 'Preview finished. Play it again anytime.';
+
+                if (button) button.disabled = false;
+                if (message) {
+                    message.textContent =
+                        'Notification finished. You can preview it again.';
+                }
             };
 
             oscillator.start(now);
@@ -67,9 +82,24 @@
         } catch {
             oscillator?.disconnect();
             volume?.disconnect();
+
             playing = false;
-            button.disabled = false;
-            message.textContent = 'Could not play the sound. Please try again.';
+
+            if (button) button.disabled = false;
+            if (message) {
+                message.textContent =
+                    'Could not play the sound. Please try again.';
+            }
         }
-    });
+    }
+
+    if (button) {
+        button.addEventListener('click', playNotification);
+    }
+
+    // The validation code sends this event only after success.
+    document.addEventListener(
+        'esportshub:registration-success',
+        playNotification
+    );
 })();

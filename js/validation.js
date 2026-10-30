@@ -204,6 +204,7 @@
                     touched.clear();
                     edited.clear();
                     clearErrors();
+                    document.dispatchEvent(new Event('esportshub:registration-success'));
                 } else if (form.id === 'contact-form') {
                     // A valid contact submission retains its existing mailto action.
                     summary.classList.add('validation-success');
