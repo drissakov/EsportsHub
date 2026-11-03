@@ -275,3 +275,50 @@
     message.textContent = `Welcome, ${name}!`;
   });
 })();
+// Fetch and display a player tip without reloading the page.
+(() => {
+  const button = document.querySelector('#next-player-tip');
+  const content = document.querySelector('#player-tip-text');
+
+  if (!button || !content) return;
+
+  let previousTip = '';
+
+  button.addEventListener('click', async () => {
+    button.disabled = true;
+    button.textContent = 'Loading…';
+    content.setAttribute('aria-busy', 'true');
+
+    try {
+      const response = await fetch('js/player-tips.json');
+
+      if (!response.ok) {
+        throw new Error('Could not load tips.');
+      }
+
+      const tips = await response.json();
+
+      if (
+        !Array.isArray(tips) ||
+        tips.length === 0 ||
+        !tips.every((tip) => typeof tip === 'string' && tip.trim())
+      ) {
+        throw new Error('Invalid tips data.');
+      }
+
+      const alternatives = tips.filter((tip) => tip !== previousTip);
+      const choices = alternatives.length ? alternatives : tips;
+      const index = Math.floor(Math.random() * choices.length);
+
+      previousTip = choices[index];
+      content.textContent = previousTip;
+    } catch {
+      content.textContent =
+        'Could not load a tip. Please try again.';
+    } finally {
+      content.setAttribute('aria-busy', 'false');
+      button.disabled = false;
+      button.textContent = 'Next tip';
+    }
+  });
+})();

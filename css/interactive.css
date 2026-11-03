@@ -599,3 +599,11 @@ html[data-theme="night"] .gallery-thumbnail[aria-pressed="true"] {
 #greeting-message {
   overflow-wrap: anywhere;
 }
+.player-tip {
+  border: 1px solid var(--hub-border, #c9a74c);
+  border-radius: 12px;
+}
+
+#player-tip-text {
+  min-height: 3em;
+}
