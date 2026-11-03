@@ -587,3 +587,15 @@ html[data-theme="night"] .theme-icon-button:focus-visible {
 html[data-theme="night"] .gallery-thumbnail[aria-pressed="true"] {
   border-color: #ffcc47;
 }
+.sidebar-greeting {
+  margin-bottom: 24px;
+}
+
+.sidebar-greeting .form-control {
+  width: 100%;
+  min-width: 0;
+}
+
+#greeting-message {
+  overflow-wrap: anywhere;
+}

@@ -433,12 +433,31 @@
 </section>
             </main>
             <aside aria-label="Home quick links" class="sidebar p-4">
-                <h2>
-                    Start here
-                </h2>
-                <p class="sidebar-intro">
-                    Move from discovery to competition.
-                </p>
+               <h2 id="greeting-message" role="status">
+  Welcome, player!
+</h2>
+
+<p class="sidebar-intro">Move from discovery to competition.</p>
+
+<form id="greeting-form" class="sidebar-greeting">
+  <label for="greeting-name" class="form-label">
+    Your nickname
+  </label>
+
+  <input
+    type="text"
+    id="greeting-name"
+    class="form-control"
+    placeholder="Enter your nickname"
+    maxlength="24"
+    autocomplete="nickname"
+    required
+  >
+
+  <button type="submit" class="btn btn-primary mt-2">
+    Apply
+  </button>
+</form>
                 <ul>
                     <li><a href="#how-it-works">How EsportsHub works</a></li>
                     <li><a href="#upcoming-events">Browse events</a></li>

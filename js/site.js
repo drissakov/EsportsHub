@@ -253,3 +253,25 @@
     });
   });
 })();
+// Display a personal greeting when the form is submitted.
+(() => {
+  const form = document.getElementById('greeting-form');
+  const input = document.getElementById('greeting-name');
+  const message = document.getElementById('greeting-message');
+
+  if (!form || !input || !message) return;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = input.value.trim();
+
+    if (!name) {
+      message.textContent = 'Please enter your name or nickname.';
+      input.focus();
+      return;
+    }
+
+    message.textContent = `Welcome, ${name}!`;
+  });
+})();
