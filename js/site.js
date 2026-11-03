@@ -214,3 +214,19 @@
         }
     });
 })();
+// Show or hide additional community information.
+(() => {
+  const button = document.getElementById('community-read-more');
+  const details = document.getElementById('community-details');
+
+  if (!button || !details) return;
+
+  button.addEventListener('click', () => {
+    const expanded = button.getAttribute('aria-expanded') === 'true';
+    const showDetails = !expanded;
+
+    details.style.display = showDetails ? 'block' : 'none';
+    button.textContent = showDetails ? 'Read Less' : 'Read More';
+    button.setAttribute('aria-expanded', String(showDetails));
+  });
+})();
