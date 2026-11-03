@@ -230,3 +230,26 @@
     button.setAttribute('aria-expanded', String(showDetails));
   });
 })();
+// Change the main gallery image when a thumbnail is selected.
+(() => {
+  const gallery = document.getElementById('esports-gallery');
+  if (!gallery) return;
+
+  const mainImage = gallery.querySelector('#gallery-main');
+  const caption = gallery.querySelector('#gallery-caption');
+  const buttons = gallery.querySelectorAll('.gallery-thumbnail');
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const thumbnail = button.querySelector('img');
+
+      mainImage.setAttribute('src', thumbnail.getAttribute('src'));
+      mainImage.setAttribute('alt', thumbnail.alt);
+      caption.textContent = thumbnail.alt;
+
+      buttons.forEach((item) => {
+        item.setAttribute('aria-pressed', String(item === button));
+      });
+    });
+  });
+})();
