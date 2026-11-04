@@ -322,3 +322,20 @@
     }
   });
 })();
+// Clear the nickname form and restore the default greeting.
+(() => {
+  const form = document.querySelector('#greeting-form');
+  const button = document.querySelector('#reset-greeting');
+  const message = document.querySelector('#greeting-message');
+
+  if (!form || !button || !message) return;
+
+  button.addEventListener('click', () => {
+    form.querySelectorAll('input').forEach((input) => {
+      input.value = '';
+    });
+
+    message.textContent = 'Welcome, player!';
+    form.querySelector('input').focus();
+  });
+})();
