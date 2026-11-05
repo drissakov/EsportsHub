@@ -18,6 +18,8 @@
         <script defer src="js/email-validation.js?v=forms3"></script>
         <script defer src="js/validation.js?v=forms3"></script>
         <script defer src="js/subscription.js?v=forms3"></script>
+        <script defer src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+<script defer src="js/script.js"></script>
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -196,6 +198,24 @@
                                 </p>
                             </div>
                         </div>
+                        <div class="event-search mb-4">
+  <label for="event-search-input" class="form-label">
+    Search tournaments
+  </label>
+
+  <input
+    type="search"
+    id="event-search-input"
+    class="form-control"
+    placeholder="Search by tournament, game or city"
+    aria-controls="event-list"
+    aria-describedby="event-search-status"
+  >
+
+  <p id="event-search-status" class="mt-2" role="status">
+    Showing all 5 tournaments.
+  </p>
+</div>
                         <div class="event-list">
                             <article class="event p-3" id="event-championship">
                                 <div class="date p-2">
