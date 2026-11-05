@@ -278,3 +278,29 @@ $(document).ready(function () {
     animateCounters();
   }
 });
+// Task 7: show a temporary notification after application success.
+$(document).ready(function () {
+    const $notification = $("<div>")
+        .addClass("hub-toast")
+        .attr({
+            role: "status",
+            "aria-live": "polite",
+            "aria-atomic": "true"
+        })
+        .hide()
+        .appendTo("body");
+
+    $(document).on("esportshub:application-success", function () {
+        const reducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        $notification
+            .stop(true, true)
+            .hide()
+            .text("✓ Demo application completed successfully!")
+            .fadeIn(reducedMotion ? 0 : 250)
+            .delay(3500)
+            .fadeOut(reducedMotion ? 0 : 400);
+    });
+});

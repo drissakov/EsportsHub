@@ -735,3 +735,29 @@ html[data-theme="night"] .home-stats {
 html[data-theme="night"] .home-stat .stat-number {
   color: #ff9aa2;
 }
+/* Task 7: temporary application notification */
+.hub-toast {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1100;
+    width: max-content;
+    max-width: min(380px, calc(100vw - 48px));
+    padding: 16px 20px;
+    border: 1px solid #247448;
+    border-left: 5px solid #247448;
+    border-radius: 12px;
+    background: #effbf2;
+    color: #174d30;
+    box-shadow: 0 8px 28px rgb(0 0 0 / 20%);
+    font-weight: 600;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    pointer-events: none;
+}
+
+html[data-theme="night"] .hub-toast {
+    background: #183b2b;
+    color: #d5ffe4;
+    border-color: #8ce5ae;
+}

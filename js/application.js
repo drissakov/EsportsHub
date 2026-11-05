@@ -161,8 +161,9 @@
 
             result.tabIndex = -1;
             result.focus();
+                        jQuery(document).trigger('esportshub:application-success');
         }, 1500);
     });
-    
+
     showStep(0, false);
 })();
