@@ -109,22 +109,60 @@
         });
     });
 
+        let submitting = false;
+
     form.addEventListener('submit', (event) => {
         event.preventDefault();
+
+        if (submitting) return;
 
         if (application.step < steps.length - 1) {
             goNext();
             return;
         }
 
-        result.textContent =
-            `Thanks, ${application.details.name}! Your demo application for ` +
-            `${application.details.game} is complete. No data was sent or saved.`;
+        submitting = true;
 
-        submitButton.disabled = true;
-        result.tabIndex = -1;
-        result.focus();
+        const $submit = jQuery(submitButton);
+        const $back = jQuery(backButton);
+        const originalText = $submit.text();
+        const backWasDisabled = $back.prop('disabled');
+
+        result.textContent = '';
+
+        $submit
+            .prop('disabled', true)
+            .attr('aria-busy', 'true')
+            .empty()
+            .append(
+                jQuery('<span>')
+                    .addClass('spinner-border spinner-border-sm me-2')
+                    .attr('aria-hidden', 'true')
+            )
+            .append(
+                jQuery('<span>').text('Please wait…')
+            );
+
+        $back.prop('disabled', true);
+
+        // Simulate a server response without sending any data.
+        window.setTimeout(() => {
+            $submit
+                .text(originalText)
+                .prop('disabled', false)
+                .removeAttr('aria-busy');
+
+            $back.prop('disabled', backWasDisabled);
+            submitting = false;
+
+            result.textContent =
+                `Thanks, ${application.details.name}! Your demo application for ` +
+                `${application.details.game} is complete. No data was sent or saved.`;
+
+            result.tabIndex = -1;
+            result.focus();
+        }, 1500);
     });
-
+    
     showStep(0, false);
 })();
