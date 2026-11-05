@@ -607,3 +607,6 @@ html[data-theme="night"] .gallery-thumbnail[aria-pressed="true"] {
 #player-tip-text {
   min-height: 3em;
 }
+#community-details {
+  display: none;
+}
