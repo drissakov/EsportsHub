@@ -699,3 +699,39 @@ html[data-theme="night"] #event-list mark.search-highlight {
   transform: scaleX(0);
   transform-origin: left center;
 }
+/* Task 5: compact counters in the home hero */
+.home-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #c9a74c;
+}
+
+.home-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home-stat .stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  color: #bd1822;
+}
+
+.home-stat span {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+html[data-theme="night"] .home-stats {
+  border-color: #718096;
+}
+
+html[data-theme="night"] .home-stat .stat-number {
+  color: #ff9aa2;
+}

@@ -216,3 +216,65 @@ $(document).ready(function () {
 
   updateProgress();
 });
+// Task 5: animate counts of the content featured on the home page.
+$(document).ready(function () {
+  const $stats = $(".home-stats");
+  if (!$stats.length) return;
+
+  const counters = $stats.find(".stat-number").map(function () {
+    const $number = $(this);
+    const selector = $number.attr("data-count-selector");
+    const target = $(selector).length;
+
+    $number.text(target);
+
+    return {
+      $number: $number,
+      target: target
+    };
+  }).get();
+
+  function animateCounters() {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    counters.forEach(function (counter) {
+      if (reduceMotion) {
+        counter.$number.text(counter.target);
+        return;
+      }
+
+      counter.$number.text("0");
+
+      $({ count: 0 }).animate(
+        { count: counter.target },
+        {
+          duration: 1400,
+          easing: "swing",
+          step: function (value) {
+            counter.$number.text(Math.floor(value));
+          },
+          complete: function () {
+            counter.$number.text(counter.target);
+          }
+        }
+      );
+    });
+  }
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      if (entries.some(function (entry) {
+        return entry.isIntersecting;
+      })) {
+        observer.disconnect();
+        animateCounters();
+      }
+    }, { threshold: 0.5 });
+
+    observer.observe($stats[0]);
+  } else {
+    animateCounters();
+  }
+});
