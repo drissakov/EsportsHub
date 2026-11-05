@@ -304,3 +304,78 @@ $(document).ready(function () {
             .fadeOut(reducedMotion ? 0 : 400);
     });
 });
+// Task 8: copy a direct link to a tournament.
+$(document).ready(function () {
+    $("#event-list .event-list > .event").each(function () {
+        const $event = $(this);
+        const eventId = $event.attr("id");
+        const title = $event.find("h3").text().trim();
+        const $actions = $event.find(".event-actions");
+
+        if (!eventId || !$actions.length) return;
+
+        const link =
+            "https://drissakov.github.io/EsportsHub/events.html#" +
+            encodeURIComponent(eventId);
+
+        const $wrapper = $("<span>").addClass("event-copy");
+
+        const $button = $("<button>")
+            .attr({
+                type: "button",
+                "aria-label": "Copy link to " + title
+            })
+            .addClass("btn btn-outline-primary event-copy-button");
+
+        const $icon = $("<span>")
+            .attr("aria-hidden", "true")
+            .text("⧉");
+
+        const $label = $("<span>").text("Copy link");
+
+        const $tooltip = $("<span>")
+            .addClass("event-copy-tooltip")
+            .attr("role", "status");
+
+        $button.append($icon, $label);
+        $wrapper.append($button, $tooltip).appendTo($actions);
+
+        let resetTimer;
+        let copying = false;
+
+        $button.on("click", async function () {
+            if (copying) return;
+
+            copying = true;
+            window.clearTimeout(resetTimer);
+            $tooltip.removeClass("is-visible").text("");
+            $button.prop("disabled", true);
+
+            try {
+                if (!navigator.clipboard?.writeText) {
+                    throw new Error("Clipboard is unavailable");
+                }
+
+                await navigator.clipboard.writeText(link);
+
+                $icon.text("✓");
+                $label.text("Copied");
+                $tooltip.text("Copied to clipboard!");
+            } catch {
+                $icon.text("⧉");
+                $label.text("Copy link");
+                $tooltip.text("Could not copy. Please try on the HTTPS website.");
+            } finally {
+                copying = false;
+                $button.prop("disabled", false);
+                $tooltip.addClass("is-visible");
+
+                resetTimer = window.setTimeout(function () {
+                    $icon.text("⧉");
+                    $label.text("Copy link");
+                    $tooltip.removeClass("is-visible").text("");
+                }, 2500);
+            }
+        });
+    });
+});

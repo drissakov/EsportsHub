@@ -761,3 +761,52 @@ html[data-theme="night"] .hub-toast {
     color: #d5ffe4;
     border-color: #8ce5ae;
 }
+/* Task 8: tournament link copy button and tooltip. */
+.event-copy {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.event-copy-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.event-copy-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    z-index: 20;
+    width: max-content;
+    max-width: min(260px, 80vw);
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #213529;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgb(0 0 0 / 20%);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 180ms ease;
+}
+
+.event-copy-tooltip.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+html[data-theme="night"] .event-copy-tooltip {
+    background: #d5ffe4;
+    color: #173b28;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .event-copy-tooltip {
+        transition: none;
+    }
+}
