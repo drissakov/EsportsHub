@@ -113,3 +113,55 @@ $(document).ready(function () {
     }
   });
 });
+// Task 3: highlight every match in searchable tournament text.
+$(document).ready(function () {
+  const $search = $("#event-search-input");
+  const $fields = $("#event-list .event-list .event")
+    .find("h3, .event-content > small, .event-meta > span");
+
+  if (!$search.length || !$fields.length) return;
+
+  // Keep the original text so highlights never accumulate.
+  const originals = $fields.map(function () {
+    return {
+      element: this,
+      text: $(this).text()
+    };
+  }).get();
+
+  function highlightMatches() {
+    const query = $search.val().trim();
+
+    // Treat characters such as +, (, and . as ordinary search text.
+    const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const pattern = query
+      ? new RegExp("(" + escapedQuery + ")", "gi")
+      : null;
+
+    originals.forEach(function (item) {
+      const $element = $(item.element);
+      $element.empty();
+
+      if (!pattern) {
+        $element.text(item.text);
+        return;
+      }
+
+      const parts = item.text.split(pattern);
+
+      parts.forEach(function (part, index) {
+        if (index % 2 === 1) {
+          $("<mark>")
+            .addClass("search-highlight")
+            .text(part)
+            .appendTo($element);
+        } else {
+          $element.append(document.createTextNode(part));
+        }
+      });
+    });
+  }
+
+  $search.on("input", highlightMatches);
+  highlightMatches();
+});

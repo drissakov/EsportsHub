@@ -668,3 +668,15 @@ html[data-theme="night"] .event-search-suggestion:focus-visible {
   background: #354158;
   outline-color: #ffcf40;
 }
+/* Task 3: highlight matching text in tournament cards */
+#event-list mark.search-highlight {
+  background: #ffdf70;
+  color: #301b13;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+
+html[data-theme="night"] #event-list mark.search-highlight {
+  background: #ffcf40;
+  color: #141922;
+}
