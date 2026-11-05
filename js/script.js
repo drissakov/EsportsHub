@@ -379,3 +379,43 @@ $(document).ready(function () {
         });
     });
 });
+// Task 9: load player images when they enter the viewport.
+$(document).ready(function () {
+  let $pendingImages = $("img.jquery-lazy[data-src]");
+
+  if (!$pendingImages.length) return;
+
+  function loadVisibleImages() {
+    const viewportTop = $(window).scrollTop();
+    const viewportBottom = viewportTop + $(window).height();
+
+    $pendingImages.each(function () {
+      const $image = $(this);
+      const imageTop = $image.offset().top;
+      const imageBottom = imageTop + $image.outerHeight();
+
+      const isVisible =
+        imageTop < viewportBottom && imageBottom > viewportTop;
+
+      if (isVisible) {
+        $image
+          .attr("src", $image.attr("data-src"))
+          .removeAttr("data-src")
+          .removeClass("jquery-lazy");
+      }
+    });
+
+    $pendingImages = $pendingImages.filter("[data-src]");
+
+    if (!$pendingImages.length) {
+      $(window).off(".playerLazyLoading");
+    }
+  }
+
+  $(window).on(
+    "scroll.playerLazyLoading resize.playerLazyLoading load.playerLazyLoading",
+    loadVisibleImages
+  );
+
+  loadVisibleImages();
+});
