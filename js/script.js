@@ -165,3 +165,54 @@ $(document).ready(function () {
   $search.on("input", highlightMatches);
   highlightMatches();
 });
+// Task 4: show how far the page has been scrolled.
+$(document).ready(function () {
+  const $progress = $("<div>")
+    .addClass("scroll-progress")
+    .attr({
+      role: "progressbar",
+      "aria-label": "Page scroll progress",
+      "aria-valuemin": "0",
+      "aria-valuemax": "100",
+      "aria-valuenow": "0"
+    })
+    .prependTo("body");
+
+  const $fill = $("<div>")
+    .addClass("scroll-progress-fill")
+    .appendTo($progress);
+
+  let updateScheduled = false;
+
+  function updateProgress() {
+    const page = document.documentElement;
+    const scrollableHeight = page.scrollHeight - page.clientHeight;
+    const scrollTop = $(window).scrollTop();
+
+    const ratio = scrollableHeight > 0
+      ? Math.min(1, Math.max(0, scrollTop / scrollableHeight))
+      : 1;
+
+    $fill.css("transform", `scaleX(${ratio})`);
+    $progress.attr("aria-valuenow", Math.round(ratio * 100));
+
+    updateScheduled = false;
+  }
+
+  function scheduleUpdate() {
+    if (updateScheduled) return;
+
+    updateScheduled = true;
+    window.requestAnimationFrame(updateProgress);
+  }
+
+  $(window).on("scroll resize load", scheduleUpdate);
+
+  // Recalculate when filtering or expanding content changes page height.
+  if ("ResizeObserver" in window) {
+    const observer = new ResizeObserver(scheduleUpdate);
+    observer.observe(document.body);
+  }
+
+  updateProgress();
+});

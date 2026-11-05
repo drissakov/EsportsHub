@@ -680,3 +680,22 @@ html[data-theme="night"] #event-list mark.search-highlight {
   background: #ffcf40;
   color: #141922;
 }
+/* Task 4: scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  z-index: 2000;
+  background: rgb(128 128 128 / 20%);
+  pointer-events: none;
+}
+
+.scroll-progress-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #d71920, #ff8736, #ffcf40);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
