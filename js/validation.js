@@ -27,14 +27,6 @@
         const emailValidator = window.EsportsHubEmail;
         const passwordValidator = window.EsportsHubPassword;
         const auth = window.EsportsHubAuth;
-        const contactTopic = document.getElementById('topic');
-        document.querySelectorAll('[data-contact-topic]').forEach((link) => {
-            link.addEventListener('click', () => {
-                contactTopic.value = link.dataset.contactTopic;
-                contactTopic.dispatchEvent(new Event('change', { bubbles: true }));
-            });
-        });
-
         Object.entries(formRules).forEach(([id, config]) => {
             const form = document.getElementById(id);
             if (!form) return;

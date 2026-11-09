@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <!-- FAN | SE-2501 | Damir Issakov, Alina Aitmukhamet, Aisha Mussina -->
+        <title>
+            Account | EsportsHub
+        </title>
+        <script src="js/theme-preference.js"></script>
+        <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
+        <link href="css/interactive.css" rel="stylesheet">
+        <link href="css/validation.css" rel="stylesheet">
+        <link href="css/subscription.css" rel="stylesheet">
+        <link href="css/auth.css" rel="stylesheet">
+        <script defer src="js/site.js"></script>
+        <script defer src="js/email-validation.js?v=forms3"></script>
+        <script defer src="js/vendor/password-strength.min.js?v=forms3"></script>
+        <script defer src="js/password-validation.js?v=forms3"></script>
+        <script defer src="js/auth.js"></script>
+        <script defer src="js/validation.js"></script>
+        <script defer src="js/subscription.js?v=forms3"></script>
+        <script defer src="js/vendor/jquery.min.js"></script>
+        <script defer src="js/sound.js"></script>
+        <script defer src="js/script.js"></script>
+    </head>
+    <body>
+        <a class="skip-link px-3 py-2" href="#main-content">
+            Skip to main content
+        </a>
+        <div class="page-layout">
+            <header class="grid-header">
+                <nav aria-label="Main navigation" class="navbar navbar-expand-lg bg-white py-3">
+                    <div class="container">
+                        <a class="navbar-brand logo me-3" href="index.html">
+                            Esports<span>Hub</span>
+                        </a>
+                        <!-- Native checkbox + CSS: Space toggles the mobile menu without JavaScript. -->
+                        <input aria-controls="mainNavigation" aria-describedby="navigation-help" class="nav-menu-toggle" id="navigation-toggle" type="checkbox">
+                        <label class="nav-menu-label" for="navigation-toggle">Menu</label>
+                        <span class="visually-hidden" id="navigation-help">Check to show navigation links; uncheck to hide them.</span>
+                        <div class="navbar-collapse" id="mainNavigation">
+                            <ul class="navbar-nav ms-auto m-0 p-0">
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="index.html">
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="events.html">
+                                        Events
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="teams.html">
+                                        Teams
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="players.html">
+                                        Players
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="rankings.html">
+                                        Rankings
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="contact.html">
+                                        Community
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a aria-current="page" class="nav-link nav-profile px-sm-2 py-2 active" href="profile.html">Account</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <main class="grid-main" id="main-content" tabindex="-1">
+                <section class="about account-page py-4 py-lg-5">
+                    <div class="container">
+                        <div class="account-content mx-auto" data-account-view>
+                            <h1>Player Account</h1>
+                            <p class="auth-note">This is a demo. Use fictional details and a password you only use here. The account stays in this browser.</p>
+                            <nav aria-label="Account options" class="account-modes mb-3">
+                                <a aria-current="location" data-account-mode="login" href="#login" id="login">Log In</a>
+                                <a data-account-mode="registration" href="#registration" id="registration">Sign Up</a>
+                            </nav>
+                            <div data-account-panel="login">
+                                <form aria-describedby="login-help" aria-labelledby="login-title" class="auth-card p-3 p-md-4" id="login-form" method="post" novalidate>
+                                    <h2 id="login-title" tabindex="-1">Log In</h2>
+                                    <p id="login-help">Use the email and sample password from your local account.</p>
+                                    <p class="validation-summary" data-validation-summary role="status" aria-atomic="true"></p>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label class="form-label" for="login-email">Email</label>
+                                            <input aria-required="true" autocapitalize="none" autocomplete="username" class="form-control" id="login-email" inputmode="email" name="email" placeholder="player@example.com…" spellcheck="false" type="text">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="login-password">Password</label>
+                                            <input aria-required="true" autocomplete="current-password" class="form-control" id="login-password" type="password">
+                                        </div>
+                                        <div class="col-12 auth-actions">
+                                            <button class="btn btn-primary" data-enable-validation disabled type="submit">Log In</button>
+                                            <a href="#registration">Create an Account</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div data-account-panel="registration" hidden>
+                                <form aria-describedby="registration-help" aria-labelledby="registration-title" class="auth-card p-3 p-md-4" id="registration-form" method="post" novalidate>
+                                    <h2 id="registration-title" tabindex="-1">Sign Up</h2>
+                                    <p id="registration-help">All fields are required.</p>
+                                    <p class="validation-summary" data-validation-summary role="status" aria-atomic="true" tabindex="-1"></p>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label class="form-label" for="registration-name">Player name</label>
+                                            <input aria-required="true" autocomplete="nickname" class="form-control" id="registration-name" name="display-name" type="text">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="registration-email">Email</label>
+                                            <input aria-required="true" autocapitalize="none" autocomplete="email" class="form-control" id="registration-email" inputmode="email" name="email" placeholder="player@example.com…" spellcheck="false" type="text">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="registration-phone">Phone</label>
+                                            <input aria-describedby="registration-phone-help" aria-required="true" autocomplete="tel" class="form-control" id="registration-phone" name="phone" placeholder="+12025550134…" type="tel">
+                                            <p class="form-text mb-0" id="registration-phone-help">Enter +, the country code, and your number (8–15 digits total).</p>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="registration-password">Password</label>
+                                            <input aria-describedby="registration-password-help" aria-required="true" autocomplete="new-password" class="form-control" id="registration-password" type="password">
+                                            <p class="form-text mb-0" id="registration-password-help">Use 15–128 characters. Try a phrase with unrelated words.</p>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="registration-confirm">Confirm password</label>
+                                            <input aria-required="true" autocomplete="new-password" class="form-control" id="registration-confirm" type="password">
+                                        </div>
+                                        <div class="col-12 auth-actions">
+                                            <button class="btn btn-primary" data-enable-validation disabled type="submit">Create Demo Account</button>
+                                            <a href="#login">Log In Instead</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <noscript><p class="field-error mt-3">Enable JavaScript to create an account or log in.</p></noscript>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <aside aria-label="Account links" class="sidebar p-4">
+                <h2>Help</h2>
+                <ul>
+                    <li><a href="contact.html#faq-question-2">Where is my profile saved?</a></li>
+                </ul>
+
+                <details class="hub-tools" id="page-tools">
+                    <summary>Page tools</summary>
+                    <div class="hub-tools-content">
+                        <small>Local time</small>
+                        <time class="hub-clock" data-current-time>Loading time…</time>
+                        <div class="hub-tool-actions">
+                            <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
+                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
+                        </div>
+                        <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
+                    </div>
+                </details>
+            </aside>
+            <footer class="grid-footer mt-5">
+                <div class="container footer pt-4 pb-3 ps-3 pe-3">
+                    <div>
+                        <a class="logo" href="index.html">
+                            Esports<span>Hub</span>
+                        </a>
+                        <p>
+                            A prototype for the esports community.
+                        </p>
+                    </div>
+                    <nav aria-label="Footer navigation" class="footer-nav">
+                        <strong>Explore</strong>
+                        <ul>
+                            <li><a href="events.html#event-list">Events</a></li>
+                            <li><a href="teams.html#team-directory">Teams</a></li>
+                            <li><a href="players.html#player-directory">Players</a></li>
+                            <li><a href="rankings.html#ranking-table">Rankings</a></li>
+                            <li><a href="contact.html#contact-options">Community</a></li>
+                        </ul>
+                    </nav>
+                    <div>
+                        <strong>Team</strong>
+                        <p>Damir Issakov · Alina Aitmukhamet · Aisha Mussina</p>
+                        <p>FAN · SE-2501</p>
+                    </div>
+                </div>
+                <div class="container copyright py-3">
+                    EsportsHub © 2026
+                </div>
+            </footer>
+        </div>
+        <dialog aria-labelledby="subscription-title" aria-describedby="subscription-description" class="subscription-dialog" id="subscription-dialog">
+            <div class="subscription-heading">
+                <p class="label">STAY IN THE GAME</p>
+                <button aria-label="Close subscription form" class="subscription-close" data-close-subscription type="button">&times;</button>
+            </div>
+            <h2 id="subscription-title">Your next match starts here.</h2>
+            <p id="subscription-description">Try the EsportsHub event newsletter form. This is a frontend demo: your email is not sent or stored.</p>
+            <form class="subscription-form" id="subscription-form" novalidate>
+                <label class="form-label" for="subscription-email">Email address <span>(required)</span></label>
+                <input aria-describedby="subscription-email-help subscription-email-error" autocomplete="email" class="form-control" id="subscription-email" name="email" placeholder="you@example.com" type="text" inputmode="email" autocapitalize="none" spellcheck="false" aria-required="true">
+                <p class="form-text" id="subscription-email-help">Use one complete address, such as name+team@example.com (up to 254 characters).</p>
+                <p aria-live="polite" class="subscription-error" id="subscription-email-error"></p>
+                <button class="btn btn-primary" type="submit" disabled>Try subscription</button>
+                <p aria-live="polite" class="subscription-result" id="subscription-result" role="status"></p>
+            </form>
+        </dialog>
+    </body>
+</html>

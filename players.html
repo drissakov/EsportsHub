@@ -70,7 +70,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item mb-0">
-                                    <a class="nav-link nav-profile px-sm-2 py-2" href="profile.html">Profile</a>
+                                    <a class="nav-link nav-profile px-sm-2 py-2" href="profile.html">Account</a>
                                 </li>
                             </ul>
                         </div>
@@ -78,62 +78,10 @@
                 </nav>
             </header>
             <main class="grid-main" id="main-content" tabindex="-1">
-                <section class="hero py-4 py-lg-5">
+                <section class="hero py-4">
                     <div class="container">
-                        <p class="label mb-3">
-                            ESPORTS PLAYERS
-                        </p>
-                        <h1 class="mb-3">
-                            Meet the
-                            <span>
-                                Players.
-                            </span>
-                        </h1>
-                        <p class="hero-description mt-3">
-                            Discover sample player profiles, connect their games to teams and use event and ranking pages to follow the wider competitive journey.
-                        </p>
-                    </div>
-                </section>
-                <section class="games py-4 py-lg-5">
-                    <div class="container">
-                        <p class="label mb-3">
-                            FEATURED PLAYERS
-                        </p>
-                        <h2 class="visually-hidden">Player discovery shortcuts</h2>
-                        <div class="game-list mt-4">
-                            <a class="p-3 p-lg-4" href="#donk">
-                                <strong>
-                                    donk
-                                </strong>
-                                <span>
-                                    CS2 · Team Spirit
-                                </span>
-                            </a>
-                            <a class="p-3 p-lg-4" href="#monesy">
-                                <strong>
-                                    m0NESY
-                                </strong>
-                                <span>
-                                    CS2 · G2 Esports
-                                </span>
-                            </a>
-                            <a class="p-3 p-lg-4" href="teams.html#community-teams">
-                                <strong>
-                                    Community teams
-                                </strong>
-                                <span>
-                                    Explore sample roster ideas
-                                </span>
-                            </a>
-                            <a class="p-3 p-lg-4" href="#faker">
-                                <strong>
-                                    Faker
-                                </strong>
-                                <span>
-                                    League of Legends · T1
-                                </span>
-                            </a>
-                        </div>
+                        <h1 class="mb-2">Esports players</h1>
+                        <p class="hero-description mb-0">Discover featured players, their roles and the teams linked to their sample profiles.</p>
                     </div>
                 </section>
                 <section class="players py-4 py-lg-5" id="player-directory">
@@ -143,7 +91,7 @@
                                 Featured player profiles
                             </h2>
                         </div>
-                        <p class="section-note mb-4">Sample community profiles for demonstrating player, team and event connections; not a live roster directory.</p>
+                        <p class="section-note mb-4">These sample profiles illustrate player roles and team connections.</p>
                         <div class="players-container">
                             <article class="player-card" id="donk">
                                 <div class="player-card-media">
@@ -545,9 +493,6 @@
                 <h2>
                     Player discovery
                 </h2>
-                <p class="sidebar-intro">
-                    Meet players, compare pathways and find the next match.
-                </p>
                 <ul>
                     <li><a href="#player-directory">Browse player profiles</a></li>
                     <li><a href="#player-gallery">Explore the gallery</a></li>
@@ -555,19 +500,19 @@
                     <li><a href="rankings.html#ranking-table">See sample rankings</a></li>
                 </ul>
 
-                <section class="hub-tools" aria-labelledby="page-tools-title">
-                    <h2 id="page-tools-title">Your page, your way.</h2>
-                    <time class="hub-clock" data-current-time>Loading current time...</time>
-                    <small>Browser time zone: <span data-time-zone>local</span></small>
-                    <div class="hub-tool-actions">
-                        <button class="btn btn-outline-danger" data-background-cycle type="button">Change background</button>
-                        <button class="btn btn-primary" data-open-subscription type="button">Subscribe</button>
-                        <a class="btn btn-outline-danger" href="contact.html#registration">Try sign-up</a>
-                        <a class="btn btn-outline-danger" href="contact.html#community-faq">Community FAQ</a>
+                <details class="hub-tools" id="page-tools">
+                    <summary>Page tools</summary>
+                    <div class="hub-tools-content">
+                        <small>Local time</small>
+                        <time class="hub-clock" data-current-time>Loading time…</time>
+                        <div class="hub-tool-actions">
+                            <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
+                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
+                        </div>
+                        <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
                     </div>
-                    <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
-                    <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
-                </section>
+                </details>
             </aside>
             <footer class="grid-footer mt-5">
                 <div class="container footer pt-4 pb-3 ps-3 pe-3">

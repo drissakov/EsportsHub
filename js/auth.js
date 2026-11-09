@@ -2,6 +2,19 @@
 (() => {
     'use strict';
 
+    if (document.getElementById('contact-form')) {
+        function redirectLegacyAccountLink() {
+            const { hash, search } = window.location;
+            if (hash === '#registration' || hash === '#login') {
+                window.location.replace(`account.html${search}${hash}`);
+            }
+        }
+
+        window.addEventListener('hashchange', redirectLegacyAccountLink);
+        redirectLegacyAccountLink();
+        return;
+    }
+
     const accountPrefix = 'esportshub:account:v1:';
     const sessionKey = 'esportshub:session:v1';
     const encoder = new TextEncoder();
@@ -61,12 +74,34 @@
 
     window.EsportsHubAuth = Object.freeze({ signUp, logIn });
 
+    const accountView = document.querySelector('[data-account-view]');
+    if (accountView) {
+        const panels = accountView.querySelectorAll('[data-account-panel]');
+        const links = accountView.querySelectorAll('[data-account-mode]');
+
+        function showAccountForm(moveFocus = false) {
+            const mode = window.location.hash.slice(1) || 'login';
+            const activePanel = Array.from(panels).find((panel) => panel.dataset.accountPanel === mode);
+            if (!activePanel) return;
+
+            panels.forEach((panel) => { panel.hidden = panel !== activePanel; });
+            links.forEach((link) => {
+                if (link.dataset.accountMode === mode) link.setAttribute('aria-current', 'location');
+                else link.removeAttribute('aria-current');
+            });
+            if (moveFocus) activePanel.querySelector('h2').focus({ preventScroll: true });
+        }
+
+        window.addEventListener('hashchange', () => showAccountForm(true));
+        showAccountForm();
+    }
+
     const profile = document.getElementById('profile-details');
     if (!profile) return;
 
     const status = document.getElementById('profile-status');
     const logout = document.getElementById('profile-logout');
-    const loginUrl = 'contact.html#login';
+    const loginUrl = 'account.html#login';
 
     function renderProfile() {
         let account;

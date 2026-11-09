@@ -220,7 +220,7 @@
     const showDetails = !expanded;
 
     details.style.display = showDetails ? 'block' : 'none';
-    button.textContent = showDetails ? 'Read Less' : 'Read More';
+    button.textContent = showDetails ? 'Read less' : 'Read more';
     button.setAttribute('aria-expanded', String(showDetails));
   });
 })();

@@ -18,8 +18,11 @@ Damir Issakov (Home and Events), Alina Aitmukhamet (Teams and Players), and Aish
 | [Teams](teams.html) | Sample team directory with links to player profiles and rankings |
 | [Players](players.html) | Player cards, photo gallery, and keyboard-accessible carousel |
 | [Rankings](rankings.html) | Sample multi-game standings with a horizontally scrollable table on narrow screens |
-| [Community](contact.html) | Sign-up, log-in, contact email draft, FAQ, and a three-step demo player application |
+| [Community](contact.html) | FAQ, contact email draft, and a three-step demo player application |
+| [Account](account.html) | Separate sign-up and log-in views for the browser-local demo account |
 | [Profile](profile.html) | The signed-in player's name, email, and phone, with a log-out action |
+
+Page tools groups the local clock, background options, and subscription demo. Home also offers a nickname greeting there.
 
 ## Run locally
 

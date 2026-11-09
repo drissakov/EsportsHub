@@ -69,7 +69,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item mb-0">
-                                    <a aria-current="page" class="nav-link nav-profile px-sm-2 py-2 active" href="profile.html">Profile</a>
+                                    <a aria-current="page" class="nav-link nav-profile px-sm-2 py-2 active" href="profile.html">Account</a>
                                 </li>
                             </ul>
                         </div>
@@ -79,16 +79,15 @@
             <main class="grid-main" id="main-content" tabindex="-1">
                 <section class="hero py-4 py-lg-5">
                     <div class="container">
-                        <p class="label mb-3">PLAYER ACCOUNT</p>
-                        <h1 class="mb-3">Your <span>Profile.</span></h1>
-                        <p class="hero-description mt-3">Your EsportsHub player details are saved in this browser.</p>
+                        <h1 class="mb-3">Your Player Profile</h1>
+                        <p class="hero-description mt-3">View the player details saved in this browser.</p>
                     </div>
                 </section>
                 <section class="about py-4 py-lg-5" aria-labelledby="profile-title">
                     <div class="container">
                         <h2 id="profile-title" class="visually-hidden">Player details</h2>
                         <p id="profile-status" role="status">Opening your local profile…</p>
-                        <noscript><p>Enable JavaScript to open your local player profile. <a href="contact.html#login">Return to Community</a>.</p></noscript>
+                        <noscript><p>Enable JavaScript to open your local player profile. <a href="account.html#login">Return to Log In</a>.</p></noscript>
                         <article class="auth-card profile-card p-3 p-md-4" id="profile-details" hidden>
                             <div class="profile-heading">
                                 <span class="profile-avatar" id="profile-avatar" aria-hidden="true"></span>
@@ -124,17 +123,19 @@
                     <li><a href="contact.html#player-application">Try a player application</a></li>
                 </ul>
 
-                <section class="hub-tools" aria-labelledby="page-tools-title">
-                    <h2 id="page-tools-title">Your page, your way.</h2>
-                    <time class="hub-clock" data-current-time>Loading current time...</time>
-                    <small>Browser time zone: <span data-time-zone>local</span></small>
-                    <div class="hub-tool-actions">
-                        <button class="btn btn-outline-danger" data-background-cycle type="button">Change background</button>
-                        <button class="btn btn-primary" data-open-subscription type="button">Subscribe</button>
+                <details class="hub-tools" id="page-tools">
+                    <summary>Page tools</summary>
+                    <div class="hub-tools-content">
+                        <small>Local time</small>
+                        <time class="hub-clock" data-current-time>Loading time…</time>
+                        <div class="hub-tool-actions">
+                            <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
+                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
+                        </div>
+                        <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
                     </div>
-                    <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
-                    <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
-                </section>
+                </details>
             </aside>
             <footer class="grid-footer mt-5">
                 <div class="container footer pt-4 pb-3 ps-3 pe-3">

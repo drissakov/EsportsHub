@@ -7,7 +7,6 @@ jQuery(function ($) {
     const $format = $('#event-format');
     const $status = $('#event-search-status');
     const $clear = $('#event-clear');
-    const $tiles = $('#event-filters a[data-event-game]');
     const storageKey = 'esportshub-event-filters';
     const defaults = { query: '', game: 'all', format: 'all' };
 
@@ -106,17 +105,9 @@ jQuery(function ($) {
             markMatches(card, visible ? pattern : null);
         });
 
-        $tiles.each(function () {
-            if (this.dataset.eventGame === game) {
-                this.setAttribute('aria-current', 'true');
-            } else {
-                this.removeAttribute('aria-current');
-            }
-        });
-
         const message = visibleCards.length === cards.length
-            ? `Showing all ${cards.length} tournaments.`
-            : `Showing ${visibleCards.length} of ${cards.length} tournaments.`;
+            ? `Showing all ${cards.length} sample tournaments.`
+            : `Showing ${visibleCards.length} of ${cards.length} sample tournaments.`;
         $status.text(visibleCards.length
             ? message
             : 'No tournaments match. Try a different search or clear the filters.');

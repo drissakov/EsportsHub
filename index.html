@@ -71,7 +71,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item mb-0">
-                                    <a class="nav-link nav-profile px-sm-2 py-2" href="profile.html">Profile</a>
+                                    <a class="nav-link nav-profile px-sm-2 py-2" href="profile.html">Account</a>
                                 </li>
                             </ul>
                         </div>
@@ -82,67 +82,43 @@
                 <section class="hero py-4 py-lg-5">
                     <div class="container">
                         <div class="row g-4 align-items-center hero-content">
-                            <div class="hero-text col-sm-12 col-md-6 col-lg-6">
-                                <p class="label mb-3">
-                                    WELCOME TO ESPORTSHUB
+                            <div class="hero-text col-md-6">
+                                <p class="label mb-2">EsportsHub</p>
+                                <h1 class="mb-3">Find your next <span>esports tournament</span></h1>
+                                <p class="hero-description">
+                                    Browse tournaments by game, discover teams and players, and compare rankings.
                                 </p>
-                                <h1 class="mb-3">
-                                    Turn your hobby
-                    into a
-                                    <span id="journey">
-                                        journey.
-                                    </span>
-                                </h1>
-                                <p class="hero-description mt-3">
-                                    Find tournaments, follow teams and players, and build a demo profile for the games you love.
-                                </p>
-                                <a class="btn btn-primary btn-lg mt-3 mt-lg-4" href="events.html#event-filters">
-                                    Explore tournaments →
-                                </a>
-                                <a class="btn btn-outline-primary btn-lg mt-3 mt-lg-4" href="contact.html#registration">
-                                    Create demo profile
-                                </a>
-                                <div class="home-stats" aria-label="Featured content on this page">
-  <div class="home-stat">
-    <strong class="stat-number" data-count-selector=".game-list > a">4</strong>
-    <span>Games to explore</span>
-  </div>
-
-  <div class="home-stat">
-    <strong class="stat-number"
-            data-count-selector="#upcoming-events .event-list > .event">3</strong>
-    <span>Featured events</span>
-  </div>
-
-  <div class="home-stat">
-    <strong class="stat-number"
-            data-count-selector="#featured-players article.card">3</strong>
-    <span>Featured players</span>
-  </div>
-</div>
-                            </div>
-                            <div class="hero-image col-sm-12 col-md-6 col-lg-6">
-                                <img alt="Esports tournament" class="img-fluid" decoding="async" height="720" src="images/esports.jpg" width="960">
-                                <div class="image-caption mt-2 gap-2 flex-wrap">
-                                    <span>
-                                        FEATURED
-                                    </span>
-                                    <strong>
-                                        From games to the world stage.
-                                    </strong>
+                                <div class="home-actions">
+                                    <a class="btn btn-primary btn-lg" href="events.html#event-list">Search tournaments</a>
+                                    <a class="home-secondary-link" href="account.html#registration">Create a demo account</a>
                                 </div>
+                                <div class="home-stats" aria-label="Featured content on this page">
+                                    <div class="home-stat">
+                                        <strong class="stat-number" data-count-selector=".game-list > a">4</strong>
+                                        <span>Games</span>
+                                    </div>
+                                    <div class="home-stat">
+                                        <strong class="stat-number" data-count-selector="#upcoming-events .event-list > .event">3</strong>
+                                        <span>Featured tournaments</span>
+                                    </div>
+                                    <div class="home-stat">
+                                        <strong class="stat-number" data-count-selector="#featured-players article.card">3</strong>
+                                        <span>Featured players</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hero-image col-md-6">
+                                <img alt="Spectators and competitors in an esports arena" class="img-fluid"
+                                    decoding="async" fetchpriority="high" height="720" src="images/esports.jpg" width="960">
                             </div>
                         </div>
                     </div>
                 </section>
-                <section class="games py-4 py-lg-5">
+                <section class="games py-4 py-lg-5" id="browse-games">
                     <div class="container">
-                        <p class="label mb-3">
-                            POPULAR GAMES
-                        </p>
-                        <h2 class="visually-hidden">Find events by game</h2>
-                        <div class="game-list mt-4">
-                            <a class="p-3 p-lg-4" href="events.html?game=cs2#event-list">
+                        <h2 class="mb-3">Browse by game</h2>
+                        <div class="game-list">
+                            <a class="p-3" href="events.html?game=cs2#event-list">
                                 <strong>
                                     CS2
                                 </strong>
@@ -150,7 +126,7 @@
                                     FPS
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="events.html?game=valorant#event-list">
+                            <a class="p-3" href="events.html?game=valorant#event-list">
                                 <strong>
                                     Valorant
                                 </strong>
@@ -158,7 +134,7 @@
                                     FPS
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="events.html?game=league-of-legends#event-list">
+                            <a class="p-3" href="events.html?game=league-of-legends#event-list">
                                 <strong>
                                     League of Legends
                                 </strong>
@@ -166,7 +142,7 @@
                                     MOBA
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="events.html?game=dota-2#event-list">
+                            <a class="p-3" href="events.html?game=dota-2#event-list">
                                 <strong>
                                     Dota 2
                                 </strong>
@@ -181,16 +157,11 @@
                     <div class="container">
                         <div class="section-title mb-4 gap-3 flex-wrap">
                             <div>
-                                <p class="label mb-3">
-                                    COMPETITIVE CALENDAR
-                                </p>
-                                <h2>
-                                    Upcoming Events
-                                </h2>
-                                <p class="section-note mt-2">Sample dates, locations and registration statuses for the prototype.</p>
+                                <h2>Featured tournaments</h2>
+                                <p class="section-note mt-2">Explore sample events by date, game and location.</p>
                             </div>
                             <a class="btn btn-outline-primary btn-sm" href="events.html#event-list">
-                                Browse calendar →
+                                View all tournaments
                             </a>
                         </div>
                         <div class="event-list">
@@ -207,7 +178,6 @@
                                     <small>
                                         CS2 · BERLIN
                                     </small>
-                                    <span class="event-status status-open">Registration Open</span>
                                     <h3>
                                         Esports Championship 2026
                                     </h3>
@@ -230,7 +200,6 @@
                                     <small>
                                         VALORANT · SEOUL
                                     </small>
-                                    <span class="event-status status-upcoming">Upcoming</span>
                                     <h3>
                                         Valorant Global Cup
                                     </h3>
@@ -253,7 +222,6 @@
                                     <small>
                                         DOTA 2 · SINGAPORE
                                     </small>
-                                    <span class="event-status status-upcoming">Upcoming</span>
                                     <h3>
                                         Global Dota Masters
                                     </h3>
@@ -264,22 +232,6 @@
                                 </span>
                             </a>
                         </div>
-                    </div>
-                </section>
-                <section class="games py-4 py-lg-5" id="how-it-works">
-                    <div class="container">
-                        <h2 class="mb-4">How EsportsHub works</h2>
-                        <ul class="row g-4 list-unstyled m-0">
-                            <li class="col-sm-12 col-md-6 col-lg-4">
-                                <a href="events.html#event-list"><strong>Discover events.</strong> Start with a tournament calendar and follow the competition.</a>
-                            </li>
-                            <li class="col-sm-12 col-md-6 col-lg-4">
-                                <a href="teams.html#team-directory"><strong>Find a match.</strong> Compare teams and players as the future platform grows.</a>
-                            </li>
-                            <li class="col-sm-12 col-md-6 col-lg-4">
-                                <a href="rankings.html#ranking-table"><strong>Trace results.</strong> Use the sample rankings to see how event outcomes could connect.</a>
-                            </li>
-                        </ul>
                     </div>
                 </section>
                 <!-- Task 8: real Bootstrap cards; the CSS-only Task 2 cards remain on Players. -->
@@ -383,60 +335,25 @@
                 </section>
                 <section class="about py-4 py-lg-5" id="community">
                     <div class="container">
-                        <div class="row g-4 align-items-center about-content">
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <p class="label mb-3">
-                                    ABOUT US
-                                </p>
-                                <h2>
-                                    Your place in the
-                                    <span>
-                                        esports community.
-                                    </span>
-                                </h2>
+                        <div class="row g-4 align-items-start" id="how-it-works">
+                            <div class="col-md-6">
+                                <h2>Get involved</h2>
+                                <p>Find answers in Community or try a three-step demo player application.</p>
+                                <a class="btn btn-outline-primary" href="contact.html#player-application">Try a player application</a>
+                                <button type="button" class="btn btn-outline-primary" id="community-read-more"
+                                    aria-expanded="false" aria-controls="community-details">Read more</button>
+                                <div class="mt-3" id="community-details">
+                                    <p>Compare the <a class="home-secondary-link" href="rankings.html#ranking-table">sample rankings</a>
+                                        or check the <a class="home-secondary-link" href="contact.html#community-faq">community FAQ</a>.</p>
+                                </div>
                             </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-  <p>
-    EsportsHub brings tournaments, teams and players together
-    in one simple platform. Follow the competitive scene
-    and find your next challenge.
-  </p>
-
-  <div id="community-details">
-    <p>
-      Explore sample events, discover teams and players,
-      and compare demo rankings. Visit the Community page
-      to read frequently asked questions and try our
-      three-step player application.
-    </p>
-    <p>
-      You can also rate your experience and switch between
-      day and night themes while exploring the website.
-    </p>
-  </div>
-
-  <button
-    type="button"
-    class="btn btn-outline-primary"
-    id="community-read-more"
-    aria-expanded="false"
-    aria-controls="community-details"
-  >
-    Read More
-  </button>
-  <div class="player-tip mt-4 p-3">
-  <h3 class="h5">Player tip</h3>
-
-  <p id="player-tip-text" role="status">
-    Discover a useful tip for your next match.
-  </p>
-
-  <button type="button" class="btn btn-outline-primary"
-          id="next-player-tip">
-    Next tip
-  </button>
-</div>
-</div>
+                            <div class="col-md-6">
+                                <div class="player-tip p-3">
+                                    <h3 class="h5">Player tip</h3>
+                                    <p id="player-tip-text" role="status">Discover a useful tip for your next match.</p>
+                                    <button type="button" class="btn btn-outline-primary" id="next-player-tip">Next tip</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -498,52 +415,36 @@
 </section>
             </main>
             <aside aria-label="Home quick links" class="sidebar p-4">
-               <h2 id="greeting-message" role="status">
-  Welcome, player!
-</h2>
-
-<p class="sidebar-intro">Move from discovery to competition.</p>
-
-<form id="greeting-form" class="sidebar-greeting" novalidate>
-  <label for="greeting-name" class="form-label">
-    Your nickname
-  </label>
-
-  <input
-    type="text"
-    id="greeting-name"
-    class="form-control"
-    placeholder="Enter your nickname"
-    autocomplete="nickname"
-    aria-required="true"
-    aria-describedby="greeting-error"
-  >
-  <p id="greeting-error" class="field-error" role="status"></p>
-
-  <button type="submit" class="btn btn-primary mt-2">
-    Apply
-  </button>
-  <button type="reset" class="btn btn-outline-primary mt-2">Reset</button>
-</form>
+                <h2>Explore</h2>
                 <ul>
-                    <li><a href="#how-it-works">How EsportsHub works</a></li>
-                    <li><a href="#upcoming-events">Browse events</a></li>
-                    <li><a href="#featured-players">Meet players</a></li>
-                    <li><a href="contact.html#contact-options">Ask the community desk</a></li>
+                    <li><a href="#browse-games">Browse by game</a></li>
+                    <li><a href="#upcoming-events">Featured tournaments</a></li>
+                    <li><a href="#featured-players">Featured players</a></li>
+                    <li><a href="events.html#dota-ratings">Live Dota 2 ratings</a></li>
                 </ul>
 
-                <section class="hub-tools" aria-labelledby="page-tools-title">
-                    <h2 id="page-tools-title">Your page, your way.</h2>
-                    <time class="hub-clock" data-current-time>Loading current time...</time>
-                    <div class="hub-tool-actions">
-                        <button class="btn btn-outline-danger" data-background-cycle type="button">Change background</button>
-                        <button class="btn btn-primary" data-open-subscription type="button">Subscribe</button>
-                        <a class="btn btn-outline-danger" href="contact.html#registration">Try sign-up</a>
-                        <a class="btn btn-outline-danger" href="contact.html#community-faq">Community FAQ</a>
+                <details class="hub-tools" id="page-tools">
+                    <summary>Page tools</summary>
+                    <div class="hub-tools-content">
+                        <small>Local time</small>
+                        <time class="hub-clock" data-current-time>Loading time…</time>
+                        <div class="hub-tool-actions">
+                            <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
+                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
+                        </div>
+                        <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
+                        <form id="greeting-form" class="sidebar-greeting" novalidate>
+                            <label for="greeting-name" class="form-label">Your nickname</label>
+                            <input type="text" id="greeting-name" name="nickname" class="form-control"
+                                autocomplete="nickname" aria-required="true" aria-describedby="greeting-error">
+                            <p id="greeting-error" class="field-error" role="status"></p>
+                            <button type="submit" class="btn btn-outline-primary mt-2">Apply</button>
+                            <button type="reset" class="btn btn-outline-secondary mt-2">Reset</button>
+                            <p class="mt-2" id="greeting-message" role="status">Welcome, player!</p>
+                        </form>
                     </div>
-                    <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
-                    <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
-                </section>
+                </details>
             </aside>
             <footer class="grid-footer mt-5">
                 <div class="container footer pt-4 pb-3 ps-3 pe-3">

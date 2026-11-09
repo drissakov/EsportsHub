@@ -1,34 +1,68 @@
-#tournament-cards > .event[hidden] {
-    display: none;
+/* Keep the directory controls and cards in the same reading flow. */
+.event-directory-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+}
+
+.event-directory-header h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    text-wrap: balance;
+}
+
+.event-directory-header .btn {
+    gap: 0.5rem;
 }
 
 #event-controls {
     max-width: none;
 }
 
-#event-controls .event-search-suggestions {
-    inset-inline: calc(var(--bs-gutter-x) * 0.5);
+.event-controls-fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: end;
+    gap: 0.75rem;
 }
 
-#event-filters a[aria-current="true"] {
-    border-color: #b51e22;
-    box-shadow: inset 0 3px #b51e22;
+#event-clear {
+    justify-self: start;
 }
 
-html[data-theme="night"] #event-filters a[aria-current="true"] {
-    border-color: #ff9aa2;
-    box-shadow: inset 0 3px #ff9aa2;
+#tournament-cards > .event[hidden] {
+    display: none;
 }
 
-@media (min-width: 576px) and (max-width: 1199px) {
-    #event-filters [data-event-game="all"] {
+#tournament-cards > .event {
+    grid-template-columns: minmax(0, 1fr);
+    border: 1px solid var(--hub-border);
+    border-inline-start: 4px solid var(--hub-border);
+}
+
+#tournament-cards > .event:hover,
+#tournament-cards > .event:target {
+    border-inline-start-color: var(--hub-red);
+}
+
+@media (min-width: 440px) {
+    .event-controls-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .event-controls-fields .event-search {
         grid-column: 1 / -1;
     }
 }
 
 @media (min-width: 1200px) {
-    #event-filters .game-list {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+    .event-controls-fields {
+        grid-template-columns: minmax(12rem, 2fr) repeat(2, minmax(9rem, 1fr)) auto;
+    }
+
+    .event-controls-fields .event-search {
+        grid-column: auto;
     }
 }
 

@@ -70,7 +70,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item mb-0">
-                                    <a class="nav-link nav-profile px-sm-2 py-2" href="profile.html">Profile</a>
+                                    <a class="nav-link nav-profile px-sm-2 py-2" href="profile.html">Account</a>
                                 </li>
                             </ul>
                         </div>
@@ -78,92 +78,20 @@
                 </nav>
             </header>
             <main class="grid-main" id="main-content" tabindex="-1">
-                <section class="hero py-4 py-lg-5">
+                <section class="hero py-4">
                     <div class="container">
-                        <p class="label mb-3">
-                            ESPORTS RANKINGS
-                        </p>
-                        <h1 class="mb-3">
-                            Sample
-                            <span>
-                                Rankings.
-                            </span>
-                        </h1>
-                        <p class="hero-description mt-3">
-                            Follow a clearly labelled sample ranking and see how future event results could inform team performance without presenting demo data as live standings.
-                        </p>
-                    </div>
-                </section>
-                <section class="games py-4 py-lg-5">
-                    <div class="container">
-                        <p class="label mb-3">
-                            TOP TEAMS
-                        </p>
-                        <h2 class="visually-hidden">Teams in the demo ranking</h2>
-                        <div class="game-list mt-4">
-                            <a class="p-3 p-lg-4" href="teams.html#team-spirit">
-                                <strong>
-                                    1. Team Spirit
-                                </strong>
-                                <span>
-                                    2450 points
-                                </span>
-                            </a>
-                            <a class="p-3 p-lg-4" href="teams.html#team-g2">
-                                <strong>
-                                    2. G2 Esports
-                                </strong>
-                                <span>
-                                    2310 points
-                                </span>
-                            </a>
-                            <a class="p-3 p-lg-4" href="teams.html#team-geng">
-                                <strong>
-                                    3. Gen.G
-                                </strong>
-                                <span>
-                                    2240 points
-                                </span>
-                            </a>
-                            <a class="p-3 p-lg-4" href="teams.html#team-fnatic">
-                                <strong>
-                                    4. Fnatic
-                                </strong>
-                                <span>
-                                    2180 points
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </section>
-                <section class="about py-4 py-lg-5" id="ranking-context">
-                    <div class="container">
-                        <div class="row g-4 align-items-center about-content">
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <p class="label mb-3">
-                                    RANKINGS FEATURE IMAGE
-                                </p>
-                                <img alt="Illustrative sample points chart: Team Spirit 2450, G2 Esports 2310, Gen.G 2240 and Fnatic 2180; full values appear in the table" class="feature-image ranking-image img-fluid" decoding="async" loading="lazy" height="540" src="images/demo-ranking.svg" width="960">
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <p class="label mb-3">
-                                    GLOBAL RANKINGS
-                                </p>
-                                <p>
-                                    Compare teams and follow their positions across the competitive esports scene. This page uses sample data to explain the product flow; it is not a live leaderboard.
-                                </p>
-                            </div>
-                        </div>
+                        <h1 class="mb-2">Sample rankings</h1>
+                        <p class="hero-description mb-0">Compare four teams by sample points or check the <a class="ranking-team-link" href="events.html#dota-ratings">live Dota 2 ratings</a>.</p>
                     </div>
                 </section>
                 <section class="games py-4 py-lg-5" id="ranking-table">
                     <div class="container">
-                        <h2 class="mb-3">Sample platform ranking</h2>
+                        <h2 class="mb-3">Team standings</h2>
                         <p class="demo-note mb-3" id="demo-ranking-note">
-                            Demo ranking · sample platform data, not live standings
+                            Sample data · points shown for illustration
                         </p>
                         <p class="section-note" id="ranking-points">
-                            In this prototype, points represent an illustrative mix of event placement, participation and consistency. A future platform would calculate them from verified results rather than this hand-written sample.
+                            Points illustrate event placement, participation and consistency.
                         </p>
                         <div class="d-flex my-3">
                             <div aria-label="Explore the competitive scene" class="btn-group" role="group">
@@ -206,7 +134,7 @@
                                             1
                                         </td>
                                         <th scope="row">
-                                            Team Spirit
+                                            <a class="ranking-team-link" href="teams.html#team-spirit">Team Spirit</a>
                                         </th>
                                         <td>
                                             CS2 / Dota 2
@@ -220,7 +148,7 @@
                                             2
                                         </td>
                                         <th scope="row">
-                                            G2 Esports
+                                            <a class="ranking-team-link" href="teams.html#team-g2">G2 Esports</a>
                                         </th>
                                         <td>
                                             CS2 / Valorant
@@ -234,7 +162,7 @@
                                             3
                                         </td>
                                         <th scope="row">
-                                            Gen.G
+                                            <a class="ranking-team-link" href="teams.html#team-geng">Gen.G</a>
                                         </th>
                                         <td>
                                             Valorant / LoL
@@ -248,7 +176,7 @@
                                             4
                                         </td>
                                         <th scope="row">
-                                            Fnatic
+                                            <a class="ranking-team-link" href="teams.html#team-fnatic">Fnatic</a>
                                         </th>
                                         <td>
                                             Valorant / LoL
@@ -260,6 +188,26 @@
                                 </tbody>
                             </table>
                         </section>
+                    </div>
+                </section>
+                <section class="about py-4 py-lg-5" id="ranking-context">
+                    <div class="container">
+                        <div class="row g-4 align-items-center about-content">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <p class="label mb-3">
+                                    RANKINGS FEATURE IMAGE
+                                </p>
+                                <img alt="Illustrative sample points chart: Team Spirit 2450, G2 Esports 2310, Gen.G 2240 and Fnatic 2180; full values appear in the table" class="feature-image ranking-image img-fluid" decoding="async" loading="lazy" height="540" src="images/demo-ranking.svg" width="960">
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <p class="label mb-3">
+                                    GLOBAL RANKINGS
+                                </p>
+                                <p>
+                                    Compare teams and follow their positions across the competitive esports scene. This page uses sample data to explain the product flow; it is not a live leaderboard.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <section class="events py-4 py-lg-5" id="ranking-leaderboard">
@@ -322,29 +270,26 @@
                 <h2>
                     Ranking context
                 </h2>
-                <p class="sidebar-intro">
-                    See how event outcomes could connect to rankings.
-                </p>
                 <ul>
                     <li><a href="#ranking-table">View sample rankings</a></li>
                     <li><a href="#how-rankings-work">How the demo works</a></li>
-                    <li><a href="events.html#event-list">Return to events</a></li>
+                    <li><a href="events.html#dota-ratings">Live Dota 2 ratings</a></li>
                     <li><a href="contact.html#contact-form">Ask a question</a></li>
                 </ul>
 
-                <section class="hub-tools" aria-labelledby="page-tools-title">
-                    <h2 id="page-tools-title">Your page, your way.</h2>
-                    <time class="hub-clock" data-current-time>Loading current time...</time>
-                    <small>Browser time zone: <span data-time-zone>local</span></small>
-                    <div class="hub-tool-actions">
-                        <button class="btn btn-outline-danger" data-background-cycle type="button">Change background</button>
-                        <button class="btn btn-primary" data-open-subscription type="button">Subscribe</button>
-                        <a class="btn btn-outline-danger" href="contact.html#registration">Try sign-up</a>
-                        <a class="btn btn-outline-danger" href="contact.html#community-faq">Community FAQ</a>
+                <details class="hub-tools" id="page-tools">
+                    <summary>Page tools</summary>
+                    <div class="hub-tools-content">
+                        <small>Local time</small>
+                        <time class="hub-clock" data-current-time>Loading time…</time>
+                        <div class="hub-tool-actions">
+                            <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
+                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
+                        </div>
+                        <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
                     </div>
-                    <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
-                    <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
-                </section>
+                </details>
             </aside>
             <footer class="grid-footer mt-5">
                 <div class="container footer pt-4 pb-3 ps-3 pe-3">

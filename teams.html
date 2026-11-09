@@ -70,7 +70,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item mb-0">
-                                    <a class="nav-link nav-profile px-sm-2 py-2" href="profile.html">Profile</a>
+                                    <a class="nav-link nav-profile px-sm-2 py-2" href="profile.html">Account</a>
                                 </li>
                             </ul>
                         </div>
@@ -78,29 +78,16 @@
                 </nav>
             </header>
             <main class="grid-main" id="main-content" tabindex="-1">
-                <section class="hero py-4 py-lg-5">
+                <section class="hero py-4">
                     <div class="container">
-                        <p class="label mb-3">
-                            ESPORTS TEAMS
-                        </p>
-                        <h1 class="mb-3">
-                            Meet the
-                            <span>
-                                Teams.
-                            </span>
-                        </h1>
-                        <p class="hero-description mt-3">
-                            Discover sample team profiles, compare their games and use events as the meeting point for future players, teams and communities.
-                        </p>
+                        <h1 class="mb-2">Esports teams</h1>
+                        <p class="hero-description mb-0">Explore team profiles and find sample tournaments for the games they play.</p>
                     </div>
                 </section>
                 <section class="games py-4 py-lg-5" id="team-directory">
                     <div class="container">
-                        <p class="label mb-3">
-                            POPULAR TEAMS
-                        </p>
-                        <h2>Browse by game</h2>
-                        <div class="game-list mt-4">
+                        <h2 class="mb-3">Team directory</h2>
+                        <div class="game-list">
                             <article class="p-3 p-lg-4 team-tile" id="team-spirit">
                                 <strong>
                                     Team Spirit
@@ -108,7 +95,7 @@
                                 <span>
                                     Dota 2 · CS2
                                 </span>
-                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html#event-list">See related events</a>
+                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html?game=dota-2#event-list">Browse Dota 2 events</a>
                             </article>
                             <article class="p-3 p-lg-4 team-tile" id="team-g2">
                                 <strong>
@@ -117,7 +104,7 @@
                                 <span>
                                     CS2 · Valorant
                                 </span>
-                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html#event-list">See related events</a>
+                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html?game=cs2#event-list">Browse CS2 events</a>
                             </article>
                             <article class="p-3 p-lg-4 team-tile" id="team-geng">
                                 <strong>
@@ -126,7 +113,7 @@
                                 <span>
                                     Valorant · LoL
                                 </span>
-                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html#event-list">See related events</a>
+                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html?game=valorant#event-list">Browse Valorant events</a>
                             </article>
                             <article class="p-3 p-lg-4 team-tile" id="team-fnatic">
                                 <strong>
@@ -135,7 +122,7 @@
                                 <span>
                                     Valorant · LoL
                                 </span>
-                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html#event-list">See related events</a>
+                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html?game=valorant#event-list">Browse Valorant events</a>
                             </article>
                             <article class="p-3 p-lg-4 team-tile" id="team-t1">
                                 <strong>
@@ -144,7 +131,7 @@
                                 <span>
                                     League of Legends
                                 </span>
-                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html#event-list">See related events</a>
+                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html?game=league-of-legends#event-list">Browse League of Legends events</a>
                             </article>
                         </div>
                     </div>
@@ -275,9 +262,6 @@
                 <h2>
                     Team discovery
                 </h2>
-                <p class="sidebar-intro">
-                    Compare teams, games, events and community pathways.
-                </p>
                 <ul>
                     <li><a href="#team-directory">Browse team profiles</a></li>
                     <li><a href="#community-teams">Sample community teams</a></li>
@@ -286,19 +270,19 @@
                     <li><a href="contact.html#contact-form">Discuss a team idea</a></li>
                 </ul>
 
-                <section class="hub-tools" aria-labelledby="page-tools-title">
-                    <h2 id="page-tools-title">Your page, your way.</h2>
-                    <time class="hub-clock" data-current-time>Loading current time...</time>
-                    <small>Browser time zone: <span data-time-zone>local</span></small>
-                    <div class="hub-tool-actions">
-                        <button class="btn btn-outline-danger" data-background-cycle type="button">Change background</button>
-                        <button class="btn btn-primary" data-open-subscription type="button">Subscribe</button>
-                        <a class="btn btn-outline-danger" href="contact.html#registration">Try sign-up</a>
-                        <a class="btn btn-outline-danger" href="contact.html#community-faq">Community FAQ</a>
+                <details class="hub-tools" id="page-tools">
+                    <summary>Page tools</summary>
+                    <div class="hub-tools-content">
+                        <small>Local time</small>
+                        <time class="hub-clock" data-current-time>Loading time…</time>
+                        <div class="hub-tool-actions">
+                            <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
+                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
+                        </div>
+                        <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
                     </div>
-                    <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
-                    <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
-                </section>
+                </details>
             </aside>
             <footer class="grid-footer mt-5">
                 <div class="container footer pt-4 pb-3 ps-3 pe-3">
