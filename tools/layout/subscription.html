@@ -1,0 +1,16 @@
+<dialog aria-labelledby="subscription-title" aria-describedby="subscription-description" class="subscription-dialog" id="subscription-dialog">
+    <div class="subscription-heading">
+        <p class="label">STAY IN THE GAME</p>
+        <button aria-label="Close subscription form" class="subscription-close" data-close-subscription type="button">&times;</button>
+    </div>
+    <h2 id="subscription-title">Your next match starts here.</h2>
+    <p id="subscription-description">Try the EsportsHub event newsletter form. This is a frontend demo: your email is not sent or stored.</p>
+    <form class="subscription-form" id="subscription-form" novalidate>
+        <label class="form-label" for="subscription-email">Email address <span>(required)</span></label>
+        <input aria-describedby="subscription-email-help subscription-email-error" autocomplete="email" class="form-control" id="subscription-email" name="email" placeholder="you@example.com" type="text" inputmode="email" autocapitalize="none" spellcheck="false" aria-required="true">
+        <p class="form-text" id="subscription-email-help">Use one complete address, such as name+team@example.com (up to 254 characters).</p>
+        <p aria-live="polite" class="subscription-error" id="subscription-email-error"></p>
+        <button class="btn btn-primary" type="submit" disabled>Try subscription</button>
+        <p aria-live="polite" class="subscription-result" id="subscription-result" role="status"></p>
+    </form>
+</dialog>

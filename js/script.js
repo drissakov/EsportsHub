@@ -1,7 +1,4 @@
 // Assignment 6: jQuery features for EsportsHub.
-$(document).ready(function () {
-  console.log("jQuery is ready!");
-});
 // Task 4: show how far the page has been scrolled.
 $(document).ready(function () {
   const $progress = $("<div>")

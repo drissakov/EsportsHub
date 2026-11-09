@@ -109,7 +109,7 @@
         });
     });
 
-        let submitting = false;
+    let submitting = false;
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -161,7 +161,7 @@
 
             result.tabIndex = -1;
             result.focus();
-                        jQuery(document).trigger('esportshub:application-success');
+            jQuery(document).trigger('esportshub:application-success');
         }, 1500);
     });
 

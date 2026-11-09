@@ -22,7 +22,7 @@ Damir Issakov (Home and Events), Alina Aitmukhamet (Teams and Players), and Aish
 | [Account](account.html) | Separate sign-up and log-in views for the browser-local demo account |
 | [Profile](profile.html) | The signed-in player's name, email, and phone, with a log-out action |
 
-Page tools groups the local clock, background options, and subscription demo. Home also offers a nickname greeting there.
+Page tools groups the local clock, background options, and subscription demo. Home also offers a nickname greeting there. On small screens, open **Menu** and choose **Page tools** to jump to the controls.
 
 ## Run locally
 
@@ -36,10 +36,19 @@ Use localhost or HTTPS for the demo account flow. Sign-up, log-in, the active pr
 
 All form checks run in JavaScript. Account creation checks required fields, email format, international phone format, password strength, and exact confirmation. The existing subscription and application demos validate the fields they collect. Event dates and the standings on Rankings are sample data. The labeled OpenDota panel displays separate data returned by the API.
 
+## Shared layout
+
+Edit the shared navigation, page tools, footer, and subscription dialog in `tools/layout/`. Then sync those sections into the eight HTML pages.
+
+    node tools/sync-layout.mjs
+
+Commit the shared templates and the synchronized HTML together. GitHub Pages serves the checked-in pages directly.
+
 ## Verification
 
-Run the automated tests with Node.js 22 or later.
+Check the shared layout and run the validator tests with Node.js 22 or later.
 
+    node tools/sync-layout.mjs --check
     node --test tests/*.test.cjs
 
 For a browser check, try the following flows.

@@ -26,6 +26,7 @@
             Skip to main content
         </a>
         <div class="page-layout">
+            <!-- layout:header -->
             <header class="grid-header">
                 <nav aria-label="Main navigation" class="navbar navbar-expand-lg bg-white py-3">
                     <div class="container">
@@ -39,43 +40,35 @@
                         <div class="navbar-collapse" id="mainNavigation">
                             <ul class="navbar-nav ms-auto m-0 p-0">
                                 <li class="nav-item mb-0">
-                                    <a class="nav-link px-sm-2 py-2" href="index.html">
-                                        Home
-                                    </a>
+                                    <a class="nav-link px-sm-2 py-2" href="index.html">Home</a>
                                 </li>
                                 <li class="nav-item mb-0">
-                                    <a class="nav-link px-sm-2 py-2" href="events.html">
-                                        Events
-                                    </a>
+                                    <a class="nav-link px-sm-2 py-2" href="events.html">Events</a>
                                 </li>
                                 <li class="nav-item mb-0">
-                                    <a class="nav-link px-sm-2 py-2" href="teams.html">
-                                        Teams
-                                    </a>
+                                    <a class="nav-link px-sm-2 py-2" href="teams.html">Teams</a>
                                 </li>
                                 <li class="nav-item mb-0">
-                                    <a class="nav-link px-sm-2 py-2" href="players.html">
-                                        Players
-                                    </a>
+                                    <a class="nav-link px-sm-2 py-2" href="players.html">Players</a>
                                 </li>
                                 <li class="nav-item mb-0">
-                                    <a class="nav-link px-sm-2 py-2" href="rankings.html">
-                                        Rankings
-                                    </a>
+                                    <a class="nav-link px-sm-2 py-2" href="rankings.html">Rankings</a>
                                 </li>
                                 <li class="nav-item mb-0">
-                                    <a class="nav-link px-sm-2 py-2" href="contact.html">
-                                        Community
-                                    </a>
+                                    <a class="nav-link px-sm-2 py-2" href="contact.html">Community</a>
                                 </li>
                                 <li class="nav-item mb-0">
                                     <a aria-current="page" class="nav-link nav-profile px-sm-2 py-2 active" href="profile.html">Account</a>
+                                </li>
+                                <li class="nav-item mb-0 d-lg-none">
+                                    <a class="nav-link px-sm-2 py-2" href="#page-tools" data-page-tools-jump>Page tools</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
             </header>
+            <!-- /layout:header -->
             <main class="grid-main" id="main-content" tabindex="-1">
                 <section class="hero py-4 py-lg-5">
                     <div class="container">
@@ -123,6 +116,7 @@
                     <li><a href="contact.html#player-application">Try a player application</a></li>
                 </ul>
 
+                <!-- layout:page-tools -->
                 <details class="hub-tools" id="page-tools">
                     <summary>Page tools</summary>
                     <div class="hub-tools-content">
@@ -136,7 +130,9 @@
                         <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
                     </div>
                 </details>
+                <!-- /layout:page-tools -->
             </aside>
+            <!-- layout:footer -->
             <footer class="grid-footer mt-5">
                 <div class="container footer pt-4 pb-3 ps-3 pe-3">
                     <div>
@@ -167,7 +163,9 @@
                     EsportsHub © 2026
                 </div>
             </footer>
+            <!-- /layout:footer -->
         </div>
+        <!-- layout:subscription -->
         <dialog aria-labelledby="subscription-title" aria-describedby="subscription-description" class="subscription-dialog" id="subscription-dialog">
             <div class="subscription-heading">
                 <p class="label">STAY IN THE GAME</p>
@@ -184,5 +182,6 @@
                 <p aria-live="polite" class="subscription-result" id="subscription-result" role="status"></p>
             </form>
         </dialog>
+        <!-- /layout:subscription -->
     </body>
 </html>

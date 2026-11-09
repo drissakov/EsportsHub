@@ -1,0 +1,21 @@
+<header class="grid-header">
+    <nav aria-label="Main navigation" class="navbar navbar-expand-lg bg-white py-3">
+        <div class="container">
+            <a class="navbar-brand logo me-3" href="index.html">
+                Esports<span>Hub</span>
+            </a>
+            <!-- Native checkbox + CSS: Space toggles the mobile menu without JavaScript. -->
+            <input aria-controls="mainNavigation" aria-describedby="navigation-help" class="nav-menu-toggle" id="navigation-toggle" type="checkbox">
+            <label class="nav-menu-label" for="navigation-toggle">Menu</label>
+            <span class="visually-hidden" id="navigation-help">Check to show navigation links; uncheck to hide them.</span>
+            <div class="navbar-collapse" id="mainNavigation">
+                <ul class="navbar-nav ms-auto m-0 p-0">
+{{navigation}}
+                    <li class="nav-item mb-0 d-lg-none">
+                        <a class="nav-link px-sm-2 py-2" href="#page-tools" data-page-tools-jump>Page tools</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

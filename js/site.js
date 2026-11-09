@@ -97,14 +97,22 @@
     }
 })();
 
-// Assignment 5: keyboard navigation.
+// Keyboard navigation and the mobile shortcut to page tools.
 (() => {
-    const menu = document.querySelector('#mainNavigation');
-    if (!menu) return;
-
-    const links = Array.from(menu.querySelectorAll('.nav-link'));
+    const menu = document.getElementById('mainNavigation');
+    const menuToggle = document.getElementById('navigation-toggle');
+    if (!menu || !menuToggle) return;
 
     menu.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && menuToggle.checked) {
+            event.preventDefault();
+            menuToggle.checked = false;
+            menuToggle.focus();
+            return;
+        }
+
+        const links = Array.from(menu.querySelectorAll('.nav-link'))
+            .filter((link) => link.getClientRects().length > 0);
         const currentIndex = links.indexOf(document.activeElement);
         if (currentIndex === -1) return;
 
@@ -127,6 +135,25 @@
 
         event.preventDefault();
         links[nextIndex].focus();
+    });
+
+    const tools = document.getElementById('page-tools');
+    if (!tools) return;
+
+    const summary = tools.querySelector('summary');
+    if (window.location.hash === '#page-tools') tools.open = true;
+
+    document.querySelectorAll('[data-page-tools-jump]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+            if (event.button !== 0 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+
+            // Keep route fragments such as Account's #registration intact.
+            event.preventDefault();
+            menuToggle.checked = false;
+            tools.open = true;
+            summary.focus({ preventScroll: true });
+            tools.scrollIntoView({ block: 'start' });
+        });
     });
 })();
 
