@@ -1,0 +1,87 @@
+#tournament-cards > .event[hidden] {
+    display: none;
+}
+
+#event-controls {
+    max-width: none;
+}
+
+#event-controls .event-search-suggestions {
+    inset-inline: calc(var(--bs-gutter-x) * 0.5);
+}
+
+#event-filters a[aria-current="true"] {
+    border-color: #b51e22;
+    box-shadow: inset 0 3px #b51e22;
+}
+
+html[data-theme="night"] #event-filters a[aria-current="true"] {
+    border-color: #ff9aa2;
+    box-shadow: inset 0 3px #ff9aa2;
+}
+
+@media (min-width: 576px) and (max-width: 1199px) {
+    #event-filters [data-event-game="all"] {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 1200px) {
+    #event-filters .game-list {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+.dota-ratings-panel {
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--hub-radius);
+    background: var(--bs-body-bg);
+}
+
+.dota-team-list {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.dota-team {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0.75rem;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.625rem;
+    background: var(--bs-tertiary-bg);
+}
+
+.dota-team-rank,
+.dota-team-record,
+.dota-team-rating span,
+.dota-ratings-source {
+    color: var(--bs-secondary-color);
+}
+
+.dota-team-name,
+.dota-ratings-source a {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.dota-team-name {
+    overflow-wrap: anywhere;
+}
+
+.dota-team-rating {
+    text-align: end;
+    font-variant-numeric: tabular-nums;
+}
+
+.dota-team-record,
+.dota-team-rating span {
+    display: block;
+    font-size: 0.875rem;
+}

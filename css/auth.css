@@ -1,0 +1,75 @@
+.auth-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+}
+
+.auth-card {
+    background: #fff;
+    border: 1px solid var(--hub-border, #e6cf8b);
+    border-radius: var(--hub-radius, 12px);
+}
+
+:target > .auth-card {
+    border-color: var(--hub-red);
+}
+
+.auth-card .auth-actions > a:not(.btn) {
+    color: var(--hub-red);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.auth-note {
+    max-width: 63ch;
+}
+
+.profile-card {
+    max-width: 48rem;
+    overflow-wrap: anywhere;
+}
+
+.profile-heading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-heading > div {
+    min-width: 0;
+}
+
+.profile-avatar {
+    display: grid;
+    flex: 0 0 3.5rem;
+    height: 3.5rem;
+    place-items: center;
+    border-radius: 0.75rem;
+    background: #a11920;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.profile-data > div {
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--hub-border, #e6cf8b);
+}
+
+.profile-data dd {
+    margin-bottom: 0;
+}
+
+#profile-status:empty {
+    margin: 0;
+}
+
+html[data-theme="night"] .auth-card {
+    background: var(--night-panel);
+}
+
+html[data-theme="night"] .profile-avatar {
+    background: var(--night-accent);
+    color: var(--night-bg);
+}

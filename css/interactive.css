@@ -182,7 +182,6 @@ html[data-theme="night"] :is(
     .gallery-card,
     .event,
     .event-filters,
-    .registration-form,
     #contact-form,
     #application-form,
     .subscription-dialog,
@@ -451,7 +450,7 @@ html[data-theme="night"] :focus-visible {
     flex: 0 0 44px;
     width: 44px;
     height: 44px;
-    margin-left: 16px;
+    margin-left: 0;
     padding: 0;
     border: 1px solid #e6cf8b;
     border-radius: 50%;
@@ -521,7 +520,7 @@ html[data-theme="night"] .theme-icon-button:focus-visible {
     }
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 359.98px) {
     .navbar .navbar-brand {
         flex-basis: 100%;
         margin-bottom: 8px;

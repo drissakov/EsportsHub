@@ -165,12 +165,14 @@
     const toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = 'theme-icon-button';
+    toggle.setAttribute('role', 'switch');
+    toggle.setAttribute('aria-label', 'Dark mode');
 
     const icon = document.createElement('span');
     icon.setAttribute('aria-hidden', 'true');
 
     toggle.append(icon);
-    header.append(toggle);
+    header.querySelector('.navbar-brand').after(toggle);
 
     function applyTheme(theme) {
         const night = theme === 'night';
@@ -185,22 +187,14 @@
             ? 'Switch to day mode'
             : 'Switch to night mode';
 
-        toggle.setAttribute('aria-label', label);
+        toggle.setAttribute('aria-checked', String(night));
         toggle.title = label;
 
         // Let the background component select the matching palette.
         document.dispatchEvent(new Event('esportshub:theme-change'));
     }
 
-    let savedTheme = 'day';
-
-    try {
-        savedTheme = localStorage.getItem(storageKey) || 'day';
-    } catch {
-        // Switching still works when storage is unavailable.
-    }
-
-    applyTheme(savedTheme);
+    applyTheme(root.dataset.theme);
 
     toggle.addEventListener('click', () => {
         const theme = root.dataset.theme === 'night' ? 'day' : 'night';
@@ -259,19 +253,35 @@
   const input = document.getElementById('greeting-name');
   const message = document.getElementById('greeting-message');
 
-  if (!form || !input || !message) return;
+  const error = document.getElementById('greeting-error');
+
+  if (!form || !input || !message || !error) return;
+
+  function clearError() {
+    error.textContent = '';
+    input.removeAttribute('aria-invalid');
+  }
+
+  input.addEventListener('input', clearError);
+  form.addEventListener('reset', () => {
+    clearError();
+    message.textContent = 'Welcome, player!';
+    input.focus();
+  });
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const name = input.value.trim();
 
-    if (!name) {
-      message.textContent = 'Please enter your name or nickname.';
+    if (!name || Array.from(name).length > 24) {
+      error.textContent = 'Enter a nickname of 1 to 24 characters.';
+      input.setAttribute('aria-invalid', 'true');
       input.focus();
       return;
     }
 
+    clearError();
     message.textContent = `Welcome, ${name}!`;
   });
 })();
@@ -320,22 +330,5 @@
       button.disabled = false;
       button.textContent = 'Next tip';
     }
-  });
-})();
-// Clear the nickname form and restore the default greeting.
-(() => {
-  const form = document.querySelector('#greeting-form');
-  const button = document.querySelector('#reset-greeting');
-  const message = document.querySelector('#greeting-message');
-
-  if (!form || !button || !message) return;
-
-  button.addEventListener('click', () => {
-    form.querySelectorAll('input').forEach((input) => {
-      input.value = '';
-    });
-
-    message.textContent = 'Welcome, player!';
-    form.querySelector('input').focus();
   });
 })();

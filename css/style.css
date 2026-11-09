@@ -652,6 +652,7 @@ footer {
     --bs-navbar-brand-hover-color: #b51e22;
 }
 .navbar .nav-link { display: flex; align-items: center; min-height: 44px; font-size: 17px; font-weight: 650; }
+.navbar .nav-profile { color: var(--hub-red); }
 .navbar .nav-link.active { text-decoration: underline; text-underline-offset: 6px; }
 .navbar > .container { padding-inline: 24px; }
 .nav-menu-toggle, .nav-menu-label { display: none; }
@@ -709,6 +710,14 @@ footer {
     --bs-btn-color: #b51e22; --bs-btn-border-color: #b51e22;
     --bs-btn-hover-bg: #b51e22; --bs-btn-hover-border-color: #b51e22;
     --bs-btn-active-bg: #94191c; --bs-btn-active-border-color: #94191c;
+}
+.btn-outline-danger {
+    --bs-btn-color: #a8202b;
+    --bs-btn-border-color: #a8202b;
+    --bs-btn-hover-bg: #a8202b;
+    --bs-btn-hover-border-color: #a8202b;
+    --bs-btn-active-bg: #901b24;
+    --bs-btn-active-border-color: #901b24;
 }
 .btn-outline-secondary {
     --bs-btn-color: #68483b; --bs-btn-border-color: #68483b;
@@ -853,10 +862,10 @@ tbody th { font-weight: bold; text-align: left; }
 @media (max-width: 991.98px) {
     .page-layout {
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr auto;
-        grid-template-areas: "header" "sidebar" "main" "footer";
+        grid-template-rows: auto 1fr auto auto;
+        grid-template-areas: "header" "main" "sidebar" "footer";
     }
-    .sidebar { border-right: 0; border-bottom: 2px solid #ffcc33; }
+    .sidebar { border-right: 0; border-top: 2px solid var(--hub-border); }
     .sidebar ul { display: flex; flex-wrap: wrap; gap: 0 24px; }
     .footer { flex-direction: column; }
     .section-title h2, .about h2, h2 { font-size: 30px; }

@@ -1,97 +1,58 @@
 # EsportsHub
 
-EsportsHub is a six-page academic frontend prototype for discovering esports events, teams, players and sample rankings. Assignment 4 adds JavaScript form validation, an FAQ accordion, a subscription popup, a background color button and a live date/time display to the existing responsive website.
+EsportsHub is a responsive site for esports fans and aspiring competitive players. Find tournaments, explore teams and player profiles, compare sample standings, and create a local demo profile.
 
-## Team
+**Team FAN · SE-2501**
 
-**Team FAN - group SE-2501**
+Damir Issakov (Home and Events), Alina Aitmukhamet (Teams and Players), and Aisha Mussina (Rankings and Community).
 
-| Member | Assigned Assignment 4 responsibility | Existing page responsibility |
-| --- | --- | --- |
-| Damir Issakov | Subscription popup; current date and time | Home and Events |
-| Alina Aitmukhamet | FAQ accordion; background color change | Teams and Players |
-| Aisha Mussina | Registration validation; contact form validation | Rankings and Community |
+- [Live website](https://drissakov.github.io/EsportsHub/)
+- [GitHub repository](https://github.com/drissakov/EsportsHub)
 
-All three members' full names, team name and group appear in the footer of every HTML page. Each member must understand the other components and be able to explain and modify the assigned JavaScript during the defense.
+## Pages
 
-## Technologies and scope
-
-The project uses semantic HTML5, CSS3, Flexbox, CSS Grid, responsive media queries, Bootstrap **5.3.8 CSS** and plain JavaScript. No package installation, compilation, framework or backend is needed. The mobile menu still uses a native checkbox and CSS; the nine-image carousel still uses native scrolling and real fragment links. Bootstrap JavaScript is not loaded.
-
-Events, profiles and rankings are sample content. Calendar preview controls do not filter data. The sign-up and subscription components demonstrate client-side validation; they do not create accounts, store credentials or send subscriptions. The existing contact form opens an email draft through `mailto:` after its inputs pass JavaScript validation; delivery depends on the visitor's email application and is not confirmed by this website.
-
-## Assignment 4 components
-
-| Task | Where to demonstrate | Implementation |
-| --- | --- | --- |
-| 1. Form validation | [Community: player sign-up](contact.html#registration), plus the [contact form](contact.html#contact-form) | [js/email-validation.js](js/email-validation.js), [js/password-validation.js](js/password-validation.js), [js/validation.js](js/validation.js), [css/validation.css](css/validation.css) |
-| 2. FAQ accordion | [Community FAQ](contact.html#community-faq) | [js/accordion.js](js/accordion.js), [css/interactive.css](css/interactive.css) |
-| 3. Subscription popup | Subscribe button in the shared sidebar tools on every page | [js/subscription.js](js/subscription.js), [css/subscription.css](css/subscription.css) |
-| 4. Background color | Change background button in the shared sidebar tools | [js/site.js](js/site.js), [css/interactive.css](css/interactive.css) |
-| 5. Current date and time | Clock in the shared sidebar tools | [js/site.js](js/site.js) |
-
-All three forms are validated exclusively by JavaScript. The rules live in the scripts; HTML has `novalidate` and no `required`, `minlength`, `maxlength` or `pattern` constraints. Email fields use `type="text"` with `inputmode="email"`. Labels and `aria-required` describe the fields without enforcing browser validation.
-
-Registration requires a display name, a supported email address and a password of 15–128 Unicode code points. The local, pinned zxcvbn-ts estimator must return its highest strength score (4); common passwords, repeats, keyboard sequences and guesses based on the supplied name/email are penalized. Published tutorial phrases are also blocked. Spaces and Unicode are supported without mandatory uppercase/digit/symbol rules; control characters and broken Unicode are rejected. Confirmation must match exactly, including case and spaces. Neither password is trimmed, normalized or truncated. Changing the password rechecks an existing/touched confirmation immediately; changing the name/email rechecks password strength. Inline errors, `aria-invalid`, associated error descriptions, a live summary and focus on the first invalid field make corrections clear. A valid demo submission stays on the page, displays a truthful result and clears both password fields. Passwords are not stored or logged.
-
-Contact, registration and subscription use the same JavaScript email validator. It accepts one unquoted ASCII mailbox with a fully qualified ASCII/punycode domain: at most 254 characters overall, 64 before `@`, and 63 per domain label. It rejects repeated/edge dots, malformed domains, control or hidden characters, address lists and display names. Domain suffixes must contain at least two letters or valid punycode. SMTPUTF8 mailbox names, Unicode-written domains, quoted mailbox names, IP literals and local-only domains are outside this browser form's supported format. Outer ASCII spaces are trimmed and only domain case is normalized; mailbox case, dots and `+tags` are preserved. JavaScript enforces lengths even for programmatically assigned values. Input, blur, submission and reset update the error state consistently.
-
-These checks validate the supported spelling only. They do not prove mailbox existence or ownership, and JavaScript can be bypassed. A real account/subscription service would also need server-side validation and email ownership verification; this static demo has no such backend. See [OWASP email validation guidance](https://cheatsheetseries.owasp.org/cheatsheets/Email_Validation_and_Verification_Cheat_Sheet.html).
-
-Run the regression tests with `node --test tests/email-validation.test.cjs tests/password-validation.test.cjs` (Node.js built-in test runner; no package installation). They cover email boundaries and supported aliases, password Unicode/length boundaries, weak and context-based guesses, exact input preservation and unavailable estimators.
-
-The password estimator is bundled locally in [js/vendor/password-strength.min.js](js/vendor/password-strength.min.js) and loads only on Community. It makes no external requests. Its MIT licenses, source manifest and reproducible build sources are included; see [tools/password-strength/README.md](tools/password-strength/README.md). The score is a heuristic, not a complete breached-password check. See [OWASP password guidance](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html).
-
-FAQ answers start collapsed. Clicking a native question button toggles its answer with a CSS transition, updates `aria-expanded`, and keeps collapsed content out of keyboard navigation. The subscription popup starts hidden and supports its close button, clicking the backdrop and Escape, then returns focus to its opening button.
-
-The background button cycles White, Soft mint, Soft lavender and Warm cream. JavaScript sets `body.style.backgroundColor` and the shared `--hub-page-color` CSS property, so the change is visible across the page. The clock creates a new `Date`, formats it in English with seconds and the browser's local time zone, and refreshes every second. Reduced-motion preferences disable the relevant transitions.
-
-JavaScript files are linked with `defer`, so their code runs after the HTML has been parsed. Components check for their target elements, allowing the same site features to be used across all six pages. See [the Assignment 4 defense guide](docs/assignment-4-defense.md) for the code walkthrough, demonstration route and test checklist.
-
-## Earlier assignment concepts preserved
-
-- **Assignment 1:** Metadata, semantic landmarks, headings, ordered/unordered lists, local images with alt text, navigation, four-column table, labeled form, team biographies and circular avatar. [css/style.css](css/style.css) retains element, class, ID and descendant selectors, box-model rules, typography, colors and hover states.
-- **Assignment 2:** Flexbox navbar alignment; custom `.players-container` cards; `.page-layout` with named header/sidebar/main/footer Grid areas; and a nine-image `.gallery-grid` with captions.
-- **Assignment 3:** Responsive media queries, custom 3/2/1 player-card layouts, Bootstrap two/three-column grids, spacing utilities, navbar styling, button variants, ranking button group, Home cards and responsive forms. Skip links, visible keyboard focus and table headers remain in place.
-
-The custom Flexbox cards on Players remain separate from the Bootstrap cards on Home. [docs/midterm-audit.md](docs/midterm-audit.md) and [docs/defense-evidence.md](docs/defense-evidence.md) describe the **earlier midterm revision**, including its former HTML/CSS-only scope and historical checks. They are not verification records for the new Assignment 4 JavaScript.
-
-## Responsive behavior
-
-| Width | Navigation / sidebar | Custom player cards | Grid gallery |
-| --- | --- | --- | --- |
-| 992px and wider | Expanded navbar; sidebar on the left | 3 per row | 3 columns |
-| 768px to below 992px | Collapsed navbar; quick links above main | 2 per row | 2 columns |
-| 576px to below 768px | Collapsed navbar; stacked content and form fields | 1 per row | 2 columns |
-| Below 576px | Collapsed navbar; wrapping quick links | 1 per row | 1 column |
-
-Game/support tiles use four columns from 1200px, two from 576px and one below 576px. The ranking table scrolls inside its own labeled region. Ordinary images preserve their proportions; bounded card, gallery, carousel and avatar images use intentional crops.
+| Page | Features |
+| --- | --- |
+| [Home](index.html) | Featured events and players, game shortcuts, gallery, player tips, nickname greeting, and rating |
+| [Events](events.html) | Search with suggestions and match highlighting, combinable game and format filters, shareable event links, and live Dota 2 team ratings from OpenDota |
+| [Teams](teams.html) | Sample team directory with links to player profiles and rankings |
+| [Players](players.html) | Player cards, photo gallery, and keyboard-accessible carousel |
+| [Rankings](rankings.html) | Sample multi-game standings with a horizontally scrollable table on narrow screens |
+| [Community](contact.html) | Sign-up, log-in, contact email draft, FAQ, and a three-step demo player application |
+| [Profile](profile.html) | The signed-in player's name, email, and phone, with a log-out action |
 
 ## Run locally
 
-Open `index.html` in a modern browser, or serve this folder with a static server/editor preview. Keep the relative `css/`, `js/` and `images/` directories beside the HTML pages. Bootstrap 5.3.8 CSS is included locally in [css/vendor/bootstrap.min.css](css/vendor/bootstrap.min.css), with its license header preserved. It was downloaded from the existing jsDelivr source and its original SHA-384 integrity hash was verified before removing the optional source-map hint. The website assets work offline; external links and the mailto contact action require their normal applications or connectivity.
+Serve the repository root over HTTP. For example, run this command and open [the local site](http://localhost:8000/).
 
-Use sample form data during demonstrations. All form submit buttons remain disabled until their JavaScript validators initialize. The registration button also requires the local password estimator. There is no native HTML validation fallback. Disabled JavaScript leaves the controls unavailable and shows a short explanation.
+    python -m http.server 8000
 
-## Deployment and submission
+The site runs directly from its HTML, CSS, and JavaScript files. Bootstrap 5.3.8 CSS, jQuery 4.0.0, and the password estimator are included locally. The [jQuery license](js/vendor/jquery-LICENSE.txt) and [password estimator license](js/vendor/password-strength-LICENSE.txt) ship with the project. A network connection is needed to fetch live [OpenDota](https://docs.opendota.com/) ratings. The Events page displays an error and a retry button if the API is unavailable.
 
-Website URL: [https://drissakov.github.io/EsportsHub/](https://drissakov.github.io/EsportsHub/).
+Use localhost or HTTPS for the demo account flow. Sign-up, log-in, the active profile, the selected theme, and the tournament filter state use this browser's local storage. Use fictional details. Sign-up stores the name, email, phone, and a salted password verifier. The account and application flows simulate a service in the browser. The contact form opens an email draft in the visitor's mail application.
 
-GitHub Pages serves the repository's **main branch, root folder**. `index.html` is the entry point, internal assets use relative paths and `.nojekyll` disables Jekyll processing. Commit and push the updated project to the shared repository, then confirm the latest successful Pages deployment matches that commit.
+All form checks run in JavaScript. Account creation checks required fields, email format, international phone format, password strength, and exact confirmation. The existing subscription and application demos validate the fields they collect. Event dates and the standings on Rankings are sample data. The labeled OpenDota panel displays separate data returned by the API.
 
-The submission package consists of a report and a ZIP archive of the complete project files. The report must include Team FAN, the full member names, group SE-2501, the objective, all five tasks with actual screenshots and step-by-step explanations, the deployed URL and a final reflection. Each member must submit the assignment in LMS before its stated deadline and defend the work in the practice lesson.
+## Verification
+
+Run the automated tests with Node.js 22 or later.
+
+    node --test tests/*.test.cjs
+
+For a browser check, try the following flows.
+
+1. Switch to dark mode and navigate from Home to Events. Verify the selected mode persists.
+2. Combine a game and format on Events, search for a tournament, and clear the filters. Follow a direct link to a tournament and confirm its card is visible.
+3. Open the Dota 2 ratings panel and verify the loading state and API results. With the API blocked, check that the error offers a retry.
+4. Create a demo account with fictional details. Try an incorrect password, log in with the correct one, verify the Profile page, and log out.
+5. Open Home, Events, and Community on desktop, tablet, and mobile. Check the mobile navigation, images, forms, and keyboard focus.
+
+GitHub Pages serves the repository root on main. The .nojekyll file keeps static paths intact.
+
+## Earlier assignments
+
+The [Assignment 4 defense guide](docs/assignment-4-defense.md), [Assignment 4 checks](docs/assignment-4-checks.md), and [midterm evidence](docs/defense-evidence.md) document earlier versions of the project.
 
 ## Image credits
 
-Assignment 4 reuses the existing project images. The eleven original raster files remain in `images/`; `donk.avif`, `eventsfeature.avif` and `teams.webp` were previously renamed to match their existing formats without changing their bytes.
-
-The earlier project revision introduced these original SVG illustrations:
-
-| Original artwork | Source |
-| --- | --- |
-| [player-room.svg](images/player-room.svg) | Repository SVG code; community gaming illustration |
-| [community-support.svg](images/community-support.svg) | Repository SVG code; community desk connections |
-| [team-avatar.svg](images/team-avatar.svg) | Repository SVG code; team initials |
-| [demo-ranking.svg](images/demo-ranking.svg) | Repository SVG code; sample ranking points |
-
-Original source/license records for the pre-existing raster imagery are absent from the repository. No source, license or permission is inferred.
+The repository contains original SVG artwork for the [player room](images/player-room.svg), [community desk](images/community-support.svg), [team avatar](images/team-avatar.svg), and [ranking illustration](images/demo-ranking.svg). The site also reuses raster images from the earlier project. Source and license records for those original raster files are unavailable in the repository.

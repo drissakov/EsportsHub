@@ -7,6 +7,7 @@
         <title>
             Home | EsportsHub
         </title>
+        <script src="js/theme-preference.js"></script>
         <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
@@ -18,8 +19,9 @@
         <script defer src="js/email-validation.js?v=forms3"></script>
         <script defer src="js/validation.js?v=forms3"></script>
         <script defer src="js/subscription.js?v=forms3"></script>
-        <script defer src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-<script defer src="js/script.js"></script>
+        <script defer src="js/vendor/jquery.min.js"></script>
+        <script defer src="js/script.js"></script>
+        <noscript><style>.jquery-lazy { display: none; }</style></noscript>
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -68,6 +70,9 @@
                                         Community
                                     </a>
                                 </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link nav-profile px-sm-2 py-2" href="profile.html">Profile</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -89,10 +94,13 @@
                                     </span>
                                 </h1>
                                 <p class="hero-description mt-3">
-                                    EsportsHub is a frontend prototype for discovering players and teams, finding events, following sample rankings and joining the community conversation.
+                                    Find tournaments, follow teams and players, and build a demo profile for the games you love.
                                 </p>
                                 <a class="btn btn-primary btn-lg mt-3 mt-lg-4" href="events.html#event-filters">
-                                    Explore sample events →
+                                    Explore tournaments →
+                                </a>
+                                <a class="btn btn-outline-primary btn-lg mt-3 mt-lg-4" href="contact.html#registration">
+                                    Create demo profile
                                 </a>
                                 <div class="home-stats" aria-label="Featured content on this page">
   <div class="home-stat">
@@ -134,7 +142,7 @@
                         </p>
                         <h2 class="visually-hidden">Find events by game</h2>
                         <div class="game-list mt-4">
-                            <a class="p-3 p-lg-4" href="events.html#event-list" aria-label="Browse CS2 events">
+                            <a class="p-3 p-lg-4" href="events.html?game=cs2#event-list">
                                 <strong>
                                     CS2
                                 </strong>
@@ -142,7 +150,7 @@
                                     FPS
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="events.html#event-list" aria-label="Browse Valorant events">
+                            <a class="p-3 p-lg-4" href="events.html?game=valorant#event-list">
                                 <strong>
                                     Valorant
                                 </strong>
@@ -150,7 +158,7 @@
                                     FPS
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="events.html#event-list" aria-label="Browse League of Legends events">
+                            <a class="p-3 p-lg-4" href="events.html?game=league-of-legends#event-list">
                                 <strong>
                                     League of Legends
                                 </strong>
@@ -158,7 +166,7 @@
                                     MOBA
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="events.html#event-list" aria-label="Browse Dota 2 events">
+                            <a class="p-3 p-lg-4" href="events.html?game=dota-2#event-list">
                                 <strong>
                                     Dota 2
                                 </strong>
@@ -441,24 +449,25 @@
     <img
       id="gallery-main"
       class="gallery-main-image"
-      src="https://cdn.sanity.io/images/zoz4y99f/production/3ce2d260d5460696083d713e4f31eab93d4d5d75-1600x900.jpg"
+      loading="lazy" decoding="async"
+      src="images/events.jpg"
       alt="Esports event"
     >
 
     <div class="gallery-thumbnails" aria-label="Choose an image">
       <button type="button" class="gallery-thumbnail"
               aria-label="Show esports event" aria-pressed="true">
-        <img src="https://cdn.sanity.io/images/zoz4y99f/production/3ce2d260d5460696083d713e4f31eab93d4d5d75-1600x900.jpg" alt="Esports event">
+        <img src="images/events.jpg" loading="lazy" decoding="async" alt="Esports event">
       </button>
 
       <button type="button" class="gallery-thumbnail"
               aria-label="Show competition" aria-pressed="false">
-       <img src="images/gallery-match.jpg" alt="Competition">
+       <img src="images/gallery-match.jpg" loading="lazy" decoding="async" alt="Competition">
       </button>
 
       <button type="button" class="gallery-thumbnail"
               aria-label="Show esports team" aria-pressed="false">
-       <img src="https://images.ctfassets.net/w5r1fvmogo3f/5xjI1WRkSnWThgqsxGzmGg/d9951a1631d7cab18dd519cfcfc2ca08/c6323d1742044f33971010d146748e7e.jpg?fm=webp&amp;q=90&amp;fit=scale&amp;w=1920" alt="Esports team">
+       <img src="images/teams.webp" loading="lazy" decoding="async" alt="Esports team">
       </button>
     </div>
 
@@ -477,7 +486,7 @@
             <button type="button" class="rating-star" data-rating="2"
                 aria-label="2 stars" aria-pressed="false">★</button>
             <button type="button" class="rating-star" data-rating="3"
-                aria-la bel="3 stars" aria-pressed="false">★</button>
+                aria-label="3 stars" aria-pressed="false">★</button>
             <button type="button" class="rating-star" data-rating="4"
                 aria-label="4 stars" aria-pressed="false">★</button>
             <button type="button" class="rating-star" data-rating="5"
@@ -495,7 +504,7 @@
 
 <p class="sidebar-intro">Move from discovery to competition.</p>
 
-<form id="greeting-form" class="sidebar-greeting">
+<form id="greeting-form" class="sidebar-greeting" novalidate>
   <label for="greeting-name" class="form-label">
     Your nickname
   </label>
@@ -505,19 +514,16 @@
     id="greeting-name"
     class="form-control"
     placeholder="Enter your nickname"
-    maxlength="24"
     autocomplete="nickname"
-    required
+    aria-required="true"
+    aria-describedby="greeting-error"
   >
+  <p id="greeting-error" class="field-error" role="status"></p>
 
   <button type="submit" class="btn btn-primary mt-2">
     Apply
   </button>
-  <button type="button"
-        id="reset-greeting"
-        class="btn btn-outline-primary mt-2">
-  Reset
-</button>
+  <button type="reset" class="btn btn-outline-primary mt-2">Reset</button>
 </form>
                 <ul>
                     <li><a href="#how-it-works">How EsportsHub works</a></li>

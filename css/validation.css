@@ -1,11 +1,4 @@
 /* Accessible validation states for registration and the existing contact form. */
-.registration-form {
-    max-width: 760px;
-    background: #fff8df;
-    border: 1px solid var(--hub-border, #e6cf8b);
-    border-radius: var(--hub-radius, 12px);
-}
-
 .field-error {
     margin: 0.4rem 0 0;
     color: #a11920;

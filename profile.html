@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <!-- FAN | SE-2501 | Damir Issakov, Alina Aitmukhamet, Aisha Mussina -->
+        <title>
+            Player Profile | EsportsHub
+        </title>
+        <script src="js/theme-preference.js"></script>
+        <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
+        <link href="css/interactive.css" rel="stylesheet">
+        <link href="css/subscription.css" rel="stylesheet">
+        <link href="css/auth.css" rel="stylesheet">
+        <script defer src="js/site.js"></script>
+        <script defer src="js/email-validation.js?v=forms3"></script>
+        <script defer src="js/auth.js"></script>
+        <script defer src="js/subscription.js?v=forms3"></script>
+        <script defer src="js/vendor/jquery.min.js"></script>
+        <script defer src="js/script.js"></script>
+    </head>
+    <body>
+        <a class="skip-link px-3 py-2" href="#main-content">
+            Skip to main content
+        </a>
+        <div class="page-layout">
+            <header class="grid-header">
+                <nav aria-label="Main navigation" class="navbar navbar-expand-lg bg-white py-3">
+                    <div class="container">
+                        <a class="navbar-brand logo me-3" href="index.html">
+                            Esports<span>Hub</span>
+                        </a>
+                        <!-- Native checkbox + CSS: Space toggles the mobile menu without JavaScript. -->
+                        <input aria-controls="mainNavigation" aria-describedby="navigation-help" class="nav-menu-toggle" id="navigation-toggle" type="checkbox">
+                        <label class="nav-menu-label" for="navigation-toggle">Menu</label>
+                        <span class="visually-hidden" id="navigation-help">Check to show navigation links; uncheck to hide them.</span>
+                        <div class="navbar-collapse" id="mainNavigation">
+                            <ul class="navbar-nav ms-auto m-0 p-0">
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="index.html">
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="events.html">
+                                        Events
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="teams.html">
+                                        Teams
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="players.html">
+                                        Players
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="rankings.html">
+                                        Rankings
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link px-sm-2 py-2" href="contact.html">
+                                        Community
+                                    </a>
+                                </li>
+                                <li class="nav-item mb-0">
+                                    <a aria-current="page" class="nav-link nav-profile px-sm-2 py-2 active" href="profile.html">Profile</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <main class="grid-main" id="main-content" tabindex="-1">
+                <section class="hero py-4 py-lg-5">
+                    <div class="container">
+                        <p class="label mb-3">PLAYER ACCOUNT</p>
+                        <h1 class="mb-3">Your <span>Profile.</span></h1>
+                        <p class="hero-description mt-3">Your EsportsHub player details are saved in this browser.</p>
+                    </div>
+                </section>
+                <section class="about py-4 py-lg-5" aria-labelledby="profile-title">
+                    <div class="container">
+                        <h2 id="profile-title" class="visually-hidden">Player details</h2>
+                        <p id="profile-status" role="status">Opening your local profile…</p>
+                        <noscript><p>Enable JavaScript to open your local player profile. <a href="contact.html#login">Return to Community</a>.</p></noscript>
+                        <article class="auth-card profile-card p-3 p-md-4" id="profile-details" hidden>
+                            <div class="profile-heading">
+                                <span class="profile-avatar" id="profile-avatar" aria-hidden="true"></span>
+                                <div>
+                                    <p class="label mb-1">LOCAL PLAYER</p>
+                                    <h3 id="profile-name" class="mb-0"></h3>
+                                </div>
+                            </div>
+                            <dl class="profile-data my-4">
+                                <div>
+                                    <dt>Email</dt>
+                                    <dd id="profile-email"></dd>
+                                </div>
+                                <div>
+                                    <dt>Phone</dt>
+                                    <dd id="profile-phone"></dd>
+                                </div>
+                            </dl>
+                            <div class="auth-actions">
+                                <a class="btn btn-primary" href="events.html#event-list">Explore tournaments</a>
+                                <button class="btn btn-outline-danger" id="profile-logout" type="button">Log out</button>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </main>
+            <aside aria-label="Player profile links and page tools" class="sidebar p-4">
+                <h2>Player quick links</h2>
+                <p class="sidebar-intro">Find a tournament, compare teams, or practice a player application.</p>
+                <ul>
+                    <li><a href="events.html#event-list">Browse events</a></li>
+                    <li><a href="teams.html#team-directory">Explore teams</a></li>
+                    <li><a href="contact.html#player-application">Try a player application</a></li>
+                </ul>
+
+                <section class="hub-tools" aria-labelledby="page-tools-title">
+                    <h2 id="page-tools-title">Your page, your way.</h2>
+                    <time class="hub-clock" data-current-time>Loading current time...</time>
+                    <small>Browser time zone: <span data-time-zone>local</span></small>
+                    <div class="hub-tool-actions">
+                        <button class="btn btn-outline-danger" data-background-cycle type="button">Change background</button>
+                        <button class="btn btn-primary" data-open-subscription type="button">Subscribe</button>
+                    </div>
+                    <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                    <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
+                </section>
+            </aside>
+            <footer class="grid-footer mt-5">
+                <div class="container footer pt-4 pb-3 ps-3 pe-3">
+                    <div>
+                        <a class="logo" href="index.html">
+                            Esports<span>Hub</span>
+                        </a>
+                        <p>
+                            A prototype for the esports community.
+                        </p>
+                    </div>
+                    <nav aria-label="Footer navigation" class="footer-nav">
+                        <strong>Explore</strong>
+                        <ul>
+                            <li><a href="events.html#event-list">Events</a></li>
+                            <li><a href="teams.html#team-directory">Teams</a></li>
+                            <li><a href="players.html#player-directory">Players</a></li>
+                            <li><a href="rankings.html#ranking-table">Rankings</a></li>
+                            <li><a href="contact.html#contact-options">Community</a></li>
+                        </ul>
+                    </nav>
+                    <div>
+                        <strong>Team</strong>
+                        <p>Damir Issakov · Alina Aitmukhamet · Aisha Mussina</p>
+                        <p>FAN · SE-2501</p>
+                    </div>
+                </div>
+                <div class="container copyright py-3">
+                    EsportsHub © 2026
+                </div>
+            </footer>
+        </div>
+        <dialog aria-labelledby="subscription-title" aria-describedby="subscription-description" class="subscription-dialog" id="subscription-dialog">
+            <div class="subscription-heading">
+                <p class="label">STAY IN THE GAME</p>
+                <button aria-label="Close subscription form" class="subscription-close" data-close-subscription type="button">&times;</button>
+            </div>
+            <h2 id="subscription-title">Your next match starts here.</h2>
+            <p id="subscription-description">Try the EsportsHub event newsletter form. This is a frontend demo: your email is not sent or stored.</p>
+            <form class="subscription-form" id="subscription-form" novalidate>
+                <label class="form-label" for="subscription-email">Email address <span>(required)</span></label>
+                <input aria-describedby="subscription-email-help subscription-email-error" autocomplete="email" class="form-control" id="subscription-email" name="email" placeholder="you@example.com" type="text" inputmode="email" autocapitalize="none" spellcheck="false" aria-required="true">
+                <p class="form-text" id="subscription-email-help">Use one complete address, such as name+team@example.com (up to 254 characters).</p>
+                <p aria-live="polite" class="subscription-error" id="subscription-email-error"></p>
+                <button class="btn btn-primary" type="submit" disabled>Try subscription</button>
+                <p aria-live="polite" class="subscription-result" id="subscription-result" role="status"></p>
+            </form>
+        </dialog>
+    </body>
+</html>

@@ -7,19 +7,23 @@
         <title>
             Events | EsportsHub
         </title>
+        <script src="js/theme-preference.js"></script>
         <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
         <link href="css/interactive.css" rel="stylesheet">
         <link href="css/validation.css" rel="stylesheet">
         <link href="css/subscription.css" rel="stylesheet">
+        <link href="css/events.css" rel="stylesheet">
         <script defer src="js/site.js"></script>
         <script defer src="js/accordion.js"></script>
         <script defer src="js/email-validation.js?v=forms3"></script>
         <script defer src="js/validation.js?v=forms3"></script>
         <script defer src="js/subscription.js?v=forms3"></script>
-        <script defer src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-<script defer src="js/script.js"></script>
+        <script defer src="js/vendor/jquery.min.js"></script>
+        <script defer src="js/script.js"></script>
+        <script defer src="js/event-filters.js"></script>
+        <script defer src="js/events-ratings.js"></script>
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -68,6 +72,9 @@
                                         Community
                                     </a>
                                 </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link nav-profile px-sm-2 py-2" href="profile.html">Profile</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -86,7 +93,7 @@
                             </span>
                         </h1>
                         <p class="hero-description mt-3">
-                            Discover tournaments, compare the games and formats in this sample calendar, then follow event results into the ranking prototype. Every item below is illustrative frontend content, not a live registration feed.
+                            Find sample tournaments by game, format or location. Compare Dota 2 pro teams with current ratings from OpenDota.
                         </p>
                     </div>
                 </section>
@@ -97,7 +104,7 @@
                         </p>
                         <h2 class="visually-hidden">Browse the sample calendar</h2>
                         <div class="game-list mt-4">
-                            <a class="p-3 p-lg-4" href="#event-list" aria-label="Browse all sample events">
+                            <a class="p-3 p-lg-4" href="events.html?game=all#event-list" data-event-game="all">
                                 <strong>
                                     All Events
                                 </strong>
@@ -105,7 +112,7 @@
                                     All games
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="#event-list" aria-label="Browse sample CS2 events">
+                            <a class="p-3 p-lg-4" href="events.html?game=cs2#event-list" data-event-game="cs2">
                                 <strong>
                                     CS2
                                 </strong>
@@ -113,7 +120,7 @@
                                     FPS
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="#event-list" aria-label="Browse sample Valorant events">
+                            <a class="p-3 p-lg-4" href="events.html?game=valorant#event-list" data-event-game="valorant">
                                 <strong>
                                     Valorant
                                 </strong>
@@ -121,7 +128,7 @@
                                     FPS
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="#event-list" aria-label="Browse sample League of Legends events">
+                            <a class="p-3 p-lg-4" href="events.html?game=league-of-legends#event-list" data-event-game="league-of-legends">
                                 <strong>
                                     League of Legends
                                 </strong>
@@ -129,36 +136,11 @@
                                     MOBA
                                 </span>
                             </a>
+                            <a class="p-3 p-lg-4" href="events.html?game=dota-2#event-list" data-event-game="dota-2">
+                                <strong>Dota 2</strong>
+                                <span>MOBA</span>
+                            </a>
                         </div>
-                        <form action="#event-list" aria-describedby="event-filter-help" class="event-filters mt-4 p-3 p-md-4" method="get">
-                            <div class="row g-3 align-items-end">
-                                <div class="col-12 col-md-6 col-xl-5">
-                                    <label class="form-label" for="event-game">Game</label>
-                                    <select class="form-select" id="event-game" name="game">
-                                        <option value="all">All games</option>
-                                        <option value="cs2">CS2</option>
-                                        <option value="valorant">Valorant</option>
-                                        <option value="league-of-legends">League of Legends</option>
-                                        <option value="dota-2">Dota 2</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-md-6 col-xl-5">
-                                    <label class="form-label" for="event-format">Format</label>
-                                    <select class="form-select" id="event-format" name="format">
-                                        <option value="all">All formats</option>
-                                        <option value="championship">Championship</option>
-                                        <option value="cup">Cup</option>
-                                        <option value="league">League</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 col-xl-2">
-                                    <button class="btn btn-secondary w-100" type="submit">Preview</button>
-                                </div>
-                            </div>
-                            <p class="form-text mt-2" id="event-filter-help">
-                                Prototype controls: selections are not connected to live data yet. Preview returns you to the sample calendar below.
-                            </p>
-                        </form>
                     </div>
                 </section>
                 <section class="about py-4 py-lg-5">
@@ -198,33 +180,45 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="event-search mb-4">
-  <label for="event-search-input" class="form-label">
-    Search tournaments
-  </label>
-
-  <input
-    type="search"
-    id="event-search-input"
-    class="form-control"
-    placeholder="Search by tournament, game or city"
-    aria-controls="event-list"
-    aria-describedby="event-search-status"
-  >
-  
-  <div
-  id="event-search-suggestions"
-  class="event-search-suggestions"
-  aria-label="Suggested tournaments"
-  hidden
-></div>
-
-  <p id="event-search-status" class="mt-2" role="status">
-    Showing all 5 tournaments.
-  </p>
-</div>
-                        <div class="event-list">
-                            <article class="event p-3" id="event-championship">
+                        <section class="event-filters mb-4 p-3 p-md-4" id="event-controls" aria-labelledby="event-controls-title" hidden>
+                            <h3 class="mb-2" id="event-controls-title">Find a tournament</h3>
+                            <div class="row g-3 align-items-end">
+                                <div class="event-search col-12">
+                                    <label class="form-label" for="event-search-input">Search tournaments</label>
+                                    <input type="search" id="event-search-input" class="form-control"
+                                        placeholder="Try Warsaw or Valorant" autocomplete="off"
+                                        aria-controls="tournament-cards event-search-suggestions">
+                                    <div class="event-search-suggestions" id="event-search-suggestions"
+                                        role="group" aria-label="Suggested tournaments" hidden></div>
+                                </div>
+                                <div class="col-12 col-sm-6 col-xl-5">
+                                    <label class="form-label" for="event-game">Game</label>
+                                    <select class="form-select" id="event-game" aria-controls="tournament-cards">
+                                        <option value="all">All games</option>
+                                        <option value="cs2">CS2</option>
+                                        <option value="valorant">Valorant</option>
+                                        <option value="league-of-legends">League of Legends</option>
+                                        <option value="dota-2">Dota 2</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6 col-xl-4">
+                                    <label class="form-label" for="event-format">Format</label>
+                                    <select class="form-select" id="event-format" aria-controls="tournament-cards">
+                                        <option value="all">All formats</option>
+                                        <option value="championship">Championship</option>
+                                        <option value="cup">Cup</option>
+                                        <option value="league">League</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-xl-3">
+                                    <button class="btn btn-outline-primary w-100" id="event-clear" type="button">Clear filters</button>
+                                </div>
+                            </div>
+                            <p id="event-search-status" class="mt-3 mb-0" role="status">Showing all 5 tournaments.</p>
+                        </section>
+                        <noscript><p>Enable JavaScript to search and filter this calendar.</p></noscript>
+                        <div class="event-list" id="tournament-cards">
+                            <article class="event p-3" id="event-championship" data-game="cs2" data-format="championship">
                                 <div class="date p-2">
                                     <span>
                                         OCT
@@ -241,7 +235,7 @@
                                     <h3>
                                         Esports Championship 2026
                                     </h3>
-                                    <p class="event-meta"><span>18 Oct 2026</span><span>Online + Berlin final</span><span>5v5 teams</span></p>
+                                    <p class="event-meta"><span>18 Oct 2026</span><span>Online + Berlin final</span><span>Championship · 5v5</span></p>
                                     <div class="event-actions">
                                         <a href="contact.html#contact-form">Registration prototype</a>
                                         <a href="teams.html#team-directory">Find a team</a>
@@ -251,7 +245,7 @@
                                     →
                                 </span>
                             </article>
-                            <article class="event p-3" id="event-valorant-cup">
+                            <article class="event p-3" id="event-valorant-cup" data-game="valorant" data-format="cup">
                                 <div class="date blue p-2">
                                     <span>
                                         NOV
@@ -268,7 +262,7 @@
                                     <h3>
                                         Valorant Global Cup
                                     </h3>
-                                    <p class="event-meta"><span>07 Nov 2026</span><span>Seoul, South Korea</span><span>5v5 teams</span></p>
+                                    <p class="event-meta"><span>07 Nov 2026</span><span>Seoul, South Korea</span><span>Cup · 5v5</span></p>
                                     <div class="event-actions">
                                         <a href="players.html#player-directory">Explore players</a>
                                         <a href="contact.html#contact-form">Ask about entry</a>
@@ -278,7 +272,7 @@
                                     →
                                 </span>
                             </article>
-                            <article class="event p-3" id="event-dota-masters">
+                            <article class="event p-3" id="event-dota-masters" data-game="dota-2" data-format="championship">
                                 <div class="date purple p-2">
                                     <span>
                                         NOV
@@ -295,7 +289,7 @@
                                     <h3>
                                         Global Dota Masters
                                     </h3>
-                                    <p class="event-meta"><span>21 Nov 2026</span><span>Singapore</span><span>5v5 teams</span></p>
+                                    <p class="event-meta"><span>21 Nov 2026</span><span>Singapore</span><span>Championship · 5v5</span></p>
                                     <div class="event-actions">
                                         <a href="teams.html#team-directory">Explore teams</a>
                                         <a href="contact.html#contact-form">Organizer questions</a>
@@ -305,7 +299,7 @@
                                     →
                                 </span>
                             </article>
-                            <article class="event p-3" id="event-winter-league">
+                            <article class="event p-3" id="event-winter-league" data-game="cs2" data-format="league">
                                 <div class="date p-2">
                                     <span>
                                         DEC
@@ -332,7 +326,7 @@
                                     →
                                 </span>
                             </article>
-                            <article class="event p-3" id="event-legends-finals">
+                            <article class="event p-3" id="event-legends-finals" data-game="league-of-legends" data-format="championship">
                                 <div class="date blue p-2">
                                     <span>
                                         SEP
@@ -342,14 +336,12 @@
                                     </strong>
                                 </div>
                                 <div class="event-content">
-                                    <small>
-                                        LOL · PARIS
-                                    </small>
+                                    <small>LEAGUE OF LEGENDS · PARIS</small>
                                     <span class="event-status status-completed">Completed sample</span>
                                     <h3>
                                         World Legends Finals
                                     </h3>
-                                    <p class="event-meta"><span>12 Sep 2026</span><span>Paris, France</span><span>Finals showcase</span></p>
+                                    <p class="event-meta"><span>12 Sep 2026</span><span>Paris, France</span><span>Championship finals</span></p>
                                     <div class="event-actions">
                                         <a href="rankings.html#ranking-table">See sample rankings</a>
                                         <a href="players.html#player-directory">Browse players</a>
@@ -359,6 +351,20 @@
                                     →
                                 </span>
                             </article>
+                        </div>
+                    </div>
+                </section>
+                <section class="about py-4 py-lg-5" id="dota-ratings" aria-labelledby="dota-ratings-title">
+                    <div class="container">
+                        <div class="dota-ratings-panel p-3 p-md-4">
+                            <p class="label mb-2">LIVE DATA · DOTA 2</p>
+                            <h2 id="dota-ratings-title">Dota 2 pro team ratings</h2>
+                            <p>Compare the top five teams tracked by OpenDota. Ratings and match records come from its public API.</p>
+                            <p id="dota-ratings-status" class="mb-3" role="status" aria-atomic="true" tabindex="-1"></p>
+                            <ol class="dota-team-list mb-0" id="dota-ratings-list" role="list"></ol>
+                            <button class="btn btn-outline-primary" id="dota-ratings-retry" type="button" hidden>Retry ratings</button>
+                            <p class="dota-ratings-source small mt-3 mb-0">Source <a href="https://docs.opendota.com/">OpenDota API</a></p>
+                            <noscript><p>Enable JavaScript to view ratings here, or <a href="https://www.opendota.com/teams">browse teams on OpenDota</a>.</p></noscript>
                         </div>
                     </div>
                 </section>
@@ -422,8 +428,9 @@
                     Find a competition and follow its path to results.
                 </p>
                 <ul>
-                    <li><a href="#event-filters">Preview calendar controls</a></li>
-                    <li><a href="#event-list">Browse sample events</a></li>
+                    <li><a href="#event-filters">Browse by game</a></li>
+                    <li><a href="#event-list">Search and filter events</a></li>
+                    <li><a href="#dota-ratings">Dota 2 team ratings</a></li>
                     <li><a href="teams.html#team-directory">Find participating teams</a></li>
                     <li><a href="contact.html#contact-options">Organizer support</a></li>
                 </ul>

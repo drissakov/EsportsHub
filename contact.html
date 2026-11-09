@@ -7,23 +7,26 @@
         <title>
             Community &amp; Contact | EsportsHub
         </title>
+        <script src="js/theme-preference.js"></script>
         <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
         <link href="css/interactive.css" rel="stylesheet">
         <link href="css/validation.css" rel="stylesheet">
         <link href="css/subscription.css" rel="stylesheet">
+        <link href="css/auth.css" rel="stylesheet">
         <script defer src="js/site.js"></script>
         <script defer src="js/accordion.js"></script>
         <script defer src="js/email-validation.js?v=forms3"></script>
         <script defer src="js/vendor/password-strength.min.js?v=forms3"></script>
         <script defer src="js/password-validation.js?v=forms3"></script>
-        <script defer src="js/validation.js?v=forms3"></script>
+        <script defer src="js/auth.js"></script>
+        <script defer src="js/validation.js"></script>
         <script defer src="js/subscription.js?v=forms3"></script>
+        <script defer src="js/vendor/jquery.min.js"></script>
         <script defer src="js/application.js"></script>
         <script defer src="js/sound.js"></script>
-        <script defer src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-<script defer src="js/script.js"></script>
+        <script defer src="js/script.js"></script>
     </head>
     <body>
         <a class="skip-link px-3 py-2" href="#main-content">
@@ -72,6 +75,9 @@
                                         Community
                                     </a>
                                 </li>
+                                <li class="nav-item mb-0">
+                                    <a class="nav-link nav-profile px-sm-2 py-2" href="profile.html">Profile</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -90,8 +96,78 @@
                             </span>
                         </h1>
                         <p class="hero-description mt-3">
-                            Choose a support path for questions, organizers, partnerships, feedback or problem reports. This static form opens a prepared email draft.
+                            Set up a local player profile, practice a player application, or get in touch with the community desk.
                         </p>
+                        <div class="auth-actions mt-4">
+                            <a class="btn btn-primary" href="#registration">Create a player profile</a>
+                            <a class="btn btn-outline-danger" href="#login">Log in</a>
+                        </div>
+                    </div>
+                </section>
+                <section class="about py-4 py-lg-5" aria-labelledby="account-title">
+                    <div class="container">
+                        <p class="label mb-3">PLAYER ACCOUNT</p>
+                        <h2 id="account-title">Make it your arena.</h2>
+                        <p class="auth-note">Use fictional details and a password you use only for this demo. Your profile and a password verifier stay in this browser.</p>
+                        <div class="row g-4 align-items-start mt-1">
+                            <div class="col-12 col-xl-7" id="registration">
+                                <form aria-describedby="registration-help" aria-labelledby="registration-title" class="auth-card p-3 p-md-4" id="registration-form" method="post" novalidate>
+                                    <h3 id="registration-title">Sign up</h3>
+                                    <p id="registration-help">All fields are required.</p>
+                                    <p class="validation-summary" data-validation-summary role="status" aria-atomic="true" tabindex="-1"></p>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label class="form-label" for="registration-name">Player name</label>
+                                            <input aria-required="true" autocomplete="nickname" class="form-control" id="registration-name" name="display-name" placeholder="Your player name" type="text">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="registration-email">Email</label>
+                                            <input aria-required="true" autocapitalize="none" autocomplete="email" class="form-control" id="registration-email" inputmode="email" name="email" placeholder="player@example.com" spellcheck="false" type="text">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="registration-phone">Phone</label>
+                                            <input aria-describedby="registration-phone-help" aria-required="true" autocomplete="tel" class="form-control" id="registration-phone" name="phone" placeholder="+12025550134" type="tel">
+                                            <p class="form-text mb-0" id="registration-phone-help">Use + followed by 8–15 digits, including the country code.</p>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="registration-password">Password</label>
+                                            <input aria-describedby="registration-password-help" aria-required="true" autocomplete="new-password" class="form-control" id="registration-password" type="password">
+                                            <p class="form-text mb-0" id="registration-password-help">Use 15–128 characters. Choose a long, unpredictable phrase with unrelated words.</p>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="registration-confirm">Confirm password</label>
+                                            <input aria-required="true" autocomplete="new-password" class="form-control" id="registration-confirm" type="password">
+                                        </div>
+                                        <div class="col-12 auth-actions">
+                                            <button class="btn btn-primary" data-enable-validation disabled type="submit">Create demo account</button>
+                                            <a href="#login">Go to log in</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-12 col-xl-5" id="login">
+                                <form aria-describedby="login-help" aria-labelledby="login-title" class="auth-card p-3 p-md-4" id="login-form" method="post" novalidate>
+                                    <h3 id="login-title">Log in</h3>
+                                    <p id="login-help">Use the email and sample password from your local account.</p>
+                                    <p class="validation-summary" data-validation-summary role="status" aria-atomic="true"></p>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <label class="form-label" for="login-email">Email</label>
+                                            <input aria-required="true" autocapitalize="none" autocomplete="username" class="form-control" id="login-email" inputmode="email" name="email" placeholder="player@example.com" spellcheck="false" type="text">
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="login-password">Password</label>
+                                            <input aria-required="true" autocomplete="current-password" class="form-control" id="login-password" type="password">
+                                        </div>
+                                        <div class="col-12 auth-actions">
+                                            <button class="btn btn-primary" data-enable-validation disabled type="submit">Log in</button>
+                                            <a href="profile.html">Open profile</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <noscript><p class="field-error mt-3">Enable JavaScript to create or open a local demo account.</p></noscript>
                     </div>
                 </section>
                 <section class="games py-4 py-lg-5" id="contact-options">
@@ -101,7 +177,7 @@
                         </p>
                         <h2 class="visually-hidden">Support topics</h2>
                         <div class="game-list mt-4">
-                            <a class="p-3 p-lg-4" href="#contact-form" aria-label="General Question: open the community form">
+                            <a class="p-3 p-lg-4" href="#contact-form" data-contact-topic="question">
                                 <strong>
                                     General Question
                                 </strong>
@@ -109,25 +185,25 @@
                                     Participation and access
                                 </span>
                             </a>
-                            <a class="p-3 p-lg-4" href="#contact-form" aria-label="Tournament Organizer: open the community form">
+                            <a class="p-3 p-lg-4" href="#contact-form" data-contact-topic="organizer">
                                 <strong>
                                     Tournament Organizer
                                 </strong>
                                 <span>Event listings and formats</span>
                             </a>
-                            <a class="p-3 p-lg-4" href="#contact-form" aria-label="Partnership: open the community form">
+                            <a class="p-3 p-lg-4" href="#contact-form" data-contact-topic="partnership">
                                 <strong>
                                     Partnership
                                 </strong>
                                 <span>Collaboration ideas</span>
                             </a>
-                            <a class="p-3 p-lg-4" href="#contact-form" aria-label="Feedback: open the community form">
+                            <a class="p-3 p-lg-4" href="#contact-form" data-contact-topic="feedback">
                                 <strong>
                                     Feedback
                                 </strong>
                                 <span>Help improve the prototype</span>
                             </a>
-                            <a class="p-3 p-lg-4" href="#contact-form" aria-label="Report a Problem: open the community form">
+                            <a class="p-3 p-lg-4" href="#contact-form" data-contact-topic="problem">
                                 <strong>Report a Problem</strong>
                                 <span>Broken link or accessibility issue</span>
                             </a>
@@ -140,7 +216,7 @@
                             CONTACT FORM
                         </p>
                         <h2 id="contact-form-title">Send a question or feedback</h2>
-                        <p id="contact-required">All fields are required. JavaScript checks your input before opening an email draft. Choose a topic in the form.</p>
+                        <p id="contact-required">All fields are required. Pick a topic above or in the form, then open a draft in your email app.</p>
                         <form novalidate action="mailto:info@esportshub.com" aria-describedby="contact-help contact-required" aria-labelledby="contact-form-title" class="mx-auto my-4 p-3 p-md-4" enctype="text/plain" id="contact-form" method="post">
                             <div class="row g-3">
                                 <div class="col-12 col-md-6">
@@ -161,7 +237,12 @@
                                     </div>
                                     <p class="form-text mt-2" id="email-help">Use one complete address, such as name+team@example.com (up to 254 characters).</p>
                                 </div>
-                                <div class="col-12">
+                                <div class="col-12 col-md-6">
+                                    <label class="form-label" for="phone">Phone</label>
+                                    <input aria-describedby="phone-help" autocomplete="tel" class="form-control" id="phone" name="phone" placeholder="+12025550134" type="tel" aria-required="true">
+                                    <p class="form-text mt-2" id="phone-help">Use + followed by 8–15 digits, including the country code.</p>
+                                </div>
+                                <div class="col-12 col-md-6">
                                     <label class="form-label" for="topic">
                                         Topic
                                     </label>
@@ -199,7 +280,7 @@
                                     </button>
                                     <noscript><p class="field-error">Enable JavaScript to validate and open an email draft.</p></noscript>
                                     <p class="form-text mt-2" id="contact-help">
-                                        Prototype behavior: JavaScript checks fields and email; valid submission opens your configured email app with the completed message. No server-side delivery is connected.
+                                        A valid form opens your configured email app with the completed draft.
                                     </p>
                                 </div>
                             </div>
@@ -218,42 +299,6 @@
                         </ul>
                     </div>
                 </section>
-<section class="about py-4 py-lg-5" id="registration" aria-labelledby="registration-title">
-    <div class="container">
-        <p class="label mb-3">JOIN THE COMMUNITY</p>
-        <h2 id="registration-title">Try the player sign-up form</h2>
-        <p id="registration-help">All fields are required. This validation demo does not create an account or send your information. Use a sample password.</p>
-        <form novalidate id="registration-form" class="registration-form mx-auto my-4 p-3 p-md-4" aria-labelledby="registration-title" aria-describedby="registration-help" action="#registration" method="post">
-            <p class="validation-summary" data-validation-summary role="status" aria-live="polite" aria-atomic="true"></p>
-            <div class="row g-3">
-                <div class="col-12 col-md-6">
-                    <label class="form-label" for="registration-name">Display name</label>
-                    <input class="form-control" id="registration-name" name="display-name" autocomplete="nickname" type="text" placeholder="Your player name" aria-required="true">
-                </div>
-                <div class="col-12 col-md-6">
-                    <label class="form-label" for="registration-email">Email</label>
-                    <input class="form-control" id="registration-email" name="email" autocomplete="email" type="text" inputmode="email" placeholder="player@example.com" aria-describedby="registration-email-help" autocapitalize="none" spellcheck="false" aria-required="true">
-                    <p class="form-text mt-2" id="registration-email-help">Use one complete address, such as player+team@example.com (up to 254 characters).</p>
-                </div>
-                <div class="col-12 col-md-6">
-                    <label class="form-label" for="registration-password">Password</label>
-                    <input class="form-control" id="registration-password" autocomplete="new-password" type="password" aria-describedby="registration-password-help" aria-required="true">
-                    <p class="form-text mt-2" id="registration-password-help">Use 15–128 characters. Choose a long, unpredictable phrase; common passwords and repeated patterns are rejected. Spaces and Unicode are allowed. Use a sample password for this demo.</p>
-                </div>
-                <div class="col-12 col-md-6">
-                    <label class="form-label" for="registration-confirm">Confirm password</label>
-                    <input class="form-control" id="registration-confirm" autocomplete="new-password" type="password" aria-describedby="registration-confirm-help" aria-required="true">
-                    <p class="form-text mt-2" id="registration-confirm-help">Enter exactly the same password, including case and spaces.</p>
-                </div>
-                <div class="col-12">
-                    <button class="btn btn-primary" type="submit" data-enable-validation disabled>Validate demo sign-up</button>
-                    <noscript><p class="field-error mt-2">Enable JavaScript to try this validation demo. No account service is connected.</p></noscript>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
-
                 <section class="about interactive-section py-4 py-lg-5" id="community-faq">
                     <div class="container">
                         <p class="label mb-3">COMMUNITY FAQ</p>
@@ -265,8 +310,8 @@
                                 <div aria-labelledby="faq-question-1" class="faq-panel" hidden id="faq-answer-1" role="region"><div><p>Visit the Events page and explore the sample tournament calendar. Listings demonstrate the website design; booking and registration are not connected to a tournament service.</p></div></div>
                             </article>
                             <article class="faq-item">
-                                <h3><button aria-controls="faq-answer-2" aria-expanded="false" class="faq-trigger" data-accordion-trigger id="faq-question-2" type="button">Does the registration demo create an account?</button></h3>
-                                <div aria-labelledby="faq-question-2" class="faq-panel" hidden id="faq-answer-2" role="region"><div><p>JavaScript checks required fields, email, a 15–128-character password with a local strength assessment, and exact password confirmation. Common passwords and predictable patterns are rejected. This demo does not create an account or store your password.</p></div></div>
+                                <h3><button aria-controls="faq-answer-2" aria-expanded="false" class="faq-trigger" data-accordion-trigger id="faq-question-2" type="button">Where is my player profile saved?</button></h3>
+                                <div aria-labelledby="faq-question-2" class="faq-panel" hidden id="faq-answer-2" role="region"><div><p>EsportsHub saves your player profile and password verifier in this browser. Use fictional details and a sample password. Log in from the same browser to see your profile.</p></div></div>
                             </article>
                             <article class="faq-item">
                                 <h3><button aria-controls="faq-answer-3" aria-expanded="false" class="faq-trigger" data-accordion-trigger id="faq-question-3" type="button">How does the subscription popup work?</button></h3>
@@ -443,6 +488,7 @@
                     Choose a support path for this frontend prototype.
                 </p>
                 <ul>
+                    <li><a href="#registration">Sign up</a> or <a href="#login">log in</a></li>
                     <li><a href="#contact-options">Choose a topic</a></li>
                     <li><a href="#contact-form">Open the contact form</a></li>
                     <li><a href="#team">Meet the team</a></li>
@@ -456,7 +502,7 @@
                     <div class="hub-tool-actions">
                         <button class="btn btn-outline-danger" data-background-cycle type="button">Change background</button>
                         <button class="btn btn-primary" data-open-subscription type="button">Subscribe</button>
-                        <a class="btn btn-outline-danger" href="contact.html#registration">Try sign-up</a>
+                        <a class="btn btn-outline-danger" href="profile.html">Player profile</a>
                         <a class="btn btn-outline-danger" href="contact.html#community-faq">Community FAQ</a>
                     </div>
                     <p class="background-status" role="status">Background: <span data-background-name>White</span></p>

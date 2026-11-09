@@ -1,4 +1,4 @@
-/* Assignment 4: all validation rules and feedback are controlled by JavaScript. */
+/* JavaScript owns the validation and feedback for community forms. */
 (() => {
     'use strict';
 
@@ -6,29 +6,47 @@
         'contact-form': { fields: {
             name: { kind: 'text', required: true },
             email: { kind: 'email', required: true },
+            phone: { kind: 'phone', required: true },
             topic: { kind: 'choice', required: true, values: ['question', 'organizer', 'partnership', 'feedback', 'problem'] },
             message: { kind: 'text', required: true },
         } },
-        'registration-form': { demo: true, fields: {
-            'registration-name': { kind: 'text', required: true },
+        'registration-form': { accountAction: 'signUp', fields: {
+            'registration-name': { kind: 'text', required: true, maxLength: 60 },
             'registration-email': { kind: 'email', required: true },
+            'registration-phone': { kind: 'phone', required: true },
             'registration-password': { kind: 'password', required: true },
             'registration-confirm': { kind: 'confirmation', required: true, matches: 'registration-password' },
+        } },
+        'login-form': { accountAction: 'logIn', fields: {
+            'login-email': { kind: 'email', required: true },
+            'login-password': { kind: 'login-password', required: true },
         } },
     };
 
     function initializeValidation() {
         const emailValidator = window.EsportsHubEmail;
         const passwordValidator = window.EsportsHubPassword;
+        const auth = window.EsportsHubAuth;
+        const contactTopic = document.getElementById('topic');
+        document.querySelectorAll('[data-contact-topic]').forEach((link) => {
+            link.addEventListener('click', () => {
+                contactTopic.value = link.dataset.contactTopic;
+                contactTopic.dispatchEvent(new Event('change', { bubbles: true }));
+            });
+        });
+
         Object.entries(formRules).forEach(([id, config]) => {
             const form = document.getElementById(id);
             if (!form) return;
             const fields = Object.keys(config.fields).map((fieldId) => form.querySelector(`#${fieldId}`)).filter(Boolean);
-            const ready = fields.length === Object.keys(config.fields).length && Boolean(emailValidator?.validate) &&
-                (!config.demo || Boolean(passwordValidator?.available));
+            const submitButton = form.querySelector('[data-enable-validation]');
+            const ready = submitButton && fields.length === Object.keys(config.fields).length && Boolean(emailValidator?.validate) &&
+                (!config.accountAction || Boolean(auth?.[config.accountAction] && passwordValidator)) &&
+                (config.accountAction !== 'signUp' || passwordValidator?.available);
             const touched = new Set();
             const edited = new Set();
             let submitted = false;
+            let busy = false;
             let summary = form.querySelector('[data-validation-summary]');
 
             if (!summary) {
@@ -64,6 +82,14 @@
                 const rule = config.fields[field.id];
                 const value = field.value;
                 if (rule.kind === 'password') return passwordValidator.validate(value, passwordContext()).error;
+                if (rule.kind === 'login-password') {
+                    if (!value.trim()) return 'Enter your password.';
+                    const { minLength, maxLength } = passwordValidator;
+                    const length = Array.from(value).length;
+                    return length >= minLength && length <= maxLength
+                        ? ''
+                        : `Use the ${minLength}–${maxLength}-character password from your local account.`;
+                }
                 if (rule.kind === 'confirmation') {
                     if (!value) return 'Confirm your password.';
                     const password = form.querySelector(`#${rule.matches}`).value;
@@ -72,6 +98,12 @@
                 }
                 if (rule.kind === 'email') return emailValidator.validate(value, { required: rule.required }).error;
                 if (rule.required && !value.trim()) return `${fieldLabel(field)} is required.`;
+                if (rule.kind === 'phone' && !/^\+[1-9]\d{7,14}$/.test(value.trim())) {
+                    return 'Enter + followed by 8–15 digits, including the country code.';
+                }
+                if (rule.maxLength && Array.from(value.trim()).length > rule.maxLength) {
+                    return `Use at most ${rule.maxLength} characters for ${fieldLabel(field).toLowerCase()}.`;
+                }
                 if (rule.kind === 'choice' && !rule.values.includes(value)) return 'Choose a topic from the list.';
                 return '';
             }
@@ -171,9 +203,58 @@
                 clearErrors();
             });
 
+            async function submitAccount() {
+                busy = true;
+                submitButton.disabled = true;
+                form.setAttribute('aria-busy', 'true');
+                fields.forEach((field) => { field.readOnly = true; });
+                try {
+                    const fieldValues = Object.fromEntries(fields.map((field) => [
+                        field.id.replace(/^(registration|login)-/, ''), field.value
+                    ]));
+                    const error = await auth[config.accountAction](fieldValues);
+                    if (error) {
+                        if (config.accountAction === 'logIn') {
+                            const password = form.querySelector('#login-password');
+                            password.value = '';
+                            password.focus();
+                        }
+                        summary.textContent = error;
+                        return;
+                    }
+
+                    fields.filter((field) => field.type === 'password').forEach((field) => { field.value = ''; });
+                    submitted = false;
+                    touched.clear();
+                    edited.clear();
+                    clearErrors();
+                    if (config.accountAction === 'logIn') {
+                        window.location.assign('profile.html');
+                        return;
+                    }
+
+                    document.getElementById('login-email').value = fieldValues.email;
+                    summary.classList.add('validation-success');
+                    summary.textContent = 'Demo account created in this browser. Log in with your email and sample password.';
+                    summary.focus();
+                    document.dispatchEvent(new Event('esportshub:registration-success'));
+                } catch {
+                    summary.textContent = 'Local account access is unavailable. Open the HTTPS site and allow browser storage.';
+                } finally {
+                    fields.forEach((field) => { field.readOnly = false; });
+                    form.removeAttribute('aria-busy');
+                    submitButton.disabled = false;
+                    busy = false;
+                }
+            }
+
             // HTML constraints are disabled; JavaScript owns every validation rule.
             form.noValidate = true;
             form.addEventListener('submit', (event) => {
+                if (busy) {
+                    event.preventDefault();
+                    return;
+                }
                 if (!ready) {
                     event.preventDefault();
                     clearSummary();
@@ -185,7 +266,7 @@
                     touched.add(field);
                     const kind = config.fields[field.id].kind;
                     if (kind === 'email') normalizeEmail(field);
-                    else if (kind === 'text') field.value = field.value.trim();
+                    else if (kind === 'text' || kind === 'phone') field.value = field.value.trim();
                 });
                 const invalidFields = validateAll();
                 showErrorSummary(invalidFields);
@@ -195,23 +276,16 @@
                     return;
                 }
 
-                if (config.demo) {
+                if (config.accountAction) {
                     event.preventDefault();
-                    summary.classList.add('validation-success');
-                    summary.textContent = 'Demo validated successfully. No account was created and no data was sent. Password fields have been cleared.';
-                    fields.filter((field) => ['password', 'confirmation'].includes(config.fields[field.id].kind)).forEach((field) => { field.value = ''; });
-                    submitted = false;
-                    touched.clear();
-                    edited.clear();
-                    clearErrors();
-                    document.dispatchEvent(new Event('esportshub:registration-success'));
-                } else if (form.id === 'contact-form') {
+                    submitAccount();
+                } else {
                     // A valid contact submission retains its existing mailto action.
                     summary.classList.add('validation-success');
                     summary.textContent = 'The form is valid. Your configured email app can open a draft; delivery is not confirmed.';
                 }
             });
-            form.querySelectorAll('[data-enable-validation]').forEach((button) => { button.disabled = !ready; });
+            if (submitButton) submitButton.disabled = !ready;
         });
     }
 
