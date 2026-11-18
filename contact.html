@@ -273,46 +273,40 @@
                         </form>
                     </div>
                 </section>
-                <section class="about py-4 py-lg-5" id="team">
+                <section class="about py-4 py-lg-5" id="team" aria-labelledby="team-heading">
                     <div class="container">
-                        <div class="bio community-bio">
+                        <div class="community-bio">
                             <div class="community-bio-heading">
                                 <div class="profile-avatar">
                                     <img alt="Team avatar with the initials D, A and A for Damir, Alina and Aisha" class="profile-image" decoding="async" loading="lazy" height="512" src="images/team-avatar.svg" width="512">
                                 </div>
                                 <div>
-                                    <h2>Meet Team FAN</h2>
+                                    <h2 id="team-heading">Meet Team <span>FAN</span></h2>
                                     <p>EsportsHub was built by Team FAN from SE-2501.</p>
                                 </div>
                             </div>
-                            <div class="row g-3 community-bio-members">
-                                <section class="col-12 col-md-6 col-lg-4" aria-labelledby="bio-damir">
-                                    <div class="community-bio-card">
+                            <div class="community-bio-members">
+                                <article class="community-bio-card" aria-labelledby="bio-damir">
+                                    <div class="community-bio-portrait">
                                         <img src="images/community/damir.webp" alt="Illustrative portrait for Damir Issakov" width="408" height="217" decoding="async" loading="lazy">
-                                        <div class="community-bio-copy">
-                                            <h3 id="bio-damir">Damir Issakov</h3>
-                                            <p>Damir is responsible for Home and Events, the subscription popup, and the live date and time display.</p>
-                                        </div>
+                                        <h3 id="bio-damir">Damir Issakov</h3>
                                     </div>
-                                </section>
-                                <section class="col-12 col-md-6 col-lg-4" aria-labelledby="bio-alina">
-                                    <div class="community-bio-card">
+                                    <p>Damir is responsible for Home and Events, the subscription popup, and the live date and time display.</p>
+                                </article>
+                                <article class="community-bio-card" aria-labelledby="bio-alina">
+                                    <div class="community-bio-portrait">
                                         <img src="images/community/alina.webp" alt="Illustrative portrait for Alina Aitmukhamet" width="408" height="217" decoding="async" loading="lazy">
-                                        <div class="community-bio-copy">
-                                            <h3 id="bio-alina">Alina Aitmukhamet</h3>
-                                            <p>Alina is responsible for Teams and Players, the community FAQ accordion, and the background color control.</p>
-                                        </div>
+                                        <h3 id="bio-alina">Alina Aitmukhamet</h3>
                                     </div>
-                                </section>
-                                <section class="col-12 col-md-6 col-lg-4" aria-labelledby="bio-aisha">
-                                    <div class="community-bio-card">
+                                    <p>Alina is responsible for Teams and Players, the community FAQ accordion, and the background color control.</p>
+                                </article>
+                                <article class="community-bio-card" aria-labelledby="bio-aisha">
+                                    <div class="community-bio-portrait">
                                         <img src="images/community/aisha.webp" alt="Illustrative portrait for Aisha Mussina" width="408" height="217" decoding="async" loading="lazy">
-                                        <div class="community-bio-copy">
-                                            <h3 id="bio-aisha">Aisha Mussina</h3>
-                                            <p>Aisha is responsible for Rankings and Community &amp; Support, sign-up validation, and JavaScript validation of the contact form.</p>
-                                        </div>
+                                        <h3 id="bio-aisha">Aisha Mussina</h3>
                                     </div>
-                                </section>
+                                    <p>Aisha is responsible for Rankings and Community &amp; Support, sign-up validation, and JavaScript validation of the contact form.</p>
+                                </article>
                             </div>
                         </div>
                     </div>

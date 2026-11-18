@@ -209,63 +209,134 @@
     font-size: 0.9rem;
 }
 
-.community-bio.bio {
-    padding: 0;
-    border: 0;
-    background: transparent;
-}
-
 .community-bio-heading {
     display: flex;
     align-items: center;
-    gap: clamp(0.8rem, 2vw, 1.75rem);
-    margin-bottom: 1.25rem;
-}
-
-.community-bio-heading > div:last-child {
-    padding-inline-start: clamp(0.8rem, 2vw, 1.75rem);
-    border-inline-start: 2px solid var(--community-accent);
+    gap: clamp(.75rem, 2vw, 1.5rem);
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--community-edge);
+    margin-bottom: 1rem;
 }
 
 .community-bio-heading .profile-avatar {
-    flex: 0 0 clamp(3.5rem, 6.5vw, 5.25rem);
-    width: clamp(3.5rem, 6.5vw, 5.25rem);
+    flex: none;
+    width: clamp(3.5rem, 7vw, 5rem);
     border: 0;
     margin: 0;
 }
 
-.community-bio-heading h2 {
-    margin-bottom: 0.25rem;
+#team .community-bio-heading h2 {
+    margin: 0 0 .2rem;
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
     color: var(--community-text);
 }
 
-.community-bio-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    overflow: hidden;
-    border: 1px solid var(--community-edge);
-    border-bottom: 3px solid var(--community-accent);
-    border-radius: 4px;
-    background: var(--community-paper);
-}
-
-.community-bio-card img {
-    width: 100%;
-    aspect-ratio: 408 / 217;
-    object-fit: cover;
-}
-
-.community-bio-copy {
-    padding: 0.9rem 1rem 1.05rem;
-}
-
-.community-bio-copy h3 {
+#team .community-bio-heading h2 span {
     color: var(--community-accent);
 }
 
-.community-bio-copy p {
+.community-bio-heading p {
+    margin: 0;
+}
+
+.community-bio-members {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(.75rem, 1.6vw, 1.25rem);
+}
+
+.community-bio-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--community-edge);
+    border-radius: var(--hub-radius);
+    background: var(--community-paper);
+}
+
+.community-bio-portrait {
+    display: grid;
+    align-items: end;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    aspect-ratio: 8 / 5;
+    background: #171224;
+}
+
+.community-bio-portrait img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 56% center;
+}
+
+.community-bio-portrait::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to top, #0e0b18ed, #120e1d85 20%, transparent 54%);
+}
+
+#team .community-bio-portrait h3 {
+    width: fit-content;
+    margin: 0;
+    padding: .65rem clamp(.85rem, 1.5vw, 1.25rem);
+    color: #fffaf3;
+    font: 700 clamp(1.65rem, 2.75vw, 2.75rem)/1.05 var(--hub-display);
+    text-shadow: 0 1px 5px #150a21b3;
+}
+
+.community-bio-card > p {
+    padding: .9rem clamp(.85rem, 1.5vw, 1.25rem) 1rem;
+    border-top: 2px solid var(--community-accent);
+    margin: 0;
     line-height: 1.5;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .community-bio-portrait::after {
+        content: "";
+        position: absolute;
+        top: .75rem;
+        right: .75rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        border-top: 2px solid #fffaf3;
+        border-right: 2px solid #fffaf3;
+        opacity: 0;
+    }
+
+    .community-bio-portrait:hover::after { opacity: 1; }
+    .community-bio-portrait:hover img { filter: saturate(1.18) brightness(1.05); }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .community-bio-portrait img {
+        transition: transform 320ms ease-out, filter 240ms ease-out;
+    }
+
+    .community-bio-portrait::after { transition: opacity 180ms ease-out; }
+    .community-bio-portrait:hover img { transform: scale(1.045); }
+}
+
+@media (max-width: 767.98px) {
+    .community-bio-members {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (min-width: 520px) and (max-width: 767.98px) {
+    .community-bio-card {
+        display: grid;
+        grid-template-columns: 48% 1fr;
+        align-items: center;
+    }
+
+    .community-bio-card > p { border-top: 0; }
 }
 
 html[data-theme="night"] .community-page {
