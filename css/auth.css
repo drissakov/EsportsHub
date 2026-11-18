@@ -52,40 +52,128 @@
     max-width: 63ch;
 }
 
+.profile-page {
+    display: grid;
+    align-items: center;
+    background: var(--hub-paper);
+}
+
+.profile-layout {
+    width: 100%;
+    max-width: 80rem;
+    min-width: 0;
+    margin-inline: auto;
+    padding: clamp(1.25rem, 3.5vw, 3rem);
+}
+
+.profile-layout h1 {
+    margin: 0;
+    color: var(--hub-ink);
+    font-size: clamp(2.5rem, 4.8vw, 4.5rem);
+}
+
+.profile-intro {
+    margin: .4rem 0 clamp(1rem, 2vw, 1.5rem);
+    color: var(--hub-muted);
+}
+
 .profile-card {
-    max-width: 48rem;
+    overflow: hidden;
     overflow-wrap: anywhere;
+    border-color: var(--hub-line);
+    border-top: 3px solid var(--hub-accent);
+    background: var(--hub-surface);
+}
+
+.profile-card:not([hidden]) {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+}
+
+.profile-info {
+    min-width: 0;
+    padding: clamp(1rem, 2.6vw, 2.25rem);
 }
 
 .profile-heading {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: .9rem;
 }
 
 .profile-heading > div {
     min-width: 0;
 }
 
-.profile-avatar {
-    display: grid;
-    flex: 0 0 3.5rem;
-    height: 3.5rem;
-    place-items: center;
-    border-radius: 0.75rem;
-    background: #a11920;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 800;
+.profile-heading h2 {
+    margin: 0;
+    color: var(--hub-ink);
+    font-size: clamp(1.9rem, 3vw, 3rem);
 }
 
-.profile-data > div {
-    padding: 0.75rem 0;
-    border-top: 1px solid var(--hub-border, #e6cf8b);
+.profile-heading .profile-avatar {
+    display: grid;
+    flex: none;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0;
+    border: 0;
+    place-items: center;
+    border-radius: .5rem;
+    background: var(--hub-accent);
+    color: var(--hub-surface);
+    font: 700 2rem/1 var(--hub-display);
+}
+
+.profile-data {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    gap: .75rem 1rem;
+    margin: 1.2rem 0;
+    padding-block: .85rem;
+    border-block: 1px solid var(--hub-line);
+}
+
+.profile-data dt {
+    color: var(--hub-muted);
+    font-size: .85rem;
 }
 
 .profile-data dd {
-    margin-bottom: 0;
+    margin: .2rem 0 0;
+    color: var(--hub-ink);
+}
+
+.profile-events {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: .65rem;
+    padding: clamp(1rem, 2.6vw, 2.25rem);
+    color: #fffaf3;
+    background: linear-gradient(0deg, #110f19ef, #110f1960 38%, transparent 75%),
+                #201a24 url("../images/esports.jpg") center 50% / cover;
+    font: 700 clamp(1.6rem, 3vw, 2.5rem)/1.1 var(--hub-display);
+    text-decoration: none;
+}
+
+.profile-events:is(:hover, :focus-visible) {
+    color: #fffaf3;
+}
+
+.profile-events:is(:hover, :focus-visible) span:first-child {
+    text-decoration: underline;
+    text-underline-offset: .15em;
+}
+
+.profile-events:focus-visible {
+    outline: 3px solid #fffaf3;
+    outline-offset: -5px;
+}
+
+@media (max-width: 767.98px) {
+    .profile-card:not([hidden]) { grid-template-columns: minmax(0, 1fr); }
+    .profile-events { min-height: 8rem; }
 }
 
 #profile-status:empty {
@@ -94,9 +182,4 @@
 
 html[data-theme="night"] .auth-card {
     background: var(--night-panel);
-}
-
-html[data-theme="night"] .profile-avatar {
-    background: var(--night-accent);
-    color: var(--night-bg);
 }

@@ -70,27 +70,22 @@
                 </nav>
             </header>
             <!-- /layout:header -->
-            <main class="grid-main" id="main-content" tabindex="-1">
-                <section class="hero profile-masthead py-4 py-lg-5">
-                    <div class="container">
-                        <h1 class="mb-3">Your Player Profile</h1>
-                        <p class="hero-description mt-3">View the player details saved in this browser.</p>
-                    </div>
-                </section>
-                <section class="about py-4 py-lg-5" aria-labelledby="profile-title">
-                    <div class="container">
-                        <h2 id="profile-title" class="visually-hidden">Player details</h2>
-                        <p id="profile-status" role="status">Opening your local profile…</p>
-                        <noscript><p>Enable JavaScript to open your local player profile. <a href="account.html#login">Return to Log In</a>.</p></noscript>
-                        <article class="auth-card profile-card p-3 p-md-4" id="profile-details" hidden>
+            <main class="grid-main profile-page" id="main-content" tabindex="-1">
+                <section class="profile-layout" aria-labelledby="profile-title">
+                    <h1 id="profile-title">Your Player Profile</h1>
+                    <p class="profile-intro">View the player details saved in this browser.</p>
+                    <p id="profile-status" role="status">Opening your local profile…</p>
+                    <noscript><p>Enable JavaScript to open your local player profile. <a href="account.html#login">Return to Log In</a>.</p></noscript>
+                    <article class="auth-card profile-card" id="profile-details" aria-labelledby="profile-name" hidden>
+                        <div class="profile-info">
                             <div class="profile-heading">
                                 <span class="profile-avatar" id="profile-avatar" aria-hidden="true"></span>
                                 <div>
                                     <p class="label mb-1">LOCAL PLAYER</p>
-                                    <h3 id="profile-name" class="mb-0"></h3>
+                                    <h2 id="profile-name"></h2>
                                 </div>
                             </div>
-                            <dl class="profile-data my-4">
+                            <dl class="profile-data">
                                 <div>
                                     <dt>Email</dt>
                                     <dd id="profile-email"></dd>
@@ -100,12 +95,13 @@
                                     <dd id="profile-phone"></dd>
                                 </div>
                             </dl>
-                            <div class="auth-actions">
-                                <a class="btn btn-primary" href="events.html#event-list">Explore tournaments</a>
-                                <button class="btn btn-outline-danger" id="profile-logout" type="button">Log out</button>
-                            </div>
-                        </article>
-                    </div>
+                            <button class="btn btn-outline-danger" id="profile-logout" type="button">Log out</button>
+                        </div>
+                        <a class="profile-events" href="events.html#event-list">
+                            <span>Explore tournaments</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
                 </section>
             </main>
             <aside aria-label="Player profile links and page tools" class="sidebar p-4">
