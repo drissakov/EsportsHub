@@ -12,6 +12,7 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
         <link href="css/interactive.css" rel="stylesheet">
+        <link href="css/identity.css" rel="stylesheet">
         <link href="css/validation.css" rel="stylesheet">
         <link href="css/subscription.css" rel="stylesheet">
         <script defer src="js/site.js"></script>
@@ -71,7 +72,7 @@
             </header>
             <!-- /layout:header -->
             <main class="grid-main" id="main-content" tabindex="-1">
-                <section class="hero py-4">
+                <section class="hero player-masthead py-4">
                     <div class="container">
                         <h1 class="mb-2">Esports players</h1>
                         <p class="hero-description mb-0">Discover featured players, their roles and the teams linked to their sample profiles.</p>
@@ -94,7 +95,7 @@
                                     donk
                                 </h3>
                                 <p>
-                                    Sample community profile showing how a player could connect to a team and event.
+                                    An entry fragger takes the first fight and makes room for teammates to follow.
                                 </p>
                                 <ul class="player-meta-list">
                                     <li><strong>Game:</strong> CS2</li>
@@ -113,7 +114,7 @@
                                     m0NESY
                                 </h3>
                                 <p>
-                                    Sample community profile for a CS2 player discovery card; this is not a live roster claim.
+                                    As an AWPer, m0NESY watches long angles and looks for the opening pick in CS2.
                                 </p>
                                 <ul class="player-meta-list">
                                     <li><strong>Game:</strong> CS2</li>
@@ -132,7 +133,7 @@
                                     Faker
                                 </h3>
                                 <p>
-                                    Sample League of Legends profile used to demonstrate player-to-ranking navigation.
+                                    From mid lane, Faker can reach either side of the map when a fight breaks out.
                                 </p>
                                 <ul class="player-meta-list">
                                     <li><strong>Game:</strong> League of Legends</li>
@@ -161,7 +162,7 @@
                                 View featured profile →
                             </a>
                         </div>
-                        <article class="event p-3" id="top-performer">
+                        <a href="#donk" class="event p-3" id="top-performer">
                             <div class="date p-2">
                                 <strong>
                                     01
@@ -175,10 +176,8 @@
                                     Sample spotlight showing how a player profile can lead into team discovery.
                                 </h3>
                             </div>
-                                <span aria-hidden="true" class="event-arrow">
-                                →
-                            </span>
-                        </article>
+                                <img class="spotlight-portrait" alt="" src="images/donk.avif" loading="lazy" width="1350" height="900">
+                        </a>
                     </div>
                 </section>
                 <section class="about py-4 py-lg-5" id="player-context">
@@ -483,6 +482,7 @@
                 </section>
             </main>
             <aside aria-label="Player discovery links" class="sidebar p-4">
+                <div class="sidebar-inner">
                 <h2>
                     Player discovery
                 </h2>
@@ -501,13 +501,14 @@
                         <time class="hub-clock" data-current-time>Loading time…</time>
                         <div class="hub-tool-actions">
                             <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
-                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <p class="background-status" role="status">Background: <span data-background-name>Paper</span></p>
                             <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
                         </div>
                         <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
                     </div>
                 </details>
                 <!-- /layout:page-tools -->
+                </div>
             </aside>
             <!-- layout:footer -->
             <footer class="grid-footer mt-5">
@@ -537,7 +538,7 @@
                     </div>
                 </div>
                 <div class="container copyright py-3">
-                    EsportsHub © 2026
+                    EsportsHub © 2026 · <a href="docs/media-credits.md">Media credits</a>
                 </div>
             </footer>
             <!-- /layout:footer -->

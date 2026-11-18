@@ -6,7 +6,7 @@
 
     const backgrounds = {
         day: [
-            { name: 'White', color: '#ffffff' },
+            { name: 'Paper', color: '#f4f0e8' },
             { name: 'Soft mint', color: '#edf7ef' },
             { name: 'Soft lavender', color: '#f3effa' },
             { name: 'Warm cream', color: '#fff7df' }

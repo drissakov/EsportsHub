@@ -18,6 +18,8 @@
     const accountPrefix = 'esportshub:account:v1:';
     const sessionKey = 'esportshub:session:v1';
     const encoder = new TextEncoder();
+    const algorithm = 'PBKDF2-SHA256';
+    const iterations = 600000;
 
     function encodeBytes(bytes) {
         return btoa(String.fromCharCode(...bytes));
@@ -29,7 +31,7 @@
         const bits = await crypto.subtle.deriveBits({
             name: 'PBKDF2',
             salt,
-            iterations: 600000,
+            iterations,
             hash: 'SHA-256'
         }, key, 256);
         return encodeBytes(new Uint8Array(bits));
@@ -44,30 +46,51 @@
         } catch {
             return null;
         }
-        if (account?.email !== email || !['name', 'phone', 'salt', 'verifier']
-            .every((key) => typeof account[key] === 'string' && account[key])) return null;
-        return account;
+        if (!account || typeof account !== 'object') return null;
+
+        // Accounts saved by the earlier site put the profile and verifier at the same level.
+        const legacy = !account.profile;
+        const profile = legacy ? { name: account.name, email: account.email, phone: account.phone } : account.profile;
+        const passwordCheck = legacy
+            ? { algorithm, iterations, saltBase64: account.salt, hashBase64: account.verifier }
+            : account.passwordCheck;
+
+        if (profile.email !== email || typeof profile.name !== 'string' || !profile.name ||
+            typeof profile.phone !== 'string' || !profile.phone) return null;
+        if (passwordCheck?.algorithm !== algorithm || passwordCheck.iterations !== iterations ||
+            !/^[A-Za-z0-9+/]{22}==$/.test(passwordCheck.saltBase64) ||
+            !/^[A-Za-z0-9+/]{43}=$/.test(passwordCheck.hashBase64)) return null;
+        return { profile, passwordCheck, legacy };
+    }
+
+    function saveAccount(profile, passwordCheck) {
+        // One write keeps the readable profile and the password check consistent.
+        localStorage.setItem(accountPrefix + profile.email, JSON.stringify({ profile, passwordCheck }, null, 2));
     }
 
     async function signUp({ name, email, phone, password }) {
+        const key = accountPrefix + email;
         const duplicate = 'This email already has a local account. Log in or use another sample email.';
-        if (findAccount(email)) return duplicate;
+        if (localStorage.getItem(key) !== null) return duplicate;
         const salt = crypto.getRandomValues(new Uint8Array(16));
-        const verifier = await deriveVerifier(password, salt);
-        // Check again after the asynchronous derivation in case another tab created the account.
-        if (findAccount(email)) return duplicate;
-        localStorage.setItem(accountPrefix + email, JSON.stringify({
-            name, email, phone, salt: encodeBytes(salt), verifier
-        }));
-        return '';
+        const hashBase64 = await deriveVerifier(password, salt);
+        function createAccount() {
+            if (localStorage.getItem(key) !== null) return duplicate;
+            saveAccount({ name, email, phone }, { algorithm, iterations, saltBase64: encodeBytes(salt), hashBase64 });
+            return '';
+        }
+        // Serialize simultaneous sign-ups for the same address across tabs on supported browsers.
+        return navigator.locks ? navigator.locks.request(key, createAccount) : createAccount();
     }
 
     async function logIn({ email, password }) {
         const invalid = 'The email or password does not match a local account.';
         const account = findAccount(email);
         if (!account) return invalid;
-        const salt = Uint8Array.from(atob(account.salt), (character) => character.charCodeAt(0));
-        if (await deriveVerifier(password, salt) !== account.verifier) return invalid;
+        const { profile, passwordCheck } = account;
+        const salt = Uint8Array.from(atob(passwordCheck.saltBase64), (character) => character.charCodeAt(0));
+        if (await deriveVerifier(password, salt) !== passwordCheck.hashBase64) return invalid;
+        if (account.legacy) saveAccount(profile, passwordCheck);
         localStorage.setItem(sessionKey, email);
         return '';
     }
@@ -122,9 +145,9 @@
 
         // Treat stored names and contact details as plain text.
         for (const field of ['name', 'email', 'phone']) {
-            document.getElementById(`profile-${field}`).textContent = account[field];
+            document.getElementById(`profile-${field}`).textContent = account.profile[field];
         }
-        document.getElementById('profile-avatar').textContent = Array.from(account.name)[0].toUpperCase();
+        document.getElementById('profile-avatar').textContent = Array.from(account.profile.name)[0].toUpperCase();
         status.textContent = '';
         profile.hidden = false;
     }

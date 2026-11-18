@@ -1,0 +1,578 @@
+/* Arena imagery anchors the landing page and the tournament guide. */
+.hub-home .grid-main .hero-arena,
+.event-guidance-banner {
+    --arena-ink: #fff8f0;
+    --arena-accent: #ffc0a4;
+    position: relative;
+    isolation: isolate;
+    background: #221711;
+    color: var(--arena-ink);
+}
+
+.arena-visual,
+.event-guidance-photo {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.arena-visual video,
+.event-guidance-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 50%;
+}
+
+.hero-arena::before,
+.event-guidance-banner::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(90deg, #211611f7 4%, #201610d9 38%, #1a111380 68%, #1a111329);
+}
+
+.arena-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 1rem;
+    min-height: 27rem;
+    padding-block: clamp(2.5rem, 4.25vw, 4rem) clamp(2rem, 4vw, 3.5rem);
+}
+
+.hub-home .hero-arena h1,
+.event-guidance-banner h2 {
+    color: var(--arena-ink);
+    font-size: clamp(3rem, 6.5vw, 6rem);
+    line-height: .94;
+    text-wrap: initial;
+}
+
+.hub-home .hero-arena h1 span {
+    display: block;
+}
+
+.hub-home .hero-arena :is(h1 span, .label, .home-stat .stat-number) {
+    color: var(--arena-accent);
+}
+
+.hub-home .hero-arena .hero-description {
+    max-width: 32rem;
+    color: var(--arena-ink);
+}
+
+.hero-arena .home-actions {
+    margin-top: 1rem;
+}
+
+.hero-arena .home-actions .btn {
+    font-size: 1rem;
+}
+
+.hero-arena .home-secondary-link {
+    color: var(--arena-ink);
+}
+
+.hero-arena .arena-video-toggle {
+    min-height: 44px;
+    padding: .42rem .75rem;
+    background: #211611ed;
+    border: 1px solid #e3c2b1;
+    border-radius: var(--hub-radius);
+    color: var(--arena-ink);
+    font-size: .84rem;
+    font-weight: 650;
+}
+
+.hero-arena .arena-video-toggle:hover,
+.hero-arena .arena-video-toggle:focus-visible {
+    background: #40302a;
+    outline-color: var(--arena-accent);
+}
+
+.arena-stats-bar {
+    border-top: 1px solid #ebc4aa54;
+    background: #241a15ed;
+}
+
+.hero-arena .home-stats {
+    max-width: 86rem;
+    margin: 0 auto;
+    padding: .78rem clamp(1rem, 3.3vw, 3.25rem);
+    border: 0;
+    gap: .25rem;
+}
+
+.hero-arena .home-stat {
+    flex-flow: row wrap;
+    align-items: baseline;
+    gap: .15rem .65rem;
+    color: var(--arena-ink);
+}
+
+.hero-arena .home-stat + .home-stat {
+    padding-inline-start: clamp(.4rem, 1.75vw, 1.5rem);
+    border-inline-start: 1px solid #ebc4aa54;
+}
+
+.hero-arena .home-stat .stat-number {
+    font: 700 clamp(1.75rem, 3vw, 2.75rem)/1 var(--hub-display);
+}
+
+/* Art fills the open side of each existing card. */
+.hub-home .grid-main :is(#browse-games, #esports-gallery) {
+    background: var(--hub-paper);
+}
+
+.hub-home .grid-main :is(#upcoming-events, #featured-players) {
+    background: color-mix(in srgb, var(--hub-paper) 84%, var(--hub-line));
+}
+
+#browse-games .game-list {
+    gap: .75rem;
+}
+
+#browse-games .game-list > a {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+    align-items: center;
+    min-height: 6.5rem;
+    overflow: hidden;
+    background: var(--hub-surface);
+    border: 1px solid var(--hub-line);
+    border-bottom: 3px solid var(--hub-accent);
+}
+
+#browse-games .game-tile-copy {
+    padding: .65rem;
+}
+
+#browse-games .game-list strong {
+    color: var(--hub-ink);
+    margin-bottom: .18rem;
+    font: 700 clamp(1.25rem, 2vw, 1.75rem)/1 var(--hub-display);
+}
+
+#browse-games .game-list span {
+    color: var(--hub-accent);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+}
+
+#browse-games .game-cover {
+    align-self: stretch;
+    width: 100%;
+    min-height: 0;
+    height: 100%;
+    object-fit: cover;
+}
+
+#browse-games .game-list > a:first-child .game-cover { object-position: 83% 50%; }
+#browse-games .game-list > a:last-child .game-cover { object-position: 58% 50%; }
+
+#upcoming-events .event {
+    grid-template-columns: 4.55rem minmax(0, 1fr) minmax(6rem, 33%) 2.75rem;
+    gap: 0 .8rem;
+    background: var(--hub-surface);
+    border: 1px solid var(--hub-line);
+    overflow: hidden;
+}
+
+#upcoming-events .event:hover,
+#upcoming-events .event:focus-visible {
+    border-color: var(--hub-accent);
+}
+
+#upcoming-events .event .date {
+    align-self: stretch;
+    display: grid;
+    place-content: center;
+    background: color-mix(in srgb, var(--hub-surface) 83%, var(--hub-accent));
+    color: var(--hub-ink);
+    border-radius: 0;
+}
+
+#upcoming-events .event .date strong {
+    font: 700 2rem/1 var(--hub-display);
+}
+
+#upcoming-events .event-content {
+    padding-block: .55rem;
+}
+
+.hub-home #upcoming-events .event h3,
+.hub-events #tournament-cards .event h3 {
+    color: var(--hub-ink);
+    font-size: clamp(1.3rem, 2.05vw, 1.9rem);
+}
+
+#upcoming-events .event small,
+#tournament-cards .event small {
+    color: var(--hub-accent);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+}
+
+#upcoming-events .event-meta,
+#tournament-cards .event-meta {
+    color: var(--hub-muted);
+}
+
+#upcoming-events .featured-city,
+#tournament-cards .tournament-city {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: cover;
+    object-position: center 48%;
+}
+
+#upcoming-events .featured-city {
+    max-height: 6.4rem;
+}
+
+#upcoming-events .event:last-child .featured-city,
+#event-dota-masters .tournament-city {
+    object-position: center 10%;
+}
+
+#upcoming-events .event-arrow {
+    color: var(--hub-accent);
+    justify-self: center;
+}
+
+#featured-players .card {
+    --bs-card-bg: var(--hub-surface);
+    --bs-card-border-color: var(--hub-line);
+    border-top: 3px solid var(--hub-accent);
+    border-radius: var(--hub-radius);
+    overflow: hidden;
+}
+
+#featured-players .bootstrap-card-media {
+    aspect-ratio: 1.55;
+    border-radius: 0;
+}
+
+#featured-players .card-img-top {
+    object-position: center 31%;
+}
+
+#featured-players .card-title {
+    color: var(--hub-ink);
+    font-size: clamp(1.75rem, 3.3vw, 2.65rem);
+}
+
+#featured-players .card-body {
+    padding: .85rem 1rem 1rem !important;
+}
+
+#featured-players .card-text {
+    color: var(--hub-muted);
+    margin-bottom: .75rem !important;
+}
+
+/* The existing gallery thumbnails stay adjacent to the selected image. */
+.home-gallery-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(7.75rem, 20%);
+    gap: .85rem;
+}
+
+.home-gallery-figure {
+    margin: 0;
+    overflow: hidden;
+    background: var(--hub-surface);
+    border: 1px solid var(--hub-line);
+    border-radius: var(--hub-radius);
+}
+
+.home-gallery-figure .gallery-main-image {
+    max-width: none;
+    max-height: 34rem;
+    border-radius: 0;
+    background: #151019;
+    object-fit: contain;
+}
+
+.home-gallery-figure figcaption {
+    padding: .5rem .75rem;
+    color: var(--hub-ink);
+    font-weight: 650;
+}
+
+.home-gallery-layout .gallery-thumbnails {
+    display: grid;
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: .55rem;
+    margin: 0;
+}
+
+.home-gallery-layout .gallery-thumbnail {
+    position: relative;
+    width: 100%;
+    min-height: 3.6rem;
+    padding: 0;
+    border: 2px solid var(--hub-line);
+    border-radius: var(--hub-radius);
+    background: var(--hub-surface);
+    overflow: hidden;
+}
+
+.home-gallery-layout .gallery-thumbnail[aria-pressed="true"] {
+    border-color: var(--hub-accent);
+}
+
+.home-gallery-layout .gallery-thumbnail img {
+    position: absolute;
+    inset: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: .15rem;
+}
+
+.home-gallery-layout .gallery-thumbnail[aria-pressed="true"] img {
+    background: #151019;
+    object-fit: contain;
+}
+
+/* Cards share a predictable content area so filters keep their layout. */
+#event-list,
+#dota-ratings {
+    background: var(--hub-paper);
+}
+
+#event-list .event-directory-header h1 {
+    font-size: clamp(3rem, 6vw, 5.65rem);
+    line-height: .97;
+}
+
+#event-controls {
+    background: var(--hub-surface);
+    border-color: var(--hub-line);
+}
+
+#tournament-cards > .event {
+    grid-template-columns: minmax(0, 1fr) minmax(8.5rem, 32%);
+    gap: 0;
+    background: var(--hub-surface);
+    border: 1px solid var(--hub-line);
+    border-inline-start: 3px solid var(--hub-accent);
+}
+
+#tournament-cards .event-content {
+    padding: .7rem clamp(.7rem, 1.6vw, 1.15rem);
+}
+
+#tournament-cards .event-actions {
+    margin-top: .25rem;
+}
+
+#tournament-cards .tournament-city {
+    max-height: 11rem;
+    border-radius: 0 var(--hub-radius) var(--hub-radius) 0;
+}
+
+#tournament-cards > .event:hover,
+#tournament-cards > .event:target {
+    border-color: var(--hub-accent);
+}
+
+/* The live rows keep their rank, team name, record and rating. */
+#dota-ratings .dota-ratings-panel {
+    background: var(--hub-surface);
+    border-color: var(--hub-line);
+}
+
+#dota-ratings .dota-team {
+    grid-template-columns: 3.35rem minmax(0, 1fr) minmax(5rem, 29%) minmax(5rem, 16%);
+    gap: 0 .55rem;
+    min-height: 5.25rem;
+    padding: 0;
+    overflow: hidden;
+    background: var(--hub-surface);
+    border-color: var(--hub-line);
+    border-radius: var(--hub-radius);
+}
+
+#dota-ratings .dota-team:first-child {
+    background: color-mix(in srgb, var(--hub-surface) 91%, var(--hub-accent));
+    border-color: color-mix(in srgb, var(--hub-line) 65%, var(--hub-accent));
+}
+
+.dota-team .dota-team-rank {
+    justify-self: center;
+    color: var(--hub-accent);
+    font: 700 1.65rem/1 var(--hub-display);
+}
+
+.dota-team .dota-team-name {
+    color: var(--hub-ink);
+    font: 700 clamp(1.18rem, 2.1vw, 1.7rem)/1 var(--hub-display);
+}
+
+.dota-team .dota-team-rating {
+    padding-inline-end: .8rem;
+}
+
+.dota-team .dota-team-rating strong {
+    color: var(--hub-ink);
+    font: 700 clamp(1.2rem, 2.2vw, 1.85rem)/1 var(--hub-display);
+}
+
+.dota-team :is(.dota-team-record, .dota-team-rating span),
+#dota-ratings .dota-ratings-source {
+    color: var(--hub-muted);
+}
+
+.dota-team .dota-team-photo {
+    position: relative;
+    display: grid;
+    place-items: center;
+    align-self: stretch;
+    background: color-mix(in srgb, var(--hub-surface) 83%, var(--hub-accent));
+    color: var(--hub-ink);
+    font: 700 clamp(1rem, 3vw, 1.9rem)/1 var(--hub-display);
+}
+
+.dota-team-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+.dota-team-photo img[src*="cloud9"],
+.dota-team-photo img[src*="yandex"] {
+    object-position: center 43%;
+}
+
+.event-guidance-banner > .container {
+    display: grid;
+    align-items: center;
+    min-height: clamp(23rem, 36vw, 32rem);
+    padding-block: 3rem;
+}
+
+.event-guidance-banner .event-guidance-copy {
+    max-width: 40rem;
+}
+
+.event-guidance-banner h2 {
+    font-size: clamp(3rem, 6vw, 5.2rem);
+}
+
+.event-guidance-banner ol {
+    margin-block: 1.2rem;
+    padding-inline-start: 2.4rem;
+    color: var(--arena-ink);
+}
+
+.event-guidance-banner li {
+    margin: 0;
+    padding: .45rem 0 .45rem .35rem;
+    border-top: 1px solid #ebc4aa54;
+}
+
+.event-guidance-banner li::marker {
+    content: counter(list-item, decimal-leading-zero) ' ';
+    color: var(--arena-accent);
+    font: 700 1.4rem/1 var(--hub-display);
+}
+
+@media (max-width: 767.98px) {
+    .arena-content {
+        grid-template-columns: minmax(0, 1fr);
+        min-height: 0;
+        padding-block: 2.7rem 1.5rem;
+    }
+
+    .hero-arena::before,
+    .event-guidance-banner::before {
+        background: linear-gradient(90deg, #211611ef 0%, #211611bb 75%, #21161193);
+    }
+
+    .hero-arena .arena-video-toggle {
+        justify-self: start;
+    }
+
+    #upcoming-events .event {
+        grid-template-columns: 3.2rem minmax(0, 1fr) minmax(4rem, 25%) 1.4rem;
+        column-gap: .4rem;
+    }
+
+    #upcoming-events .featured-city {
+        max-height: none;
+    }
+
+    #dota-ratings .dota-team {
+        grid-template-columns: 2.05rem minmax(0, 1fr) minmax(3rem, 22%) minmax(3.55rem, auto);
+        gap: 0 .25rem;
+        min-height: 4.5rem;
+    }
+
+    .dota-team .dota-team-rating {
+        padding-inline-end: .35rem;
+    }
+
+    .dota-team :is(.dota-team-record, .dota-team-rating span) {
+        font-size: .71rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-arena .home-stat {
+        flex-direction: column;
+    }
+
+    .hero-arena .home-stat span {
+        font-size: .76rem;
+    }
+
+    #upcoming-events .event {
+        grid-template-columns: 3rem minmax(0, 1fr) 1.65rem;
+        overflow: visible;
+    }
+
+    #upcoming-events .featured-city {
+        grid-row: 2;
+        grid-column: 1 / -1;
+        height: 5rem;
+    }
+
+    #upcoming-events .event-arrow {
+        grid-row: 1;
+        grid-column: 3;
+    }
+
+    .home-gallery-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-gallery-layout .gallery-thumbnails {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: none;
+    }
+
+    .home-gallery-layout .gallery-thumbnail {
+        min-height: clamp(3.7rem, 19vw, 6rem);
+    }
+
+    #tournament-cards > .event {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #tournament-cards .tournament-city {
+        height: 7rem;
+        border-radius: 0 0 var(--hub-radius) var(--hub-radius);
+    }
+}

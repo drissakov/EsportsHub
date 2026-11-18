@@ -12,9 +12,11 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
         <link href="css/interactive.css" rel="stylesheet">
+        <link href="css/identity.css" rel="stylesheet">
         <link href="css/validation.css" rel="stylesheet">
         <link href="css/subscription.css" rel="stylesheet">
         <link href="css/events.css" rel="stylesheet">
+        <link href="css/tournaments-design.css" rel="stylesheet">
         <script defer src="js/site.js"></script>
         <script defer src="js/accordion.js"></script>
         <script defer src="js/email-validation.js?v=forms3"></script>
@@ -25,7 +27,7 @@
         <script defer src="js/event-filters.js"></script>
         <script defer src="js/events-ratings.js"></script>
     </head>
-    <body>
+    <body class="hub-events">
         <a class="skip-link px-3 py-2" href="#main-content">
             Skip to main content
         </a>
@@ -122,7 +124,7 @@
                         <noscript><p>Enable JavaScript to search and filter this calendar.</p></noscript>
                         <h2 class="visually-hidden">Sample Tournaments</h2>
                         <div class="event-list" id="tournament-cards">
-                            <article class="event p-3" id="event-championship" data-game="cs2" data-format="championship">
+                            <article class="event" id="event-championship" data-game="cs2" data-format="championship">
                                 <div class="event-content">
                                     <small>CS2</small>
                                     <h3>
@@ -134,8 +136,9 @@
                                         <a href="teams.html#team-directory">Find a team</a>
                                     </div>
                                 </div>
+                                <img class="tournament-city" src="images/redesign/city-berlin.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
                             </article>
-                            <article class="event p-3" id="event-valorant-cup" data-game="valorant" data-format="cup">
+                            <article class="event" id="event-valorant-cup" data-game="valorant" data-format="cup">
                                 <div class="event-content">
                                     <small>VALORANT</small>
                                     <h3>
@@ -147,8 +150,9 @@
                                         <a href="contact.html#contact-form">Ask about entry</a>
                                     </div>
                                 </div>
+                                <img class="tournament-city" src="images/redesign/city-seoul.webp" alt="" width="720" height="352" loading="lazy" decoding="async">
                             </article>
-                            <article class="event p-3" id="event-dota-masters" data-game="dota-2" data-format="championship">
+                            <article class="event" id="event-dota-masters" data-game="dota-2" data-format="championship">
                                 <div class="event-content">
                                     <small>DOTA 2</small>
                                     <h3>
@@ -160,8 +164,9 @@
                                         <a href="contact.html#contact-form">Organizer questions</a>
                                     </div>
                                 </div>
+                                <img class="tournament-city" src="images/redesign/city-singapore.webp" alt="" width="720" height="477" loading="lazy" decoding="async">
                             </article>
-                            <article class="event p-3" id="event-winter-league" data-game="cs2" data-format="league">
+                            <article class="event" id="event-winter-league" data-game="cs2" data-format="league">
                                 <div class="event-content">
                                     <small>CS2</small>
                                     <h3>
@@ -173,8 +178,9 @@
                                         <a href="contact.html#contact-form">Ask about format</a>
                                     </div>
                                 </div>
+                                <img class="tournament-city" src="images/redesign/city-warsaw.webp" alt="" width="720" height="397" loading="lazy" decoding="async">
                             </article>
-                            <article class="event p-3" id="event-legends-finals" data-game="league-of-legends" data-format="championship">
+                            <article class="event" id="event-legends-finals" data-game="league-of-legends" data-format="championship">
                                 <div class="event-content">
                                     <small>LEAGUE OF LEGENDS</small>
                                     <h3>
@@ -186,6 +192,7 @@
                                         <a href="players.html#player-directory">Browse players</a>
                                     </div>
                                 </div>
+                                <img class="tournament-city" src="images/redesign/city-paris.webp" alt="" width="720" height="480" loading="lazy" decoding="async">
                             </article>
                         </div>
                     </div>
@@ -204,26 +211,24 @@
                         </div>
                     </div>
                 </section>
-                <section class="about pb-4 pb-lg-5" id="event-guidance" aria-labelledby="event-guidance-title">
+                <section class="event-guidance-banner" id="event-guidance" aria-labelledby="event-guidance-title">
+                    <img alt="Esports competition viewed from the stands" class="event-guidance-photo"
+                        decoding="async" loading="lazy" height="1199" src="images/gallery-match.jpg" width="1800">
                     <div class="container">
-                        <div class="row g-4 align-items-center">
-                            <div class="col-md-6">
-                                <h2 id="event-guidance-title">How to Participate</h2>
-                                <ol class="mb-3">
-                                    <li>Pick a tournament that matches your game and format.</li>
-                                    <li>Check the date, location, and team size.</li>
-                                    <li>Follow the organizer’s registration process for a real tournament.</li>
-                                </ol>
-                                <a class="btn btn-outline-primary" href="#event-championship">See a Sample Tournament</a>
-                            </div>
-                            <div class="col-md-6">
-                                <img alt="Spectators in an esports arena" class="feature-image img-fluid" decoding="async" loading="lazy" height="414" src="images/events.jpg" width="738">
-                            </div>
+                        <div class="event-guidance-copy">
+                            <h2 id="event-guidance-title">How to Participate</h2>
+                            <ol>
+                                <li>Pick a tournament that matches your game and format.</li>
+                                <li>Check the date, location, and team size.</li>
+                                <li>Follow the organizer’s registration process for a real tournament.</li>
+                            </ol>
+                            <a class="btn btn-primary" href="#event-championship">See a Sample Tournament</a>
                         </div>
                     </div>
                 </section>
             </main>
             <aside aria-label="Event discovery links" class="sidebar p-4">
+                <div class="sidebar-inner">
                 <h2>Explore</h2>
                 <ul>
                     <li><a href="#event-filters">Find a tournament</a></li>
@@ -240,13 +245,14 @@
                         <time class="hub-clock" data-current-time>Loading time…</time>
                         <div class="hub-tool-actions">
                             <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
-                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <p class="background-status" role="status">Background: <span data-background-name>Paper</span></p>
                             <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
                         </div>
                         <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
                     </div>
                 </details>
                 <!-- /layout:page-tools -->
+                </div>
             </aside>
             <!-- layout:footer -->
             <footer class="grid-footer mt-5">
@@ -276,7 +282,7 @@
                     </div>
                 </div>
                 <div class="container copyright py-3">
-                    EsportsHub © 2026
+                    EsportsHub © 2026 · <a href="docs/media-credits.md">Media credits</a>
                 </div>
             </footer>
             <!-- /layout:footer -->

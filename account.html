@@ -12,13 +12,13 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
         <link href="css/interactive.css" rel="stylesheet">
+        <link href="css/identity.css" rel="stylesheet">
         <link href="css/validation.css" rel="stylesheet">
         <link href="css/subscription.css" rel="stylesheet">
         <link href="css/auth.css" rel="stylesheet">
         <script defer src="js/site.js"></script>
         <script defer src="js/email-validation.js?v=forms3"></script>
-        <script defer src="js/vendor/password-strength.min.js?v=forms3"></script>
-        <script defer src="js/password-validation.js?v=forms3"></script>
+        <script defer src="js/password-validation.js?v=forms4"></script>
         <script defer src="js/auth.js"></script>
         <script defer src="js/validation.js"></script>
         <script defer src="js/subscription.js?v=forms3"></script>
@@ -79,7 +79,7 @@
                     <div class="container">
                         <div class="account-content mx-auto" data-account-view>
                             <h1>Player Account</h1>
-                            <p class="auth-note">This is a demo. Use fictional details and a password you only use here. The account stays in this browser.</p>
+                            <p class="auth-note">Use fictional details for this browser demo. Your profile stores your name, email and phone. Choose a password just for this site.</p>
                             <nav aria-label="Account options" class="account-modes mb-3">
                                 <a aria-current="location" data-account-mode="login" href="#login" id="login">Log In</a>
                                 <a data-account-mode="registration" href="#registration" id="registration">Sign Up</a>
@@ -127,7 +127,7 @@
                                         <div class="col-12">
                                             <label class="form-label" for="registration-password">Password</label>
                                             <input aria-describedby="registration-password-help" aria-required="true" autocomplete="new-password" class="form-control" id="registration-password" type="password">
-                                            <p class="form-text mb-0" id="registration-password-help">Use 15–128 characters. Try a phrase with unrelated words.</p>
+                                            <p class="form-text mb-0" id="registration-password-help">Use 8–128 characters with at least one letter and one number.</p>
                                         </div>
                                         <div class="col-12">
                                             <label class="form-label" for="registration-confirm">Confirm password</label>
@@ -146,6 +146,7 @@
                 </section>
             </main>
             <aside aria-label="Account links" class="sidebar p-4">
+                <div class="sidebar-inner">
                 <h2>Help</h2>
                 <ul>
                     <li><a href="contact.html#faq-question-2">Where is my profile saved?</a></li>
@@ -159,13 +160,14 @@
                         <time class="hub-clock" data-current-time>Loading time…</time>
                         <div class="hub-tool-actions">
                             <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
-                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <p class="background-status" role="status">Background: <span data-background-name>Paper</span></p>
                             <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
                         </div>
                         <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
                     </div>
                 </details>
                 <!-- /layout:page-tools -->
+                </div>
             </aside>
             <!-- layout:footer -->
             <footer class="grid-footer mt-5">
@@ -195,7 +197,7 @@
                     </div>
                 </div>
                 <div class="container copyright py-3">
-                    EsportsHub © 2026
+                    EsportsHub © 2026 · <a href="docs/media-credits.md">Media credits</a>
                 </div>
             </footer>
             <!-- /layout:footer -->

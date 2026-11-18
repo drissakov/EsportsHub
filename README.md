@@ -30,11 +30,11 @@ Serve the repository root over HTTP. For example, run this command and open [the
 
     python -m http.server 8000
 
-The site runs directly from its HTML, CSS, and JavaScript files. Bootstrap 5.3.8 CSS, jQuery 4.0.0, and the password estimator are included locally. The [jQuery license](js/vendor/jquery-LICENSE.txt) and [password estimator license](js/vendor/password-strength-LICENSE.txt) ship with the project. A network connection is needed to fetch live [OpenDota](https://docs.opendota.com/) ratings. The Events page displays an error and a retry button if the API is unavailable.
+The site runs directly from its HTML, CSS, and JavaScript files. The project includes Bootstrap 5.3.8 CSS and jQuery 4.0.0 locally. See the [jQuery license](js/vendor/jquery-LICENSE.txt). A network connection is needed to fetch live [OpenDota](https://docs.opendota.com/) ratings. The Events page displays an error and a retry button if the API is unavailable.
 
-Use localhost or HTTPS for the demo account flow. Sign-up, log-in, the active profile, the selected theme, and the tournament filter state use this browser's local storage. Use fictional details. Sign-up stores the name, email, phone, and a salted password verifier. The account and application flows simulate a service in the browser. The contact form opens an email draft in the visitor's mail application.
+Use localhost or HTTPS for the demo account flow. Sign-up, log-in, the active profile, the selected theme, and the tournament filter state use this browser's local storage. Use fictional details. Each account record has a readable `profile` with name, email and phone. Its separate `passwordCheck` stores the PBKDF2-SHA256 iteration count, random salt and derived hash. The salt and hash use Base64 encoding. A successful login saves the active email under the session key. Previous account records are upgraded on their next successful login. The account and application flows simulate a service in the browser. The contact form opens an email draft in the visitor's mail application.
 
-All form checks run in JavaScript. Account creation checks required fields, email format, international phone format, password strength, and exact confirmation. The existing subscription and application demos validate the fields they collect. Event dates and the standings on Rankings are sample data. The labeled OpenDota panel displays separate data returned by the API.
+All form checks run in JavaScript. Account creation checks required fields, email format, international phone format, a password of 8–128 characters containing a letter and a digit, and exact confirmation. The existing subscription and application demos validate the fields they collect. Event dates and the standings on Rankings are sample data. The labeled OpenDota panel displays separate data returned by the API.
 
 ## Shared layout
 
@@ -66,5 +66,7 @@ GitHub Pages serves the repository root on main. The .nojekyll file keeps static
 The [Assignment 4 defense guide](docs/assignment-4-defense.md), [Assignment 4 checks](docs/assignment-4-checks.md), and [midterm evidence](docs/defense-evidence.md) document earlier versions of the project.
 
 ## Image credits
+
+See [media credits](docs/media-credits.md) for the arena video, tournament city photographs, team and community images, game art, and local fonts.
 
 The repository contains original SVG artwork for the [player room](images/player-room.svg), [community desk](images/community-support.svg), [team avatar](images/team-avatar.svg), and [ranking illustration](images/demo-ranking.svg). The site also reuses raster images from the earlier project. Source and license records for those original raster files are unavailable in the repository.

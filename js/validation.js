@@ -33,8 +33,8 @@
             const fields = Object.keys(config.fields).map((fieldId) => form.querySelector(`#${fieldId}`)).filter(Boolean);
             const submitButton = form.querySelector('[data-enable-validation]');
             const ready = submitButton && fields.length === Object.keys(config.fields).length && Boolean(emailValidator?.validate) &&
-                (!config.accountAction || Boolean(auth?.[config.accountAction] && passwordValidator)) &&
-                (config.accountAction !== 'signUp' || passwordValidator?.available);
+                (!config.accountAction || typeof auth?.[config.accountAction] === 'function') &&
+                (config.accountAction !== 'signUp' || typeof passwordValidator?.validate === 'function');
             const touched = new Set();
             const edited = new Set();
             let submitted = false;
@@ -73,15 +73,9 @@
             function getError(field) {
                 const rule = config.fields[field.id];
                 const value = field.value;
-                if (rule.kind === 'password') return passwordValidator.validate(value, passwordContext()).error;
-                if (rule.kind === 'login-password') {
-                    if (!value.trim()) return 'Enter your password.';
-                    const { minLength, maxLength } = passwordValidator;
-                    const length = Array.from(value).length;
-                    return length >= minLength && length <= maxLength
-                        ? ''
-                        : `Use the ${minLength}–${maxLength}-character password from your local account.`;
-                }
+                if (rule.kind === 'password') return passwordValidator.validate(value).error;
+                // Existing accounts may have been created under an earlier registration policy.
+                if (rule.kind === 'login-password') return value ? '' : 'Enter your password.';
                 if (rule.kind === 'confirmation') {
                     if (!value) return 'Confirm your password.';
                     const password = form.querySelector(`#${rule.matches}`).value;
@@ -98,14 +92,6 @@
                 }
                 if (rule.kind === 'choice' && !rule.values.includes(value)) return 'Choose a topic from the list.';
                 return '';
-            }
-
-            function passwordContext() {
-                const name = (form.querySelector('#registration-name')?.value || '').slice(0, 128);
-                const email = (form.querySelector('#registration-email')?.value || '').slice(0, 254);
-                const mailbox = email.split('@')[0];
-                return ['EsportsHub', name, email, mailbox, ...name.split(/\s+/), ...mailbox.split(/[._+\-]/)]
-                    .filter((item) => item.length >= 3).slice(0, 20);
             }
 
             function validateField(field) {
@@ -150,10 +136,6 @@
             function recheckDependencies(field) {
                 const password = form.querySelector('#registration-password');
                 const confirmation = form.querySelector('#registration-confirm');
-                if (password && ['registration-name', 'registration-email'].includes(field.id) && password.value) {
-                    touched.add(password);
-                    validateField(password);
-                }
                 if (confirmation && field === password && (confirmation.value || touched.has(confirmation))) {
                     touched.add(confirmation);
                     validateField(confirmation);

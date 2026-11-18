@@ -18,21 +18,21 @@ This is the team's agreed responsibility map. Before the defense, every member s
 
 **Files:** [contact.html](../contact.html), [js/email-validation.js](../js/email-validation.js), [js/password-validation.js](../js/password-validation.js), [js/validation.js](../js/validation.js), [css/validation.css](../css/validation.css).
 
-1. Open [Community: player sign-up](../contact.html#registration). HTML supplies labels, help and accessible descriptions. All forms have `novalidate`; there are no HTML validation constraints. `aria-required` describes required fields without performing checks. Email controls use `type="text"` and `inputmode="email"`.
+1. Open [Player sign-up](../account.html#registration). HTML supplies labels, help and accessible descriptions. All forms have `novalidate`; there are no HTML validation constraints. `aria-required` describes required fields without performing checks. Email controls use `type="text"` and `inputmode="email"`.
 2. The controller finds forms and fields by ID using its own JavaScript rule map. It creates an error paragraph per field and associates it with `aria-describedby`, preserving existing help.
-3. `getError()` delegates email and password checks to separate helpers. Passwords must contain 15–128 Unicode code points and receive score 4 from the local zxcvbn-ts estimator. It recognizes common/repeated/keyboard/date patterns and uses the current name/email as context. A small list also rejects published tutorial phrases. Spaces and Unicode are allowed, with no mandatory uppercase/digit/symbol composition rule; control characters and broken Unicode are rejected.
-4. Confirmation is required and compared exactly with the original password. Neither value is trimmed, lowercased, normalized, truncated, logged or stored. The length check runs before estimation, including for programmatically assigned values. Missing dependencies keep the registration submit button disabled.
+3. `getError()` delegates email and registration password checks to JavaScript helpers. A password must contain 8–128 Unicode code points, including a letter and a decimal digit. Spaces, symbols and characters from different scripts are supported.
+4. Confirmation must match the password exactly, including case and whitespace. Both password fields are cleared after registration.
 5. On submit, ordinary text is trimmed and supported emails have outer ASCII spaces removed and domain case normalized. Passwords stay unchanged. `validateAll()` updates inline errors and `aria-invalid`; the live summary lists corrections. Invalid submission calls `preventDefault()` and focuses the first error. No native `validity`, `checkValidity()` or `reportValidity()` is used.
-6. Blur validates a field. After failed submission, input/change refresh all feedback. Changing the original password rechecks any filled or previously touched confirmation immediately, including before submission. Changing name/email rechecks password strength. Reset clears the summary, errors and interaction state.
-7. Valid registration prevents submission, explains that no account was created or data sent, and clears both secrets without leaving stale errors. Contact checks its name/email/topic/message in JavaScript, then retains its `mailto:` action to open a draft. Subscription uses the shared email helper. All submit buttons require their JavaScript validators.
+6. Blur validates a field. After failed submission, input/change refresh all feedback. Changing the original password rechecks any filled or previously touched confirmation immediately, including before submission. Reset clears the summary, errors and interaction state.
+7. Valid registration saves a local demo account and invites the player to log in. Contact validates name, email, phone, topic and message before opening an email draft. Subscription uses the shared email helper.
 
-**Demonstration:** submit blank fields; try a short password, a long repeated password and a long password based on the entered name. Enter an unrelated phrase and mismatch its confirmation. Match both values, then change the original password and show the immediate mismatch. Correct it and submit: show truthful success and cleared password fields. Do not use a real password for this demo.
+**Demonstration.** Submit blank fields and then try a seven-character password. Try an eight-character password with letters and digits. Mismatch its confirmation, correct it, create the account, and sign in to view the saved profile.
 
 **Email policy:** one unquoted ASCII mailbox and a fully qualified ASCII/punycode domain. Maximums: 254 characters overall, 64 before `@`, 63 per domain label. Check one `@`, allowed characters, edge/repeated dots, domain labels/hyphens and suffix. Domain suffixes have at least two letters or valid punycode; `URL` checks punycode without a network request. Unicode-written/quoted mailbox formats, address lists, display names, IP literals and local-only domains are unsupported. These are format checks, not proof of an existing mailbox.
 
-**Password limits:** estimation happens offline using pinned packages bundled with the website, not an external API. Score 4 is the estimator's strongest category, but it is a heuristic and does not check every breached password. Published examples and fixtures are for demonstration only. A real service must enforce rules on its backend, verify email ownership and check compromised passwords.
+**Local credentials.** The browser derives a password verifier using PBKDF2-SHA256 and a new random salt for each account. The stored profile contains name, email and phone. Only the active email address is kept in the session entry.
 
-**Code to explain:** pure helper results, JavaScript rule configuration, Unicode code-point counting, early length bounds, strength estimation with context, exact confirmation comparison, dependency revalidation, `preventDefault()`, accessible inline errors and first-error focus. Run `node --test tests/email-validation.test.cjs tests/password-validation.test.cjs` for regression tests. See [offline bundle sources and licenses](../tools/password-strength/README.md).
+Explain Unicode length and composition checks, exact confirmation, inline feedback and first-error focus. Run `node --test tests/email-validation.test.cjs tests/password-validation.test.cjs`.
 
 ## Task 2: FAQ accordion
 
@@ -121,13 +121,13 @@ Before submission, verify the final integrated revision in available browsers an
 
 **Where do the validation rules live?** In JavaScript. HTML `novalidate` disables browser validation; `required`, `minlength`, `maxlength`, `pattern` and email input type are absent. `aria-required`, labels and help are accessibility descriptions, not checks. Submit buttons stay disabled until the relevant scripts initialize.
 
-**Why can a long password still fail?** Length alone does not prevent predictable guesses. The local estimator checks common words, repetitions, sequences and name/email context. Our policy requires its highest score as well as 15–128 characters.
+**Which registration passwords pass?** Use 8–128 printable characters with at least one letter and one decimal digit.
 
-**Why are uppercase letters and symbols not compulsory?** Predictability matters more than a fixed composition checklist. Long unrelated phrases are supported, including Unicode and spaces.
+**Can a password contain spaces or Unicode?** Yes. The check counts Unicode code points and retains case, spaces and punctuation for verification.
 
-**Does the estimator send the password somewhere?** No. Its prebuilt dictionaries and code are bundled in the project. It runs locally and returns score/feedback without storing or transmitting the password.
+**Where does the password check run?** Validation and credential verification both run in the browser.
 
-**Why does valid registration not create an account?** This is a frontend assignment without an account backend. The demo verifies the rules, prevents transmission and states the result accurately.
+**How can I show the saved account?** Open the browser’s Local Storage inspector to see the profile and password check. Log in to see the name, email and phone on the Profile page.
 
 **Is client-side validation sufficient for a real service?** A real backend must validate incoming values again because browser code can be bypassed. This project demonstrates frontend behavior.
 

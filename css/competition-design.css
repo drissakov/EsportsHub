@@ -1,0 +1,446 @@
+.competition-rankings,
+.competition-teams {
+    --competition-highlight: color-mix(in srgb, var(--hub-accent) 10%, var(--hub-surface));
+    --competition-solid: #9e3025;
+}
+
+.competition-rankings > .hero {
+    background: linear-gradient(110deg, var(--hub-rail), var(--hub-paper) 90%);
+    border-bottom: 1px solid var(--hub-line);
+}
+
+.competition-rankings > .hero h1 {
+    color: var(--hub-ink);
+}
+
+.ranking-standings-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .75rem 1rem;
+    margin-bottom: .75rem;
+}
+
+.ranking-standings-heading .btn-group {
+    flex: none;
+}
+
+#ranking-table h2,
+#team-directory h2 {
+    font-size: clamp(1.9rem, 3.4vw, 3rem);
+}
+
+#demo-ranking-note {
+    width: fit-content;
+    padding: .3rem .6rem;
+    color: var(--hub-ink);
+    background: var(--competition-highlight);
+    border-left: 2px solid var(--hub-accent);
+    font-size: .87rem;
+}
+
+#ranking-table .section-note,
+#ranking-method caption {
+    color: var(--hub-muted);
+}
+
+#table-scroll-help {
+    margin-bottom: .6rem;
+    font-size: .86rem;
+}
+
+#ranking-method {
+    background: var(--hub-surface);
+}
+
+#ranking-method table {
+    background: var(--hub-surface);
+    min-width: 29.5rem;
+}
+
+#ranking-method thead th {
+    padding: .58rem clamp(.65rem, 1.5vw, 1.3rem);
+    color: #fff9f2;
+    background: var(--competition-solid);
+    font-size: .9rem;
+}
+
+#ranking-method thead th:first-child {
+    width: 9%;
+}
+
+#ranking-method :is(td, tbody th) {
+    padding: .55rem clamp(.65rem, 1.5vw, 1.3rem);
+    color: var(--hub-ink);
+    border-color: var(--hub-line);
+}
+
+#ranking-method tbody tr:first-child {
+    background: var(--competition-highlight);
+}
+
+#ranking-method tbody tr:first-child > :first-child {
+    box-shadow: inset 3px 0 var(--hub-accent);
+}
+
+#ranking-method tbody tr:hover {
+    background: color-mix(in srgb, var(--hub-accent) 14%, var(--hub-surface));
+}
+
+#ranking-method .ranking-points-value {
+    text-align: right;
+}
+
+#ranking-method td.ranking-points-value {
+    font: 700 1.55rem/1 var(--hub-display);
+    font-variant-numeric: tabular-nums;
+}
+
+#ranking-method caption {
+    padding: .65rem clamp(.65rem, 1.5vw, 1.3rem);
+    font-size: .83rem;
+}
+
+.ranking-place {
+    display: grid;
+    place-items: center;
+    width: 1.95rem;
+    aspect-ratio: 1;
+    border: 1px solid var(--hub-line);
+    border-radius: .2rem;
+    background: var(--hub-paper);
+    font: 700 1.2rem/1 var(--hub-display);
+}
+
+#ranking-method tr:first-child .ranking-place {
+    color: #fff9f2;
+    background: var(--competition-solid);
+    border-color: var(--competition-solid);
+}
+
+.ranking-team-link.ranking-team-name {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    width: fit-content;
+    color: var(--hub-ink);
+    text-underline-offset: .18em;
+    white-space: nowrap;
+}
+
+#ranking-method tr:first-child .ranking-team-name {
+    color: var(--hub-accent);
+}
+
+.competition-club-mark {
+    --club-panel: #ede5d8;
+    display: grid;
+    place-items: center;
+    background: var(--club-panel);
+}
+
+.club-mark-g2 { --club-panel: #302d31; }
+.club-mark-geng { --club-panel: #ebd6a3; }
+.club-mark-fnatic { --club-panel: #4b3029; }
+.club-mark-t1 { --club-panel: #f2ded8; }
+
+.ranking-team-name .competition-club-mark {
+    width: 2.45rem;
+    height: 2.36rem;
+    border-radius: .22rem;
+}
+
+.ranking-team-name .competition-club-mark img {
+    width: 1.65rem;
+    height: 1.65rem;
+    object-fit: contain;
+}
+
+.ranking-chart,
+.ranking-context-copy {
+    color: var(--hub-muted);
+    background: var(--hub-surface);
+    border: 1px solid var(--hub-line);
+    border-radius: var(--hub-radius);
+}
+
+.ranking-chart {
+    overflow: hidden;
+}
+
+.ranking-chart figcaption {
+    display: block;
+    padding: .55rem .8rem;
+    border-bottom: 1px solid var(--hub-line);
+}
+
+.ranking-chart img {
+    width: 100%;
+    max-height: 17rem;
+    object-fit: contain;
+    background: #fff8df;
+}
+
+.ranking-context-copy {
+    padding: clamp(.9rem, 2.3vw, 1.5rem);
+    border-inline-start: 2px solid var(--hub-accent);
+}
+
+.ranking-context-copy p:last-child {
+    max-width: 44ch;
+}
+
+#ranking-leaderboard {
+    background: var(--hub-rail);
+    border-block: 1px solid var(--hub-line);
+}
+
+#team-spirit-ranking.ranking-leader {
+    display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
+    align-items: stretch;
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid var(--hub-line);
+    border-inline-start: 3px solid var(--hub-accent);
+    background: var(--hub-surface);
+}
+
+.ranking-leader-copy {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(.55rem, 1.6vw, 1rem);
+    padding: clamp(.9rem, 2vw, 1.4rem);
+}
+
+#team-spirit-ranking .date {
+    display: grid;
+    place-items: center;
+    min-width: 2.7rem;
+    background: var(--competition-highlight);
+    color: var(--hub-accent);
+    border: 1px solid var(--hub-line);
+    border-radius: .25rem;
+}
+
+#team-spirit-ranking .date strong {
+    font: 700 2.2rem/1 var(--hub-display);
+}
+
+#team-spirit-ranking small {
+    color: var(--hub-accent);
+    letter-spacing: .075em;
+    font-size: .72rem;
+    font-weight: 700;
+}
+
+#team-spirit-ranking h3 {
+    margin: .15rem 0 0;
+    font-size: clamp(1.65rem, 2.6vw, 2.35rem);
+}
+
+.ranking-leader-photo {
+    position: relative;
+    min-width: 0;
+}
+
+.ranking-leader-photo img {
+    width: 100%;
+    height: clamp(10.5rem, 17vw, 15rem);
+    object-fit: cover;
+    object-position: center 33%;
+}
+
+.ranking-leader-photo figcaption {
+    position: absolute;
+    inset: auto 0 0;
+    padding: .35rem .55rem;
+    color: #fff9f3;
+    background: #201713d9;
+    font-size: .75rem;
+}
+
+.ranking-leader-photo figcaption a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: .14em;
+}
+
+#how-rankings-work .label,
+#team-community .label {
+    margin-bottom: .45rem !important;
+}
+
+.grid-main .teams-hero,
+html[data-theme="night"] .grid-main .teams-hero {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    align-items: center;
+    min-height: clamp(11rem, 20vw, 16rem);
+    padding-block: clamp(1.6rem, 3.3vw, 2.65rem);
+    overflow: hidden;
+    background: #2b211d;
+}
+
+.teams-hero-image {
+    position: absolute;
+    z-index: -2;
+    inset: 0 0 0 auto;
+    width: 70%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 34%;
+}
+
+.teams-hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(90deg, #2b211d 26%, #2b211def 40%, #2b211d42 67%, #2b211d1f 100%);
+}
+
+.grid-main .teams-hero h1 {
+    color: #fff8ef;
+    font-size: clamp(2.6rem, 5.9vw, 5rem);
+}
+
+.grid-main .teams-hero .hero-description {
+    color: #f6eae0;
+    max-width: 32ch;
+}
+
+#team-directory .team-directory-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: .85rem;
+}
+
+#team-directory .team-tile {
+    display: grid;
+    grid-column: span 2;
+    grid-template-columns: minmax(4.4rem, 27%) minmax(0, 1fr);
+    align-items: stretch;
+    min-height: 8.4rem;
+    overflow: hidden;
+    border-color: var(--hub-line);
+    background: var(--hub-surface);
+}
+
+#team-directory .team-tile:nth-child(n+4) {
+    grid-column: span 3;
+}
+
+#team-directory .team-tile:hover,
+#team-directory .team-tile:focus-within {
+    border-color: var(--hub-accent);
+}
+
+#team-directory .competition-club-mark {
+    background: repeating-linear-gradient(135deg, #ffffff1b 0 1px, transparent 1px 10px), var(--club-panel);
+    border-inline-end: 1px solid var(--hub-line);
+}
+
+#team-directory .competition-club-mark img {
+    width: 80%;
+    max-width: 4.75rem;
+    height: 4.3rem;
+    object-fit: contain;
+}
+
+.team-directory-copy {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    min-width: 0;
+    padding: .7rem clamp(.6rem, 1.1vw, .95rem);
+}
+
+#team-directory .team-directory-copy strong {
+    margin-bottom: 0;
+    color: var(--hub-ink);
+    font: 700 clamp(1.45rem, 2.3vw, 2rem)/1.1 var(--hub-display);
+}
+
+#team-directory .team-directory-copy span {
+    margin: .2rem 0 .6rem;
+    color: var(--hub-muted);
+    font-size: .9rem;
+}
+
+#team-directory .team-directory-copy .btn {
+    margin-top: auto;
+    max-width: 100%;
+}
+
+#team-focus .feature-image {
+    width: 100%;
+    max-height: 17rem;
+    object-fit: cover;
+    object-position: center 34%;
+}
+
+#community-teams .team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    background: var(--hub-surface);
+    border-top: 2px solid var(--hub-accent);
+}
+
+#community-teams .team-card .btn {
+    margin-top: auto;
+}
+
+html[data-theme="night"] .competition-rankings {
+    --competition-solid: #8c362e;
+}
+
+html[data-theme="night"] .competition-rankings > .hero {
+    background: linear-gradient(110deg, var(--hub-surface), var(--hub-paper) 90%);
+}
+
+@media (max-width: 1199px) {
+    #team-directory .team-directory-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #team-directory .team-tile:nth-child(n) {
+        grid-column: auto;
+    }
+
+    #team-directory .team-tile:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 767px) {
+    .teams-hero-image {
+        width: 100%;
+    }
+
+    .teams-hero::after {
+        background: linear-gradient(90deg, #2b211df5, #2b211d9c);
+    }
+
+    #team-spirit-ranking.ranking-leader {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ranking-leader-copy {
+        padding: .85rem;
+    }
+
+    .ranking-leader-photo img {
+        height: 11rem;
+    }
+}
+
+@media (max-width: 575px) {
+    #team-directory .team-directory-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

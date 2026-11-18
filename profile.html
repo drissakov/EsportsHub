@@ -12,6 +12,7 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
         <link href="css/interactive.css" rel="stylesheet">
+        <link href="css/identity.css" rel="stylesheet">
         <link href="css/subscription.css" rel="stylesheet">
         <link href="css/auth.css" rel="stylesheet">
         <script defer src="js/site.js"></script>
@@ -70,7 +71,7 @@
             </header>
             <!-- /layout:header -->
             <main class="grid-main" id="main-content" tabindex="-1">
-                <section class="hero py-4 py-lg-5">
+                <section class="hero profile-masthead py-4 py-lg-5">
                     <div class="container">
                         <h1 class="mb-3">Your Player Profile</h1>
                         <p class="hero-description mt-3">View the player details saved in this browser.</p>
@@ -108,6 +109,7 @@
                 </section>
             </main>
             <aside aria-label="Player profile links and page tools" class="sidebar p-4">
+                <div class="sidebar-inner">
                 <h2>Player quick links</h2>
                 <p class="sidebar-intro">Find a tournament, compare teams, or practice a player application.</p>
                 <ul>
@@ -124,13 +126,14 @@
                         <time class="hub-clock" data-current-time>Loading time…</time>
                         <div class="hub-tool-actions">
                             <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
-                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <p class="background-status" role="status">Background: <span data-background-name>Paper</span></p>
                             <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
                         </div>
                         <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
                     </div>
                 </details>
                 <!-- /layout:page-tools -->
+                </div>
             </aside>
             <!-- layout:footer -->
             <footer class="grid-footer mt-5">
@@ -160,7 +163,7 @@
                     </div>
                 </div>
                 <div class="container copyright py-3">
-                    EsportsHub © 2026
+                    EsportsHub © 2026 · <a href="docs/media-credits.md">Media credits</a>
                 </div>
             </footer>
             <!-- /layout:footer -->

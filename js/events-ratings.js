@@ -11,6 +11,13 @@
     const endpoint = 'https://api.opendota.com/api/teams';
     const ratingFormat = new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 });
     const recordFormat = new Intl.NumberFormat('en-US');
+    const teamPhotos = new Map([
+        [7119388, 'spirit'],
+        [9823272, 'yandex'],
+        [9572001, 'vision'],
+        [9824702, 'parivision'],
+        [8605863, 'cloud9']
+    ]);
 
     function usableTeams(payload) {
         if (!Array.isArray(payload)) return [];
@@ -33,6 +40,25 @@
         rank.textContent = '#' + (index + 1);
         rank.setAttribute('aria-hidden', 'true');
 
+        const photo = document.createElement('div');
+        photo.className = 'dota-team-photo';
+        photo.setAttribute('aria-hidden', 'true');
+        const initials = document.createElement('span');
+        initials.textContent = team.name.trim().split(/\s+/).slice(0, 3)
+            .map((word) => Array.from(word)[0]).join('').toUpperCase();
+        photo.append(initials);
+
+        const photoName = teamPhotos.get(team.team_id);
+        if (photoName) {
+            const image = new Image();
+            image.alt = '';
+            image.loading = 'lazy';
+            image.decoding = 'async';
+            image.addEventListener('error', () => image.remove(), { once: true });
+            image.src = `images/redesign/rating-team-${photoName}.webp`;
+            photo.append(image);
+        }
+
         const details = document.createElement('div');
         const name = document.createElement('a');
         name.className = 'dota-team-name';
@@ -53,7 +79,7 @@
         ratingLabel.textContent = 'Rating';
         rating.append(ratingValue, ratingLabel);
 
-        row.append(rank, details, rating);
+        row.append(rank, details, photo, rating);
         return row;
     }
 

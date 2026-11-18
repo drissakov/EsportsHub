@@ -12,8 +12,10 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
         <link href="css/interactive.css" rel="stylesheet">
+        <link href="css/identity.css" rel="stylesheet">
         <link href="css/validation.css" rel="stylesheet">
         <link href="css/subscription.css" rel="stylesheet">
+        <link href="css/competition-design.css" rel="stylesheet">
         <script defer src="js/site.js"></script>
         <script defer src="js/accordion.js"></script>
         <script defer src="js/email-validation.js?v=forms3"></script>
@@ -70,8 +72,9 @@
                 </nav>
             </header>
             <!-- /layout:header -->
-            <main class="grid-main" id="main-content" tabindex="-1">
-                <section class="hero py-4">
+            <main class="grid-main competition-teams" id="main-content" tabindex="-1">
+                <section class="hero teams-hero">
+                    <img alt="" class="teams-hero-image" decoding="async" fetchpriority="high" height="410" src="images/teams.webp" width="905">
                     <div class="container">
                         <h1 class="mb-2">Esports teams</h1>
                         <p class="hero-description mb-0">Explore team profiles and find sample tournaments for the games they play.</p>
@@ -80,51 +83,56 @@
                 <section class="games py-4 py-lg-5" id="team-directory">
                     <div class="container">
                         <h2 class="mb-3">Team directory</h2>
-                        <div class="game-list">
-                            <article class="p-3 p-lg-4 team-tile" id="team-spirit">
-                                <strong>
-                                    Team Spirit
-                                </strong>
-                                <span>
-                                    Dota 2 · CS2
-                                </span>
-                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html?game=dota-2#event-list">Browse Dota 2 events</a>
+                        <div class="game-list team-directory-grid">
+                            <article class="team-tile" id="team-spirit">
+                                <div class="competition-club-mark">
+                                    <img alt="" decoding="async" height="436" src="images/teams/team-logo-spirit.png" width="374">
+                                </div>
+                                <div class="team-directory-copy">
+                                    <strong>Team Spirit</strong>
+                                    <span>Dota 2 · CS2</span>
+                                    <a class="btn btn-outline-primary btn-sm" href="events.html?game=dota-2#event-list">Browse Dota 2 events</a>
+                                </div>
                             </article>
-                            <article class="p-3 p-lg-4 team-tile" id="team-g2">
-                                <strong>
-                                    G2 Esports
-                                </strong>
-                                <span>
-                                    CS2 · Valorant
-                                </span>
-                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html?game=cs2#event-list">Browse CS2 events</a>
+                            <article class="team-tile" id="team-g2">
+                                <div class="competition-club-mark club-mark-g2">
+                                    <img alt="" decoding="async" height="450" src="images/teams/team-logo-g2.png" width="389">
+                                </div>
+                                <div class="team-directory-copy">
+                                    <strong>G2 Esports</strong>
+                                    <span>CS2 · Valorant</span>
+                                    <a class="btn btn-outline-primary btn-sm" href="events.html?game=cs2#event-list">Browse CS2 events</a>
+                                </div>
                             </article>
-                            <article class="p-3 p-lg-4 team-tile" id="team-geng">
-                                <strong>
-                                    Gen.G
-                                </strong>
-                                <span>
-                                    Valorant · LoL
-                                </span>
-                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html?game=valorant#event-list">Browse Valorant events</a>
+                            <article class="team-tile" id="team-geng">
+                                <div class="competition-club-mark club-mark-geng">
+                                    <img alt="" decoding="async" height="450" src="images/teams/team-logo-geng.png" width="386">
+                                </div>
+                                <div class="team-directory-copy">
+                                    <strong>Gen.G</strong>
+                                    <span>Valorant · LoL</span>
+                                    <a class="btn btn-outline-primary btn-sm" href="events.html?game=valorant#event-list">Browse Valorant events</a>
+                                </div>
                             </article>
-                            <article class="p-3 p-lg-4 team-tile" id="team-fnatic">
-                                <strong>
-                                    Fnatic
-                                </strong>
-                                <span>
-                                    Valorant · LoL
-                                </span>
-                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html?game=valorant#event-list">Browse Valorant events</a>
+                            <article class="team-tile" id="team-fnatic">
+                                <div class="competition-club-mark club-mark-fnatic">
+                                    <img alt="" decoding="async" height="292" src="images/teams/team-logo-fnatic.png" width="450">
+                                </div>
+                                <div class="team-directory-copy">
+                                    <strong>Fnatic</strong>
+                                    <span>Valorant · LoL</span>
+                                    <a class="btn btn-outline-primary btn-sm" href="events.html?game=valorant#event-list">Browse Valorant events</a>
+                                </div>
                             </article>
-                            <article class="p-3 p-lg-4 team-tile" id="team-t1">
-                                <strong>
-                                    T1
-                                </strong>
-                                <span>
-                                    League of Legends
-                                </span>
-                                <a class="btn btn-outline-primary btn-sm mt-3" href="events.html?game=league-of-legends#event-list">Browse League of Legends events</a>
+                            <article class="team-tile" id="team-t1">
+                                <div class="competition-club-mark club-mark-t1">
+                                    <img alt="" decoding="async" height="195" src="images/teams/team-logo-t1.png" width="347">
+                                </div>
+                                <div class="team-directory-copy">
+                                    <strong>T1</strong>
+                                    <span>League of Legends</span>
+                                    <a class="btn btn-outline-primary btn-sm" href="events.html?game=league-of-legends#event-list">Browse League of Legends events</a>
+                                </div>
                             </article>
                         </div>
                     </div>
@@ -164,7 +172,7 @@
                                 Discuss a team profile →
                             </a>
                         </div>
-                        <article class="event p-3" id="team-spirit-feature">
+                        <a href="#team-spirit" class="event p-3" id="team-spirit-feature">
                             <div class="date purple p-2">
                                 <strong>
                                     TS
@@ -181,7 +189,7 @@
                                 <span aria-hidden="true" class="event-arrow">
                                 →
                             </span>
-                        </article>
+                        </a>
                     </div>
                 </section>
                 <section class="about py-4 py-lg-5" id="team-community">
@@ -252,6 +260,7 @@
                 </section>
             </main>
             <aside aria-label="Team discovery links" class="sidebar p-4">
+                <div class="sidebar-inner">
                 <h2>
                     Team discovery
                 </h2>
@@ -271,13 +280,14 @@
                         <time class="hub-clock" data-current-time>Loading time…</time>
                         <div class="hub-tool-actions">
                             <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
-                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <p class="background-status" role="status">Background: <span data-background-name>Paper</span></p>
                             <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
                         </div>
                         <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
                     </div>
                 </details>
                 <!-- /layout:page-tools -->
+                </div>
             </aside>
             <!-- layout:footer -->
             <footer class="grid-footer mt-5">
@@ -307,7 +317,7 @@
                     </div>
                 </div>
                 <div class="container copyright py-3">
-                    EsportsHub © 2026
+                    EsportsHub © 2026 · <a href="docs/media-credits.md">Media credits</a>
                 </div>
             </footer>
             <!-- /layout:footer -->

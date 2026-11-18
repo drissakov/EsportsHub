@@ -12,8 +12,10 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
         <link href="css/interactive.css" rel="stylesheet">
+        <link href="css/identity.css" rel="stylesheet">
         <link href="css/validation.css" rel="stylesheet">
         <link href="css/subscription.css" rel="stylesheet">
+        <link href="css/competition-design.css" rel="stylesheet">
         <script defer src="js/site.js"></script>
         <script defer src="js/accordion.js"></script>
         <script defer src="js/email-validation.js?v=forms3"></script>
@@ -70,7 +72,7 @@
                 </nav>
             </header>
             <!-- /layout:header -->
-            <main class="grid-main" id="main-content" tabindex="-1">
+            <main class="grid-main competition-rankings" id="main-content" tabindex="-1">
                 <section class="hero py-4">
                     <div class="container">
                         <h1 class="mb-2">Sample rankings</h1>
@@ -79,14 +81,16 @@
                 </section>
                 <section class="games py-4 py-lg-5" id="ranking-table">
                     <div class="container">
-                        <h2 class="mb-3">Team standings</h2>
-                        <p class="demo-note mb-3" id="demo-ranking-note">
-                            Sample data · points shown for illustration
-                        </p>
-                        <p class="section-note" id="ranking-points">
-                            Points illustrate event placement, participation and consistency.
-                        </p>
-                        <div class="d-flex my-3">
+                        <div class="ranking-standings-heading">
+                            <div>
+                                <h2 class="mb-2">Team standings</h2>
+                                <p class="demo-note mb-2" id="demo-ranking-note">
+                                    Sample data · points shown for illustration
+                                </p>
+                                <p class="section-note mb-0" id="ranking-points">
+                                    Points illustrate event placement, participation and consistency.
+                                </p>
+                            </div>
                             <div aria-label="Explore the competitive scene" class="btn-group" role="group">
                                 <a class="btn btn-secondary btn-sm" href="teams.html#team-directory">
                                     Teams
@@ -100,7 +104,7 @@
                             </div>
                         </div>
                         <p class="section-note" id="table-scroll-help">On small screens, swipe the table or focus it and use the left and right arrow keys.</p>
-                        <section aria-describedby="demo-ranking-note ranking-points table-scroll-help" aria-label="Team ranking table, scroll horizontally if needed" class="table-wrap mt-4" id="ranking-method" tabindex="0">
+                        <section aria-describedby="demo-ranking-note ranking-points table-scroll-help" aria-label="Team ranking table, scroll horizontally if needed" class="table-wrap" id="ranking-method" tabindex="0">
                             <table>
                                 <caption>
                                     Sample EsportsHub team rankings and points for the frontend prototype
@@ -116,7 +120,7 @@
                                         <th scope="col">
                                             Game
                                         </th>
-                                        <th scope="col">
+                                        <th class="ranking-points-value" scope="col">
                                             Points
                                         </th>
                                     </tr>
@@ -124,57 +128,69 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            1
+                                            <span class="ranking-place">1</span>
                                         </td>
                                         <th scope="row">
-                                            <a class="ranking-team-link" href="teams.html#team-spirit">Team Spirit</a>
+                                            <a class="ranking-team-link ranking-team-name" href="teams.html#team-spirit">
+                                                <span class="competition-club-mark"><img alt="" decoding="async" height="436" src="images/teams/team-logo-spirit.png" width="374"></span>
+                                                Team Spirit
+                                            </a>
                                         </th>
                                         <td>
                                             CS2 / Dota 2
                                         </td>
-                                        <td>
+                                        <td class="ranking-points-value">
                                             2450
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            2
+                                            <span class="ranking-place">2</span>
                                         </td>
                                         <th scope="row">
-                                            <a class="ranking-team-link" href="teams.html#team-g2">G2 Esports</a>
+                                            <a class="ranking-team-link ranking-team-name" href="teams.html#team-g2">
+                                                <span class="competition-club-mark club-mark-g2"><img alt="" decoding="async" height="450" src="images/teams/team-logo-g2.png" width="389"></span>
+                                                G2 Esports
+                                            </a>
                                         </th>
                                         <td>
                                             CS2 / Valorant
                                         </td>
-                                        <td>
+                                        <td class="ranking-points-value">
                                             2310
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            3
+                                            <span class="ranking-place">3</span>
                                         </td>
                                         <th scope="row">
-                                            <a class="ranking-team-link" href="teams.html#team-geng">Gen.G</a>
+                                            <a class="ranking-team-link ranking-team-name" href="teams.html#team-geng">
+                                                <span class="competition-club-mark club-mark-geng"><img alt="" decoding="async" height="450" src="images/teams/team-logo-geng.png" width="386"></span>
+                                                Gen.G
+                                            </a>
                                         </th>
                                         <td>
                                             Valorant / LoL
                                         </td>
-                                        <td>
+                                        <td class="ranking-points-value">
                                             2240
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            4
+                                            <span class="ranking-place">4</span>
                                         </td>
                                         <th scope="row">
-                                            <a class="ranking-team-link" href="teams.html#team-fnatic">Fnatic</a>
+                                            <a class="ranking-team-link ranking-team-name" href="teams.html#team-fnatic">
+                                                <span class="competition-club-mark club-mark-fnatic"><img alt="" decoding="async" height="292" src="images/teams/team-logo-fnatic.png" width="450"></span>
+                                                Fnatic
+                                            </a>
                                         </th>
                                         <td>
                                             Valorant / LoL
                                         </td>
-                                        <td>
+                                        <td class="ranking-points-value">
                                             2180
                                         </td>
                                     </tr>
@@ -187,18 +203,20 @@
                     <div class="container">
                         <div class="row g-4 align-items-center about-content">
                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                <p class="label mb-3">
-                                    RANKINGS FEATURE IMAGE
-                                </p>
-                                <img alt="Illustrative sample points chart: Team Spirit 2450, G2 Esports 2310, Gen.G 2240 and Fnatic 2180; full values appear in the table" class="feature-image ranking-image img-fluid" decoding="async" loading="lazy" height="540" src="images/demo-ranking.svg" width="960">
+                                <figure class="ranking-chart mb-0">
+                                    <figcaption class="label">Rankings feature image</figcaption>
+                                    <img alt="Illustrative sample points chart: Team Spirit 2450, G2 Esports 2310, Gen.G 2240 and Fnatic 2180; full values appear in the table" class="ranking-image img-fluid" decoding="async" loading="lazy" height="540" src="images/demo-ranking.svg" width="960">
+                                </figure>
                             </div>
                             <div class="col-sm-12 col-md-6 col-lg-6">
-                                <p class="label mb-3">
-                                    GLOBAL RANKINGS
-                                </p>
-                                <p>
-                                    Compare teams and follow their positions across the competitive esports scene. This page uses sample data to explain the product flow; it is not a live leaderboard.
-                                </p>
+                                <div class="ranking-context-copy">
+                                    <p class="label mb-2">
+                                        GLOBAL RANKINGS
+                                    </p>
+                                    <p>
+                                        Compare teams and follow their positions across the competitive esports scene. This page uses sample data to explain the product flow; it is not a live leaderboard.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -218,23 +236,32 @@
                                 Browse team profiles →
                             </a>
                         </div>
-                        <article class="event p-3" id="team-spirit-ranking">
-                            <div class="date purple p-2">
-                                <strong>
-                                    1
-                                </strong>
-                            </div>
-                            <div>
-                                <small>
-                                    TEAM SPIRIT · 2450 POINTS
-                                </small>
-                                <h3>
-                                    Leading this sample ranking.
-                                </h3>
-                            </div>
+                        <article class="event ranking-leader" id="team-spirit-ranking">
+                            <div class="ranking-leader-copy">
+                                <div class="date purple p-2">
+                                    <strong>
+                                        1
+                                    </strong>
+                                </div>
+                                <div>
+                                    <small>
+                                        TEAM SPIRIT · 2450 POINTS
+                                    </small>
+                                    <h3>
+                                        Leading this sample ranking.
+                                    </h3>
+                                </div>
                                 <span aria-hidden="true" class="event-arrow">
-                                →
-                            </span>
+                                    →
+                                </span>
+                            </div>
+                            <figure class="ranking-leader-photo mb-0">
+                                <img alt="Team Spirit celebrating its BetBoom Dacha Dubai win in 2023" decoding="async" height="540" loading="lazy" src="images/teams/spirit-betboom-2023.png" width="960">
+                                <figcaption>
+                                    <a href="https://commons.wikimedia.org/wiki/File:Team_Spirit_BetBoom_Dacha_Dubai_2023.png">Archive image by Aunkere</a> ·
+                                    <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+                                </figcaption>
+                            </figure>
                         </article>
                     </div>
                 </section>
@@ -260,6 +287,7 @@
                 </section>
             </main>
             <aside aria-label="Ranking context links" class="sidebar p-4">
+                <div class="sidebar-inner">
                 <h2>
                     Ranking context
                 </h2>
@@ -278,13 +306,14 @@
                         <time class="hub-clock" data-current-time>Loading time…</time>
                         <div class="hub-tool-actions">
                             <button class="btn btn-outline-primary" data-background-cycle type="button">Change background</button>
-                            <p class="background-status" role="status">Background: <span data-background-name>White</span></p>
+                            <p class="background-status" role="status">Background: <span data-background-name>Paper</span></p>
                             <button class="btn btn-outline-primary" data-open-subscription type="button">Try subscription</button>
                         </div>
                         <noscript><p>Enable JavaScript to use the page tools.</p></noscript>
                     </div>
                 </details>
                 <!-- /layout:page-tools -->
+                </div>
             </aside>
             <!-- layout:footer -->
             <footer class="grid-footer mt-5">
@@ -314,7 +343,7 @@
                     </div>
                 </div>
                 <div class="container copyright py-3">
-                    EsportsHub © 2026
+                    EsportsHub © 2026 · <a href="docs/media-credits.md">Media credits</a>
                 </div>
             </footer>
             <!-- /layout:footer -->
