@@ -12,9 +12,9 @@
         <link href="css/style.css" rel="stylesheet">
         <link href="images/favicon.svg" rel="icon" type="image/svg+xml">
         <link href="css/interactive.css" rel="stylesheet">
-        <link href="css/identity.css" rel="stylesheet">
+        <link href="css/identity.css?v=ac602e4aa3" rel="stylesheet">
         <link href="css/subscription.css" rel="stylesheet">
-        <link href="css/auth.css" rel="stylesheet">
+        <link href="css/auth.css?v=1d222a2e25" rel="stylesheet">
         <script defer src="js/site.js"></script>
         <script defer src="js/email-validation.js?v=forms3"></script>
         <script defer src="js/auth.js"></script>
@@ -71,9 +71,7 @@
             </header>
             <!-- /layout:header -->
             <main class="grid-main profile-page" id="main-content" tabindex="-1">
-                <section class="profile-layout" aria-labelledby="profile-title">
-                    <h1 id="profile-title">Your Player Profile</h1>
-                    <p class="profile-intro">View the player details saved in this browser.</p>
+                <div class="profile-layout">
                     <p id="profile-status" role="status">Opening your local profile…</p>
                     <noscript><p>Enable JavaScript to open your local player profile. <a href="account.html#login">Return to Log In</a>.</p></noscript>
                     <article class="auth-card profile-card" id="profile-details" aria-labelledby="profile-name" hidden>
@@ -81,7 +79,7 @@
                             <div class="profile-heading">
                                 <span class="profile-avatar" id="profile-avatar" aria-hidden="true"></span>
                                 <div>
-                                    <p class="label mb-1">LOCAL PLAYER</p>
+                                    <h1 class="label" id="profile-title">Your player profile</h1>
                                     <h2 id="profile-name"></h2>
                                 </div>
                             </div>
@@ -95,14 +93,18 @@
                                     <dd id="profile-phone"></dd>
                                 </div>
                             </dl>
-                            <button class="btn btn-outline-danger" id="profile-logout" type="button">Log out</button>
+                            <div class="profile-account-actions">
+                                <p>Details saved in this browser.</p>
+                                <button class="btn btn-outline-danger" id="profile-logout" type="button">Log out</button>
+                            </div>
                         </div>
                         <a class="profile-events" href="events.html#event-list">
+                            <img class="profile-events-photo" src="images/esports.jpg" width="960" height="720" alt="">
                             <span>Explore tournaments</span>
                             <span aria-hidden="true">→</span>
                         </a>
                     </article>
-                </section>
+                </div>
             </main>
             <aside aria-label="Player profile links and page tools" class="sidebar p-4">
                 <div class="sidebar-inner">
