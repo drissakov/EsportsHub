@@ -138,20 +138,32 @@
     padding: 0.55rem 1rem 0.85rem;
 }
 
+.community-contact,
+#player-application {
+    padding-inline: clamp(1rem, 4vw, 3.25rem);
+}
+
 .community-contact {
-    padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 3.25rem);
+    padding-block: clamp(1.5rem, 4vw, 3rem);
     background-color: #211717;
     background-image:
-        linear-gradient(90deg, #1c121ad9, #21172065 48%, #110d241f),
+        linear-gradient(#21172055, #110d2470),
         url("../images/gallery-match.jpg");
     background-position: center 54%;
     background-size: cover;
 }
 
+.grid-main > .community-contact > .community-contact-panel,
+#player-application > .container {
+    max-width: 48rem;
+    margin-inline: auto;
+}
+
+#player-application > .container {
+    padding-inline: 0;
+}
+
 .grid-main > .community-contact > .community-contact-panel {
-    width: min(100%, 42rem);
-    max-width: 42rem;
-    margin-inline-start: 0;
     padding: clamp(1rem, 2.3vw, 1.85rem);
     border: 1px solid var(--community-edge);
     border-top: 4px solid var(--community-accent);
@@ -362,7 +374,7 @@ html[data-theme="night"] .community-page .community-path:is(:hover, :focus-visib
 
 html[data-theme="night"] .community-contact {
     background-image:
-        linear-gradient(90deg, #090b16f1, #0e111b83 48%, #080b191f),
+        linear-gradient(#090b166b, #080b197d),
         url("../images/gallery-match.jpg");
 }
 
@@ -388,10 +400,5 @@ html[data-theme="night"] .community-contact {
 
     .community-path-copy {
         padding: 0.7rem;
-    }
-
-    .community-contact {
-        padding-top: 7rem;
-        background-position: 58% top;
     }
 }
